@@ -6,9 +6,9 @@
 
     <insert id="addUser">
         INSERT INTO t_user(
-        username,real_name,password,status
+        username,real_name,password,status,did,sex
         )VALUES (
-        #{user.username},#{user.realName},#{user.password},#{user.status}
+        #{user.username},#{user.realName},#{user.password},#{user.status},#{user.did},#{user.sex}
         )
     </insert>
 

@@ -23,6 +23,8 @@ public class UserServiceTest extends AbstractTestCase {
         user.setUsername("陶永攀11");
         user.setRealName("陶永攀1");
         user.setPassword("tt123456");
+        user.setSex("男");
+        user.setDid(1);
         user.setStatus(1);
         userService.addUser(user);
     }
@@ -56,4 +58,6 @@ public class UserServiceTest extends AbstractTestCase {
         user.setPassword("tt123456");
         System.out.println(userService.queryByUnameAndPword(user));
     }
+
+
 }

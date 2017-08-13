@@ -9,6 +9,8 @@ import com.pandawork.home.mapper.user.UserMapper;
 import com.pandawork.home.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by Taoyongpan on 2017/8/12.
@@ -20,7 +22,7 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Override
-//    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class,Exception.class, RuntimeException.class})
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class,Exception.class, RuntimeException.class})
     public void addUser(User user) throws SSException {
         try{
 //            if (Assert.isNull(userMapper.queryByUname(user.getUsername()))){
