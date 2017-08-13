@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bfe2c6c-fb00-4f03-819b-825b0be6d6e9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/common/exception/ChException.class" afterPath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/common/exception/ChException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/service/user/impl/UserServiceImpl.class" afterPath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/service/user/impl/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/target/test-classes/com/pandawork/home/user/UserServiceTest.class" afterPath="$PROJECT_DIR$/Home/target/test-classes/com/pandawork/home/user/UserServiceTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home/db/db_check.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home/db/update.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/user/User.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/user/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/exception/ChException.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/exception/ChException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/user/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/user/impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/user/user.mapper.xml" afterPath="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/user/user.mapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/test/java/com/pandawork/home/user/UserServiceTest.java" afterPath="$PROJECT_DIR$/Home/src/test/java/com/pandawork/home/user/UserServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/mapper/user/user.mapper.xml" afterPath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/mapper/user/user.mapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/target/test-classes/com/pandawork/home/mapper/user/user.mapper.xml" afterPath="$PROJECT_DIR$/Home/target/test-classes/com/pandawork/home/mapper/user/user.mapper.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/ssm_eat/target/" />
     <ignored path="$PROJECT_DIR$/Home/target/" />
@@ -78,7 +70,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.mapper.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user.mapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/user/user.mapper.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
@@ -89,6 +81,26 @@
                 <marker date="1502603402509" expanded="true" signature="707:813" ph="SELECT `user... t_user" />
                 <marker date="1502603402509" expanded="true" signature="896:1039" ph="SELECT `user... t_user" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db_check.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Home/db/db_check.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-216">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Home/db/update.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,7 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ssm_eat/src/main/java/com/tao/eat/entity/system/Administer.java" />
         <option value="$PROJECT_DIR$/ssm_eat/src/main/java/com/tao/eat/entity/supervise/TestPlan.java" />
         <option value="$PROJECT_DIR$/ssm_eat/src/main/java/com/tao/eat/entity/supervise/TestType.java" />
         <option value="$PROJECT_DIR$/ssm_eat/src/main/java/com/tao/eat/entity/supervise/WorkPlan.java" />
@@ -190,6 +201,7 @@
         <option value="$PROJECT_DIR$/Home/src/test/java/com/pandawork/home/user/UserServiceTest.java" />
         <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/user/User.java" />
         <option value="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/user/user.mapper.xml" />
+        <option value="$PROJECT_DIR$/Home/db/update.sql" />
       </list>
     </option>
   </component>
@@ -289,9 +301,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssm-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssm-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home_id" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
@@ -307,26 +346,26 @@
     <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.pandawork.check" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\DateBase\Idea\ssm-check\Home\src\test\java\com\pandawork\home" />
-      <recent name="E:\DateBase\Idea\ssm-check\Home\src\main\resources\com\pandawork\home\mapper" />
-      <recent name="E:\DateBase\Idea\ssm-check\Home\src\main\java\com\pandawork\home\service" />
-      <recent name="E:\DateBase\Idea\ssm-check\Home\src\main\java\com\pandawork\home\mapper" />
-      <recent name="E:\DateBase\Idea\ssm-check\Home\src\main\java\com\pandawork\home\common\exception" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.pandawork.home.common.entity.user" />
-      <recent name="com.pandawork.check" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\DateBase\Idea\ssm-check\ssm_eat\srcd\main\java" />
       <recent name="E:\DateBase\Idea\ssm-check\ssm_eat\srcd\main\resources" />
       <recent name="E:\DateBase\Idea\ssm-check\ssm_eat\src\main\resources\com\pandawork\home\mapper" />
       <recent name="E:\DateBase\Idea\ssm-check\ssm_eat\src\main\java\com\pandawork\home\service" />
       <recent name="E:\DateBase\Idea\ssm-check\ssm_eat\src\main\java" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.pandawork.check" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.pandawork.home.common.entity.user" />
+      <recent name="com.pandawork.check" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\DateBase\Idea\ssm-check\Home\db" />
+      <recent name="E:\DateBase\Idea\ssm-check\Home\src\test\java\com\pandawork\home" />
+      <recent name="E:\DateBase\Idea\ssm-check\Home\src\main\resources\com\pandawork\home\mapper" />
+      <recent name="E:\DateBase\Idea\ssm-check\Home\src\main\java\com\pandawork\home\service" />
+      <recent name="E:\DateBase\Idea\ssm-check\Home\src\main\java\com\pandawork\home\mapper" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.UserServiceTest.loginTest">
@@ -950,7 +989,7 @@
       <workItem from="1502544746511" duration="6293000" />
       <workItem from="1502551074193" duration="1434000" />
       <workItem from="1502590451489" duration="4162000" />
-      <workItem from="1502603293469" duration="133000" />
+      <workItem from="1502603293469" duration="288000" />
     </task>
     <task id="LOCAL-00001" summary="目录结构">
       <created>1501552204597</created>
@@ -994,7 +1033,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502551702356</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="user">
+      <created>1502603452701</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1502603452701</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1030,7 +1076,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44091000" />
+    <option name="totallyTimeSpent" value="44246000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1067,7 +1113,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4675174" sideWeight="0.495685" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962963" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25429183" sideWeight="0.48979592" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14645922" sideWeight="0.48979592" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1129,7 +1175,8 @@
     <MESSAGE value="目录结构" />
     <MESSAGE value="数据库" />
     <MESSAGE value="所有实体" />
-    <option name="LAST_COMMIT_MESSAGE" value="所有实体" />
+    <MESSAGE value="user" />
+    <option name="LAST_COMMIT_MESSAGE" value="user" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1142,8 +1189,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ssm_eat/src/test/java/com/pandawork/check/BaseTest.java" />
-    <entry file="file://$PROJECT_DIR$/ssm_eat/target/classes/spring/spring-service.xml" />
     <entry file="file://$PROJECT_DIR$/ssm_eat/target/classes/com/pandawork/check/mapper/user/userMapper.xml" />
     <entry file="file://$PROJECT_DIR$/ssm_eat/target/classes/spring/spring-db.xml" />
     <entry file="file://$PROJECT_DIR$/ssm_eat/src/main/resources/com/pandawork/home/mapper/user/user.mapper.xml" />
@@ -1292,6 +1337,22 @@
             <marker date="1502603402509" expanded="true" signature="707:813" ph="SELECT `user... t_user" />
             <marker date="1502603402509" expanded="true" signature="896:1039" ph="SELECT `user... t_user" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/db/db_check.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/db/update.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
