@@ -6,18 +6,18 @@
 
     <insert id="addUser">
         INSERT INTO t_user(
-        username,real_name,password,status
+        username,real_name,password,status,did,sex
         )VALUES (
-        #{user.username},#{user.realName},#{user.password},#{user.status}
+        #{user.username},#{user.realName},#{user.password},#{user.status},#{user.did},#{user.sex}
         )
     </insert>
 
     <select id="queryByRname" resultMap="pw.User">
-        SELECT `username`,`real_name`,`password`,`status`,`is_delete` FROM `t_user` WHERE `real_name` = #{user.realName}
+        SELECT `username`,`real_name`,`password`,`status`,`is_delete` FROM `t_user` WHERE `real_name` = #{realName}
     </select>
 
     <select id="queryByUname" resultMap="pw.User">
-        SELECT `username`,`real_name`,`password`,`status`,`is_delete` FROM `t_user` WHERE `username` = #{user.username}
+        SELECT `username`,`real_name`,`password`,`status`,`is_delete` FROM `t_user` WHERE `username` = #{username}
     </select>
 
     <select id="queryByUnameAndPword" resultMap="pw.User">

@@ -47,6 +47,9 @@ public class User {
     //是否删除，0是被删除，1是不被删除
     @Column(name = "is_delete")
     private Integer isDelete;
+    //性别
+    @Column(name = "sex")
+    private String sex;
 
     public Integer getId() {
         return id;
@@ -142,5 +145,32 @@ public class User {
 
     public void setIsDelete(Integer isDelete) {
         this.isDelete = isDelete;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", realName='" + realName + '\'' +
+                ", password='" + password + '\'' +
+                ", did=" + did +
+                ", dname='" + dname + '\'' +
+                ", rid=" + rid +
+                ", pname='" + pname + '\'' +
+                ", isJoinCheck=" + isJoinCheck +
+                ", isBeCheck=" + isBeCheck +
+                ", status=" + status +
+                ", isDelete=" + isDelete +
+                ", sex='" + sex + '\'' +
+                '}';
     }
 }
