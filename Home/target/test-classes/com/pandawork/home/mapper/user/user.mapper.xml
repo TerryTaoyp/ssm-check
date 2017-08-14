@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pandawork.home.mapper.user.UserMapper">
+
+    <insert id="addUser">
+        INSERT INTO t_user(
+        username,real_name,password,status,did,sex
+        )VALUES (
+        #{user.username},#{user.realName},#{user.password},#{user.status},#{user.did},#{user.sex}
+        )
+    </insert>
+
+    <select id="queryByRname" resultMap="pw.User">
+        SELECT `username`,`real_name`,`password`,`status`,`is_delete` FROM `t_user` WHERE `real_name` = #{realName}
+    </select>
+
+    <select id="queryByUname" resultMap="pw.User">
+        SELECT `username`,`real_name`,`password`,`status`,`is_delete` FROM `t_user` WHERE `username` = #{username}
+    </select>
+
+    <select id="queryByUnameAndPword" resultMap="pw.User">
+        SELECT `username`,`real_name`,`password`,`status`,`is_delete` FROM `t_user` WHERE `username` = #{user.username} AND password = #{user.password}
+    </select>
+</mapper>
