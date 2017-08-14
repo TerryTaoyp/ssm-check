@@ -102,4 +102,14 @@ public class DepartmentServiceImpl implements DepartmentService {
             throw SSException.get(ChException.QueryDepartmentByIsDeleteFailed);
         }
     }
+
+    @Override
+    public List<Department> listAll() throws Exception {
+       try{
+            return departmentMapper.listAll();
+       }catch (Exception e){
+           LogClerk.errLog.error(e);
+           throw SSException.get(ChException.ListAllDepartmentFailed);
+       }
+    }
 }

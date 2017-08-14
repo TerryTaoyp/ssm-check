@@ -28,4 +28,8 @@
     <select id="queryByPower" resultMap="pw.Power">
         SELECT * FROM t_power WHERE power = #{power}
     </select>
+
+    <select id="listAll" resultMap="pw.Power">
+        SELECT *FROM t_power
+    </select>
 </mapper>

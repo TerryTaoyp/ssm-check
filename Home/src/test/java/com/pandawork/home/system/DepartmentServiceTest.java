@@ -75,4 +75,13 @@ public class DepartmentServiceTest extends AbstractTestCase {
         departmentService.queryByIsDelete(1);
     }
 
+    /**
+     * 列出所有的部门
+     * @throws Exception
+     */
+    @Test
+    public void listAllTest()throws Exception{
+        departmentService.listAll();
+    }
+
 }

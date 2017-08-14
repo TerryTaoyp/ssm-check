@@ -52,4 +52,11 @@ public interface DepartmentService {
      * @throws Exception
      */
     public List<Department> queryByIsDelete(int isDelete)throws Exception;
+
+    /**
+     * 列出所有的部门
+     * @return
+     * @throws Exception
+     */
+    public List<Department> listAll()throws Exception;
 }

@@ -4,6 +4,8 @@ import com.pandawork.core.common.exception.SSException;
 import com.pandawork.home.common.entity.system.Power;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * Created by Taoyongpan on 2017/8/13.
  */
@@ -47,4 +49,11 @@ public interface PowerMapper {
      * @throws SSException
      */
     public Power queryByPower(@Param("power") int power)throws SSException;
+
+    /**
+     * 列出所有权限等级
+     * @return
+     * @throws SSException
+     */
+    public List<Power> listAll()throws SSException;
 }

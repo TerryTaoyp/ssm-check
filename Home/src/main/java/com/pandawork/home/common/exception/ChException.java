@@ -16,6 +16,7 @@ public enum  ChException implements IBizExceptionMes{
     UpdatePowerFailed("更新权限等级失败",7),
     QueryPowerByIdFailed("根据ID查找权限失败",8),
     QueryPowerByPowerFailed("根据权限等级查找失败",9),
+    ListAllPowerFailed("列出所有权限失败",10),
 
 
     AddDepartmentFailed("新增部门失败",100),
@@ -23,7 +24,18 @@ public enum  ChException implements IBizExceptionMes{
     UpdateDepartmentFailed("更新部门信息失败",102),
     QueryDepartmentByIdFailed("根据名字查找部门信息失败",103),
     QueryDepartmentByNameFailed("根据名字查找部门信息失败",104),
-    QueryDepartmentByIsDeleteFailed("根据部门删除状态查找失败",105)
+    QueryDepartmentByIsDeleteFailed("根据部门删除状态查找失败",105),
+    ListAllDepartmentFailed("列出所有部门失败",106),
+
+
+
+    AddRoleFailed("新增角色失败",201),
+    DelRoleFailed("删除角色失败",202),
+    UpdateRoleFailed("编辑角色信息失败",203),
+    ListAllRoleFailed("列出所有角色失败",204),
+    QueryRoleByIdFailed("根据ID查找角色失败",205),
+    QueryRoleByNameFailed("根据名字查找角色失败",206),
+    QueryRoleByIsDeleteFailed("根据删除状态查找角色失败",207)
 
 
     ;

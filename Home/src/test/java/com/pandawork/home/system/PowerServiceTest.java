@@ -62,4 +62,13 @@ public class PowerServiceTest extends AbstractTestCase {
     public void queryByPowerTest() throws Exception {
         powerService.queryByPower(1);
     }
+
+    /**
+     * 列出所有用户
+     * @throws Exception
+     */
+    @Test
+    public void listAllTest()throws Exception{
+        powerService.listAll();
+    }
 }

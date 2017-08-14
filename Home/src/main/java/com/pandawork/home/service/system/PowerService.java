@@ -2,6 +2,8 @@ package com.pandawork.home.service.system;
 
 import com.pandawork.home.common.entity.system.Power;
 
+import java.util.List;
+
 /**
  * Created by Taoyongpan on 2017/8/13.
  */
@@ -43,4 +45,11 @@ public interface PowerService {
      * @throws Exception
      */
     public Power queryByPower(int power)throws Exception;
+
+    /**
+     * 列出所有权限
+     * @return
+     * @throws Exception
+     */
+    public List<Power> listAll()throws Exception;
 }

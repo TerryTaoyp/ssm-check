@@ -30,4 +30,8 @@
     <select id="queryByIsDelete" resultMap="pw.Department">
         select * from t_department WHERE is_delete = #{isDelete}
     </select>
+    
+    <select id="listAll" resultMap="pw.Department">
+        select * from t_department
+    </select>
 </mapper>

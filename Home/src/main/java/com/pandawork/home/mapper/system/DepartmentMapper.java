@@ -55,5 +55,12 @@ public interface DepartmentMapper {
      */
     public List<Department> queryByIsDelete(@Param("isDelete") int isDelete)throws SSException;
 
+    /**
+     * 列出所有的部门
+     * @return
+     * @throws SSException
+     */
+    public List<Department> listAll()throws SSException;
+
 
 }

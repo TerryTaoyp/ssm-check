@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by Taoyongpan on 2017/8/13.
  */
@@ -86,6 +88,16 @@ public class PowerServiceImpl implements PowerService {
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.QueryPowerByPowerFailed);
+        }
+    }
+
+    @Override
+    public List<Power> listAll() throws Exception {
+        try{
+            return powerMapper.listAll();
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.ListAllPowerFailed);
         }
     }
 }
