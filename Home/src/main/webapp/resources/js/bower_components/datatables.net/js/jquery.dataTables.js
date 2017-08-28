@@ -11332,7 +11332,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sFirst": "First",
+				"sFirst": "第一页",
 	
 	
 				/**
@@ -11355,7 +11355,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sLast": "Last",
+				"sLast": "最后一页",
 	
 	
 				/**
@@ -11378,7 +11378,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Next",
+				"sNext": "下一页",
 	
 	
 				/**
@@ -11401,7 +11401,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Previous"
+				"sPrevious": "上一页"
 			},
 	
 			/**
@@ -11456,7 +11456,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "第 _START_ 条到第 _END_ 条信息，共 _TOTAL_ 条信息",
 	
 	
 			/**
@@ -11477,7 +11477,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			"sInfoEmpty": "第 0 条到第 0 条信息",
 	
 	
 			/**
@@ -11499,7 +11499,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(filtered from _MAX_ total entries)",
+			"sInfoFiltered": "(总计共 _MAX_ 条信息)",
 	
 	
 			/**
@@ -11617,7 +11617,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
+			"sLengthMenu": "展示 _MENU_ 条",
 	
 	
 			/**
@@ -11641,7 +11641,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLoadingRecords": "Loading...",
+			"sLoadingRecords": "努力加载中...",
 	
 	
 			/**
@@ -11662,7 +11662,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sProcessing": "Processing...",
+			"sProcessing": "努力加载中...",
 	
 	
 			/**
@@ -11697,7 +11697,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "关键字搜索：",
 	
 	
 			/**
@@ -11755,7 +11755,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No matching records found"
+			"sZeroRecords": "暂无符合条件的信息！"
 		},
 	
 	
