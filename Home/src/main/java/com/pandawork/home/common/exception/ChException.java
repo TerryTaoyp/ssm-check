@@ -17,6 +17,12 @@ public enum  ChException implements IBizExceptionMes{
     QueryPowerByIdFailed("根据ID查找权限失败",8),
     QueryPowerByPowerFailed("根据权限等级查找失败",9),
     ListAllPowerFailed("列出所有权限失败",10),
+    QueryMoreUserFailed("多条件查询失败",11),
+    CountAllUserFalied("计算用户总条数失败",12),
+    DelUserFailed("删除用户失败",13),
+    StatusUserFailed("审核用户失败",14),
+    UpdatePasswordFailed("修改用户密码",15),
+    UpdateRealNameFailed("修改真实姓名失败",16),
 
 
     AddDepartmentFailed("新增部门失败",100),

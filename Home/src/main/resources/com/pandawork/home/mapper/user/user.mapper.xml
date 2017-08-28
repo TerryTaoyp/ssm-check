@@ -23,4 +23,70 @@
     <select id="queryByUnameAndPword" resultMap="pw.User">
         SELECT `username`,`real_name`,`password`,`status`,`is_delete` FROM `t_user` WHERE `username` = #{user.username} AND password = #{user.password}
     </select>
+<!--开始-->
+    <!--<select id="queryByRole" resultMap="pw.User">-->
+        <!--SELECT * FROM t_user WHERE rid = #{rid}-->
+    <!--</select>-->
+
+    <!--<select id="queryByDepartment" resultMap="pw.User">-->
+        <!--SELECT * FROM t_user WHERE dname = #{dname}-->
+    <!--</select>-->
+
+    <!--<select id="queryByStatus" resultMap="pw.User">-->
+        <!--SELECT * FROM t_user WHERE status = #{status}-->
+    <!--</select>-->
+
+    <!--<select id="queryByIsDelete" resultMap="pw.User">-->
+        <!--SELECT * FROM t_user WHERE is_delete = #{isDelete}-->
+    <!--</select>-->
+
+    <!--<select id="queryByIsBeCheck" resultMap="pw.User">-->
+        <!--SELECT * FROM t_user WHERE is_be_check = #{isBeCheck}-->
+    <!--</select>-->
+<!--结束-->
+    <select id="queryMore" resultMap="pw.User">
+        SELECT * FROM t_user
+        <where>
+            <if test="rid!=null">
+                AND rid = #{rid}
+            </if>
+            <if test="dname!=null">
+                AND dname = #{dname}
+            </if>
+            <if test="status">
+                AND status = #{status}
+            </if>
+            <if test="isDelete">
+                AND is_delete = #{isDelete}
+            </if>
+            <if test="isBeCheck">
+                AND is_be_check = #{isBeCheck}
+            </if>
+            <if test="realName!=null">
+                AND real_name = #{realName}
+            </if>
+            <if test="username!=null">
+                AND username = #{username}
+            </if>
+        </where>
+    </select>
+    <select id="countAll" parameterType="int">
+        SELECT COUNT(1) FROM t_user
+    </select>
+
+    <update id="delUser">
+        UPDATE t_user SET is_delete = #{user.isDelete} WHERE id = #{user.id}
+    </update>
+
+    <update id="statusUser">
+        UPDATE t_user SET status = #{user.status} WHERE id = #{user.id}
+    </update>
+
+    <update id="updatePassword">
+        UPDATE t_user SET password = #{user.password} WHERE id =#{user.id}
+    </update>
+
+    <update id="updateRealName">
+        UPDATE t_user SET real_name = #{user.realName} WHERE id = #{user.id}
+    </update>
 </mapper>

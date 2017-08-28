@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by Taoyongpan on 2017/8/12.
  */
@@ -71,6 +73,82 @@ public class UserServiceImpl implements UserService {
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw  SSException.get(ChException.LoginFailed);
+        }
+    }
+
+    @Override
+    public List<User> queryMore(int rid, String dname, int status, int isDelete, int isBeCheck, String username, String realName) throws SSException {
+        try{
+            return userMapper.queryMore(rid,dname,status,isDelete,isBeCheck,username,realName);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryMoreUserFailed);
+        }
+    }
+
+    @Override
+    public int countAll() throws SSException {
+        try{
+            return userMapper.countAll();
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.CountAllUserFalied);
+        }
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class,Exception.class, RuntimeException.class})
+    public User delUser(User user) throws SSException {
+        try{
+            if (Assert.isNull(user)){
+                return null;
+            }
+            return userMapper.delUser(user);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.DelUserFailed);
+        }
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class,Exception.class, RuntimeException.class})
+    public User statusUser(User user) throws SSException {
+        try{
+            if (Assert.isNull(user)){
+                return null;
+            }
+            return userMapper.statusUser(user);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.StatusUserFailed);
+        }
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class,Exception.class, RuntimeException.class})
+    public User updatePassword(User user) throws SSException {
+        try{
+            if (Assert.isNull(user)){
+                return null;
+            }
+            return userMapper.updatePassword(user);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.UpdatePasswordFailed);
+        }
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class,Exception.class, RuntimeException.class})
+    public User updateRealName(User user) throws SSException {
+        try{
+            if (Assert.isNull(user)){
+                return null;
+            }
+            return userMapper.updateRealName(user);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.UpdateRealNameFailed);
         }
     }
 }
