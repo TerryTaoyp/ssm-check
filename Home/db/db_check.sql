@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2017-08-13 13:52:02
+Date: 2017-08-28 17:22:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -125,13 +125,16 @@ DROP TABLE IF EXISTS `t_department`;
 CREATE TABLE `t_department` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL COMMENT '部门名字',
-  `is_delete` tinyint(4) NOT NULL COMMENT '是否被删除，1是不被删除，0是被删除',
+  `is_delete` tinyint(4) NOT NULL DEFAULT '1' COMMENT '是否被删除，1是不被删除，0是被删除',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部门表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='部门表';
 
 -- ----------------------------
 -- Records of t_department
 -- ----------------------------
+INSERT INTO `t_department` VALUES ('1', '安全部门', '0');
+INSERT INTO `t_department` VALUES ('2', '安全部门', '1');
+INSERT INTO `t_department` VALUES ('3', '管理部门', '1');
 
 -- ----------------------------
 -- Table structure for `t_performance`
@@ -162,11 +165,15 @@ CREATE TABLE `t_power` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `power` int(3) DEFAULT NULL COMMENT '权限等级，数字越小，等级越高',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='权限表';
 
 -- ----------------------------
 -- Records of t_power
 -- ----------------------------
+INSERT INTO `t_power` VALUES ('1', '2');
+INSERT INTO `t_power` VALUES ('2', '2');
+INSERT INTO `t_power` VALUES ('3', '3');
+INSERT INTO `t_power` VALUES ('4', '4');
 
 -- ----------------------------
 -- Table structure for `t_role`
@@ -178,11 +185,14 @@ CREATE TABLE `t_role` (
   `is_delete` tinyint(4) NOT NULL DEFAULT '1' COMMENT '是否删除，0是删除，1是不被删除',
   `pid` int(11) DEFAULT NULL COMMENT '权限ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='角色表';
 
 -- ----------------------------
 -- Records of t_role
 -- ----------------------------
+INSERT INTO `t_role` VALUES ('1', '管理员', '1', '1');
+INSERT INTO `t_role` VALUES ('2', '管理员', '1', null);
+INSERT INTO `t_role` VALUES ('3', '副总经理', '1', '1');
 
 -- ----------------------------
 -- Table structure for `t_summary`
@@ -251,10 +261,10 @@ CREATE TABLE `t_user` (
   `is_join_check` tinyint(4) DEFAULT NULL COMMENT '是否参与考核，1是参与考核，0是不参与考核',
   `is_be_check` tinyint(4) DEFAULT NULL COMMENT '是否被考核，1是被考核，0是不被考核',
   `status` tinyint(4) DEFAULT NULL COMMENT '审核状态，0是未审核，1是审核通过，2是审核不通过',
-  `is_delete` tinyint(4) DEFAULT NULL COMMENT '是否被删除，0是被删除，1是不被删除',
+  `is_delete` tinyint(4) DEFAULT '1' COMMENT '是否被删除，0是被删除，1是不被删除',
   `sex` varchar(4) DEFAULT NULL COMMENT '性别',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 -- ----------------------------
 -- Records of t_user
@@ -262,6 +272,7 @@ CREATE TABLE `t_user` (
 INSERT INTO `t_user` VALUES ('1', '陶永攀', '陶永攀', 'tt123456', '0', null, null, null, null, null, '1', null, null);
 INSERT INTO `t_user` VALUES ('2', '陶永攀1', '陶永攀', 'tt123456', '0', null, null, null, null, null, '1', null, null);
 INSERT INTO `t_user` VALUES ('3', '陶永攀11', '陶永攀1', 'tt123456', '0', null, null, null, null, null, '1', null, null);
+INSERT INTO `t_user` VALUES ('4', '陶永攀11', '陶永攀1', 'tt123456', '1', null, null, null, null, null, '1', null, '男');
 
 -- ----------------------------
 -- Table structure for `t_work_detail`
