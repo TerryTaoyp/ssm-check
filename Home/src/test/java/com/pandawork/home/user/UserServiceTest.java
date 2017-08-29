@@ -20,7 +20,7 @@ public class UserServiceTest extends AbstractTestCase {
     @Test
     public void addUserTest() throws Exception {
         User user = new User();
-        user.setUsername("陶永攀11");
+        user.setUsername("陶永攀1111");
         user.setRealName("陶永攀1");
         user.setPassword("tt123456");
         user.setSex("男");
@@ -58,6 +58,4 @@ public class UserServiceTest extends AbstractTestCase {
         user.setPassword("tt123456");
         System.out.println(userService.queryByUnameAndPword(user));
     }
-
-
 }

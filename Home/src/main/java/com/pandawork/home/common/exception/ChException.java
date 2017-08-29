@@ -41,9 +41,15 @@ public enum  ChException implements IBizExceptionMes{
     ListAllRoleFailed("列出所有角色失败",204),
     QueryRoleByIdFailed("根据ID查找角色失败",205),
     QueryRoleByNameFailed("根据名字查找角色失败",206),
-    QueryRoleByIsDeleteFailed("根据删除状态查找角色失败",207)
+    QueryRoleByIsDeleteFailed("根据删除状态查找角色失败",207),
 
 
+    AddTestPlanFailed("新增考核计划失败",1001),
+    UpdatePlanFailed("更新考核计划失败",1002),
+    DelPlanFailed("删除考核计划失败",1003),
+    QueryPlanFailed("查询考核计划失败",1004),
+    ListTestPlanFailed("列出所有用户失败",1005),
+    CountTestPlanFailed("计算总数失败",1006)
     ;
     private String mes;
     private int code;

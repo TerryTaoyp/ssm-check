@@ -44,7 +44,7 @@
 
 		<property name="mapperLocations">
 			<list>
-				<!--这个要配置 例如 classpath:com/pandawork/test/mapper/**/*Mapper.xml -->
+				<!-- 这个要配置 例如 classpath:com/pandawork/test/mapper/**/*Mapper.xml -->
 				<value>classpath:com/pandawork/home/mapper/**/*mapper.xml
 				</value>
 			</list>

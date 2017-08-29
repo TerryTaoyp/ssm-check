@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pandawork.home.mapper.check.TestPlanMapper">
+
+    <insert id="addTestPlan">
+        INSERT INTO t_test_plan(
+        uid,
+        test_type_id,
+        start_time,
+        finish_time,
+        test_name
+        )VALUES (
+        #{testPlan.uid},
+        #{testPlan.testTypeId},
+        #{testPlan.startTime},
+        #{testPlan.finishTime},
+        #{testPlan.testName}
+        )
+    </insert>
+
+    <update id="updateTestPlan">
+        UPDATE t_test_plan SET
+        uid = #{testPlan.uid},
+        test_type_id = #{testPlan.testTypeId},
+        start_time = #{testPlan.startTime},
+        finish_time = #{testPlan.finishTime},
+        test_name = #{testPlan.testName}
+        WHERE id = #{testPlan.id}
+    </update>
+
+    <update id="delTestPlan">
+        UPDATE t_test_plan SET
+        is_available = #{testPlan.isAvailable}
+        WHERE id = #{testPlan.id}
+    </update>
+
+    <select id="queryById" resultMap="pw.TestPlan">
+        SELECT * FROM t_test_plan WHERE id = #{id}
+    </select>
+
+    <select id="listAll" resultMap="pw.TestPlan">
+        SELECT * FROM t_test_plan
+    </select>
+
+    <select id="countAll" resultType="int">
+        SELECT COUNT(1) FROM t_test_plan
+    </select>
+</mapper>
