@@ -48,7 +48,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li><a href="#">系统考核</a></li>
+        <li><a href="#">系统管理</a></li>
         <li class="active">人员管理</li>
       </ol>
     </section>
@@ -67,42 +67,46 @@
                 <thead>
                     <tr>
                       <th>员工姓名</th>
-                      <th>手机号码</th>
+                      <th>所属部门</th>
                       <th>职位</th>
-                      <th>其他信息</th>
+                      <th>联系方式</th>
+                      <th>备注信息</th>
                       <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>章</td>
-                        <td>13837200544</td>
+                        <td>技术部</td>
                         <td>经理</td>
+                        <td>132</td>
                         <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
                         <td>
-                            <button type="button" class="btn bg-olive">按钮1</button>
-                            <button type="button" class="btn bg-red">按钮2</button>
-                            <button type="button" class="btn bg-blue">按钮3</button>
+                            <button type="button" class="btn bg-blue">查看详情</button>
+                            <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#modal-default">修改</button>
+                            <button type="button" class="btn bg-red">删除</button>
                         </td>
                     </tr>
                     <tr>
                         <td>章</td>
-                        <td>13837200544</td>
+                        <td>技术部</td>
                         <td>经理</td>
+                        <td>157</td>
                         <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
                         <td>
-                            <button type="button" class="btn bg-olive">按钮1</button>
-                            <button type="button" class="btn bg-red">按钮2</button>
-                            <button type="button" class="btn bg-blue">按钮3</button>
+                            <button type="button" class="btn bg-blue">查看详情</button>
+                            <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#modal-default">修改</button>
+                            <button type="button" class="btn bg-red">删除</button>
                         </td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
                       <th>员工姓名</th>
-                      <th>手机号码</th>
+                      <th>所属部门</th>
                       <th>职位</th>
-                      <th>其他信息</th>
+                      <th>联系方式</th>
+                      <th>备注信息</th>
                       <th>操作</th>
                     </tr>
                 </tfoot>
@@ -126,6 +130,43 @@
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
+  <div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">修改人员信息</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>所属部门：</label>
+            <select class="form-control">
+              <option>技术部</option>
+              <option>产品部</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>职位：</label>
+            <select class="form-control">
+              <option>部门经理</option>
+              <option>部门副经理</option>
+            </select>
+          </div>
+          <div class="form-group">
+              <label>备注信息：</label>
+              <textarea class="form-control" rows="3" placeholder="请输入..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+          <a href="javascript:;" type="submit" class="btn btn-primary">修改</a>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
 </div>
 <!-- ./wrapper -->
 
