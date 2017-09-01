@@ -68,7 +68,7 @@ public interface UserService {
      * @return
      * @throws SSException
      */
-    public User delUser(User  user)throws SSException;
+    public void delUser(User user)throws SSException;
 
     /**
      * 审核用户
@@ -76,7 +76,7 @@ public interface UserService {
      * @return
      * @throws SSException
      */
-    public User statusUser(User user)throws SSException;
+    public void statusUser(User user)throws SSException;
 
     /**
      * 修改用户密码
@@ -84,7 +84,7 @@ public interface UserService {
      * @return
      * @throws SSException
      */
-    public User updatePassword(User user)throws SSException;
+    public void updatePassword(User user)throws SSException;
 
     /**
      * 修改真实姓名
@@ -92,5 +92,19 @@ public interface UserService {
      * @return
      * @throws SSException
      */
-    public User updateRealName(User user)throws SSException;
+    public void updateRealName(User user)throws SSException;
+
+    /**
+     * 更新用户的基本信息
+     * @param user
+     * @throws SSException
+     */
+    public void updateUser(User user)throws SSException;
+
+    /**
+     * 是否参与考核
+     * @param user
+     * @throws SSException
+     */
+    public void isJoinCheck(User user)throws SSException;
 }

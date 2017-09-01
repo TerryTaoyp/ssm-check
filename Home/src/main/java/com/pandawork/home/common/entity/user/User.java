@@ -34,7 +34,7 @@ public class User {
     private Integer rid;
     //权限等级，该选项不可修改，只会跟着角色ID的变化而变化，但可以直接调用（名字）
     @Column(name = "pname")
-    private String  pname;
+    private Integer  pname;
     //是否参与考核，1是参与考核，0是不参与考核
     @Column(name = "is_join_check")
     private Integer isJoinCheck;
@@ -107,11 +107,11 @@ public class User {
         this.rid = rid;
     }
 
-    public String getPname() {
+    public Integer getPname() {
         return pname;
     }
 
-    public void setPname(String pname) {
+    public void setPname(Integer pname) {
         this.pname = pname;
     }
 

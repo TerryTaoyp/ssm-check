@@ -70,7 +70,7 @@
             </if>
         </where>
     </select>
-    <select id="countAll" parameterType="int">
+    <select id="countAll" resultType="int">
         SELECT COUNT(1) FROM t_user
     </select>
 
@@ -88,5 +88,19 @@
 
     <update id="updateRealName">
         UPDATE t_user SET real_name = #{user.realName} WHERE id = #{user.id}
+    </update>
+    
+    <update id="updateUser">
+        UPDATE t_user SET
+        real_name = #{user.realName},
+        did = #{user.did},
+        dname = #{user.dname},
+        rid = #{user.rid},
+        pname = #{user.pname}
+        WHERE id = #{user.id}
+    </update>
+    
+    <update id="isJoinCheck">
+        UPDATE t_user SET is_join_check = #{user.isJoinCheck} WHERE id =#{user.id}
     </update>
 </mapper>

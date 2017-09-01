@@ -68,7 +68,7 @@ public interface UserMapper {
      * @return
      * @throws SSException
      */
-    public User delUser(@Param("user") User user)throws SSException;
+    public void delUser(@Param("user") User user)throws SSException;
 
     /**
      * 审核用户
@@ -76,7 +76,7 @@ public interface UserMapper {
      * @return
      * @throws SSException
      */
-    public User statusUser(@Param("user") User user)throws SSException;
+    public void statusUser(@Param("user") User user)throws SSException;
 
     /**
      * 修改用户密码
@@ -84,7 +84,7 @@ public interface UserMapper {
      * @return
      * @throws SSException
      */
-    public User updatePassword(@Param("user") User user)throws SSException;
+    public void updatePassword(@Param("user") User user)throws SSException;
 
     /**
      * 修改真实姓名
@@ -92,5 +92,19 @@ public interface UserMapper {
      * @return
      * @throws SSException
      */
-    public User updateRealName(@Param("user") User user)throws SSException;
+    public void updateRealName(@Param("user") User user)throws SSException;
+
+    /**
+     * 更新用户的基本信息
+     * @param user
+     * @throws SSException
+     */
+    public void updateUser(@Param("user") User user)throws SSException;
+
+    /**
+     * 是否参与考核，此处传的应该是数组
+     * @param user
+     * @throws SSException
+     */
+    public void isJoinCheck(@Param("user") User user)throws SSException;
 }

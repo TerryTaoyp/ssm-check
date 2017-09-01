@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pandawork.home.mapper.check.SummaryMapper">
+    <insert id="addSummary">
+        INSERT INTO t_summary(
+        be_check_id,
+        check_id,
+        year,
+        content
+        )VALUES (
+        #{summary.beCheckId},
+        #{summary.checkId},
+        #{summary.year},
+        #{summary.content}
+        )
+    </insert>
+
+    <update id="updateSummary">
+        UPDATE t_summary SET content = #{summary.content}
+        WHERE id = #{summary.id}
+    </update>
+
+    <update id="updateScore">
+        UPDATE t_summary SET check_id = #{summary.checkId},
+        summary_score = #{summary.summaryScore}
+        WHERE id = #{summary.id}
+    </update>
+
+    <select id="queryByUser" resultMap="pw.Summary">
+        SELECT * FROM t_summary WHERE be_check_id = #{summary.beCheckId} AND year = #{summary.year}
+    </select>
+</mapper>

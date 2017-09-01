@@ -23,6 +23,8 @@ public enum  ChException implements IBizExceptionMes{
     StatusUserFailed("审核用户失败",14),
     UpdatePasswordFailed("修改用户密码",15),
     UpdateRealNameFailed("修改真实姓名失败",16),
+    UpdateUserFailed("更新用户的基本信息失败",17),
+    IsJoinCheckFailed("是否参与审核失败",18),
 
 
     AddDepartmentFailed("新增部门失败",100),
@@ -49,7 +51,41 @@ public enum  ChException implements IBizExceptionMes{
     DelPlanFailed("删除考核计划失败",1003),
     QueryPlanFailed("查询考核计划失败",1004),
     ListTestPlanFailed("列出所有用户失败",1005),
-    CountTestPlanFailed("计算总数失败",1006)
+    CountTestPlanFailed("计算总数失败",1006),
+
+    AddTestTypeFailed("新增考核计划类别失败",1007),
+    DelTestTypeFailed("删除考核计划类别失败",1008),
+    UpdateTestTypeFailed("更新考核计划类别失败",1009),
+    ListAllTestTypeFailed("列出所由考核计划类别失败",1010),
+    AddWorkPlanFailed("添加工作计划失败",1011),
+    UpdateWorkPlanFailed("更新工作计划失败",1012),
+
+
+
+    AddWorkDetailFailed("新增工作详情失败",1100),
+    UpdateWorkDetailFailed("更新工作详情失败",1101),
+    QueryWorkDetailByWidFailed("根据工作计划ID查找失败",1102),
+    DelWorkDetailFailed("删除工作计划详情失败",1103),
+
+
+    AddSummaryFailed("新增年度总结报告失败",1200),
+    UpdateSummaryFailed("更新年度总结报告失败",1201),
+    UpdateSummaryScoreFailed("打分失败",1202),
+    QuerySummaryByUserFailed("根据被考核用户ID和当前年份查找年度总结报告失败",1203),
+
+
+    AddAbilityTargetTypeFailed("新增类型失败",1300),
+    DelAbilityTargetTypeFailed("删除失败",1301),
+    UpdateAbilityTargetTypeFailed("更新失败",1302),
+    ListTargetTypeFailed("列出失败",1303),
+    AddAbilityTargetFailed("新增指标失败",1304),
+    DelAbilityTargetFailed("删除指标失败",1305),
+    UpdateAbilityTarget("更新指标失败",1306),
+    ListTargetFailed("列出所有指标失败",1307),
+    AddOptionFailed("新增选项失败",1308),
+    DelOptionFailed("删除问题选项失败",1309),
+    UpdateOptionFailed("编辑选项失败",1310),
+    QueryOptionByPositionId("根据问题ID查找失败",1311)
     ;
     private String mes;
     private int code;

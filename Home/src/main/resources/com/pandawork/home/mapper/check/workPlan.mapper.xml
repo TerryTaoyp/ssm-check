@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pandawork.home.mapper.check.WorkPlanMapper">
+    <insert id="addWorkPlan">
+        INSERT INTO t_work_plan(
+        be_check_id,
+        check_id,
+        year,
+        month,
+        queater
+        )VALUES (
+        #{workPlan.beCheckId},
+        #{workPlan.checkId},
+        #{workPlan.year},
+        #{workPlan.month},
+        #{workPlan.queater}
+        )
+    </insert>
+
+    <update id="updateWorkPlan">
+        UPDATE t_work_plan SET month_score = #{workPlan.monthScore},
+        queater_score = #{workPlan.queater} WHERE id = #{workPlan.id}
+    </update>
+</mapper>

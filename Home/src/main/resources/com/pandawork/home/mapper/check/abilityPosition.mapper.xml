@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pandawork.home.mapper.check.AbilityPositionMapper">
+
+    <insert id="addPosition">
+        INSERT INTO t_ability_position(
+          did,target_id,weight
+        )VALUES (
+        #{abilityPosition.did},
+        #{abilityPosition.targetId},
+        #{abilityPosition.weight}
+        )
+    </insert>
+
+    <update id="delPosition">
+        UPDATE t_ability_position SET is_available = #{abilityPosition.isAvailable} WHERE id = #{abilityPosition.id}
+    </update>
+
+    <update id="updatePosition">
+         UPDATE t_ability_position SET
+         did = #{abilityPosition.did},
+         target_id = #{abilityPosition.targetId},
+         weight = #{abilityPosition.weight}
+         WHERE id = #{abilityPosition.id}
+    </update>
+</mapper>

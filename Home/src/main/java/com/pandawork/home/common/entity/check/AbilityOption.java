@@ -24,7 +24,7 @@ public class AbilityOption {
     @Column(name = "option_name")
     private String optionName;
     //得分上限
-    @Column(name = "mac_score")
+    @Column(name = "max_score")
     private Double maxScore;
     //得分下限
     @Column(name = "min_score")

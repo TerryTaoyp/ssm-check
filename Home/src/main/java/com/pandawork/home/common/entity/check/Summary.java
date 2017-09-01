@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 /**
  * Created by Taoyongpan on 2017/8/12.
- * 年度 总结报告表对应的实体
+ * 年度总结报告表对应的实体
  */
 @Entity
 @Table(name = "t_summary")

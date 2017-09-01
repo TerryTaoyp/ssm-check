@@ -98,12 +98,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class,Exception.class, RuntimeException.class})
-    public User delUser(User user) throws SSException {
+    public void delUser(User user) throws SSException {
         try{
             if (Assert.isNull(user)){
-                return null;
+                return;
             }
-            return userMapper.delUser(user);
+            userMapper.delUser(user);
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.DelUserFailed);
@@ -112,12 +112,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class,Exception.class, RuntimeException.class})
-    public User statusUser(User user) throws SSException {
+    public void statusUser(User user) throws SSException {
         try{
             if (Assert.isNull(user)){
-                return null;
+                return;
             }
-            return userMapper.statusUser(user);
+            userMapper.statusUser(user);
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.StatusUserFailed);
@@ -126,12 +126,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class,Exception.class, RuntimeException.class})
-    public User updatePassword(User user) throws SSException {
+    public void updatePassword(User user) throws SSException {
         try{
             if (Assert.isNull(user)){
-                return null;
+                return;
             }
-            return userMapper.updatePassword(user);
+            userMapper.updatePassword(user);
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.UpdatePasswordFailed);
@@ -140,15 +140,42 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class,Exception.class, RuntimeException.class})
-    public User updateRealName(User user) throws SSException {
+    public void updateRealName(User user) throws SSException {
         try{
             if (Assert.isNull(user)){
-                return null;
+                return;
             }
-            return userMapper.updateRealName(user);
+            userMapper.updateRealName(user);
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.UpdateRealNameFailed);
+        }
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class,Exception.class, RuntimeException.class})
+    public void updateUser(User user) throws SSException {
+        try{
+            if (Assert.isNull(user)){
+                return;
+            }
+            userMapper.updateUser(user);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.UpdateUserFailed);
+        }
+    }
+
+    @Override
+    public void isJoinCheck(User user) throws SSException {
+        try{
+            if (Assert.isNull(user)){
+                return;
+            }
+            userMapper.isJoinCheck(user);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.IsJoinCheckFailed);
         }
     }
 }

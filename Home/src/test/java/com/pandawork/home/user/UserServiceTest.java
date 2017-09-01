@@ -1,5 +1,6 @@
 package com.pandawork.home.user;
 
+import com.pandawork.core.common.exception.SSException;
 import com.pandawork.home.AbstractTestCase;
 import com.pandawork.home.common.entity.user.User;
 import com.pandawork.home.service.user.UserService;
@@ -57,5 +58,78 @@ public class UserServiceTest extends AbstractTestCase {
         user.setUsername("陶永攀11");
         user.setPassword("tt123456");
         System.out.println(userService.queryByUnameAndPword(user));
+    }
+
+    public void testUser()throws Exception{
+//        userService.queryMore()
+    }
+
+    @Test
+    public void testCountAll()throws SSException{
+        userService.countAll();
+    }
+
+    /**
+     * 删除用户
+     * @throws SSException
+     */
+    @Test
+    public void testDelUser()throws SSException{
+        User user = new User();
+        user.setId(1);
+        user.setIsDelete(0);
+        userService.delUser(user);
+    }
+
+    /**
+     * 测试审核用户
+     * @throws SSException
+     */
+    @Test
+    public void testStatusUser()throws SSException{
+        User user = new User();
+        user.setId(3);
+        user.setStatus(0);
+        userService.statusUser(user);
+    }
+
+    /**
+     * 测试修改密码
+     * @throws SSException
+     */
+    @Test
+    public void testUpdatePassword()throws SSException{
+        User user = new User();
+        user.setId(3);
+        user.setPassword("123321");
+        userService.updatePassword(user);
+    }
+
+    /**
+     * 更新用户的基本信息
+     * @throws SSException
+     */
+    @Test
+    public void testUpdaterUser()throws SSException{
+        User user = new User();
+        user.setId(3);
+        user.setRealName("hhhh");
+        user.setDid(2);
+        user.setDname("jjj");
+        user.setRid(3);
+        user.setPname(1);
+        userService.updateUser(user);
+    }
+
+    /**
+     * 是否参与考核
+     * @throws SSException
+     */
+    @Test
+    public void testIsJoinCheck()throws SSException{
+        User user = new User();
+        user.setId(4);
+        user.setIsJoinCheck(1);
+        userService.isJoinCheck(user);
     }
 }
