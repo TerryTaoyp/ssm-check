@@ -4498,10 +4498,10 @@ S2.define('select2/i18n/en',[],function () {
       return message;
     },
     noResults: function () {
-      return 'No results found';
+      return '暂无符合条件的信息';
     },
     searching: function () {
-      return 'Searching…';
+      return '搜索...';
     }
   };
 });
