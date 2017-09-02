@@ -85,7 +85,18 @@ public enum  ChException implements IBizExceptionMes{
     AddOptionFailed("新增选项失败",1308),
     DelOptionFailed("删除问题选项失败",1309),
     UpdateOptionFailed("编辑选项失败",1310),
-    QueryOptionByPositionId("根据问题ID查找失败",1311)
+    QueryOptionByPositionId("根据问题ID查找失败",1311),
+    AddPositionFailed("添加问题失败",1312),
+    DelPositionFailed("删除问题失败",1313),
+    UpdatePositionFailed("编辑问题失败",1314),
+    QueryPositionByDidFailed("根据部门ID查找问题失败",1315),
+    CountAllPositionFailed("计算所有问题的条数",1316),
+    AddResultFailed("增加能力指标结果失败",1317),
+    UpdateResultFailed("更新能力指标结果失败",1318),
+    DelResultFailed("删除能力指标结果失败",1319),
+    CountAllResultFailed("计算能力指标结果总条数失败",1320),
+    QueryResultByDidFailed("根据部门ID查找结果失败",1321),
+    ListAllResultFailed("列出所有用户的结果失败",1322)
     ;
     private String mes;
     private int code;

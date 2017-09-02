@@ -24,4 +24,12 @@
          weight = #{abilityPosition.weight}
          WHERE id = #{abilityPosition.id}
     </update>
+
+    <select id="queryByDid" resultMap="pw.AbilityPosition">
+        SELECT * FROM t_ability_position WHERE did = #{did}
+    </select>
+
+    <select id="countAll" resultType="int">
+        SELECT COUNT (1) FROM t_ability_position
+    </select>
 </mapper>
