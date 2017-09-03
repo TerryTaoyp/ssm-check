@@ -45,15 +45,19 @@
 
         <form action="login.html" method="get">
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="用户名">
+                <input type="text" class="form-control" name="username" placeholder="用户名">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="账号">
+                <input type="text" class="form-control" name="realName" placeholder="真实姓名">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="密码">
+                <input type="text" class="form-control" name="did" placeholder="部门">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" name="password" placeholder="密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">

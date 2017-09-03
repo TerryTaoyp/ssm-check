@@ -20,6 +20,6 @@
 
     <update id="updateWorkPlan">
         UPDATE t_work_plan SET month_score = #{workPlan.monthScore},
-        queater_score = #{workPlan.queater} WHERE id = #{workPlan.id}
+        queater_score = #{workPlan.queaterScore} WHERE id = #{workPlan.id}
     </update>
 </mapper>

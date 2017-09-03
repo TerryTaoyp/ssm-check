@@ -13,14 +13,14 @@
     <title>首页</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
+    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.jsp" -->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
+    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.jsp" -->
 
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/sidebar.html" -->
+    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/sidebar.jsp" -->
 
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -541,14 +541,14 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
+    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.jsp" -->
 
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
+    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.jsp" -->
 
     <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
+<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.jsp" -->
 <script>
     $.widget.bridge('uibutton', $.ui.button);
 </script>

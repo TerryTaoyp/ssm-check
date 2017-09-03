@@ -39,6 +39,14 @@ public class Performance {
     @Column(name = "year_score")
     private Double yearScore;
 
+    //被考核用户的部门ID
+    @Column(name = "did")
+    private Integer did;
+
+    //被考核用户的角色ID
+    @Column(name = "rid")
+    private Integer rid;
+
     public Integer getId() {
         return id;
     }
@@ -109,5 +117,21 @@ public class Performance {
 
     public void setYearScore(Double yearScore) {
         this.yearScore = yearScore;
+    }
+
+    public Integer getDid() {
+        return did;
+    }
+
+    public void setDid(Integer did) {
+        this.did = did;
+    }
+
+    public Integer getRid() {
+        return rid;
+    }
+
+    public void setRid(Integer rid) {
+        this.rid = rid;
     }
 }

@@ -96,7 +96,17 @@ public enum  ChException implements IBizExceptionMes{
     DelResultFailed("删除能力指标结果失败",1319),
     CountAllResultFailed("计算能力指标结果总条数失败",1320),
     QueryResultByDidFailed("根据部门ID查找结果失败",1321),
-    ListAllResultFailed("列出所有用户的结果失败",1322)
+    ListAllResultFailed("列出所有用户的结果失败",1322),
+
+    AddPerformanceFailed("新增年度考核成绩失败",1400),
+    UpdateSummaryScore("编辑年度总结失败",1401),
+    UpdateYearScore("年度考核打分失败",1402),
+    DelPerformance("删除年度考核成绩失败",1403),
+    QueryPerformanceByYAM("根据年份和月份查找失败",1404),
+    QueryPerformanceByYAQ("根据年份和季度查找失败",1405),
+    CountAllPerformance("计算年度查找总条数失败",1406),
+    QueryPerformanceByDid("根据部门DI查找成绩失败",1407)
+
     ;
     private String mes;
     private int code;

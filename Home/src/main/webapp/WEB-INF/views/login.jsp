@@ -43,13 +43,13 @@
     <div class="login-box-body">
         <p class="login-box-msg">请输入账号密码登录</p>
 
-        <form action="index.html" method="get">
+        <form action="${website}/login" method="post">
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="账号">
+                <input type="text" name="username" class="form-control" placeholder="账号">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="密码">
+                <input type="password" name="password" class="form-control" placeholder="密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
@@ -68,8 +68,8 @@
             </div>
         </form>
 
-        <a href="#">忘记密码?（请联系管理员）</a><br>
-        <a href="register.html" class="text-center">注册新账号点这里!</a>
+        <a href="${website}/toupwd">忘记密码?（请联系管理员）</a><br>
+        <a href="${website}/toregister" class="text-center">注册新账号点这里!</a>
 
     </div>
     <!-- /.login-box-body -->
