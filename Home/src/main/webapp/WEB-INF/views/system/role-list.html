@@ -8,19 +8,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- select2 -->
   <link rel="stylesheet" href="../../../resources/js/bower_components/select2/dist/css/select2.min.css">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="../../../resources/js/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../../resources/js/bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="../../../resources/js/bower_components/Ionicons/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../../../resources/js/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../../resources/js/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../../../resources/js/dist/css/skins/_all-skins.min.css">
+  <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
   
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -46,45 +34,11 @@
 
     <!-- Main content -->
     <section class="content">
-        <div class="box box-warning">
-          <div class="box-header with-border">
-            <h3 class="box-title">增添角色</h3>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <form role="form">
-              
-                <div class="form-group">
-                    <label>角色名称：</label>
-                    <input type="text" class="form-control" placeholder="请输入..." required="required" name="role">
-                </div>
-              
-                <div class="form-group">
-                  <label>选择权限：</label>
-                  <select class="form-control select2" multiple="multiple" data-placeholder="请选择..." style="width: 100%;">
-                    <option>权限1</option>
-                    <option>权限2</option>
-                    <option>权限3</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                    <label>备注信息：</label>
-                    <textarea class="form-control" rows="3" placeholder="请输入..."></textarea>
-                </div>
-                
-                <div class="box-footer">
-                    <input type="submit" class="btn btn-primary" value="提交">
-                </div>
-            </form>
-          </div>
-          <!-- /.box-body -->
-        </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="box">
+            <div class="box box-warning">
               <div class="box-header">
-                <h3 class="box-title">已有角色管理</h3>
+                <h3 class="box-title">角色管理列表</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -139,8 +93,6 @@
 
   <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
 
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
   <div class="modal fade" id="modal-default">
     <div class="modal-dialog">
@@ -153,11 +105,11 @@
         <div class="modal-body">
           <div class="form-group">
               <label>角色名称：</label>
-              <input type="text" class="form-control" placeholder="请输入..." required="required" name="role">
+              <input type="text" class="form-control" placeholder="请输入..." name="role">
           </div>
           <div class="form-group">
             <label>选择权限：</label>
-            <select class="form-control select2" multiple="multiple" data-placeholder="请选择..." style="width: 100%;">
+            <select class="form-control select2" multiple="multiple" data-placeholder="请选择..." style="width: 100%;" name="jurisdiction">
               <option>权限1</option>
               <option>权限2</option>
               <option>权限3</option>
@@ -170,7 +122,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-          <a href="javascript:;" type="submit" class="btn btn-primary">修改</a>
+          <button type="button" class="btn btn-primary J-ajax-submit">修改</button>
         </div>
       </div>
       <!-- /.modal-content -->
@@ -180,23 +132,12 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery 3 -->
-<script src="../../../resources/js/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="../../../resources/js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="../../../resources/js/bower_components/datatables.net/js/jquery.dataTables.js"></script>
-<script src="../../../resources/js/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="../../../resources/js/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="../../../resources/js/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="../../../resources/js/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../../resources/js/dist/js/demo.js"></script>
+  <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <!-- select2 -->
 <script src="../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
+<!-- 验证模块 -->
+<script src="../../../resources/js/pages/js/common/verify.js"></script>
+
 <script>
   $(function () {
     $('.select2').select2();
