@@ -91,7 +91,7 @@ $(document).ready(function() {
 				if (optionsVal == 0) {
 					$(this).parent().addClass('has-error');
 					$(this).next().find('.select2-selection').css('border', '1px solid #dd4b39');
-					arr3.push(optionVal); // 为空则存入数组中
+					arr3.push(optionsVal); // 为空则存入数组中
 				} 
 				else{
 					$(this).parent().removeClass('has-error');
