@@ -153,6 +153,7 @@
                             <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/year/synthetical.html"><i class="fa fa-circle-o"></i>综合绩效考评结果报表</a></li>
                             <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/year/ability.html"><i class="fa fa-circle-o"></i>能力指标考评结果报表</a></li>
                         </ul>
+
                     </li>
                 </ul>
             </li>
