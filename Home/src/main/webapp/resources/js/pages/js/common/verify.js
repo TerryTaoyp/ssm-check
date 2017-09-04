@@ -1,5 +1,13 @@
 /*未入驻单位的js
 吴晓阳*/
+// 因为跨页面所以需要全局定义
+var 
+	ajax_arr1 = new Array, // 文本框ajax提交时判断是否可以提交的数组
+	ajax_arr2 = new Array, // 下拉框ajax提交时判断是否可以提交的数组
+	ajax_arr3 = new Array, // 多选下拉框ajax提交时判断是否可以提交的数组
+	ajax_flag1,
+	ajax_flag2,
+	ajax_flag3;
 // 入口函数
 $(document).ready(function() {
 	// 变量声明
@@ -11,13 +19,15 @@ $(document).ready(function() {
 			J_require_text: '.require-text', // 必填文本框
 			J_require_option: '.require-option', // 必选下拉框
 			J_require_options: '.require-options', // 必填多选下拉框
+			J_a_require_text: '.a-require-text', // ajax必填文本框
+			J_a_require_option: '.a-require-option', // ajax必选下拉框
+			J_a_require_options: '.a-require-options', // ajax必填多选下拉框
 		};
 	// 消息盒子 暂时没什么用
 	var 
 		tip = {
 			J_search_tip: '请输入18位的同意社会信用代码'
 		}
-
 	// 加载函数
 	_verify();
 
@@ -29,8 +39,8 @@ $(document).ready(function() {
 			arr1 = new Array, // 必填文本框的数组
 			arr2 = new Array, // 必填下拉框的数组
 			arr3 = new Array; // 必填多选下拉框的数组
-		// 角色管理
-
+		
+		// 普通提交
 		$(el.J_submit).click(function(event) {
 			// 必填文本框
 			$(el.J_require_text).each(function() {
@@ -132,6 +142,95 @@ $(document).ready(function() {
 					return false;
 				}
 			}
+		});
+		// ajax提交
+		$(el.J_ajax_submit).click(function(event) {
+			// 必填文本框
+			$(el.J_a_require_text).each(function() {
+				var textVal = $(this).val();
+				if (textVal == "") {
+					$(this).parent().addClass('has-error');
+					ajax_arr1.push(textVal); // 为空则存入数组中
+				}
+				else{
+					$(this).parent().removeClass('has-error');
+				}
+				// 判断flag
+				if (ajax_arr1.length) {
+					ajax_flag1 = true;
+				}
+				else{
+					ajax_flag1= false;
+				}
+			});
+			$(el.J_a_require_text).change(function() {
+				var textVal = $(this).val();
+				if (textVal == "") {
+					$(this).parent().addClass('has-error');
+				} else{
+					ajax_arr1.pop(); // 清除存入数组中的text为空的个数
+					$(this).parent().removeClass('has-error');
+				}
+			});
+			// 必填下拉框
+			$(el.J_a_require_option).each(function() {
+				var optionVal = $(this).val();
+				if (optionVal == -1) {
+					$(this).parent().addClass('has-error');
+					ajax_arr2.push(optionVal); // 为空则存入数组中
+				} 
+				else{
+					$(this).parent().removeClass('has-error');
+				}
+				// 判断flag
+				if (ajax_arr2.length) {
+					ajax_flag2 = true;
+				}
+				else{
+					ajax_flag2= false;
+				}
+			});
+			$(el.J_a_require_option).change(function() {
+				var optionVal = $(this).children('option:selected').val();
+				if (optionVal == -1) {
+					$(this).parent().addClass('has-error');
+					// console.log('error:下拉框未填写') // 调试提醒
+				} else{
+					ajax_arr2.pop(); // 清除存入数组中的text为空的个数
+					$(this).parent().removeClass('has-error');
+				}
+			});
+			// 多选下拉框
+			$(el.J_a_require_options).each(function() {
+				var optionsVal = $(this).next().find('.select2-selection__choice').length;
+				if (optionsVal == 0) {
+					$(this).parent().addClass('has-error');
+					$(this).next().find('.select2-selection').css('border', '1px solid #dd4b39');
+					ajax_arr3.push(optionsVal); // 为空则存入数组中
+				} 
+				else{
+					$(this).parent().removeClass('has-error');
+					$(this).next().find('.select2-selection').css('border','1px solid #ccc');
+				}
+				// 判断flag
+				if (ajax_arr3.length) {
+					ajax_flag3 = true;
+				}
+				else{
+					ajax_flag3 = false;
+				}
+			});
+			$(el.J_a_require_options).change(function() {
+				var optionsVal = $(this).next().find('.select2-selection__choice').length;
+				if (optionsVal == 0) {
+					$(this).parent().addClass('has-error');
+					$(this).next().find('.select2-selection').css('border', '1px solid #dd4b39');
+				} else{
+					ajax_arr3.pop(); // 清除存入数组中的text为空的个数
+					$(this).parent().removeClass('has-error');
+					$(this).next().find('.select2-selection').css('border','1px solid #ccc');
+				}
+			});
 		});
 		/*// 企业注册认证信息正则验证
 		// 固定电话
