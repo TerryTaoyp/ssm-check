@@ -4,17 +4,19 @@
 $(document).ready(function() {
 	// 变量声明
 	// 对象盒子
-	var el = {
-		J_ajax_submit: '.J-ajax-submit', // ajax提交按钮
-		J_submit: '.J-submit', // 表单提交按钮
-		J_require_text: '.require-text', // 必填文本框
-		J_require_option: '.require-option', // 必选下拉框
-		J_require_options: '.require-options', // 必填多选下拉框
-	};
+	var 
+		el = {
+			J_ajax_submit: '.J-ajax-submit', // ajax提交按钮
+			J_submit: '.J-submit', // 表单提交按钮
+			J_require_text: '.require-text', // 必填文本框
+			J_require_option: '.require-option', // 必选下拉框
+			J_require_options: '.require-options', // 必填多选下拉框
+		};
 	// 消息盒子 暂时没什么用
-	var tip = {
-		J_search_tip: '请输入18位的同意社会信用代码'
-	}
+	var 
+		tip = {
+			J_search_tip: '请输入18位的同意社会信用代码'
+		}
 
 	// 加载函数
 	_verify();

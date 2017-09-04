@@ -1,11 +1,8 @@
 $(document).ready(function() {
 	var
 		el = {
-			sidebarHolder:'.sidebar',//指向侧边栏导航
-			submenuHolder:'.submenu',//指向二级菜单
-			menu:'.sidebar-menu',
-			active:'.active',
-        	tipEl: '.J_tip'//提示元素
+        	treeview: '.treeview', 
+        	treeview_menu: '.treeview-menu',
 		},
 		NONE_CLASS = 'none',
 		open_class = 'menu-open';
@@ -21,8 +18,8 @@ $(document).ready(function() {
 			$('.sidebar-menu a').each(function(){
 				url=$(this).attr('href');
 				if(url==pageUrl){
-					$(this).parents('.treeview').addClass(open_class);
-					$(this).parents('.treeview-menu').show();
+					$(this).parents(el.treeview).addClass(open_class);
+					$(this).parents(el.treeview_menu).show();
 					// 给自己添加高亮
 					$(this).css('color','#fff');
 				}
