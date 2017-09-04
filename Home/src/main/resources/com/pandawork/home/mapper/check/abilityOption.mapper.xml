@@ -24,7 +24,8 @@
     </delete>
 
     <update id="updateOption">
-        UPDATE t_ability_option SET position_id = #{abilityOption.positionId},
+        UPDATE t_ability_option SET
+        position_id = #{abilityOption.positionId},
         target_id = #{abilityOption.targetId},
         option_name = #{abilityOption.optionName},
         max_score = #{abilityOption.maxScore},

@@ -5,9 +5,10 @@
   Time: 10:37
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header class="main-header">
     <!-- Logo -->
-    <a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/index.html" class="logo">
+    <a href="${website}/toindex" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini">首页</span>
         <!-- logo for regular state and mobile devices -->

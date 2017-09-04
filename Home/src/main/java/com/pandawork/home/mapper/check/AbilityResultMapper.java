@@ -37,7 +37,7 @@ public interface AbilityResultMapper {
      * @return
      * @throws SSException
      */
-    public int coutAll()throws SSException;
+    public int countAll()throws SSException;
 
     /**
      * 根据部门ID查找结果

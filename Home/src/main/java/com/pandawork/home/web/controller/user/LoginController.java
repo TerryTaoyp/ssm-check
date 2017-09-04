@@ -57,10 +57,18 @@ public class LoginController extends AbstractController {
     }
 
     /**
+     * 跳转到 主页
+     * @return
+     */
+    @RequestMapping(value = "/toindex",method = RequestMethod.GET)
+    public String toIndex(){
+        return "index";
+    }
+    /**
      * 跳转到注册页面
      * @return
      */
-    @RequestMapping(value = "/toregister",method = RequestMethod.POST)
+    @RequestMapping(value = "/toregister",method = RequestMethod.GET)
     public String toRegister(){
         return "register";
     }
@@ -69,9 +77,19 @@ public class LoginController extends AbstractController {
      * @return
      */
     @RequestMapping(value = "/register",method = RequestMethod.POST)
-    public String register(){
-
-        return "login";
+    public String register(@RequestParam("username") String username,@RequestParam("realName") String realName,@RequestParam("did") int did,@RequestParam("password") String password,Model model) throws SSException {
+        if (userService.queryByUname(username)!=null){
+            model.addAttribute("error","账户名已经存在！");
+            return "register";
+        }else {
+            User user = new User();
+            user.setUsername(username);
+            user.setRealName(realName);
+            user.setDid(did);
+            user.setPassword(password);
+            userService.addUser(user);
+            return "login";
+        }
     }
 
     /**
@@ -79,9 +97,16 @@ public class LoginController extends AbstractController {
      * @return
      * @throws SSException
      */
-    @RequestMapping(value = "/toupwd",method = RequestMethod.POST)
+    @RequestMapping(value = "/toupwd",method = RequestMethod.GET)
     public String toUpdatePassword()throws SSException{
         return "update-password";
+    }
+
+
+    @RequestMapping(value = "/upwd",method = RequestMethod.POST)
+    public String updatePassword()throws SSException{
+
+        return "login";
     }
 
 }

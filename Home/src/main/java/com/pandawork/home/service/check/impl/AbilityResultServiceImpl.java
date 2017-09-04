@@ -67,7 +67,7 @@ public class AbilityResultServiceImpl implements AbilityResultService {
     @Override
     public int coutAll() throws SSException {
         try {
-            return abilityResultMapper.coutAll();
+            return abilityResultMapper.countAll();
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.CountAllResultFailed);

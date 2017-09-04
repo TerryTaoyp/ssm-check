@@ -40,7 +40,7 @@
     </select>
 
     <select id="countAll" resultType="int">
-        SELECT COUNT (1) FROM t_performance
+        SELECT COUNT(1) FROM t_performance
     </select>
 
     <select id="queryByDid" resultMap="pw.Performance">

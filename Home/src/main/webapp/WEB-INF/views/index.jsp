@@ -13,13 +13,14 @@
     <title>首页</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <jsp:include page="common/link.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.jsp" -->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
+    <jsp:include page="common/header.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.jsp" -->
-
+    <jsp:include page="common/sidebar.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/sidebar.jsp" -->
 
     <div class="content-wrapper">
@@ -541,13 +542,15 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <jsp:include page="common/footer.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.jsp" -->
-
+    <jsp:include page="common/control-sidebar.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.jsp" -->
 
     <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
+<jsp:include page="common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.jsp" -->
 <script>
     $.widget.bridge('uibutton', $.ui.button);

@@ -43,7 +43,7 @@
     <div class="register-box-body">
         <p class="login-box-msg">请输入注册必填信息</p>
 
-        <form action="login.html" method="get">
+        <form action="${website}/register" method="post">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" name="username" placeholder="用户名">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -79,7 +79,7 @@
                 <!-- /.col -->
             </div>
         </form>
-
+        <p>${error}</p>
         <a href="login.html" class="text-center">已经有账号?这里登录!</a>
     </div>
     <!-- /.form-box -->

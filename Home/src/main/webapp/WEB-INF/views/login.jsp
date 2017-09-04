@@ -68,7 +68,7 @@
             </div>
         </form>
 
-        <a href="${website}/toupwd">忘记密码?（请联系管理员）</a><br>
+        <%--<a href="${website}/toupwd">忘记密码?（请联系管理员）</a><br>--%>
         <a href="${website}/toregister" class="text-center">注册新账号点这里!</a>
 
     </div>

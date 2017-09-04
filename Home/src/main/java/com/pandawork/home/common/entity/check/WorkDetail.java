@@ -27,7 +27,7 @@ public class WorkDetail {
     @Column(name = "plan_content")
     private String planContent;
     //预期结果
-    @Column(name = "expect_result")
+    @Column(name = "except_result")
     private String expectResult;
     //该条工作计划所占的权重
     @Column(name = "weight")

@@ -43,9 +43,9 @@
     <div class="register-box-body">
         <p class="login-box-msg">请输入原密码</p>
 
-        <form action="login.html" method="get">
+        <form action="${website}/upwd" method="get">
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="原密码">
+                <input type="text" name="password" class="form-control" placeholder="原密码">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <p class="login-box-msg">请在下面输入新密码</p>

@@ -35,7 +35,7 @@
     </delete>
 
     <select id="countAll" resultType="int">
-        SELECT COUNT (1) FROM t_ability_result
+        SELECT COUNT(1) FROM t_ability_result
     </select>
 
     <select id="queryByDid" resultMap="pw.AbilityResult">

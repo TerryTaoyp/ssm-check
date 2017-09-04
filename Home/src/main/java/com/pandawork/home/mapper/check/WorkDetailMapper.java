@@ -4,6 +4,8 @@ import com.pandawork.core.common.exception.SSException;
 import com.pandawork.home.common.entity.check.WorkDetail;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * Created by Taoyongpan on 2017/8/30.
  */
@@ -28,7 +30,7 @@ public interface WorkDetailMapper {
      * @return
      * @throws SSException
      */
-    public WorkDetail queryByWId(@Param("wid") int wid)throws SSException;
+    public List<WorkDetail> queryByWId(@Param("wid") int wid)throws SSException;
 
     /**
      * 删除

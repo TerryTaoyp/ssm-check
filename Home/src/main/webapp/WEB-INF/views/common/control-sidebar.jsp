@@ -1,4 +1,5 @@
 <!-- Control Sidebar -->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">

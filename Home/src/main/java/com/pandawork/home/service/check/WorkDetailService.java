@@ -3,6 +3,8 @@ package com.pandawork.home.service.check;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.home.common.entity.check.WorkDetail;
 
+import java.util.List;
+
 /**
  * Created by Taoyongpan on 2017/8/30.
  */
@@ -28,7 +30,7 @@ public interface WorkDetailService {
      * @return
      * @throws SSException
      */
-    public WorkDetail queryByWId(int wid)throws SSException;
+    public List<WorkDetail> queryByWId(int wid)throws SSException;
 
     /**
      * 删除

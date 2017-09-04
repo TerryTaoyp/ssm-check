@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by Taoyongpan on 2017/8/30.
  */
@@ -49,7 +51,7 @@ public class WorkDetailServiceImpl implements WorkDetailService {
     }
 
     @Override
-    public WorkDetail queryByWId(int wid) throws SSException {
+    public List<WorkDetail> queryByWId(int wid) throws SSException {
         try{
             if (Assert.isNull(wid)){
                 return null;
