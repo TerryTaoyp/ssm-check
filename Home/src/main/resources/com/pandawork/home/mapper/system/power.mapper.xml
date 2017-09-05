@@ -6,9 +6,9 @@
 
     <insert id="addPower">
         INSERT INTO t_power(
-        power
+        power,detail
         )VALUE (
-        #{power.power}
+        #{power.power},#{power.detail}
         )
     </insert>
 
@@ -18,7 +18,7 @@
 
 
     <update id="updatePower" >
-        UPDATE t_power SET power = #{power.power} WHERE id = #{power.id}
+        UPDATE t_power SET power = #{power.power},detail = #{power.detail} WHERE id = #{power.id}
     </update>
 
     <select id="queryById" resultMap="pw.Power">

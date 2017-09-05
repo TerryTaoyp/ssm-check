@@ -27,6 +27,7 @@ public class UserServiceTest extends AbstractTestCase {
         user.setSex("男");
         user.setDid(1);
         user.setStatus(1);
+        user.setPhone("34567");
         userService.addUser(user);
     }
 
@@ -131,5 +132,10 @@ public class UserServiceTest extends AbstractTestCase {
         user.setId(4);
         user.setIsJoinCheck(1);
         userService.isJoinCheck(user);
+    }
+
+    @Test
+    public void queryByIsDelete()throws SSException{
+        userService.queryByIsDelete(1);
     }
 }

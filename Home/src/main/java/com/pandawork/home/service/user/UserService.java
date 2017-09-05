@@ -107,4 +107,42 @@ public interface UserService {
      * @throws SSException
      */
     public void isJoinCheck(User user)throws SSException;
+    /**
+     * 列出所有 用户
+     * @return
+     * @throws SSException
+     */
+    public List<User> listAll()throws SSException;
+
+    /**
+     * 根据删除状态查找
+     * @param isDelete
+     * @return
+     * @throws SSException
+     */
+    public List<User> queryByIsDelete(int isDelete)throws SSException;
+
+    /**
+     * 根据ID查找用户
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public User queryById(int id)throws SSException;
+
+    /**
+     * 根据角色ID查找
+     * @param rid
+     * @return
+     * @throws SSException
+     */
+    public List<User> queryByRole(int rid)throws SSException;
+
+    /**
+     * 根据部门ID查找
+     * @param did
+     * @return
+     * @throws SSException
+     */
+    public List<User> queryByDid(int did)throws SSException;
 }

@@ -19,6 +19,9 @@ public class Power {
     @Column(name = "power")
     private Integer power;
 
+    @Column(name = "detail")
+    private String detail;
+
     public Integer getId() {
         return id;
     }
@@ -33,5 +36,13 @@ public class Power {
 
     public void setPower(Integer power) {
         this.power = power;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 }

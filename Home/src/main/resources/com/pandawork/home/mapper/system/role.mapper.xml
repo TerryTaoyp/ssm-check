@@ -12,7 +12,7 @@
     </insert>
 
     <update id="delRole">
-        UPDATE t_role SET is_delete = #{role.isDelete} WHERE id = #{role.id}
+        UPDATE t_role SET is_delete = 0 WHERE id = #{role.id}
     </update>
 
     <update id="updateRole">

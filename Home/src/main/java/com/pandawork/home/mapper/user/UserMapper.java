@@ -107,4 +107,43 @@ public interface UserMapper {
      * @throws SSException
      */
     public void isJoinCheck(@Param("user") User user)throws SSException;
+
+    /**
+     * 列出所有 用户
+     * @return
+     * @throws SSException
+     */
+    public List<User> listAll()throws SSException;
+
+    /**
+     * 根据删除状态查找
+     * @param isDelete
+     * @return
+     * @throws SSException
+     */
+    public List<User> queryByIsDelete(@Param("isDelete") int isDelete)throws SSException;
+
+    /**
+     * 根据ID查找
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public User queryById(@Param("id") int id)throws SSException;
+
+    /**
+     * 根据角色ID查找
+     * @param rid
+     * @return
+     * @throws SSException
+     */
+    public List<User> queryByRole(@Param("rid") int rid)throws SSException;
+
+    /**
+     * 根据部门ID查找
+     * @param did
+     * @return
+     * @throws SSException
+     */
+    public List<User> queryByDid(@Param("did") int did)throws SSException;
 }

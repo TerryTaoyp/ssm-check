@@ -178,4 +178,63 @@ public class UserServiceImpl implements UserService {
             throw SSException.get(ChException.IsJoinCheckFailed);
         }
     }
+
+    @Override
+    public List<User> listAll() throws SSException {
+        try{
+            return userMapper.listAll();
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.ListAllUserFailed);
+        }
+    }
+
+    @Override
+    public List<User> queryByIsDelete(int isDelete) throws SSException {
+        try{
+            if (Assert.isNull(isDelete)){
+                return null;
+            }
+            return userMapper.queryByIsDelete(isDelete);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryUserByIsDeleteFailed);
+        }
+    }
+
+    @Override
+    public User queryById(int id) throws SSException {
+        try{
+            return userMapper.queryById(id);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryUserByIdFailed);
+        }
+    }
+
+    @Override
+    public List<User> queryByRole(int rid) throws SSException {
+        try{
+            if (Assert.isNull(rid)){
+                return null;
+            }
+            return userMapper.queryByRole(rid);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryUserByRidFailed);
+        }
+    }
+
+    @Override
+    public List<User> queryByDid(int did) throws SSException {
+        try{
+            if (Assert.isNull(did)){
+                return null;
+            }
+            return userMapper.queryByDid(did);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryUserByDidFailed);
+        }
+    }
 }

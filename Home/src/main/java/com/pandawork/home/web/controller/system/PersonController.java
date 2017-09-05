@@ -1,0 +1,94 @@
+package com.pandawork.home.web.controller.system;
+
+import com.pandawork.core.common.exception.SSException;
+import com.pandawork.core.common.log.LogClerk;
+import com.pandawork.home.common.entity.system.Department;
+import com.pandawork.home.common.entity.system.Role;
+import com.pandawork.home.common.entity.user.User;
+import com.pandawork.home.service.system.DepartmentService;
+import com.pandawork.home.service.system.RoleService;
+import com.pandawork.home.service.user.UserService;
+import com.pandawork.home.web.controller.AbstractController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
+
+/**
+ * Created by Taoyongpan on 2017/9/4.
+ */
+
+@Controller
+@RequestMapping("/user")
+public class PersonController extends AbstractController {
+    @Autowired
+    UserService userService;
+    @Autowired
+    RoleService roleService;
+    @Autowired
+    DepartmentService departmentService;
+
+    /**
+     * 获取用户列表
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
+    public String toPerson(Model model)throws Exception{
+        try{
+            List<User> userList = userService.queryByIsDelete(1);
+            model.addAttribute("userList",userList);
+            return "system/personnel-list";
+        }catch (SSException e){
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
+
+    /**
+     * 根据ID删除用户信息
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/del/{id}",method = RequestMethod.GET)
+    public String del(@PathVariable("id") int id){
+        try{
+            User user = userService.queryById(id);
+            user.setIsDelete(0);
+            userService.delUser(user);
+            return "redirect:/user/list";
+        }catch (SSException e){
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
+
+    /**
+     * 跳转到人员列表
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/accountlist",method = RequestMethod.GET)
+    public String toAccount(Model model)throws Exception{
+        try{
+            List<User> userList = userService.queryByIsDelete(1);
+            List<Role> roleList = roleService.listAll();
+            List<Department> departmentList = departmentService.listAll();
+            model.addAttribute("userList",userList);
+            model.addAttribute("roleList",roleList);
+            model.addAttribute("departmentList",departmentList);
+            return "system/account-list";
+        }catch (SSException e){
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
+}

@@ -6,9 +6,9 @@
 
     <insert id="addUser">
         INSERT INTO t_user(
-        username,real_name,password,status,did,sex
+        username,real_name,password,status,did,sex,phone
         )VALUES (
-        #{user.username},#{user.realName},#{user.password},#{user.status},#{user.did},#{user.sex}
+        #{user.username},#{user.realName},#{user.password},#{user.status},#{user.did},#{user.sex},#{user.phone}
         )
     </insert>
 
@@ -23,14 +23,14 @@
     <select id="queryByUnameAndPword" resultMap="pw.User">
         SELECT `username`,`real_name`,`password`,`status`,`is_delete` FROM `t_user` WHERE `username` = #{user.username} AND password = #{user.password}
     </select>
-<!--开始-->
-    <!--<select id="queryByRole" resultMap="pw.User">-->
-        <!--SELECT * FROM t_user WHERE rid = #{rid}-->
-    <!--</select>-->
 
-    <!--<select id="queryByDepartment" resultMap="pw.User">-->
-        <!--SELECT * FROM t_user WHERE dname = #{dname}-->
-    <!--</select>-->
+    <select id="queryByRole" resultMap="pw.User">
+        SELECT * FROM t_user WHERE rid = #{rid}
+    </select>
+
+    <select id="queryByDid" resultMap="pw.User">
+        SELECT * FROM t_user WHERE did = #{did}
+    </select>
 
     <!--<select id="queryByStatus" resultMap="pw.User">-->
         <!--SELECT * FROM t_user WHERE status = #{status}-->
@@ -47,26 +47,29 @@
     <select id="queryMore" resultMap="pw.User">
         SELECT * FROM t_user
         <where>
-            <if test="rid!=null">
+            <if test="rid!=null and rid!=''">
                 AND rid = #{rid}
             </if>
-            <if test="dname!=null">
+            <if test="dname!=null and dname!=''">
                 AND dname = #{dname}
             </if>
-            <if test="status">
+            <if test="status!=null and status!=''">
                 AND status = #{status}
             </if>
-            <if test="isDelete">
+            <if test="isDelete!=null and isDelete!=''">
                 AND is_delete = #{isDelete}
             </if>
-            <if test="isBeCheck">
+            <if test="isBeCheck!=null and isBeCheck!=''">
                 AND is_be_check = #{isBeCheck}
             </if>
-            <if test="realName!=null">
+            <if test="realName!=null and realName!=''">
                 AND real_name = #{realName}
             </if>
-            <if test="username!=null">
+            <if test="username!=null and username!=''">
                 AND username = #{username}
+            </if>
+            <if test="phone!=null and phone != ''">
+
             </if>
         </where>
     </select>
@@ -96,11 +99,24 @@
         did = #{user.did},
         dname = #{user.dname},
         rid = #{user.rid},
-        pname = #{user.pname}
+        pname = #{user.pname},
+        phone = #{user.phone}
         WHERE id = #{user.id}
     </update>
     
     <update id="isJoinCheck">
         UPDATE t_user SET is_join_check = #{user.isJoinCheck} WHERE id =#{user.id}
     </update>
+
+    <select id="listAll" resultMap="pw.User">
+        SELECT * FROM t_user
+    </select>
+
+    <select id="queryByIsDelete" resultMap="pw.User">
+        select * from t_user WHERE is_delete = #{isDelete};
+    </select>
+
+    <select id="queryById" resultMap="pw.User">
+        SELECT * FROM t_user WHERE id = #{id}
+    </select>
 </mapper>

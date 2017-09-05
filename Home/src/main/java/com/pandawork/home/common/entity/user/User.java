@@ -50,6 +50,9 @@ public class User {
     //性别
     @Column(name = "sex")
     private String sex;
+    //手机号
+    @Column(name = "phone")
+    private String phone;
 
     public Integer getId() {
         return id;
@@ -153,6 +156,14 @@ public class User {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Override

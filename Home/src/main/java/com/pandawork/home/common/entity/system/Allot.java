@@ -11,8 +11,8 @@ import javax.persistence.Table;
  * 这是针对公司副总经理的表 ，用来分配副总经理的管辖范围
  */
 @Entity
-@Table(name = "t_administer")
-public class Administer {
+@Table(name = "t_allot")
+public class Allot {
 
     @Id
     private Integer id;

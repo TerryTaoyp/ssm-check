@@ -2,6 +2,10 @@ package com.pandawork.home.web.controller;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.framework.web.spring.controller.Base;
+import com.pandawork.home.service.system.AllotService;
+import com.pandawork.home.service.system.DepartmentService;
+import com.pandawork.home.service.system.PowerService;
+import com.pandawork.home.service.system.RoleService;
 import com.pandawork.home.service.user.UserService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -33,6 +37,9 @@ public class AbstractController extends Base {
     //该学生审核已通过，如需修改请与就业中心联系
     protected final static String UPDATE_ERROR_MSG = "该学生审核已通过，如需修改请与就业中心联系";
 
+
+    // 系统异常返回页面
+    protected final static String ADMIN_SYS_ERR_PAGE = "forward:/500.jsp";
 
     public void init(HttpServletRequest request, HttpServletResponse response) {
         super.init(request, response); // 执行父类的初始化
@@ -126,5 +133,13 @@ public class AbstractController extends Base {
     }
     @Autowired
     protected static UserService userService;
+    @Autowired
+    protected static RoleService roleService;
+    @Autowired
+    protected static PowerService powerService;
+    @Autowired
+    protected static DepartmentService departmentService;
+    @Autowired
+    protected static AllotService allotService;
 
 }

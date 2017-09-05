@@ -55,7 +55,7 @@ public class RoleServiceTest extends AbstractTestCase {
      */
     @Test
     public void listAllTest() throws Exception {
-        roleService.listAll();
+        System.out.println(roleService.listAll());
     }
 
     /**

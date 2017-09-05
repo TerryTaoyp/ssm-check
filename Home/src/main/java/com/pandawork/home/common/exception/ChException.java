@@ -25,6 +25,17 @@ public enum  ChException implements IBizExceptionMes{
     UpdateRealNameFailed("修改真实姓名失败",16),
     UpdateUserFailed("更新用户的基本信息失败",17),
     IsJoinCheckFailed("是否参与审核失败",18),
+    ListAllUserFailed("列出所有用户",19),
+    QueryUserByIsDeleteFailed("根据删除状态查询",20),
+    QueryUserByIdFailed("根据ID查找失败",21),
+    AddAllotFailed("新增管辖分配失败",22),
+    UpdateAllotFailed("更新管辖分配失败",23),
+    QueryAllotByUidFailed("根据用户ID查找管辖分配失败",24),
+    DelAllotFailed("删除关系分配失败 ",25),
+    ListAllAllotFailed("列出所有的管辖分配失败",26),
+    CountAllAllotFailed("计算所有的管辖分配失败",27),
+    QueryUserByRidFailed("根据角色ID查找用户失败",28),
+    QueryUserByDidFailed("根据部门ID查找用户失败",29),
 
 
     AddDepartmentFailed("新增部门失败",100),
