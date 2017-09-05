@@ -4,6 +4,7 @@ $(document).ready(function() {
 		el = {
 			J_tip: '.tip', //提示信息
 			J_change: '.change', // 修改按钮
+			J_delete: '.delete', // 删除按钮
 			J_ajax_submit: '.J-ajax-submit', // ajax提交按钮
 			J_department: '.department', // 所属部门名称
 			J_position: '.position', // 职位
@@ -67,6 +68,32 @@ $(document).ready(function() {
 				else{
 					$("body").animate({scrollTop:0}, 500);
 					$(el.J_tip).text('信息为空,无法提交');
+				}
+			});
+			// ajax删除
+			$(el.J_delete).click(function(ev) {
+				// 获取序列
+				var 
+					id = $(this).attr('data-num'),
+					path_url = _ajax.url.evaluation.plan_management.list.change;
+				// 删除确认
+				if (confirm("确认要删除？")) {
+					$.ajax({
+						url: path_url,
+						type: 'get',
+						dataType: 'json',
+						data: {
+							delete: 'true'
+						},
+						success: function(data) {
+							$('.table tr[data-id='+ id +']').remove();
+							// 修改数据数量信息
+							// 暂定
+						},
+						error: function(data,errorMsg) {
+							console.log('error');
+						}
+					})
 				}
 			});
 		}
