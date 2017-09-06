@@ -10,10 +10,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>账号管理</title>
+    <meta htt-equiv="X-UA-Compatible" content="IE=edge">
+    <title>账号管p理</title>
     <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="widh=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">t
     <jsp:include page="../common/link.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 
@@ -69,11 +69,7 @@
                                         <td>${status.index+1}</td>
                                         <td>${user.realName}</td>
                                         <td>${user.phone}</td>
-                                            <c:forEach items="${departmentList}" var="department">
-                                                <c:if test="${user.did == department.id}">
-                                                    <td>${department.name}</td>
-                                                </c:if>
-                                            </c:forEach>
+                                            <c:forEach items="${departmentList}" var="department">  </c:forEach>
                                         <c:forEach items="${roleList}" var="role">
                                             <c:if test="${user.rid == role.id}">
                                                 <td>${role.name}</td>
@@ -88,7 +84,7 @@
                                         </c:if>
 
                                         <td>
-                                            <button type="button" class="btn bg-olive">审核通过</button>
+                                            <button type="button" class="btn bg-olive"><a href="${website}/user/status/${user.id}">审核通过</a> </button>
                                             <button type="button" class="btn bg-orange">审核不通过</button>
                                             <button type="button" class="btn bg-red">删除</button>
                                         </td>

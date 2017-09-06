@@ -91,4 +91,25 @@ public class PersonController extends AbstractController {
             return ADMIN_SYS_ERR_PAGE;
         }
     }
+
+
+    @RequestMapping(value = "/status/{id}",method = RequestMethod.GET)
+    public String status(@PathVariable("id") int id)throws Exception{
+        try{
+            User user = userService.queryById(id);
+            int i = user.getStatus();
+            if (i==0){
+                i =1;
+            }else {
+                i=0;
+            }
+            user.setStatus(i);
+            userService.statusUser(user);
+            return "redirect:/user/accountlist";
+        }catch (SSException e){
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
 }

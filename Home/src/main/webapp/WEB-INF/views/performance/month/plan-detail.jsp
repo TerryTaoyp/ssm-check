@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Taoyongpan
-  Date: 2017/9/3
-  Time: 13:07
+  Date: 2017/9/5
+  Time: 22:51
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>年度考核列表</title>
+    <title>月/季度考核-工作计划结果报表详情</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <jsp:include page="../../common/link.jsp"/>
@@ -28,13 +28,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                年度考核列表
+                月/季度考核-工作计划结果报表详情
                 <small>栏目</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">测评模块</a></li>
-                <li class="active">年度考核列表</li>
+                <li><a href="#">成绩查询</a></li>
+                <li class="active">月/季度考核-工作计划结果报表详情</li>
             </ol>
         </section>
 
@@ -42,9 +42,9 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box">
+                    <div class="box box-primary">
                         <div class="box-header">
-                            <h3 class="box-title">他人考核计划列表</h3>
+                            <h3 class="box-title">......考核</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -52,43 +52,39 @@
                                 <thead>
                                 <tr>
                                     <th>考核计划名称</th>
-                                    <th>考核方式</th>
-                                    <th>所属部门</th>
+                                    <th>被考核人姓名</th>
+                                    <th>所在部门</th>
+                                    <th>职位</th>
+                                    <th>综合得分</th>
                                     <th>其他信息</th>
-                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td>章</td>
-                                    <td>工作计划</td>
-                                    <td>技术部</td>
+                                    <td>13837200544</td>
+                                    <td>产品</td>
+                                    <td>经理</td>
+                                    <td>77</td>
                                     <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                    <td>
-                                        <!-- <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#modal-default">查看详情1</button> -->
-                                        <a href="evaluation-detail.html" class="btn bg-green">我要评价</a>
-                                        <button type="button" class="btn bg-red disabled">已打分</button>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td>章</td>
-                                    <td>能力指标</td>
-                                    <td>产品部</td>
+                                    <td>1384</td>
+                                    <td>产品</td>
+                                    <td>经理</td>
+                                    <td>17</td>
                                     <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                    <td>
-                                        <!-- <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#modal-default">查看详情1</button> -->
-                                        <a href="evaluation-detail.html" class="btn bg-green">我要评价</a>
-                                        <button type="button" class="btn bg-red disabled">已打分</button>
-                                    </td>
                                 </tr>
                                 </tbody>
                                 <tfoot>
                                 <tr>
                                     <th>考核计划名称</th>
-                                    <th>考核方式</th>
-                                    <th>所属部门</th>
+                                    <th>被考核人姓名</th>
+                                    <th>所在部门</th>
+                                    <th>职位</th>
+                                    <th>综合得分</th>
                                     <th>其他信息</th>
-                                    <th>操作</th>
                                 </tr>
                                 </tfoot>
                             </table>
@@ -134,7 +130,6 @@
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-
 <!-- CKeditor -->
 <script src="../../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
 <!-- page script -->

@@ -13,36 +13,15 @@
     <title>年度考核-绩效综合能力</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="../../../../resources/js/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../../../resources/js/bower_components/font-awesome/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="../../../../resources/js/bower_components/Ionicons/css/ionicons.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="../../../../resources/js/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../../../resources/js/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="../../../../resources/js/dist/css/skins/_all-skins.min.css">
+    <jsp:include page="../../common/link.jsp"/>
+    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Google Font -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
+    <jsp:include page="../../common/header.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
-
+    <jsp:include page="../../common/sidebar.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/sidebar.html" -->
 
     <!-- Content Wrapper. Contains page content -->
@@ -72,20 +51,22 @@
 
                         <div class="form-group">
                             <label>姓名：</label>
-                            <input type="text" class="form-control" placeholder="请输入..." required="required" name="role">
+                            <input type="text" class="form-control require-text" placeholder="请输入..." name="role">
                         </div>
 
                         <div class="form-group">
                             <label>月份</label>
-                            <select class="form-control">
+                            <select class="form-control require-option">
+                                <option value="-1">请选择</option>
                                 <option>1月</option>
                                 <option>2月</option>
                             </select>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group require-option">
                             <label>所属部门</label>
-                            <select class="form-control">
+                            <select class="form-control require-option">
+                                <option value="-1">请选择</option>
                                 <option>产品部</option>
                                 <option>技术部</option>
                             </select>
@@ -93,7 +74,7 @@
 
                         <div class="form-group">
                             <label>发布人：</label>
-                            <input type="text" class="form-control" placeholder="请输入..." required="required" name="role">
+                            <input type="text" class="form-control require-text" placeholder="请输入..." name="role">
                         </div>
 
                         <div class="form-group">
@@ -104,7 +85,7 @@
                         </div>
 
                         <div class="box-footer">
-                            <input type="submit" class="btn btn-primary" value="提交">
+                            <input type="submit" class="btn btn-primary J-submit" value="提交">
                         </div>
                     </form>
                 </div>
@@ -114,32 +95,19 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <jsp:include page="../../common/footer.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
-
+    <jsp:include page="../../common/control-sidebar.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
 
     <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
-
-<!-- jQuery 3 -->
-<script src="../../../../resources/js/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="../../../../resources/js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="../../../../resources/js/bower_components/datatables.net/js/jquery.dataTables.js"></script>
-<script src="../../../../resources/js/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="../../../../resources/js/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="../../../../resources/js/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="../../../../resources/js/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../../../resources/js/dist/js/demo.js"></script>
+<jsp:include page="../../common/script.jsp"/>
+<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <!-- page script -->
 <!-- CKeditor -->
 <script src="../../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
+<script src="../../../../resources/js/pages/js/common/verify.js"></script>
 <script>
     $(function () {
         $('#example1').DataTable();

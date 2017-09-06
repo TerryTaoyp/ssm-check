@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Taoyongpan
-  Date: 2017/9/3
-  Time: 13:07
+  Date: 2017/9/5
+  Time: 22:53
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,17 +10,18 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>年度考核列表</title>
+    <title>测评结果展示导出</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <jsp:include page="../../common/link.jsp"/>
+    <jsp:include page="../common/link.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-    <jsp:include page="../../common/header.jsp"/>
+    <jsp:include page="../common/header.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
-    <jsp:include page="../../common/sidebar.jsp"/>
+    <jsp:include page="../common/sidebar.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/sidebar.html" -->
 
     <!-- Content Wrapper. Contains page content -->
@@ -28,23 +29,83 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                年度考核列表
+                测评结果导出
                 <small>栏目</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">测评模块</a></li>
-                <li class="active">年度考核列表</li>
+                <li><a href="#">成绩查询</a></li>
+                <li class="active">测评结果导出</li>
             </ol>
         </section>
 
         <!-- Main content -->
         <section class="content">
+            <div class="box box-warning">
+                <div class="box-header with-border">
+                    <h3 class="box-title">测评结果导出</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <form role="form">
+
+                        <div class="form-group">
+                            <label>所在部门：</label>
+                            <select class="form-control">
+                                <option>请选择</option>
+                                <option>产品部</option>
+                                <option>技术部</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>考核类型：</label>
+                            <select class="form-control">
+                                <option>请选择</option>
+                                <option>月/季度</option>
+                                <option>年度</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>月份：</label>
+                            <select class="form-control">
+                                <option>请选择</option>
+                                <option>1月</option>
+                                <option>2月</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>年份：</label>
+                            <select class="form-control">
+                                <option>请选择</option>
+                                <option>2017年</option>
+                                <option>2018年</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>考核方式：</label>
+                            <select class="form-control">
+                                <option>请选择</option>
+                                <option>绩效综合能力考核</option>
+                                <option>能力指标考核</option>
+                            </select>
+                        </div>
+
+                        <div class="box-footer">
+                            <input type="submit" class="btn btn-primary" value="查询">
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box-body -->
+            </div>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">他人考核计划列表</h3>
+                            <h3 class="box-title">全部考核列表</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -52,8 +113,9 @@
                                 <thead>
                                 <tr>
                                     <th>考核计划名称</th>
-                                    <th>考核方式</th>
-                                    <th>所属部门</th>
+                                    <th>被考核人姓名</th>
+                                    <th>职位</th>
+                                    <th>综合得分</th>
                                     <th>其他信息</th>
                                     <th>操作</th>
                                 </tr>
@@ -61,34 +123,38 @@
                                 <tbody>
                                 <tr>
                                     <td>章</td>
-                                    <td>工作计划</td>
-                                    <td>技术部</td>
+                                    <td>13837200544</td>
+                                    <td>经理</td>
+                                    <td>77</td>
                                     <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
                                     <td>
-                                        <!-- <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#modal-default">查看详情1</button> -->
-                                        <a href="evaluation-detail.html" class="btn bg-green">我要评价</a>
-                                        <button type="button" class="btn bg-red disabled">已打分</button>
+                                        <a href="result-detail.html" class="btn bg-blue">查看详情</a>
+                                        <button type="button" class="btn bg-green">打印此报表</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>章</td>
-                                    <td>能力指标</td>
-                                    <td>产品部</td>
+                                    <td>1384</td>
+                                    <td>经理</td>
+                                    <td>17</td>
                                     <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
                                     <td>
-                                        <!-- <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#modal-default">查看详情1</button> -->
-                                        <a href="evaluation-detail.html" class="btn bg-green">我要评价</a>
-                                        <button type="button" class="btn bg-red disabled">已打分</button>
+                                        <a href="result-detail.html" class="btn bg-blue">查看详情</a>
+                                        <button type="button" class="btn bg-green">打印此报表</button>
                                     </td>
                                 </tr>
                                 </tbody>
                                 <tfoot>
                                 <tr>
                                     <th>考核计划名称</th>
-                                    <th>考核方式</th>
-                                    <th>所属部门</th>
+                                    <th>被考核人姓名</th>
+                                    <th>职位</th>
+                                    <th>综合得分</th>
                                     <th>其他信息</th>
-                                    <th>操作</th>
+                                    <th>
+                                        操作
+                                        <button type="button" class="btn bg-green">全部导出</button>
+                                    </th>
                                 </tr>
                                 </tfoot>
                             </table>
@@ -104,9 +170,9 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <jsp:include page="../../common/footer.jsp"/>
+    <jsp:include page="../common/footer.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
-    <jsp:include page="../../common/control-sidebar.jsp"/>
+    <jsp:include page="../common/control-sidebar.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
 
     <div class="control-sidebar-bg"></div>
@@ -132,11 +198,10 @@
     </div>
 </div>
 <!-- ./wrapper -->
-<jsp:include page="../../common/script.jsp"/>
+<jsp:include page="../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-
 <!-- CKeditor -->
-<script src="../../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
+<script src="../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
 <!-- page script -->
 <script>
     $(function () {

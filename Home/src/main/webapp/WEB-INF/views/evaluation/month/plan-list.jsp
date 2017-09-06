@@ -13,33 +13,15 @@
     <title>月度考核-工作计划列表</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="../../../../resources/js/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../../../resources/js/bower_components/font-awesome/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="../../../../resources/js/bower_components/Ionicons/css/ionicons.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="../../../../resources/js/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../../../resources/js/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="../../../../resources/js/dist/css/skins/_all-skins.min.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <jsp:include page="../../common/link.jsp"/>
+    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
+    <jsp:include page="../../common/header.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
-
+    <jsp:include page="../../common/sidebar.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/sidebar.html" -->
 
     <!-- Content Wrapper. Contains page content -->
@@ -78,24 +60,24 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
+                                <tr data-id="1">
                                     <td>3月份工作计划考核（产品部）</td>
                                     <td>产品部</td>
                                     <td>经理</td>
                                     <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
                                     <td>
                                         <a href="plan-detail.html" class="btn bg-blue">查看详情</a>
-                                        <button type="button" class="btn bg-red">删除</button>
+                                        <button type="button" class="btn bg-red delete" data-num="1">删除</button>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr data-id="2">
                                     <td>3月份工作计划考核（技术部）</td>
                                     <td>技术部</td>
                                     <td>经理</td>
                                     <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
                                     <td>
                                         <a href="plan-detail.html" class="btn bg-blue">查看详情</a>
-                                        <button type="button" class="btn bg-red">删除</button>
+                                        <button type="button" class="btn bg-red delete" data-num="2">删除</button>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -121,10 +103,10 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
+    <jsp:include page="../../common/footer.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
 
-
+    <jsp:include page="../../common/control-sidebar.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
 
     <div class="control-sidebar-bg"></div>
@@ -178,22 +160,9 @@
     </div>
 </div>
 <!-- ./wrapper -->
-
-<!-- jQuery 3 -->
-<script src="../../../../resources/js/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="../../../../resources/js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="../../../../resources/js/bower_components/datatables.net/js/jquery.dataTables.js"></script>
-<script src="../../../../resources/js/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="../../../../resources/js/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="../../../../resources/js/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="../../../../resources/js/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../../../resources/js/dist/js/demo.js"></script>
+<jsp:include page="../../common/script.jsp"/>
+<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
+<script src="../../../../resources/js/pages/js/evaluation/month/plan-list.js"></script>
 <!-- page script -->
 <script>
     $(function () {
@@ -202,4 +171,3 @@
 </script>
 </body>
 </html>
-
