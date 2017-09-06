@@ -65,11 +65,15 @@
                                 <tbody>
 
                                     <c:forEach items="${userList}" var="user" varStatus="status">
-                                        <tr>
+                                        <tr data-id="${status.index+1}"
                                         <td>${status.index+1}</td>
                                         <td>${user.realName}</td>
                                         <td>${user.phone}</td>
-                                            <c:forEach items="${departmentList}" var="department">  </c:forEach>
+                                        <c:forEach items="${departmentList}" var="department">
+                                            <c:if test="${department.id == user.uid}">
+                                                <td>${department.name}</td>
+                                            </c:if>
+                                        </c:forEach>
                                         <c:forEach items="${roleList}" var="role">
                                             <c:if test="${user.rid == role.id}">
                                                 <td>${role.name}</td>
@@ -86,7 +90,7 @@
                                         <td>
                                             <button type="button" class="btn bg-olive"><a href="${website}/user/status/${user.id}">审核通过</a> </button>
                                             <button type="button" class="btn bg-orange">审核不通过</button>
-                                            <button type="button" class="btn bg-red">删除</button>
+                                            <button type="button" class="btn bg-red delete" data-num="${status.index+1}">删除</button>
                                         </td>
                                 </tr>
                                     </c:forEach>
@@ -125,7 +129,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存修改</button>
+                    <button type="button" class="btn btn-primary J-ajax-sub">保存修改</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -136,6 +140,7 @@
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
+<script src="../../../resources/js/pages/js/common/verify.js"></script>
 <!-- page script -->
 <script>
     $(function () {

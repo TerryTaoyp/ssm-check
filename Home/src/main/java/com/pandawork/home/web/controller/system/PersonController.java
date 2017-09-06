@@ -41,7 +41,11 @@ public class PersonController extends AbstractController {
     public String toPerson(Model model)throws Exception{
         try{
             List<User> userList = userService.queryByIsDelete(1);
+            List<Role> roleList = roleService.listAll();
+            List<Department> departmentList = departmentService.listAll();
             model.addAttribute("userList",userList);
+            model.addAttribute("roleList",roleList);
+            model.addAttribute("departmentList",departmentList);
             return "system/personnel-list";
         }catch (SSException e){
             LogClerk.errLog.error(e);
@@ -61,6 +65,7 @@ public class PersonController extends AbstractController {
             User user = userService.queryById(id);
             user.setIsDelete(0);
             userService.delUser(user);
+
             return "redirect:/user/list";
         }catch (SSException e){
             LogClerk.errLog.error(e);
@@ -92,7 +97,12 @@ public class PersonController extends AbstractController {
         }
     }
 
-
+    /**
+     * 审核
+     * @param id
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/status/{id}",method = RequestMethod.GET)
     public String status(@PathVariable("id") int id)throws Exception{
         try{

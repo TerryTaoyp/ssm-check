@@ -49,16 +49,16 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <form role="form">
+                    <form action="${website}/testplan/add" method="post">
 
                         <div class="form-group">
                             <label>考核计划名称：</label>
-                            <input type="text" class="form-control require-text" placeholder="请输入..." name="role">
+                            <input type="text" class="form-control require-text" placeholder="请输入..." name="testName">
                         </div>
 
                         <div class="form-group">
                             <label>考核性质</label>
-                            <select class="form-control require-option">
+                            <select class="form-control require-option" name="testTypeId">
                                 <option value="-1">请选择</option>
                                 <option>月度考核</option>
                                 <option>年度考核</option>

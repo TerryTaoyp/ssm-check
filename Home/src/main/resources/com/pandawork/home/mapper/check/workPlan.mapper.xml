@@ -22,4 +22,8 @@
         UPDATE t_work_plan SET month_score = #{workPlan.monthScore},
         queater_score = #{workPlan.queaterScore} WHERE id = #{workPlan.id}
     </update>
+
+    <select id="listAll" resultMap="pw.WorkPlan">
+        SELECT * FROM t_work_plan
+    </select>
 </mapper>

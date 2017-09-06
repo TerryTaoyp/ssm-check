@@ -2,7 +2,9 @@ package com.pandawork.home.web.controller.system;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
+import com.pandawork.home.common.entity.system.Power;
 import com.pandawork.home.common.entity.system.Role;
+import com.pandawork.home.service.system.PowerService;
 import com.pandawork.home.service.system.RoleService;
 import com.pandawork.home.web.controller.AbstractController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,8 @@ public class RoleController extends AbstractController {
 
     @Autowired
     RoleService roleService;
+    @Autowired
+    PowerService powerService;
 
 
     /**
@@ -65,7 +69,9 @@ public class RoleController extends AbstractController {
      * @throws Exception
      */
     @RequestMapping(value = "/toadd",method = RequestMethod.GET)
-    public String toAdd()throws Exception{
+    public String toAdd(Model model)throws Exception{
+        List<Power> powerList = powerService.listAll();
+        model.addAttribute("powerList",powerList);
         return "system/role-add";
     }
 

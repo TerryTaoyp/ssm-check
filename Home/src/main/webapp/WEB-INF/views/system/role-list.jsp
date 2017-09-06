@@ -61,12 +61,12 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${roleList}" var="role" varStatus="status">
-                                    <tr>
+                                    <tr data-id="${status.index+1}">
                                         <td>${status.index+1}</td>
-                                        <td>${role.name}</td>
+                                        <td class="role-text">${role.name}</td>
                                         <td>
-                                            <button type="button" class="btn bg-olive"  data-toggle="modal" data-target="#modal-default">修改</button>
-                                            <button type="button" class="btn bg-red"><a href="${website}/role/del/${role.id}">删除角色</a></button>
+                                            <button type="button" class="btn bg-olive change"  data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改</button>
+                                            <button type="button" class="btn bg-red delete" data-num="${status.index+1}" ><a href="${website}/role/del/${role.id}">删除角色</a></button>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -91,41 +91,42 @@
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
 
     <div class="control-sidebar-bg"></div>
-    <div class="modal fade" id="modal-default">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">修改角色信息</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>角色名称：</label>
-                        <input type="text" class="form-control" placeholder="请输入..." name="role">
+        <div class="modal fade" id="modal-default">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">修改角色信息</h4>
                     </div>
-                    <div class="form-group">
-                        <label>选择权限：</label>
-                        <select class="form-control select2" multiple="multiple" data-placeholder="请选择..." style="width: 100%;" name="jurisdiction">
-                            <option>权限1</option>
-                            <option>权限2</option>
-                            <option>权限3</option>
-                        </select>
+                    <div class="modal-body">
+                        <input type="hidden" id="dataId">
+                        <div class="form-group">
+                            <label>角色名称：</label>
+                            <input type="text" class="form-control a-require-text role" placeholder="请输入..." name="role">
+                        </div>
+                        <div class="form-group">
+                            <label>选择权限：</label>
+                            <select class="form-control select2 a-require-options jurisdiction" multiple="multiple" data-placeholder="请选择..." style="width: 100%;" name="jurisdiction">
+                                <option>权限1</option>
+                                <option>权限2</option>
+                                <option>权限3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>备注信息：</label>
+                            <textarea class="form-control a-require-text remark" rows="3" placeholder="请输入..."></textarea>
+                        </div>
+                        <p class="text-red tip"></p>
                     </div>
-                    <div class="form-group">
-                        <label>备注信息：</label>
-                        <textarea class="form-control" rows="3" placeholder="请输入..."></textarea>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary J-ajax-submit">修改</button>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary J-ajax-submit">修改</button>
-                </div>
+                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
+            <!-- /.modal-dialog -->
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
@@ -134,7 +135,7 @@
 <script src="../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
 <!-- 验证模块 -->
 <script src="../../../resources/js/pages/js/common/verify.js"></script>
-
+<script src="../../../resources/js/pages/js/system/role-list.js"></script>
 <script>
     $(function () {
         $('.select2').select2();

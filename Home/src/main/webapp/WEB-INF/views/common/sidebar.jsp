@@ -95,8 +95,8 @@
                 </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/evaluation/plan-management.html"><i class="fa fa-circle-o"></i>列表展示</a></li>
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/evaluation/plan-management-add.html"><i class="fa fa-circle-o"></i>添加</a></li>
+                            <li><a href="${website}/testplan/list"><i class="fa fa-circle-o"></i>列表展示</a></li>
+                            <li><a href="${website}/testplan/toadd"><i class="fa fa-circle-o"></i>添加</a></li>
                         </ul>
                     </li>
                     <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/evaluation/allot-list.html"><i class="fa fa-circle-o"></i>考核分配</a></li>

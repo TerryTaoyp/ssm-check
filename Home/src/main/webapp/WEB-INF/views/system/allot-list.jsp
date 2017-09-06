@@ -64,7 +64,7 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${userList1}" var="user" varStatus="status">
-                                    <tr>
+                                    <tr data-id="${status.index+1}">
                                         <td>${status.index+1}</td>
                                         <td>${user.realName}</td>
                                         <td>副总经理</td>
@@ -74,9 +74,9 @@
                                             </c:if>
                                         </c:forEach>
                                         <td>
-                                            <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#modal-default">修改管辖范围</button>
+                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改管辖范围</button>
                                             <button type="button" class="btn bg-blue">分配权限</button>
-                                            <button type="button" class="btn bg-red"><a href="${website}/allot/del/${allot.id}">删除</a></button>
+                                            <button type="button" class="btn bg-red delete" data-num="${status.index+1}"><a href="${website}/allot/del/${allot.id}">删除</a></button>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -107,20 +107,26 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">修改职位</h4>
+                    <h4 class="modal-title">修改管辖范围</h4>
                 </div>
                 <div class="modal-body">
+                    <input type="hidden" id="dataId">
                     <div class="form-group">
                         <label>选择部门：</label>
-                        <select class="form-control select2" multiple="multiple" data-placeholder="请选择..." style="width: 100%;">
+                        <select class="form-control select2 a-require-options department" multiple="multiple" data-placeholder="请选择..." style="width: 100%;">
                             <option>部门1</option>
                             <option>部门2</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label>备注信息：</label>
+                        <textarea class="form-control a-require-text remark" rows="3" placeholder="请输入..."></textarea>
+                    </div>
+                    <p class="text-red tip"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存修改</button>
+                    <button type="button" class="btn btn-primary J-ajax-submit">保存修改</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -133,6 +139,8 @@
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <!-- select2 -->
 <script src="../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
+<script src="../../../resources/js/pages/js/common/verify.js"></script>
+<script src="../../../resources/js/pages/js/system/allot-list.js"></script>
 <!-- page script -->
 <script>
     $(function () {

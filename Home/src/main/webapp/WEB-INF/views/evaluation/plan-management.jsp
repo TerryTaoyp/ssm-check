@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -54,46 +55,31 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
+                                    <th>序号</th>
                                     <th>考核计划名称</th>
                                     <th>考核性质</th>
-                                    <th>考核对象</th>
-                                    <th>备注信息</th>
+                                    <th>考核开始时间</th>
+                                    <th>考核结束时间</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr data-id="1">
-                                    <td class="name-text">2月考核计划</td>
-                                    <td class="nature-text">月度考核</td>
-                                    <td class="position-text">经理</td>
-                                    <td class="remark-text">收到对对对对对对</td>
-                                    <td>
-                                        <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="1">修改计划</button>
-                                        <button type="button" class="btn bg-blue">分配权限</button>
-                                        <button type="button" class="btn bg-red delete" data-num="1">删除</button>
-                                    </td>
-                                </tr>
-                                <tr data-id="2">
-                                    <td class="name-text">2月考核计划</td>
-                                    <td class="nature-text">月度考核</td>
-                                    <td class="position-text">经理</td>
-                                    <td class="remark-text">收到对对对对对对</td>
-                                    <td>
-                                        <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="2">修改计划</button>
-                                        <button type="button" class="btn bg-blue">分配权限</button>
-                                        <button type="button" class="btn bg-red delete" data-num="2">删除</button>
-                                    </td>
-                                </tr>
+                                <c:forEach items="${testPlanList}" var="testPlan" varStatus="status">
+                                    <tr data-id="${status.index+1}">
+                                        <td>${status.index+1}</td>
+                                        <td class="name-text">${testPlan.testName}</td>
+                                        <td class="nature-text">${testPlan.testTypeId}</td>
+                                        <td class="position-text">${testPlan.startTime}</td>
+                                        <td class="remark-text">${testPlan.finishTime}</td>
+                                        <td>
+                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="1">修改计划</button>
+                                            <button type="button" class="btn bg-blue">分配权限</button>
+                                            <button type="button" class="btn bg-red delete" data-num="1" href="${website}/testplan/del/${testPlan.id}">删除</button>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>考核计划名称</th>
-                                    <th>考核性质</th>
-                                    <th>考核对象</th>
-                                    <th>备注信息</th>
-                                    <th>操作</th>
-                                </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.box-body -->

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -57,9 +58,9 @@
                         <div class="form-group">
                             <label>选择权限：</label>
                             <select class="form-control select2 require-options" multiple="multiple" data-placeholder="请选择..." style="width: 100%;" name="pid">
-                                <option value="0">权限1</option>
-                                <option value="1">权限2</option>
-                                <option value="2">权限3</option>
+                                <c:forEach items="${powerList}" var="power">
+                                    <option value="${power.id}">${power.power}</option>
+                                </c:forEach>
                             </select>
                         </div>
 
