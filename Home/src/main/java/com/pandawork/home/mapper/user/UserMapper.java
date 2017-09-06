@@ -109,7 +109,7 @@ public interface UserMapper {
     public void isJoinCheck(@Param("user") User user)throws SSException;
 
     /**
-     * 列出所有 用户
+     * 列出所有用户
      * @return
      * @throws SSException
      */

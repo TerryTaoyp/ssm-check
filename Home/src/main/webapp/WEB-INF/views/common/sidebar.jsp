@@ -99,7 +99,7 @@
                             <li><a href="${website}/testplan/toadd"><i class="fa fa-circle-o"></i>添加</a></li>
                         </ul>
                     </li>
-                    <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/evaluation/allot-list.html"><i class="fa fa-circle-o"></i>考核分配</a></li>
+                    <li><a href="${website}/testplan/toallot"><i class="fa fa-circle-o"></i>考核分配</a></li>
                     <li class="treeview">
                         <a href="#"><i class="fa fa-circle-o"></i>月/季度考核管理
                             <span class="pull-right-container">

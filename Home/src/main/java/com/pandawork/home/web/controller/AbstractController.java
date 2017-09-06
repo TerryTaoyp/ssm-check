@@ -3,6 +3,7 @@ package com.pandawork.home.web.controller;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.framework.web.spring.controller.Base;
 import com.pandawork.home.service.check.TestPlanService;
+import com.pandawork.home.service.check.TestTypeService;
 import com.pandawork.home.service.check.WorkPlanService;
 import com.pandawork.home.service.system.AllotService;
 import com.pandawork.home.service.system.DepartmentService;
@@ -147,5 +148,7 @@ public class AbstractController extends Base {
     protected static WorkPlanService workPlanService;
     @Autowired
     protected static TestPlanService testPlanService;
+    @Autowired
+    protected static TestTypeService testTypeService;
 
 }

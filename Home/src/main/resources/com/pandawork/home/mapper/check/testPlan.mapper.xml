@@ -46,4 +46,8 @@
     <select id="countAll" resultType="int">
         SELECT COUNT(1) FROM t_test_plan
     </select>
+
+    <!--<select id="queryByIsDelete" resultMap="pw.TestPlan">-->
+        <!--SELECT * FROM t_work_plan WHERE is_avaiable-->
+    <!--</select>-->
 </mapper>

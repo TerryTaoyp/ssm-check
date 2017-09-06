@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -60,8 +61,9 @@
                             <label>考核性质</label>
                             <select class="form-control require-option" name="testTypeId">
                                 <option value="-1">请选择</option>
-                                <option>月度考核</option>
-                                <option>年度考核</option>
+                                <c:forEach items="${testTypeList}" var="testType">
+                                    <option value="${testType.id}">${testType.name}</option>
+                                </c:forEach>
                             </select>
                         </div>
 
@@ -75,25 +77,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label>考核方式：</label>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" checked="checked">
-                                    工作计划考核
-                                </label>
-                            </div>
-
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                    绩效指标考核
-                                </label>
-                            </div>
+                            <label>考核开始时间：</label>
+                            <input type="date" class="form-control require-text"  name="startTime">
                         </div>
 
                         <div class="form-group">
-                            <label>备注信息：</label>
-                            <textarea class="form-control require-text" rows="3" placeholder="请输入..."></textarea>
+                            <label>考核结束时间：</label>
+                            <input type="date" class="form-control require-text"  name="finishTime">
                         </div>
 
                         <div class="box-footer">

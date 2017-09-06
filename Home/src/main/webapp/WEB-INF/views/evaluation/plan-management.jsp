@@ -60,6 +60,7 @@
                                     <th>考核性质</th>
                                     <th>考核开始时间</th>
                                     <th>考核结束时间</th>
+                                    <th>是否开启</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -68,13 +69,23 @@
                                     <tr data-id="${status.index+1}">
                                         <td>${status.index+1}</td>
                                         <td class="name-text">${testPlan.testName}</td>
-                                        <td class="nature-text">${testPlan.testTypeId}</td>
+                                        <c:forEach items="${testTypeList}" var="testType">
+                                            <c:if test="${testPlan.testTypeId == testType.id}">
+                                                <td class="nature-text">${testType.name}</td>
+                                            </c:if>
+                                        </c:forEach>
                                         <td class="position-text">${testPlan.startTime}</td>
                                         <td class="remark-text">${testPlan.finishTime}</td>
+                                        <c:if test="${testPlan.isAvailable==1}">
+                                            <td>已开启</td>
+                                        </c:if>
+                                        <c:if test="${testPlan.isAvailable==0}">
+                                            <td>未开启</td>
+                                        </c:if>
                                         <td>
-                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="1">修改计划</button>
+                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改计划</button>
                                             <button type="button" class="btn bg-blue">分配权限</button>
-                                            <button type="button" class="btn bg-red delete" data-num="1" href="${website}/testplan/del/${testPlan.id}">删除</button>
+                                            <button type="button" class="btn bg-red delete" data-num="${status.index+1}" ><a href="${website}/testplan/del/${testPlan.id}">改变状态</a></button>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -93,7 +104,7 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <jsp:include page="../common/header.jsp"/>
+    <jsp:include page="../common/footer.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
     <jsp:include page="../common/control-sidebar.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
