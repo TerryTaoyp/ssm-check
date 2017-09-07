@@ -64,38 +64,37 @@
                       <div class="timeline-body box-body">
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r1" class="minimal answer" data-num="1">
                             A.答案1
                           </label>
                           <a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
                         </div>
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r1" class="minimal answer" data-num="2">
                             B.答案1
                           </label>
                           <a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
                         </div>
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r1" class="minimal answer" data-num="3">
                             C.答案1
                           </label>
                           <a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
                         </div>
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r1" class="minimal answer" data-num="4">
                             D.答案1
                           </label>
                           <a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
                         </div>
-
                       </div>
                       <div class="timeline-footer">
                         <div class="form-group">
                             <label>请输入分数：</label>
-                            <input type="text" class="form-control" placeholder="10.0-10.0" required="required" name="role">
+                            <input type="text" class="form-control require-text" placeholder="请填写分数..." name="role">
                         </div>
                       </div>
                     </div>
@@ -115,28 +114,28 @@
                       <div class="timeline-body box-body">
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r2" class="minimal answer">
                             A.答案1
                           </label>
                           <a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
                         </div>
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r2" class="minimal answer">
                             B.答案1
                           </label>
                           <a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
                         </div>
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r2" class="minimal answer">
                             C.答案1
                           </label>
                           <a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
                         </div>
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r2" class="minimal answer">
                             D.答案1
                           </label>
                           <a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
@@ -146,7 +145,7 @@
                       <div class="timeline-footer">
                         <div class="form-group">
                             <label>请输入分数：</label>
-                            <input type="text" class="form-control" placeholder="10.0-10.0" required="required" name="role">
+                            <input type="text" class="form-control require-text" placeholder="请填写分数..." name="role">
                         </div>
                       </div>
                     </div>
@@ -163,7 +162,8 @@
                 </ul>
               </div>
               <div class="box-footer">
-                  <input type="submit" class="btn btn-primary" value="提交">
+                  <p class="text-red tip"></p>
+                  <input type="submit" class="btn btn-primary J-submit" value="提交">
               </div>
             </div>
           </form>
@@ -176,26 +176,6 @@
   <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
 
   <div class="control-sidebar-bg"></div>
-  <div class="modal fade" id="modal-default">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">修改计划</h4>
-        </div>
-        <div class="modal-body">
-          <p>One fine body&hellip;</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-          <button type="button" class="btn btn-primary">保存修改</button>
-        </div>
-      </div>
-      <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-  </div>
 </div>
 <!-- ./wrapper -->
 
@@ -203,6 +183,8 @@
   
 <!-- iCheck -->
 <script src="../../../../resources/js/plugins/iCheck/icheck.min.js"></script>
+<script src="../../../../resources/js/pages/common/verify.js"></script>
+<script src="../../../../resources/js/pages/exam/month/exam-detail.js"></script>
 <!-- page script -->
 <script>
   $(function () {
