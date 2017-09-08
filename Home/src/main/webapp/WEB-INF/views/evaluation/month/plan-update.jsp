@@ -41,7 +41,7 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="box box-warning">
+            <div class="box box-success">
                 <div class="box-header with-border">
                     <h3 class="box-title">增添新工作计划</h3>
                 </div>

@@ -41,7 +41,7 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="box box-warning">
+            <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title">测评结果导出</h3>
                 </div>

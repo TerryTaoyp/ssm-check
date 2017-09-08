@@ -35,7 +35,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">考核管理</a></li>
+                <li><a href="#">系统管理</a></li>
                 <li class="active">部门管理</li>
             </ol>
         </section>
@@ -44,9 +44,9 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box box-primary">
+                    <div class="box box-warning">
                         <div class="box-header">
-                            <h3 class="box-title">已有部门管理</h3>
+                            <h3 class="box-title">已有部门管理列表</h3>
                         </div>
                         <div class="box-body">
                             <table id="example1" class="table table-bordered table-striped">

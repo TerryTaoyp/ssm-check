@@ -34,7 +34,7 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
+          <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title">xx的3月工作计划</h3>
             </div>
@@ -59,7 +59,7 @@
                         <td>横说竖说护手霜分</td>
                         <td>90分</td>
                         <td>90分</td>
-                        <td>暂未打分</td>
+                        <td class="score-text">暂未打分</td>
                         <td>
                             <button type="button" class="btn bg-green" data-toggle="modal" data-target="#modal-default">打分</button>
                             <button type="button" class="btn bg-red disabled">已打分</button>
@@ -71,7 +71,7 @@
                         <td>横说竖说护手霜分</td>
                         <td>90分</td>
                         <td>90分</td>
-                        <td>暂未打分</td>
+                        <td class="score-text">暂未打分</td>
                         <td>
                             <button type="button" class="btn bg-green" data-toggle="modal" data-target="#modal-default">打分</button>
                             <button type="button" class="btn bg-red disabled">已打分</button>
@@ -97,6 +97,8 @@
         </div>
         <!-- /.col -->
       </div>
+      <a href="evaluation-list.html" class="btn bg-olive">返回列表</a>
+
       <!-- /.row -->
     </section>
     <!-- /.content -->
@@ -109,32 +111,34 @@
   <div class="control-sidebar-bg"></div>
   <div class="modal fade" id="modal-default">
     <div class="modal-dialog">
-      <form class="modal-content">
+      <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">打分</h4>
         </div>
         <div class="modal-body">
+          <input type="hidden" id="dataId">
           <div class="form-group">
-              <label>您的分数：</label>
-              <input type="text" class="form-control" placeholder="请输入0-100内数字..." required="required" name="role">
+              <label>您的分数</label>
+              <input type="text" class="form-control score a-require-text" placeholder="请输入0-100内数字..." name="role">
           </div>
+          <p class="text-red tip"></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-          <input type="submit" class="btn btn-primary" value="打分">
+          <button type="submit" class="btn btn-primary J-ajax-submit">打分</button>
         </div>
-      </form>
+      </div>
       <!-- /.modal-content -->
     </div>
-</div>
+    <!-- /.modal-dialog -->
+  </div>
 <!-- ./wrapper -->
 
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-
-<!-- CKeditor -->
-<script src="../../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
+<script src="../../../../resources/js/pages/common/verify.js"></script>
+  <script src="../../../../resources/js/pages/exam/month/evaluation-detail.js"></script>
 <script>
   $(function () {
     $('#example1').DataTable();

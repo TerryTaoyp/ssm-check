@@ -43,7 +43,7 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box box-success">
+                    <div class="box box-warning">
                         <div class="box-header">
                             <h3 class="box-title">已有权限管理</h3>
                         </div>

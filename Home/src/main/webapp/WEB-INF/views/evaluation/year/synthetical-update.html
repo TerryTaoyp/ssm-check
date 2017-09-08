@@ -21,7 +21,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        绩效综合能力考核设置
+        绩效综合能力考核修改
         <small>栏目</small>
       </h1>
       <ol class="breadcrumb">
@@ -40,22 +40,19 @@
       <!-- /.box-header -->
       <div class="box-body">
         <form role="form">
+          
             <div class="form-group">
                 <label>姓名：</label>
-                <input type="text" class="form-control require-text" placeholder="请输入..." name="role">
+                <input type="text" class="form-control" disabled="disabled" value="haha">
             </div>
 
             <div class="form-group">
-              <label>月份：</label>
-              <select class="form-control require-option">
-                <option value="-1">请选择</option>
-                <option>1月</option>
-                <option>2月</option>
-              </select>
+              <label>月份</label>
+                <input type="text" class="form-control" disabled="disabled" value="haha">
             </div>
 
-            <div class="form-group">
-              <label>所属部门：</label>
+            <div class="form-group require-option">
+              <label>所属部门</label>
               <select class="form-control require-option">
                 <option value="-1">请选择</option>
                 <option>产品部</option>
@@ -76,6 +73,7 @@
             </div>
             
             <div class="box-footer">
+                <a href="synthetical-detail.html" class="btn bg-olive">返回我的信息</a>
                 <input type="submit" class="btn btn-primary J-submit" value="提交">
             </div>
         </form>

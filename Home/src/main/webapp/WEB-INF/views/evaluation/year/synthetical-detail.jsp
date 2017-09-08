@@ -72,7 +72,7 @@
                     <!-- nav-tabs-custom -->
                 </div>
                 <div class="col-md-12">
-                    <div class="box">
+                    <div class="box box-success">
                         <div class="box-header">
                             <h3 class="box-title">绩效综合能力目录</h3>
                         </div>

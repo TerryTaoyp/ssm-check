@@ -33,14 +33,14 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">考核管理</a></li>
+                <li><a href="#">系统管理</a></li>
                 <li class="active">权限管理</li>
             </ol>
         </section>
 
         <!-- Main content -->
         <section class="content">
-            <div class="box box-success">
+            <div class="box box-warning">
                 <div class="box-header with-border">
                     <h3 class="box-title">增添权限</h3>
                 </div>

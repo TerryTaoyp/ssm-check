@@ -44,9 +44,9 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box">
+                    <div class="box box-warning">
                         <div class="box-header">
-                            <h3 class="box-title">人员管理</h3>
+                            <h3 class="box-title">人员管理列表</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
