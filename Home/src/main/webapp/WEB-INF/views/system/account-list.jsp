@@ -112,7 +112,7 @@
     <jsp:include page="../common/footer.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
 
-    <jsp:include page="../common/control-sidebar.jsp"/>
+    <%--<jsp:include page="../common/control-sidebar.jsp"/>--%>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
 
     <div class="control-sidebar-bg"></div>
@@ -140,7 +140,7 @@
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-<script src="../../../resources/js/pages/js/common/verify.js"></script>
+<script src="../../../resources/js/pages/common/verify.js"></script>
 <!-- page script -->
 <script>
     $(function () {

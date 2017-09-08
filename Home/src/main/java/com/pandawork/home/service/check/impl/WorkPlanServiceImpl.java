@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by Taoyongpan on 2017/8/29.
  */
@@ -45,6 +47,32 @@ public class WorkPlanServiceImpl implements WorkPlanService {
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.UpdateWorkPlanFailed);
+        }
+    }
+
+    @Override
+    public List<WorkPlan> queryByUid(int uid) throws SSException {
+        try{
+            if (Assert.isNull(uid)){
+                return null;
+            }
+            return workPlanMapper.queryByUid(uid);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryWorkPlanByUidFailed);
+        }
+    }
+
+    @Override
+    public WorkPlan queryByTestId(int testId) throws SSException {
+        try{
+            if (Assert.isNull(testId)){
+                return null;
+            }
+            return workPlanMapper.queryByTestId(testId);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryWorkPlanByUidFailed);
         }
     }
 }

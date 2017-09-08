@@ -81,20 +81,8 @@
                                         <td>${user.phone}</td>
                                         <td>
                                             <button type="button" class="btn bg-blue">查看详情</button>
-                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改</button>
-                                            <button type="button" class="btn bg-red delete" data-num="${status.index+1}"><a href="${website}/user/del/${user.id}">删除</a></button>
-                                        </td>
-                                    </tr>
-                                    <tr data-id="1">
-                                        <td>章</td>
-                                        <td class="department-text">技术部</td>
-                                        <td class="position-text">经理</td>
-                                        <td>132</td>
-                                        <td class="remark-text">收到对</td>
-                                        <td>
-                                            <button type="button" class="btn bg-blue">查看详情</button>
-                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="1">修改</button>
-                                            <button type="button" class="btn bg-red delete" data-num="1">删除</button>
+                                            <a type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}" href="${website}/user/ajax/update/${user.id}">修改</a>
+                                            <a type="button" class="btn bg-red delete" data-num="${status.index+1}" href="${website}/user/ajax/del/${user.id}">删除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -165,8 +153,8 @@
 <jsp:include page="../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <!-- page script -->
-<script src="../../../resources/js/pages/js/common/verify.js"></script>
-<script src="../../../resources/js/pages/js/system/personnel-list.js"></script>
+<script src="../../../resources/js/pages/common/verify.js"></script>
+<script src="../../../resources/js/pages/system/personnel-list.js"></script>
 <script>
     $(function () {
         $('#example1').DataTable();

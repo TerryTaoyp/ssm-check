@@ -74,9 +74,9 @@
                                             </c:if>
                                         </c:forEach>
                                         <td>
-                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改管辖范围</button>
+                                            <a type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}" href="${website}/allot/ajax/update/${user.id}">修改管辖范围</a>
                                             <button type="button" class="btn bg-blue">分配权限</button>
-                                            <button type="button" class="btn bg-red delete" data-num="${status.index+1}"><a href="${website}/allot/del/${allot.id}">删除</a></button>
+                                            <a type="button" class="btn bg-red delete" data-num="${status.index+1}"  href="${website}/allot/ajax/del/${allot.id}">删除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -139,8 +139,8 @@
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <!-- select2 -->
 <script src="../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
-<script src="../../../resources/js/pages/js/common/verify.js"></script>
-<script src="../../../resources/js/pages/js/system/allot-list.js"></script>
+<script src="../../../resources/js/pages/common/verify.js"></script>
+<script src="../../../resources/js/pages/system/allot-list.js"></script>
 <!-- page script -->
 <script>
     $(function () {

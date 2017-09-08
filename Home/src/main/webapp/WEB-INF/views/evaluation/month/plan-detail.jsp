@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -52,46 +53,33 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>月份</th>
-                                    <th>所属部门</th>
-                                    <th>发布人</th>
-                                    <th>所占比重</th>
-                                    <th>计划内容</th>
+                                    <th>序号</th>
+                                    <th>工作计划</th>
+                                    <th>开始时间</th>
+                                    <th>结束时间</th>
+                                    <th>权重</th>
+                                    <th>预期工作成果</th>
+                                    <th>工作完成情况</th>
+                                    <th>考核得分</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1月</td>
-                                    <td>产品部</td>
-                                    <td>产品部副经理</td>
-                                    <td>50%</td>
-                                    <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                    <td>
-                                        <a href="plan-update.html" class="btn bg-olive">修改计划</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2月</td>
-                                    <td>产品部</td>
-                                    <td>产品部副经理</td>
-                                    <td>50%</td>
-                                    <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                    <td>
-                                        <a href="plan-update.html" class="btn bg-olive">修改计划</a>
-                                    </td>
-                                </tr>
+                                <c:forEach items="${workDetailList}" var="detail" varStatus="status">
+                                    <tr>
+                                        <td>${status.index+1}</td>
+                                        <td></td>
+                                        <td>产品部</td>
+                                        <td>产品部副经理</td>
+                                        <td>50%</td>
+                                        <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
+                                        <td>
+                                            <a href="plan-update.html" class="btn bg-olive">修改计划</a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>月份</th>
-                                    <th>所属部门</th>
-                                    <th>发布人</th>
-                                    <th>所占比重</th>
-                                    <th>计划内容</th>
-                                    <th>操作</th>
-                                </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.box-body -->

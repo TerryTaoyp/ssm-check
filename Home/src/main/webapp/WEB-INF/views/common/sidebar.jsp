@@ -99,7 +99,7 @@
                             <li><a href="${website}/testplan/toadd"><i class="fa fa-circle-o"></i>添加</a></li>
                         </ul>
                     </li>
-                    <li><a href="${website}/testplan/toallot"><i class="fa fa-circle-o"></i>考核分配</a></li>
+                    <%--<li><a href="${website}/testplan/toallot"><i class="fa fa-circle-o"></i>考核分配</a></li>--%>
                     <li class="treeview">
                         <a href="#"><i class="fa fa-circle-o"></i>月/季度考核管理
                             <span class="pull-right-container">
@@ -107,8 +107,8 @@
                 </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-add.html"><i class="fa fa-circle-o"></i>添加工作计划考核</a></li>
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-list.html"><i class="fa fa-circle-o"></i>工作计划考核列表</a></li>
+                            <li><a href="${website}/workplan/month/add"><i class="fa fa-circle-o"></i>添加工作计划考核</a></li>
+                            <li><a href="${website}/workplan/month/list"><i class="fa fa-circle-o"></i>工作计划考核列表</a></li>
                             <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-add.html"><i class="fa fa-circle-o"></i>添加绩效指标考核</a>
                             <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-list.html"><i class="fa fa-circle-o"></i>绩效指标考核列表</a></li>
                         </ul>

@@ -176,12 +176,13 @@ public class User {
                 ", did=" + did +
                 ", dname='" + dname + '\'' +
                 ", rid=" + rid +
-                ", pname='" + pname + '\'' +
+                ", pname=" + pname +
                 ", isJoinCheck=" + isJoinCheck +
                 ", isBeCheck=" + isBeCheck +
                 ", status=" + status +
                 ", isDelete=" + isDelete +
                 ", sex='" + sex + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }

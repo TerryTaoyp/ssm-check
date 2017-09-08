@@ -65,13 +65,11 @@
                                         <td>${power.power}</td>
                                         <td>${power.detail}</td>
                                         <td>
-                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default"  data-num="${status.index+1}">修改</button>
-                                            <button type="button" class="btn bg-red delete" data-num="${status.index+1}"><a href="${website}/power/del/${power.id}">删除权限</a></button>
+                                            <a type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default"  data-num="${status.index+1}" href="${website}/power/ajax/update/${power.id}">修改</a>
+                                            <a type="button" class="btn bg-red delete" data-num="${status.index+1}" href="${website}/power/ajax/del/${power.id}">删除权限</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
-
-
                                 </tbody>
                             </table>
                         </div>
@@ -105,15 +103,8 @@
                 <div class="modal-body">
                     <input type="hidden" id="dataId">
                     <div class="form-group">
-                        <label>权限名称：</label>
-                        <input type="text" class="form-control a-require-text name" placeholder="请输入..." required="required" name="role">
-                    </div>
-                    <div class="form-group">
                         <label>权限等级：</label>
-                        <select class="form-control a-require-option level">
-                            <option>管理员</option>
-                            <option>超级管理员</option>
-                        </select>
+                        <input type="text" class="form-control a-require-text name" placeholder="请输入..." required="required" name="role">
                     </div>
                     <div class="form-group">
                         <label>备注信息：</label>
@@ -134,8 +125,8 @@
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-<script src="../../../resources/js/pages/js/common/verify.js"></script>
-<script src="../../../resources/js/pages/js/system/jurisdiction-list.js"></script>
+<script src="../../../resources/js/pages/common/verify.js"></script>
+<script src="../../../resources/js/pages/system/jurisdiction-list.js"></script>
 <!-- page script -->
 <script>
     $(function () {

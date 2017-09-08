@@ -9,6 +9,7 @@ import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.system.RoleService;
 import com.pandawork.home.service.user.UserService;
 import com.pandawork.home.web.controller.AbstractController;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,18 +60,17 @@ public class PersonController extends AbstractController {
      * @param id
      * @return
      */
-    @RequestMapping(value = "/del/{id}",method = RequestMethod.GET)
-    public String del(@PathVariable("id") int id){
+    @RequestMapping(value = "/ajax/del/{id}",method = RequestMethod.GET)
+    public JSONObject del(@PathVariable("id") int id){
         try{
             User user = userService.queryById(id);
             user.setIsDelete(0);
             userService.delUser(user);
 
-            return "redirect:/user/list";
+            return sendJsonObject(AJAX_SUCCESS_CODE);
         }catch (SSException e){
             LogClerk.errLog.error(e);
-            sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
+            return sendErrMsgAndErrCode("操作失败！");
         }
     }
 
@@ -121,5 +121,23 @@ public class PersonController extends AbstractController {
             sendErrMsg(e.getMessage());
             return ADMIN_SYS_ERR_PAGE;
         }
+    }
+
+    /**
+     * 编辑用户信息
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/ajax/update/{id}")
+    public JSONObject update(@PathVariable("id") int id)throws Exception{
+        User user = userService.queryById(id);
+        List<Role> roleList = roleService.listAll();
+        List<Department> departmentList = departmentService.listAll();
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("user",user);
+        jsonObject.put("roleList",roleList);
+        jsonObject.put("departmentList",departmentList);
+        return  sendJsonObject(jsonObject);
     }
 }

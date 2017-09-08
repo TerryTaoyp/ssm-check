@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -52,44 +53,40 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
+                                    <th>序号</th>
+                                    <th>所属考核名称</th>
                                     <th>所属考核计划</th>
-                                    <th>所属部门</th>
-                                    <th>发布人</th>
-                                    <th>备注信息</th>
+                                    <th>考核开始时间</th>
+                                    <th>考核结束时间</th>
+                                    <th>是否开启</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr data-id="1">
-                                    <td>3月份工作计划考核（产品部）</td>
-                                    <td>产品部</td>
-                                    <td>经理</td>
-                                    <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                    <td>
-                                        <a href="plan-detail.html" class="btn bg-blue">查看详情</a>
-                                        <button type="button" class="btn bg-red delete" data-num="1">删除</button>
-                                    </td>
-                                </tr>
-                                <tr data-id="2">
-                                    <td>3月份工作计划考核（技术部）</td>
-                                    <td>技术部</td>
-                                    <td>经理</td>
-                                    <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                    <td>
-                                        <a href="plan-detail.html" class="btn bg-blue">查看详情</a>
-                                        <button type="button" class="btn bg-red delete" data-num="2">删除</button>
-                                    </td>
-                                </tr>
+                                <c:forEach items="${testPlanList}" var="testPlan" varStatus="status">
+                                    <tr data-id="${status.index+1}">
+                                        <td>${status.index+1}</td>
+                                        <td>${testPlan.testName}</td>
+                                        <c:forEach items="${testTypeList}" var="testType">
+                                            <c:if test="${testPlan.testTypeId == testType.id}">
+                                                <td>${testType.name}</td>
+                                            </c:if>
+                                        </c:forEach>
+                                        <td>${testPlan.startTime}</td>
+                                        <td>${testPlan.finishTime}</td>
+                                        <c:if test="${testPlan.isAvailable ==1}">
+                                            <td>已开启</td>
+                                        </c:if>
+                                        <c:if test="${testPlan.isAvailable ==0}">
+                                            <td>未开启</td>
+                                        </c:if>
+                                        <td>
+                                            <a href="${website}/workplan/month/detail/${testPlan.id}" class="btn bg-blue">查看详情</a>
+                                            <%--<button type="button" class="btn bg-red delete" data-num="1">删除</button>--%>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>所属考核计划</th>
-                                    <th>所属部门</th>
-                                    <th>发布人</th>
-                                    <th>备注信息</th>
-                                    <th>操作</th>
-                                </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.box-body -->
@@ -162,7 +159,7 @@
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-<script src="../../../../resources/js/pages/js/evaluation/month/plan-list.js"></script>
+<script src="../../../../resources/js/pages/evaluation/month/plan-list.js"></script>
 <!-- page script -->
 <script>
     $(function () {

@@ -2,9 +2,7 @@ package com.pandawork.home.web.controller;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.framework.web.spring.controller.Base;
-import com.pandawork.home.service.check.TestPlanService;
-import com.pandawork.home.service.check.TestTypeService;
-import com.pandawork.home.service.check.WorkPlanService;
+import com.pandawork.home.service.check.*;
 import com.pandawork.home.service.system.AllotService;
 import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.system.PowerService;
@@ -134,21 +132,88 @@ public class AbstractController extends Base {
         json.put("code", 1);
         return json;
     }
+
+    /**
+     * 用户
+     */
     @Autowired
     protected static UserService userService;
+    /**
+     * 角色
+     */
     @Autowired
     protected static RoleService roleService;
+    /**
+     * 权限
+     */
     @Autowired
     protected static PowerService powerService;
+    /**
+     * 部门
+     */
     @Autowired
     protected static DepartmentService departmentService;
+    /**
+     * 管辖分配
+     */
     @Autowired
     protected static AllotService allotService;
+    /**
+     * 工作计划
+     */
     @Autowired
     protected static WorkPlanService workPlanService;
+    /**
+     * 考核计划
+     */
     @Autowired
     protected static TestPlanService testPlanService;
+    /**
+     * 考核类型
+     */
     @Autowired
     protected static TestTypeService testTypeService;
+    /**
+     * 工作计划详情
+     */
+    @Autowired
+    protected static WorkDetailService workDetailService;
+    /**
+     * 年度总结
+     */
+    @Autowired
+    protected static SummaryService summaryService;
+    /**
+     * 年度绩效综合能力
+     */
+    @Autowired
+    protected static PerformanceService performanceService;
+    /**
+     * 能力指标选项
+     */
+    @Autowired
+    protected static AbilityOptionService abilityOptionService;
+
+    /**
+     * 能力指标问题表
+     */
+    @Autowired
+    protected static AbilityPositionService abilityPositionService;
+    /**
+     * 能力指标结果表
+     */
+    @Autowired
+    protected static AbilityResultService abilityResultService;
+    /**
+     * 能力指标的指标
+     */
+    @Autowired
+    protected static AbilityTargetService abilityTargetService;
+    /**
+     * 能力指标的指标类型
+     */
+    @Autowired
+    protected static AbilityTargetTypeService  abilityTargetTypeService;
+
 
 }

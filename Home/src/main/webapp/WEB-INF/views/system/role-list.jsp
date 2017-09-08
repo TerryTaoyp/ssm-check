@@ -65,8 +65,8 @@
                                         <td>${status.index+1}</td>
                                         <td class="role-text">${role.name}</td>
                                         <td>
-                                            <button type="button" class="btn bg-olive change"  data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改</button>
-                                            <button type="button" class="btn bg-red delete" data-num="${status.index+1}" ><a href="${website}/role/del/${role.id}">删除角色</a></button>
+                                            <a type="button" class="btn bg-olive change"  data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}" href="${website}/role/ajax/update/${role.id}">修改</a>
+                                            <a type="button" class="btn bg-red delete" data-num="${status.index+1}" href="${website}/role/ajax/del/${role.id}">删除角色</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -103,7 +103,7 @@
                         <input type="hidden" id="dataId">
                         <div class="form-group">
                             <label>角色名称：</label>
-                            <input type="text" class="form-control a-require-text role" placeholder="请输入..." name="role">
+                            <input type="text" class="form-control a-require-text role" value="${role.name}" placeholder="请输入..." name="role">
                         </div>
                         <div class="form-group">
                             <label>选择权限：</label>
@@ -112,10 +112,6 @@
                                 <option>权限2</option>
                                 <option>权限3</option>
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label>备注信息：</label>
-                            <textarea class="form-control a-require-text remark" rows="3" placeholder="请输入..."></textarea>
                         </div>
                         <p class="text-red tip"></p>
                     </div>
@@ -134,8 +130,8 @@
 <!-- select2 -->
 <script src="../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
 <!-- 验证模块 -->
-<script src="../../../resources/js/pages/js/common/verify.js"></script>
-<script src="../../../resources/js/pages/js/system/role-list.js"></script>
+<script src="../../../resources/js/pages/common/verify.js"></script>
+<script src="../../../resources/js/pages/system/role-list.js"></script>
 <script>
     $(function () {
         $('.select2').select2();

@@ -38,7 +38,6 @@
                         <li class="user-header">
                             <p>
                                 欢迎来到绩效管理系统<br>
-                                您是第20位用户
                             </p>
                         </li>
                         <!-- Menu Body -->
@@ -56,18 +55,18 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/update-password.html" class="btn btn-default btn-flat">修改密码</a>
+                                <a href="${website}/toupwd" class="btn btn-default btn-flat">修改密码</a>
                             </div>
                             <div class="pull-right">
-                                <a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/login.html" class="btn btn-default btn-flat">退出登录</a>
+                                <a href="${website}/logout" class="btn btn-default btn-flat">退出登录</a>
                             </div>
                         </li>
                     </ul>
                 </li>
                 <!-- Control Sidebar Toggle Button -->
-                <li>
-                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                </li>
+                <%--<li>--%>
+                    <%--<a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>--%>
+                <%--</li>--%>
             </ul>
         </div>
     </nav>

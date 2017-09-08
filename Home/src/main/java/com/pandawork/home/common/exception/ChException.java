@@ -70,7 +70,8 @@ public enum  ChException implements IBizExceptionMes{
     ListAllTestTypeFailed("列出所由考核计划类别失败",1010),
     AddWorkPlanFailed("添加工作计划失败",1011),
     UpdateWorkPlanFailed("更新工作计划失败",1012),
-
+    QueryWorkPlanByUidFailed("根据用户ID查找失败",1013),
+    QueryTestPlanByUidFailed("根据用户ID查找考核计划失败",1014),
 
 
     AddWorkDetailFailed("新增工作详情失败",1100),

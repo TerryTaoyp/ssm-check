@@ -5,6 +5,7 @@ import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.home.common.entity.system.Department;
 import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.web.controller.AbstractController;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,17 +60,16 @@ public class DepartmentController extends AbstractController {
      * @param id
      * @return
      */
-    @RequestMapping(value = "/del/{id}",method = RequestMethod.GET)
-    public String del(@PathVariable("id") int id)throws Exception{
+    @RequestMapping(value = "/ajax/del/{id}",method = RequestMethod.GET)
+    public JSONObject del(@PathVariable("id") int id)throws Exception{
         try{
             Department department = departmentService.queryById(id);
             department.setIsDelete(0);
             departmentService.delDepartment(department);
-            return "redirect:/department/list";
+            return sendJsonObject(AJAX_SUCCESS_CODE);
         }catch (SSException e){
             LogClerk.errLog.error(e);
-            sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
+            return sendErrMsgAndErrCode("操作失败！");
         }
 
     }
@@ -91,6 +91,19 @@ public class DepartmentController extends AbstractController {
             sendErrMsg(e.getMessage());
             return ADMIN_SYS_ERR_PAGE;
         }
+    }
 
+    /**
+     * 更新部门信息
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/ajax/update/{id}",method = RequestMethod.GET)
+    public JSONObject update(@PathVariable("id") int id)throws Exception{
+        Department department = departmentService.queryById(id);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("department",department);
+        return sendJsonObject(jsonObject);
     }
 }

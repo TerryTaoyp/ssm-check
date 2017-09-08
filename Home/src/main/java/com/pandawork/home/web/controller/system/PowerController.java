@@ -5,6 +5,7 @@ import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.home.common.entity.system.Power;
 import com.pandawork.home.service.system.PowerService;
 import com.pandawork.home.web.controller.AbstractController;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,15 +45,14 @@ public class PowerController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/del/{id}",method = RequestMethod.GET)
-     public String del(@PathVariable("id") int id)throws Exception{
+    @RequestMapping(value = "/ajax/del/{id}",method = RequestMethod.GET)
+     public JSONObject del(@PathVariable("id") int id)throws Exception{
         try{
             powerService.delPower(id);
-            return "redirect:/power/list";
+            return sendJsonObject(AJAX_SUCCESS_CODE);
         }catch (SSException e){
             LogClerk.errLog.error(e);
-            sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
+            return sendErrMsgAndErrCode("操作失败！");
         }
      }
     /**
@@ -85,5 +85,19 @@ public class PowerController extends AbstractController {
             sendErrMsg(e.getMessage());
             return ADMIN_SYS_ERR_PAGE;
         }
+    }
+
+    /**
+     * 根据ID更新
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/ajax/update/{id}")
+    public JSONObject update(@PathVariable("id") int id)throws Exception{
+        Power power = powerService.queryById(id);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("power",power);
+        return sendJsonObject(jsonObject);
     }
 }

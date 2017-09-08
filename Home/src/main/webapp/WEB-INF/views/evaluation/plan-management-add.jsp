@@ -109,7 +109,7 @@
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <!-- select2 -->
 <script src="../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
-<script src="../../../resources/js/pages/js/common/verify.js"></script>
+<script src="../../../resources/js/pages/common/verify.js"></script>
 <!-- page script -->
 <script>
     $(function () {

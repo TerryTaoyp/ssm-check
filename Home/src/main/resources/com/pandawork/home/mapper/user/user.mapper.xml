@@ -13,11 +13,11 @@
     </insert>
 
     <select id="queryByRname" resultMap="pw.User">
-        SELECT `username`,`real_name`,`password`,`status`,`is_delete` FROM `t_user` WHERE `real_name` = #{realName}
+        SELECT * FROM `t_user` WHERE `real_name` = #{realName}
     </select>
 
     <select id="queryByUname" resultMap="pw.User">
-        SELECT `username`,`real_name`,`password`,`status`,`is_delete` FROM `t_user` WHERE `username` = #{username}
+        SELECT * FROM `t_user` WHERE `username` = #{username}
     </select>
 
     <select id="queryByUnameAndPword" resultMap="pw.User">

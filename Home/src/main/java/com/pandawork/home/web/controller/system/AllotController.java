@@ -9,6 +9,7 @@ import com.pandawork.home.service.system.AllotService;
 import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.user.UserService;
 import com.pandawork.home.web.controller.AbstractController;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,15 +66,14 @@ public class AllotController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/del/{id}",method = RequestMethod.GET)
-    public String del(@PathVariable("id") int id)throws Exception{
+    @RequestMapping(value = "/ajax/del/{id}",method = RequestMethod.GET)
+    public JSONObject del(@PathVariable("id") int id)throws Exception{
         try{
             allotService.delAllot(id);
-            return "redirect:/allot/list";
+            return sendJsonObject(AJAX_SUCCESS_CODE);
         }catch (SSException e){
             LogClerk.errLog.error(e);
-            sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
+            return sendErrMsgAndErrCode("操作失败！");
         }
     }
 
@@ -95,5 +95,21 @@ public class AllotController extends AbstractController {
             sendErrMsg(e.getMessage());
             return ADMIN_SYS_ERR_PAGE;
         }
+    }
+
+    /**
+     * 编辑管辖分配
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/ajax/update/{id}",method = RequestMethod.GET)
+    public JSONObject update(@PathVariable("id") int id)throws Exception{
+        Allot allot = (Allot) allotService.queryByUid(id);
+        List<Department> departmentList = departmentService.listAll();
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("allot",allot);
+        jsonObject.put("departmentList",departmentList);
+        return sendJsonObject(jsonObject);
     }
 }

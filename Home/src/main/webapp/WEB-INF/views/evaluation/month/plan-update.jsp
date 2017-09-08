@@ -111,7 +111,7 @@
 <jsp:include page="../../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <script src="../../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
-<script src="../../../../resources/js/pages/js/common/verify.js"></script>
+<script src="../../../../resources/js/pages/common/verify.js"></script>
 <!-- page script -->
 <script>
     $(function () {

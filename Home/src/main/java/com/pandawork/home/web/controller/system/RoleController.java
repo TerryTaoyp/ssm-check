@@ -7,6 +7,7 @@ import com.pandawork.home.common.entity.system.Role;
 import com.pandawork.home.service.system.PowerService;
 import com.pandawork.home.service.system.RoleService;
 import com.pandawork.home.web.controller.AbstractController;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,17 +50,16 @@ public class RoleController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/del/{id}",method = RequestMethod.GET)
-    public String del(@PathVariable("id") int id)throws Exception{
+    @RequestMapping(value = "/ajax/del/{id}",method = RequestMethod.GET)
+    public JSONObject del(@PathVariable("id") int id)throws Exception{
         try{
             Role role  = roleService.queryById(id);
             roleService.delRole(role);
-            return "redirect:/role/list";
+            return sendJsonObject(AJAX_SUCCESS_CODE);
         }catch (SSException e)
         {
             LogClerk.errLog.error(e);
-            sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
+            return sendErrMsgAndErrCode("操作失败！");
         }
     }
 
@@ -95,5 +95,20 @@ public class RoleController extends AbstractController {
             sendErrMsg(e.getMessage());
             return ADMIN_SYS_ERR_PAGE;
         }
+    }
+
+    /**
+     * 更新角色
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/ajax/update/{id}",method = RequestMethod.GET)
+    public JSONObject update(@PathVariable("id") int id)throws Exception{
+        Role role = roleService.queryById(id);
+        List<Power> powerList = powerService.listAll();
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("powerList",powerList);
+        jsonObject.put("role",role);
+        return sendJsonObject(jsonObject);
     }
 }

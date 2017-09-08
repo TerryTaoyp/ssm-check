@@ -43,14 +43,14 @@
     <div class="register-box-body">
         <p class="login-box-msg">请输入原密码</p>
 
-        <form action="${website}/upwd" method="get">
+        <form action="${website}/upwd" method="post">
             <div class="form-group has-feedback">
                 <input type="text" name="password" class="form-control" placeholder="原密码">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <p class="login-box-msg">请在下面输入新密码</p>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="新密码">
+                <input type="password" class="form-control" placeholder="新密码" name="newPassword">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
@@ -66,7 +66,7 @@
                 <!-- /.col -->
             </div>
         </form>
-
+        <h3>${msg}</h3>
         <a href="login.html" class="text-center">已经有账号?这里登录!</a>
     </div>
     <!-- /.form-box -->

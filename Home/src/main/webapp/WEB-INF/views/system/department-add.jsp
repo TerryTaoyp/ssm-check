@@ -77,7 +77,7 @@
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-<script type="text/javascript" src="../../../resources/js/pages/js/common/verify.js"></script>
+<script type="text/javascript" src="../../../resources/js/pages/common/verify.js"></script>
 <!-- page script -->
 <script>
     $(function () {

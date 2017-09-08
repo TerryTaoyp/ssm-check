@@ -98,4 +98,17 @@ public class TestPlanServiceImpl implements TestPlanService {
             throw SSException.get(ChException.CountTestPlanFailed);
         }
     }
+
+    @Override
+    public List<TestPlan> queryByUid(int uid) throws SSException {
+        try{
+            if (Assert.isNull(uid)){
+                return null;
+            }
+            return testPlanMapper.queryByUid(uid);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryTestPlanByUidFailed);
+        }
+    }
 }

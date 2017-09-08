@@ -63,8 +63,8 @@
                                         <td>${status.index+1}</td>
                                         <td>${department.name}</td>
                                         <td>
-                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改</button>
-                                            <button type="button" class="btn bg-red delete" data-num="${status.index+1}"><a href="${website}/department/del/${department.id}">删除部门</a></button>
+                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}" href="${website}/department/ajax/update/${department.id}">修改</button>
+                                            <a type="button" class="btn bg-red delete" data-num="${status.index+1}" href="${website}/department/ajax/del/${department.id}">删除部门</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -105,10 +105,6 @@
                         <input type="text" class="form-control department a-require-text" placeholder="请输入..." name="department">
                     </div>
 
-                    <div class="form-group">
-                        <label>备注信息：</label>
-                        <textarea class="form-control remark a-require-text" rows="3" placeholder="请输入..."></textarea>
-                    </div>
                     <p class="text-red tip"></p>
                 </div>
                 <div class="modal-footer">
@@ -125,7 +121,7 @@
 <jsp:include page="../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <script src="../../../resources/js/pages/js/common/verify.js"></script>
-<script src="../../../resources/js/pages/js/system/department-list.js"></script>
+<script src="../../../resources/js/pages/system/department-list.js"></script>
 <!-- page script -->
 <script>
     $(function () {

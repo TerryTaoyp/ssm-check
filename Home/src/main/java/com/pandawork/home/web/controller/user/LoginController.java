@@ -1,6 +1,7 @@
 package com.pandawork.home.web.controller.user;
 
 import com.pandawork.core.common.exception.SSException;
+import com.pandawork.core.common.util.Assert;
 import com.pandawork.home.common.entity.user.User;
 import com.pandawork.home.service.user.UserService;
 import com.pandawork.home.web.controller.AbstractController;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by Taoyongpan on 2017/9/2.
@@ -40,9 +42,11 @@ public class LoginController extends AbstractController {
      * @return
      */
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String login(HttpServletRequest request, HttpServletResponse response, @RequestParam("username") String username, @RequestParam("password") String password) throws SSException {
+    public String login(HttpServletRequest request, HttpServletResponse response, @RequestParam("username") String username, @RequestParam("password") String password, HttpSession session,Model model) throws SSException {
         User user = userService.queryByUname(username);
-        if (user!=null){
+        if (!Assert.isNull(user)){
+            if (user.getPassword().equals(password)){
+                session.setAttribute("username",user.getUsername());
 //            if (user.getStatus()==1&&user.getPassword().equals(password)){
 //                user.getDid()
                 return "index";
@@ -51,7 +55,12 @@ public class LoginController extends AbstractController {
 //            }
 //            if (user.getPassword().equals(password))
 //            return "index";
+            }else {
+                model.addAttribute("error","用户名或密码错误");
+                return "login";
+            }
         }else {
+            model.addAttribute("error","用户名或密码错误");
             return "login";
         }
     }
@@ -93,19 +102,44 @@ public class LoginController extends AbstractController {
     }
 
     /**
-     * 更新密码
+     * 跳转到更新页面
      * @return
      * @throws SSException
      */
     @RequestMapping(value = "/toupwd",method = RequestMethod.GET)
-    public String toUpdatePassword()throws SSException{
+    public String toUpdatePassword(HttpSession session,Model model)throws SSException{
+        User user = userService.queryByUname((String) session.getAttribute("username"));
+        model.addAttribute("user",user);
         return "update-password";
     }
 
-
+    /**
+     * 更新密码
+     * @return
+     * @throws SSException
+     */
     @RequestMapping(value = "/upwd",method = RequestMethod.POST)
-    public String updatePassword()throws SSException{
+    public String updatePassword(Model model,HttpSession session,@RequestParam("password") String password,@RequestParam("newPassword") String newPassword)throws SSException{
+        User user = userService.queryByUname((String) session.getAttribute("username"));
+        if (user.getPassword().equals(password)){
+            user.setPassword(newPassword);
+            userService.updatePassword(user);
+            session.invalidate();
+            return "login";
+        }else {
+            model.addAttribute("msg","原密码错误");
+            return "update-password";
+        }
+    }
 
+    /**
+     * 注销登录
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/logout",method = RequestMethod.GET)
+    public String logout(HttpSession session)throws Exception{
+        session.invalidate();
         return "login";
     }
 

@@ -51,4 +51,12 @@ public interface TestPlanService {
      * @throws SSException
      */
     public int countAll()throws SSException;
+
+    /**
+     * 根据用户ID查找考核计划
+     * @param uid
+     * @return
+     * @throws SSException
+     */
+    public List<TestPlan> queryByUid(int uid)throws SSException;
 }

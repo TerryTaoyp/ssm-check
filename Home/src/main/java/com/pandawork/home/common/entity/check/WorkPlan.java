@@ -35,6 +35,9 @@ public class WorkPlan {
     //该季度得分
     @Column(name = "queater_score")
     private Double queaterScore;
+    //考核计划ID
+    @Column(name = "test_id")
+    private Integer testId;
 
     public Integer getId() {
         return id;
@@ -98,5 +101,13 @@ public class WorkPlan {
 
     public void setQueaterScore(Double queaterScore) {
         this.queaterScore = queaterScore;
+    }
+
+    public Integer getTestId() {
+        return testId;
+    }
+
+    public void setTestId(Integer testId) {
+        this.testId = testId;
     }
 }
