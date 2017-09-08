@@ -45,7 +45,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <form>
-                        <div class="box box-warning">
+                        <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">绩效综合能力目录</h3>
                             </div>

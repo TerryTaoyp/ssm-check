@@ -6,8 +6,10 @@
   <title>年度测试</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="../../../../resources/js/plugins/iCheck/all.css">
   <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -20,7 +22,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        年度考核能力指标考核
+        月/季度考核能力指标考核
         <small>栏目</small>
       </h1>
       <ol class="breadcrumb">
@@ -34,7 +36,7 @@
       <div class="row">
         <div class="col-md-12">
           <form>
-            <div class="box box-warning">
+            <div class="box box-primary">
               <div class="box-header">
                 <h3 class="box-title">绩效综合能力目录</h3>
               </div>
@@ -62,38 +64,38 @@
                       <div class="timeline-body box-body">
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r1" class="minimal answer" data-order="1">
                             A.答案1
                           </label>
-                          <a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
+                          <a class="btn bg-olive btn-xs">优秀(9~10分)</a>
                         </div>
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r1" class="minimal answer" data-order="2">
                             B.答案1
                           </label>
-                          <a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
+                          <a class="btn btn-primary btn-xs">良好(7~8分)</a>
                         </div>
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r1" class="minimal answer" data-order="3">
                             C.答案1
                           </label>
-                          <a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
+                          <a class="btn bg-orange btn-xs">一般(5~6分)</a>
                         </div>
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r1" class="minimal answer" data-order="4">
                             D.答案1
                           </label>
-                          <a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
+                          <a class="btn bg-red btn-xs">不及格(0~4分)</a>
                         </div>
-
                       </div>
                       <div class="timeline-footer">
                         <div class="form-group">
                             <label>请输入分数：</label>
-                            <input type="text" class="form-control" placeholder="10.0-10.0" required="required" name="role">
+                            <input type="text" class="form-control require-text score" placeholder="请填写分数..." name="role">
+                            <p class="text-red score-tip"></p>
                         </div>
                       </div>
                     </div>
@@ -113,38 +115,39 @@
                       <div class="timeline-body box-body">
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r2" class="minimal answer" data-order="1">
                             A.答案1
                           </label>
-                          <a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
+                          <a class="btn bg-olive btn-xs">优秀(9~10分)</a>
                         </div>
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r2" class="minimal answer" data-order="2">
                             B.答案1
                           </label>
-                          <a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
+                          <a class="btn btn-primary btn-xs">良好(7~8分)</a>
                         </div>
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r2" class="minimal answer" data-order="3">
                             C.答案1
                           </label>
-                          <a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
+                          <a class="btn bg-orange btn-xs">一般(5~6分)</a>
                         </div>
                         <div class="form-group">
                           <label>
-                            <input type="radio" name="r1" class="minimal">
+                            <input type="radio" name="r2" class="minimal answer" data-order="4">
                             D.答案1
                           </label>
-                          <a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
+                          <a class="btn bg-red btn-xs">不及格(0~4分)</a>
                         </div>
 
                       </div>
                       <div class="timeline-footer">
                         <div class="form-group">
                             <label>请输入分数：</label>
-                            <input type="text" class="form-control" placeholder="10.0-10.0" required="required" name="role">
+                            <input type="text" class="form-control require-text score" placeholder="请填写分数..." name="role">
+                            <p class="text-red score-tip"></p>
                         </div>
                       </div>
                     </div>
@@ -161,7 +164,9 @@
                 </ul>
               </div>
               <div class="box-footer">
-                  <input type="submit" class="btn btn-primary" value="提交">
+                  <p class="text-red tip"></p>
+                  <a href="exam-list.html" class="btn bg-olive">返回列表</a>
+                  <input type="submit" class="btn btn-primary J-submit" value="提交">
               </div>
             </div>
           </form>
@@ -174,34 +179,16 @@
   <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
 
   <div class="control-sidebar-bg"></div>
-  <div class="modal fade" id="modal-default">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">修改计划</h4>
-        </div>
-        <div class="modal-body">
-          <p>One fine body&hellip;</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-          <button type="button" class="btn btn-primary">保存修改</button>
-        </div>
-      </div>
-      <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-  </div>
 </div>
 <!-- ./wrapper -->
 
-<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-
-<!-- page script -->
+  <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
+  
 <!-- iCheck -->
 <script src="../../../../resources/js/plugins/iCheck/icheck.min.js"></script>
+<script src="../../../../resources/js/pages/common/verify.js"></script>
+<script src="../../../../resources/js/pages/exam/month/exam-detail.js"></script>
+<!-- page script -->
 <script>
   $(function () {
     //iCheck for checkbox and radio inputs

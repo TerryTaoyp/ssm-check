@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta htt-equiv="X-UA-Compatible" content="IE=edge">
-    <title>账号管p理</title>
+    <title>账号管理</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="widh=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">t
     <jsp:include page="../common/link.jsp"/>
@@ -44,9 +44,9 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box">
+                    <div class="box box-warning">
                         <div class="box-header">
-                            <h3 class="box-title">账号管理</h3>
+                            <h3 class="box-title">账号管理列表</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">

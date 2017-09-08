@@ -3,7 +3,6 @@ $(document).ready(function() {
 	var
 		el = {
 			J_tip: '.tip', //提示信息
-			J_change: '.change', // 修改按钮
 			J_ajax_submit: '.J-ajax-submit', // ajax提交按钮
 			J_score: '.score', // 打分分数
 		};
@@ -13,11 +12,6 @@ $(document).ready(function() {
 
 		function init(){
 
-			// 点击修改计划时传一个次序给修改弹出框
-			$(el.J_change).click(function(ev) {
-				var id = $(this).attr('data-num');
-				$('#dataId').val(id);// 传值成功
-			});
 			// ajax修改
 			$(el.J_ajax_submit).click(function(ev) {
 				// 先清空提示信息
@@ -25,6 +19,7 @@ $(document).ready(function() {
 				// 附加上点击此按钮的信息在数据库中的顺序
 				var path_url = _ajax.url.evaluation.plan_management.list.change,
 					score = $(el.J_score).val(),
+					id = $("#dataId").val(), // 此文章的id
 					reg = /^([1-9]\d?|100)$/; // 1-100数字的正则
 				// 如果符合条件无法提交
 				if (!(ajax_flag1 || ajax_flag2 || ajax_flag3) && reg.test(score)) {
@@ -33,6 +28,7 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
+							id: id,
 							score: score
 						},
 						success: function(data) {
@@ -42,10 +38,6 @@ $(document).ready(function() {
 								alert('修改成功');
 								// 隐藏填写表单
 								$('button[data-dismiss="modal"]').click();
-								// 修改dom
-								var id = $('#dataId').val(); // 获取到当前次序
-								$('.table tr[data-id='+ id +'] > td.score-text').text(score);
-								// 改变按钮属性
 							}
 							else{
 								$(el.J_tip).text(data.errorMsg[0].msg);
