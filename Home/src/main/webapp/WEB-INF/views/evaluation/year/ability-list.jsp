@@ -106,6 +106,7 @@
                 <!-- /.col -->
             </div>
             <!-- /.row -->
+            <a href="ability-add.html" class="btn bg-olive">添加能力指考核</a>
         </section>
         <!-- /.content -->
     </div>

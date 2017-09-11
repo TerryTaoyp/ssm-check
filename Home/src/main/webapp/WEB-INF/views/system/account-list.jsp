@@ -63,14 +63,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                     <c:forEach items="${userList}" var="user" varStatus="status">
-                                        <tr data-id="${status.index+1}"
+                                        <tr data-id="${status.index+1}">
                                         <td>${status.index+1}</td>
                                         <td>${user.realName}</td>
                                         <td>${user.phone}</td>
                                         <c:forEach items="${departmentList}" var="department">
-                                            <c:if test="${department.id == user.uid}">
+                                            <c:if test="${department.id == user.did}">
                                                 <td>${department.name}</td>
                                             </c:if>
                                         </c:forEach>
@@ -80,7 +79,7 @@
                                             </c:if>
                                         </c:forEach>
 
-                                        <c:if test="${user.status==1}">
+                                        <c:if test="${user.status == 1}">
                                             <td>审核通过</td>
                                         </c:if>
                                         <c:if test="${user.status == 0}">
@@ -88,9 +87,9 @@
                                         </c:if>
 
                                         <td>
-                                            <button type="button" class="btn bg-olive"><a href="${website}/user/status/${user.id}">审核通过</a> </button>
-                                            <button type="button" class="btn bg-orange">审核不通过</button>
-                                            <button type="button" class="btn bg-red delete" data-num="${status.index+1}">删除</button>
+                                            <a type="button" class="btn bg-olive"href="${website}/user/status/${user.id}">审核通过</a>
+                                            <a type="button" class="btn bg-orange">审核不通过</a>
+                                            <a type="button" class="btn bg-red delete" data-num="${status.index+1}">删除</a>
                                         </td>
                                 </tr>
                                     </c:forEach>
@@ -112,7 +111,7 @@
     <jsp:include page="../common/footer.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
 
-    <%--<jsp:include page="../common/control-sidebar.jsp"/>--%>
+    <jsp:include page="../common/control-sidebar.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
 
     <div class="control-sidebar-bg"></div>

@@ -42,42 +42,45 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-circle-o"></i>角色管理
-                            <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="${website}/role/list"><i class="fa fa-circle-o"></i>列表展示</a></li>
-                            <li><a href="${website}/role/toadd"><i class="fa fa-circle-o"></i>添加</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-circle-o"></i>权限管理
-                            <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="${website}/power/list"><i class="fa fa-circle-o"></i>列表展示</a></li>
-                            <li><a href="${website}/power/toadd"><i class="fa fa-circle-o"></i>添加</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-circle-o"></i>部门管理
-                            <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="${website}/department/list"><i class="fa fa-circle-o"></i>列表展示</a></li>
-                            <li><a href="${website}/department/toadd"><i class="fa fa-circle-o"></i>添加</a></li>
-                        </ul>
-                    </li>
+                    <%--<li class="treeview">--%>
+                        <%--<a href="#"><i class="fa fa-circle-o"></i>角色管理--%>
+                            <%--<span class="pull-right-container">--%>
+                  <%--<i class="fa fa-angle-left pull-right"></i>--%>
+                <%--</span>--%>
+                        <%--</a>--%>
+                        <%--<ul class="treeview-menu">--%>
+                            <%--<li><a href="${website}/role/list"><i class="fa fa-circle-o"></i>列表展示</a></li>--%>
+                            <%--<li class="none"><a href="${website}/role/toadd"><i class="fa fa-circle-o"></i>添加</a></li>--%>
+                        <%--</ul>--%>
+                    <%--</li>--%>
+                    <%--<li class="treeview">--%>
+                        <%--<a href="#"><i class="fa fa-circle-o"></i>权限管理--%>
+                            <%--<span class="pull-right-container">--%>
+                  <%--<i class="fa fa-angle-left pull-right"></i>--%>
+                <%--</span>--%>
+                        <%--</a>--%>
+                        <%--<ul class="treeview-menu">--%>
+                            <%--<li><a href="${website}/power/list"><i class="fa fa-circle-o"></i>列表展示</a></li>--%>
+                            <%--<li class="none"><a href="${website}/power/toadd"><i class="fa fa-circle-o"></i>添加</a></li>--%>
+                        <%--</ul>--%>
+                    <%--</li>--%>
+                    <%--<li class="treeview">--%>
+                        <%--<a href="#"><i class="fa fa-circle-o"></i>部门管理--%>
+                            <%--<span class="pull-right-container">--%>
+                  <%--<i class="fa fa-angle-left pull-right"></i>--%>
+                <%--</span>--%>
+                        <%--</a>--%>
+                        <%--<ul class="treeview-menu">--%>
+                            <%--<li><a href="${website}/department/list"><i class="fa fa-circle-o"></i>列表展示</a></li>--%>
+                            <%--<li class="none"><a href="${website}/department/toadd"><i class="fa fa-circle-o"></i>添加</a></li>--%>
+                        <%--</ul>--%>
+                    <%--</li>--%>
+                    <li><a href="${website}/role/list"><i class="fa fa-circle-o"></i>角色管理</a></li>
+                    <li><a href="${website}/power/list"><i class="fa fa-circle-o"></i>权限分配</a></li>
+                    <li><a href="${website}/department/list"><i class="fa fa-circle-o"></i>部门管理</a></li>
                     <li><a href="${website}/user/list"><i class="fa fa-circle-o"></i>人员管理</a></li>
                     <li><a href="${website}/allot/list"><i class="fa fa-circle-o"></i>管辖分配</a></li>
-                    <li><a href="${website}/user/accountlist"><i class="fa fa-circle-o"></i>账号管理</a></li>
+                    <li><a href="${website}/user/account/list"><i class="fa fa-circle-o"></i>账号管理</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -88,18 +91,18 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-circle-o"></i>考核计划管理
-                            <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="${website}/testplan/list"><i class="fa fa-circle-o"></i>列表展示</a></li>
-                            <li><a href="${website}/testplan/toadd"><i class="fa fa-circle-o"></i>添加</a></li>
-                        </ul>
-                    </li>
-                    <%--<li><a href="${website}/testplan/toallot"><i class="fa fa-circle-o"></i>考核分配</a></li>--%>
+                    <%--<li class="treeview">--%>
+                        <%--<a href="#"><i class="fa fa-circle-o"></i>考核计划管理--%>
+                            <%--<span class="pull-right-container">--%>
+                  <%--<i class="fa fa-angle-left pull-right"></i>--%>
+                <%--</span>--%>
+                        <%--</a>--%>
+                        <%--<ul class="treeview-menu">--%>
+                            <%--<li><a href="${website}/testplan/list"><i class="fa fa-circle-o"></i>列表展示</a></li>--%>
+                            <%--<li><a href="${website}/testplan/toadd"><i class="fa fa-circle-o"></i>添加</a></li>--%>
+                        <%--</ul>--%>
+                    <%--</li>--%>
+                    <li><a href="${website}/testplan/list"><i class="fa fa-circle-o"></i>考核计划管理</a></li>
                     <li><a href="${website}/workplan/month/list"><i class="fa fa-circle-o"></i>月/季度考核管理列表</a></li>
                     <li class="treeview">
                         <a href="#"><i class="fa fa-circle-o"></i>年度考核管理
@@ -152,20 +155,20 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="${website}/query/result"><i class="fa fa-circle-o"></i> 测评结果展示报表</a></li>
-                    <li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/result-detail.html"><i class="fa fa-circle-o"></i>隐藏的详情</a></li>
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-circle-o"></i>月/季度考核测评结果
-                            <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="${website}/query/month/plan"><i class="fa fa-circle-o"></i>工作计划结果报表</a></li>
-                            <li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/month/plan-detail.html"><i class="fa fa-circle-o"></i>工作计划结果报表详情</a></li>
-                            <%--<li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/month/evaluation.html"><i class="fa fa-circle-o"></i>绩效指标结果报表</a></li>--%>
-                            <%--<li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/month/evaluation-detail.html"><i class="fa fa-circle-o"></i>绩效指标结果报表详情</a></li>--%>
-                        </ul>
-                    </li>
+                    <li><a href="${website}/query/month/plan"><i class="fa fa-circle-o"></i>月/季度考核测评结果</a></li>
+                    <%--<li class="treeview">--%>
+                        <%--<a href="#"><i class="fa fa-circle-o"></i>月/季度考核测评结果--%>
+                            <%--<span class="pull-right-container">--%>
+                  <%--<i class="fa fa-angle-left pull-right"></i>--%>
+                <%--</span>--%>
+                        <%--</a>--%>
+                        <%--<ul class="treeview-menu">--%>
+                            <%--<li><a href="${website}/query/month/plan"><i class="fa fa-circle-o"></i>工作计划结果报表</a></li>--%>
+                            <%--<li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/month/plan-detail.html"><i class="fa fa-circle-o"></i>工作计划结果报表详情</a></li>--%>
+                            <%--&lt;%&ndash;<li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/month/evaluation.html"><i class="fa fa-circle-o"></i>绩效指标结果报表</a></li>&ndash;%&gt;--%>
+                            <%--&lt;%&ndash;<li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/month/evaluation-detail.html"><i class="fa fa-circle-o"></i>绩效指标结果报表详情</a></li>&ndash;%&gt;--%>
+                        <%--</ul>--%>
+                    <%--</li>--%>
                     <li class="treeview">
                         <a href="#"><i class="fa fa-circle-o"></i>年度考核测评结果
                             <span class="pull-right-container">

@@ -83,9 +83,9 @@
                                             <td>未开启</td>
                                         </c:if>
                                         <td>
-                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改计划</button>
+                                            <a type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改计划</a>
                                             <a type="button" class="btn bg-blue" href="${website}/testplan/toallot/${testPlan.id}">分配考核人员</a>
-                                            <button type="button" class="btn bg-red delete" data-num="${status.index+1}" ><a href="${website}/testplan/del/${testPlan.id}">改变状态</a></button>
+                                            <a type="button" class="btn bg-red delete" data-num="${status.index+1}"  href="${website}/testplan/del/${testPlan.id}">改变状态</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -100,6 +100,7 @@
                 <!-- /.col -->
             </div>
             <!-- /.row -->
+            <a href="${website}/testplan/toadd" class="btn bg-olive">添加</a>
         </section>
         <!-- /.content -->
     </div>

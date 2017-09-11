@@ -80,7 +80,7 @@ public class PersonController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/accountlist",method = RequestMethod.GET)
+    @RequestMapping(value = "/account/list",method = RequestMethod.GET)
     public String toAccount(Model model)throws Exception{
         try{
             List<User> userList = userService.queryByIsDelete(1);
@@ -115,7 +115,7 @@ public class PersonController extends AbstractController {
             }
             user.setStatus(i);
             userService.statusUser(user);
-            return "redirect:/user/accountlist";
+            return "redirect:/user/account/list";
         }catch (SSException e){
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());

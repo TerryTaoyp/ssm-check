@@ -80,6 +80,7 @@
                 <!-- /.col -->
             </div>
             <!-- /.row -->
+            <a href="${website}/power/toadd" class="btn bg-olive">添加</a>
         </section>
 
         <!-- /.content -->

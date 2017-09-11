@@ -79,6 +79,7 @@
                 <!-- /.col -->
             </div>
             <!-- /.row -->
+            <a href="${website}/department/toadd" class="btn bg-olive">添加</a>
         </section>
 
         <!-- /.content -->
