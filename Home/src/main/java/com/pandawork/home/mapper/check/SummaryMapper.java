@@ -4,6 +4,8 @@ import com.pandawork.core.common.exception.SSException;
 import com.pandawork.home.common.entity.check.Summary;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * Created by Taoyongpan on 2017/8/30.
  */
@@ -35,7 +37,28 @@ public interface SummaryMapper {
      * @return
      * @throws SSException
      */
-    public Summary queryByUser(@Param("summary") Summary summary)throws SSException;
+    public List<Summary> queryByUser(@Param("summary") Summary summary)throws SSException;
 
+    /**
+     * 列出所有的年度总结
+     * @return
+     * @throws SSException
+     */
+    public List<Summary> listAll()throws SSException;
 
+    /**
+     * 根据ID查找年度总结
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public Summary queryById(@Param("id") int id)throws SSException;
+
+    /**
+     * 根据部门 ID 查找年度总结
+     * @param did
+     * @return
+     * @throws SSException
+     */
+    public List<Summary> queryByDid(@Param("did") int did)throws SSException;
 }

@@ -47,4 +47,16 @@
         SELECT * FROM t_performance WHERE did = #{did}
     </select>
 
+    <select id="queryByUid" resultMap="pw.Performance">
+        SELECT * FROM t_performance WHERE be_check_id = #{beCheckId}
+    </select>
+
+    <select id="queryYearByUid" resultMap="pw.Performance">
+        SELECT DISTINCT year FROM t_performance WHERE be_check_id = #{beCheckId} ORDER BY year DESC
+    </select>
+
+    <select id="listAll" resultMap="pw.Performance">
+        select * from t_performance
+    </select>
+
 </mapper>

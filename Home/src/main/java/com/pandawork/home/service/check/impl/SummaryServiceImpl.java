@@ -10,6 +10,8 @@ import com.pandawork.home.service.check.SummaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by Taoyongpan on 2017/8/30.
  */
@@ -58,7 +60,7 @@ public class SummaryServiceImpl implements SummaryService {
     }
 
     @Override
-    public Summary queryByUser(Summary summary) throws SSException {
+    public List<Summary> queryByUser(Summary summary) throws SSException {
         try{
             if (Assert.isNull(summary)){
                 return null;
@@ -67,6 +69,37 @@ public class SummaryServiceImpl implements SummaryService {
         }catch (Exception e){
             LogClerk.errLog.error(e);
 
+            throw SSException.get(ChException.QuerySummaryByUserFailed);
+        }
+    }
+
+    @Override
+    public List<Summary> listAll() throws SSException {
+        return summaryMapper.listAll();
+    }
+
+    @Override
+    public Summary queryById(int id) throws SSException {
+        try {
+            if (Assert.isNull(id)){
+                return null;
+            }
+            return summaryMapper.queryById(id);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QuerySummaryByUserFailed);
+        }
+    }
+
+    @Override
+    public List<Summary> queryByDid(int did) throws SSException {
+        try {
+            if (Assert.isNull(did)){
+                return null;
+            }
+            return summaryMapper.queryByDid(did);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
             throw SSException.get(ChException.QuerySummaryByUserFailed);
         }
     }

@@ -70,4 +70,27 @@ public interface PerformanceService {
      * @throws SSException
      */
     public List<Performance> queryByDid(int did)throws SSException;
+
+    /**
+     * 根据被考核用户的ID查找
+     * @param beCheckId
+     * @return
+     * @throws SSException
+     */
+    public List<Performance> queryByUid(int beCheckId)throws SSException;
+
+    /**
+     * 根据被考核用户ID查找年份列表
+     * @param beCheckId
+     * @return
+     * @throws SSException
+     */
+    public List<Performance> queryYearByUid(int beCheckId)throws SSException;
+
+    /**
+     * 列出所有的综合绩效
+     * @return
+     * @throws SSException
+     */
+    public List<Performance> listAll()throws SSException;
 }

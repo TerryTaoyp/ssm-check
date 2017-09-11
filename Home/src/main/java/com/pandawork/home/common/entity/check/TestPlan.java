@@ -32,6 +32,9 @@ public class TestPlan {
     //是否可用，0是不可用，1是可用
     @Column(name = "is_available")
     private Integer isAvailable;
+    //部门ID
+    @Column(name = "did")
+    private Integer did;
 
     public Integer getId() {
         return id;
@@ -87,5 +90,13 @@ public class TestPlan {
 
     public void setIsAvailable(Integer isAvailable) {
         this.isAvailable = isAvailable;
+    }
+
+    public Integer getDid() {
+        return did;
+    }
+
+    public void setDid(Integer did) {
+        this.did = did;
     }
 }

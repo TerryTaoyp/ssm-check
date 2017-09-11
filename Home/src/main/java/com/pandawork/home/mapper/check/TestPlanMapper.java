@@ -60,4 +60,12 @@ public interface TestPlanMapper {
      * @throws SSException
      */
     public List<TestPlan> queryByUid(@Param("uid") int uid)throws SSException;
+
+    /**
+     * 根据部门ID查找
+     * @param did
+     * @return
+     * @throws SSException
+     */
+    public List<TestPlan> queryByDid(@Param("did") int did)throws SSException;
 }

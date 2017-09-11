@@ -53,4 +53,10 @@ public class SummaryTest extends AbstractTestCase {
         summary.setBeCheckId(1);
         summaryService.queryByUser(summary);
     }
+
+    @Test
+    public void listTest()throws SSException{
+        System.out.println(summaryService.listAll());
+
+    }
 }

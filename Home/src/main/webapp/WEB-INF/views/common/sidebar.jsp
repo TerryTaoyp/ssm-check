@@ -100,19 +100,7 @@
                         </ul>
                     </li>
                     <%--<li><a href="${website}/testplan/toallot"><i class="fa fa-circle-o"></i>考核分配</a></li>--%>
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-circle-o"></i>月/季度考核管理
-                            <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="${website}/workplan/month/add"><i class="fa fa-circle-o"></i>添加工作计划考核</a></li>
-                            <li><a href="${website}/workplan/month/list"><i class="fa fa-circle-o"></i>工作计划考核列表</a></li>
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-add.html"><i class="fa fa-circle-o"></i>添加绩效指标考核</a>
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-list.html"><i class="fa fa-circle-o"></i>绩效指标考核列表</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="${website}/workplan/month/list"><i class="fa fa-circle-o"></i>月/季度考核管理列表</a></li>
                     <li class="treeview">
                         <a href="#"><i class="fa fa-circle-o"></i>年度考核管理
                             <span class="pull-right-container">
@@ -120,10 +108,9 @@
                 </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/evaluation/year/synthetical-add.html"><i class="fa fa-circle-o"></i>添加绩效综合能力</a></li>
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/evaluation/year/synthetical-list.html"><i class="fa fa-circle-o"></i>绩效综合能力列表</a></li>
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/evaluation/year/ability-add.html"><i class="fa fa-circle-o"></i>添加能力指标</a></li>
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/evaluation/year/ability-list.html"><i class="fa fa-circle-o"></i>能力指标列表</a></li>
+                            <li><a href="${website}/performance/list"><i class="fa fa-circle-o"></i>绩效综合能力列表</a></li>
+                            <li><a href="${website}/ability/list"><i class="fa fa-circle-o"></i>能力指标列表</a></li>
+                            <li><a href="${website}/summary/list"><i class="fa fa-circle-o"></i>个人总结</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -136,19 +123,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-circle-o"></i>月/季度考核
-                            <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/exam/month/exam-list.html"><i class="fa fa-circle-o"></i>我的测评</a></li>
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/exam/month/evaluation-list.html"><i class="fa fa-circle-o"></i>我去评价</a></li>
-                            <li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/exam/month/evaluation-detail.html"><i class="fa fa-circle-o"></i>隐藏的详情</a></li>
-                            <li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/exam/month/exam-detail.html"><i class="fa fa-circle-o"></i>隐藏的详情</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="${website}/check/month/list"><i class="fa fa-circle-o"></i>月/季度考核</a></li>
+                    <li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/exam/month/evaluation-detail.html"><i class="fa fa-circle-o"></i>隐藏的详情</a></li>
+                    <li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/exam/month/exam-detail.html"><i class="fa fa-circle-o"></i>隐藏的详情</a></li>
                     <li class="treeview">
                         <a href="#"><i class="fa fa-circle-o"></i>年度度考核
                             <span class="pull-right-container">
@@ -156,8 +133,9 @@
                 </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/exam/year/exam-list.html"><i class="fa fa-circle-o"></i>我的测评</a></li>
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/exam/year/evaluation-list.html"><i class="fa fa-circle-o"></i>我去评价</a></li>
+                            <li><a href="${website}/check/year/ability"><i class="fa fa-circle-o"></i>能力指标评价</a></li>
+                            <li><a href="${website}/check/year/performance"><i class="fa fa-circle-o"></i>年度绩效评价</a></li>
+                            <li><a href="${website}/check/year/summary"><i class="fa fa-circle-o"></i>个人总结评价</a></li>
                             <li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/exam/year/evaluation-detail.html"><i class="fa fa-circle-o"></i>隐藏的详情</a></li>
                             <li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/exam/year/exam-detail.html"><i class="fa fa-circle-o"></i>隐藏的详情</a></li>
                         </ul>
@@ -173,7 +151,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/result.html"><i class="fa fa-circle-o"></i> 测评结果展示报表</a></li>
+                    <li><a href="${website}/query/result"><i class="fa fa-circle-o"></i> 测评结果展示报表</a></li>
                     <li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/result-detail.html"><i class="fa fa-circle-o"></i>隐藏的详情</a></li>
                     <li class="treeview">
                         <a href="#"><i class="fa fa-circle-o"></i>月/季度考核测评结果
@@ -182,10 +160,10 @@
                 </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/month/plan.html"><i class="fa fa-circle-o"></i>工作计划结果报表</a></li>
+                            <li><a href="${website}/query/month/plan"><i class="fa fa-circle-o"></i>工作计划结果报表</a></li>
                             <li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/month/plan-detail.html"><i class="fa fa-circle-o"></i>工作计划结果报表详情</a></li>
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/month/evaluation.html"><i class="fa fa-circle-o"></i>绩效指标结果报表</a></li>
-                            <li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/month/evaluation-detail.html"><i class="fa fa-circle-o"></i>绩效指标结果报表详情</a></li>
+                            <%--<li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/month/evaluation.html"><i class="fa fa-circle-o"></i>绩效指标结果报表</a></li>--%>
+                            <%--<li class="none"><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/month/evaluation-detail.html"><i class="fa fa-circle-o"></i>绩效指标结果报表详情</a></li>--%>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -195,9 +173,9 @@
                 </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/year/vice-president.html"><i class="fa fa-circle-o"></i>副总经理考核结果报表</a></li>
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/year/synthetical.html"><i class="fa fa-circle-o"></i>综合绩效考评结果报表</a></li>
-                            <li><a href="http://www.appraisal.com/ssm-check/Home/src/main/webapp/WEB-INF/views/performance/year/ability.html"><i class="fa fa-circle-o"></i>能力指标考评结果报表</a></li>
+                            <li><a href="${website}/query/year/vice"><i class="fa fa-circle-o"></i>副总经理考核结果报表</a></li>
+                            <li><a href="${website}/query/year/synthetical"><i class="fa fa-circle-o"></i>综合绩效考评结果报表</a></li>
+                            <li><a href="${website}/query/year/ability"><i class="fa fa-circle-o"></i>能力指标考评结果报表</a></li>
                         </ul>
                     </li>
                 </ul>

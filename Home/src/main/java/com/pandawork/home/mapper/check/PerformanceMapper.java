@@ -71,5 +71,28 @@ public interface PerformanceMapper {
      */
     public List<Performance> queryByDid(@Param("did") int did)throws SSException;
 
+    /**
+     * 根据被考核用户的ID查找
+     * @param beCheckId
+     * @return
+     * @throws SSException
+     */
+    public List<Performance> queryByUid(@Param("beCheckId") int beCheckId)throws SSException;
+
+    /**
+     * 根据被考核用户ID查找年份列表
+     * @param beCheckId
+     * @return
+     * @throws SSException
+     */
+    public List<Performance> queryYearByUid(@Param("beCheckId") int beCheckId)throws SSException;
+
+    /**
+     * 列出所有
+     * @return
+     * @throws SSException
+     */
+    public List<Performance> listAll()throws SSException;
+
 
 }

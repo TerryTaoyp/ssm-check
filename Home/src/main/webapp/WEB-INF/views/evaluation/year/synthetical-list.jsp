@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -52,8 +53,8 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>姓名</th>
-                                    <th>所属部门</th>
+                                    <th>序号</th>
+                                    <th>考核年份</th>
                                     <th>1月</th>
                                     <th>2月</th>
                                     <th>3月</th>
@@ -66,80 +67,69 @@
                                     <th>10月</th>
                                     <th>11月</th>
                                     <th>12月</th>
-                                    <th>平均</th>
-                                    <th>您的打分</th>
-                                    <th>操作</th>
+                                    <th>平均得分</th>
+                                    <th>年度总结得分</th>
+                                    <th>您的得分</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>吴</td>
-                                    <td>产品部</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>____</td>
-                                    <td>
-                                        <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#modal-default">打分</button>
-                                        <a href="synthetical-detail.html" class="btn bg-blue">查看详情</a>
-                                        <button type="button" class="btn bg-red">删除</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>张</td>
-                                    <td>技术部</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>90分</td>
-                                    <td>____</td>
-                                    <td>
-                                        <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#modal-default">打分</button>
-                                        <a href="synthetical-detail.html" class="btn bg-blue">查看详情</a>
-                                        <button type="button" class="btn bg-red">删除</button>
-                                    </td>
-                                </tr>
+                                <c:forEach items="${performanceList}" var="performance" varStatus="status">
+                                    <tr>
+                                        <td>${status.index+1}</td>
+                                        <c:forEach items="${performanceYear}" var="year">
+                                            <td>${year.year}</td>
+                                            <c:forEach items="${workPlanList}" var="workPlan">
+                                                <c:if test="${workPlan.month == 1 && workPlan.year == year.year}">
+                                                    <td>${workPlan.monthScore}</td>
+                                                </c:if>
+                                                <c:if test="${workPlan.month ==2 && workPlan.year == year.year}">
+                                                    <td>${workPlan.monthScore}</td>
+                                                </c:if>
+                                                <c:if test="${workPlan.month == 3 && workPlan.year == year.year}">
+                                                    <td>${workPlan.monthScore}</td>
+                                                </c:if>
+                                                <c:if test="${workPlan.month == 4 && workPlan.year == year.year}">
+                                                    <td>${workPlan.monthScore}</td>
+                                                </c:if>
+                                                <c:if test="${workPlan.month == 5 && workPlan.year == year.year}">
+                                                    <td>${workPlan.monthScore}</td>
+                                                </c:if>
+                                                <c:if test="${workPlan.month == 6 && workPlan.year == year.year}">
+                                                    <td>${workPlan.monthScore}</td>
+                                                </c:if>
+                                                <c:if test="${workPlan.month == 7 && workPlan.year == year.year}">
+                                                    <td>${workPlan.monthScore}</td>
+                                                </c:if>
+                                                <c:if test="${workPlan.month == 8 && workPlan.year == year.year}">
+                                                    <td>${workPlan.monthScore}</td>
+                                                </c:if>
+                                                <c:if test="${workPlan.month == 9 && workPlan.year == year.year}">
+                                                    <td>${workPlan.monthScore}</td>
+                                                </c:if>
+                                                <c:if test="${workPlan.month == 10 && workPlan.year == year.year}">
+                                                    <td>${workPlan.monthScore}</td>
+                                                </c:if>
+                                                <c:if test="${workPlan.month == 11 && workPlan.year == year.year}">
+                                                    <td>${workPlan.monthScore}</td>
+                                                </c:if>
+                                                <c:if test="${workPlan.month == 12 && workPlan.year == year.year}">
+                                                    <td>${workPlan.monthScore}</td>
+                                                </c:if>
+                                            </c:forEach>
+                                            <c:if test="${year.year == performance.year}">
+                                                <td>${performance.suggestScore}</td>
+                                            </c:if>
+                                            <c:if test="${year.year == performance.year}">
+                                                <td>${performance.summaryScore}</td>
+                                            </c:if>
+                                            <c:if test="${year.year == performance.year}">
+                                                <td>${performance.yearScore}</td>
+                                            </c:if>
+                                            </tr>
+                                        </c:forEach>
+                                </c:forEach>
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>姓名</th>
-                                    <th>所属部门</th>
-                                    <th>1月</th>
-                                    <th>2月</th>
-                                    <th>3月</th>
-                                    <th>4月</th>
-                                    <th>5月</th>
-                                    <th>6月</th>
-                                    <th>7月</th>
-                                    <th>8月</th>
-                                    <th>9月</th>
-                                    <th>10月</th>
-                                    <th>11月</th>
-                                    <th>12月</th>
-                                    <th>平均</th>
-                                    <th>您的打分</th>
-                                    <th>操作</th>
-                                </tr>
-                                </tfoot>
+
                             </table>
                         </div>
                         <!-- /.box-body -->

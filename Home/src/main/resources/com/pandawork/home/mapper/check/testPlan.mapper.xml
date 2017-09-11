@@ -9,13 +9,15 @@
         test_type_id,
         start_time,
         finish_time,
-        test_name
+        test_name,
+        did
         )VALUES (
         #{testPlan.uid},
         #{testPlan.testTypeId},
         #{testPlan.startTime},
         #{testPlan.finishTime},
-        #{testPlan.testName}
+        #{testPlan.testName},
+        #{testPlan.did}
         )
     </insert>
 
@@ -25,7 +27,8 @@
         test_type_id = #{testPlan.testTypeId},
         start_time = #{testPlan.startTime},
         finish_time = #{testPlan.finishTime},
-        test_name = #{testPlan.testName}
+        test_name = #{testPlan.testName},
+        did = #{testPlan.did}
         WHERE id = #{testPlan.id}
     </update>
 
@@ -45,6 +48,10 @@
 
     <select id="countAll" resultType="int">
         SELECT COUNT(1) FROM t_test_plan
+    </select>
+
+    <select id="queryByDid" resultMap="pw.TestPlan">
+        SELECT * FROM t_test_plan WHERE did = #{did}
     </select>
 
     <select id="queryByUid" resultMap="pw.TestPlan">

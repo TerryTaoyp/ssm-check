@@ -29,6 +29,12 @@ public class Summary {
     //年度总结报告得分
     @Column(name = "summary_score")
     private Double summaryScore;
+    //被考核用户的部门ID
+    @Column(name = "did")
+    private Integer did;
+//    //被考核用户的角色ID
+//    @Column(name = "rid")
+//    private Integer rid;
 
     public Integer getId() {
         return id;
@@ -76,5 +82,26 @@ public class Summary {
 
     public void setSummaryScore(Double summaryScore) {
         this.summaryScore = summaryScore;
+    }
+
+    public Integer getDid() {
+        return did;
+    }
+
+    public void setDid(Integer did) {
+        this.did = did;
+    }
+
+    @Override
+    public String toString() {
+        return "Summary{" +
+                "id=" + id +
+                ", beCheckId=" + beCheckId +
+                ", checkId=" + checkId +
+                ", year=" + year +
+                ", content='" + content + '\'' +
+                ", summaryScore=" + summaryScore +
+                ", did=" + did +
+                '}';
     }
 }

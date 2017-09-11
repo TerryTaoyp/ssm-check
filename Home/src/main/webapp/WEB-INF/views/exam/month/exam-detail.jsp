@@ -6,15 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>月/季度测试</title>
+    <title>月/季度考核-打分详情</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- iCheck for checkboxes and radio inputs -->
-    <link rel="stylesheet" href="../../../../resources/js/plugins/iCheck/all.css">
     <jsp:include page="../../common/link.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 
@@ -31,155 +30,83 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                月/季度考核能力指标考核
+                月/季度考核-打分
                 <small>栏目</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">测评管理</a></li>
-                <li class="active">年度考核</li>
+                <li><a href="#">测评模块</a></li>
+                <li class="active">打分详情</li>
             </ol>
         </section>
 
+        <!-- Main content -->
         <section class="content">
             <div class="row">
-                <div class="col-md-12">
-                    <form>
-                        <div class="box box-primary">
-                            <div class="box-header">
-                                <h3 class="box-title">绩效综合能力目录</h3>
-                            </div>
-                            <div class="box-body">
-                                <ul class="timeline">
-                                    <!-- timeline time label -->
-                                    <li class="time-label">
-                        <span class="bg-green">
-                          考核开始
-                        </span>
-                                    </li>
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
-                                    <li>
-                                        <i class="fa bg-blue">1</i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-                                            <h3 class="timeline-header">
-                                                <a href="#">【创新题20%】</a>
-                                                你觉得公司怎么样？
-                                            </h3>
-
-                                            <div class="timeline-body box-body">
-                                                <div class="form-group">
-                                                    <label>
-                                                        <input type="radio" name="r1" class="minimal">
-                                                        A.答案1
-                                                    </label>
-                                                    <a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>
-                                                        <input type="radio" name="r1" class="minimal">
-                                                        B.答案1
-                                                    </label>
-                                                    <a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>
-                                                        <input type="radio" name="r1" class="minimal">
-                                                        C.答案1
-                                                    </label>
-                                                    <a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>
-                                                        <input type="radio" name="r1" class="minimal">
-                                                        D.答案1
-                                                    </label>
-                                                    <a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
-                                                </div>
-
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <div class="form-group">
-                                                    <label>请输入分数：</label>
-                                                    <input type="text" class="form-control" placeholder="10.0-10.0" required="required" name="role">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <i class="fa bg-blue">2</i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-                                            <h3 class="timeline-header">
-                                                <a href="#">【创新题20%】</a>
-                                                你觉得公司怎么样？
-                                            </h3>
-
-                                            <div class="timeline-body box-body">
-                                                <div class="form-group">
-                                                    <label>
-                                                        <input type="radio" name="r1" class="minimal">
-                                                        A.答案1
-                                                    </label>
-                                                    <a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>
-                                                        <input type="radio" name="r1" class="minimal">
-                                                        B.答案1
-                                                    </label>
-                                                    <a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>
-                                                        <input type="radio" name="r1" class="minimal">
-                                                        C.答案1
-                                                    </label>
-                                                    <a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>
-                                                        <input type="radio" name="r1" class="minimal">
-                                                        D.答案1
-                                                    </label>
-                                                    <a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
-                                                </div>
-
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <div class="form-group">
-                                                    <label>请输入分数：</label>
-                                                    <input type="text" class="form-control" placeholder="10.0-10.0" required="required" name="role">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="time-label">
-                        <span class="bg-green">
-                          考核结束
-                        </span>
-                                    </li>
-                                    <!-- /.timeline-label -->
-                                    <li>
-                                        <i class="fa fa-clock-o bg-gray"></i>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="box-footer">
-                                <input type="submit" class="btn btn-primary" value="提交">
-                            </div>
+                <div class="col-xs-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">
+                                <c:forEach items="${testPlanList}" var="testPlan">
+                                    <c:if test="${testPlan.id == workPlan.testId}">
+                                        ${testPlan.testName}
+                                    </c:if>
+                                </c:forEach>
+                            </h3>
                         </div>
-                    </form>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>被考核者姓名</th>
+                                    <th>工作计划内容</th>
+                                    <th>开始时间</th>
+                                    <th>结束时间</th>
+                                    <th>权重</th>
+                                    <th>预期工作成果</th>
+                                    <th>工作完成情况</th>
+                                    <th>考核得分</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${workDetailList}" var="workDetail" varStatus="status">
+                                <tr>
+                                    <td>${status.index+1}</td>
+                                    <c:forEach items="${userList}" var="user">
+                                        <c:if test="${user.id == workPlan.beCheckId}">
+                                            <td>${user.username}</td>
+                                        </c:if>
+                                    </c:forEach>
+                                    <td>${workDetail.planContent}</td>
+                                    <td>${workDetail.startTime}</td>
+                                    <td>${workDetail.endTime}</td>
+                                    <td>${workDetail.weight}</td>
+                                    <td>${workDetail.expectResult}</td>
+                                    <td><input type="text" value="${workDetail.completion}"></td>
+                                    <td><input type="text" value="${workDetail.testScore}"/></td>
+                                    <td>
+                                        <%--<button type="button" class="btn bg-green" data-toggle="modal" data-target="#modal-default">确定</button> --%>
+                                        <button type="button" class="btn bg-green">确定</button>
+                                        <button type="button" class="btn bg-red ">修改</button>
+                                    </td>
+                                </tr>
+                                </c:forEach>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
                 </div>
+                <!-- /.col -->
             </div>
+            <!-- /.row -->
         </section>
+        <!-- /.content -->
     </div>
+    <!-- /.content-wrapper -->
     <jsp:include page="../../common/footer.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
     <jsp:include page="../../common/control-sidebar.jsp"/>
@@ -188,20 +115,23 @@
     <div class="control-sidebar-bg"></div>
     <div class="modal fade" id="modal-default">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <form class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">修改计划</h4>
+                    <h4 class="modal-title">打分</h4>
                 </div>
                 <div class="modal-body">
-                    <p>One fine body&hellip;</p>
+                    <div class="form-group">
+                        <label>您的分数</label>
+                        <input type="text" class="form-control" placeholder="请输入0-100内数字..." required="required" name="role">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存修改</button>
+                    <input type="submit" class="btn btn-primary" value="打分">
                 </div>
-            </div>
+            </form>
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
@@ -210,17 +140,10 @@
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-
-<!-- iCheck -->
-<script src="../../../../resources/js/plugins/iCheck/icheck.min.js"></script>
 <!-- page script -->
 <script>
     $(function () {
-        //iCheck for checkbox and radio inputs
-        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-            checkboxClass: 'icheckbox_minimal-blue',
-            radioClass   : 'iradio_minimal-blue'
-        })
+        $('#example1').DataTable();
     })
 </script>
 </body>

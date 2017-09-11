@@ -5,14 +5,14 @@
     <insert id="addSummary">
         INSERT INTO t_summary(
         be_check_id,
-        check_id,
         year,
-        content
+        content,
+        did
         )VALUES (
         #{summary.beCheckId},
-        #{summary.checkId},
         #{summary.year},
-        #{summary.content}
+        #{summary.content},
+        #{summary.did}
         )
     </insert>
 
@@ -28,6 +28,18 @@
     </update>
 
     <select id="queryByUser" resultMap="pw.Summary">
-        SELECT * FROM t_summary WHERE be_check_id = #{summary.beCheckId} AND year = #{summary.year}
+        SELECT * FROM t_summary WHERE be_check_id = #{summary.beCheckId}
+    </select>
+
+    <select id="listAll" resultMap="pw.Summary">
+        SELECT * FROM t_summary
+    </select>
+
+    <select id="queryById" resultMap="pw.Summary">
+        SELECT * FROM t_summary WHERE id = #{id}
+    </select>
+
+    <select id="queryByDid" resultMap="pw.Summary">
+        SELECT * FROM t_summary WHERE did = #{did}
     </select>
 </mapper>

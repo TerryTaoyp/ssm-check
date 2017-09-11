@@ -125,4 +125,35 @@ public class PerformanceServiceImpl implements PerformanceService {
             throw SSException.get(ChException.QueryPerformanceByDid);
         }
     }
+
+    @Override
+    public List<Performance> queryByUid(int beCheckId) throws SSException {
+        try {
+            if (Assert.isNull(beCheckId)){
+                return null;
+            }
+            return performanceMapper.queryByUid(beCheckId);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryPerformanceByDid);
+        }
+    }
+
+    @Override
+    public List<Performance> queryYearByUid(int beCheckId) throws SSException {
+        try {
+            if (Assert.isNull(beCheckId)){
+                return null;
+            }
+            return performanceMapper.queryYearByUid(beCheckId);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryPerformanceByDid);
+        }
+    }
+
+    @Override
+    public List<Performance> listAll() throws SSException {
+        return performanceMapper.listAll();
+    }
 }

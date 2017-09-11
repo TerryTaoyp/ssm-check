@@ -2,53 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bfe2c6c-fb00-4f03-819b-825b0be6d6e9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/WorkPlanController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/common/entity/check/WorkPlan.class" afterPath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/common/entity/check/WorkPlan.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/common/entity/user/User.class" afterPath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/common/entity/user/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/common/exception/ChException.class" afterPath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/common/exception/ChException.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/AbilityController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/CheckController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/PerformanceController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/query/ResultController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/SummaryController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/summary-detail.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/summary-list.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/summary-update.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/summary-detail.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/summary-list.jsp" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-add.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-detail.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-list.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-list.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/evaluation-detail.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/evaluation-detail.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/evaluation-list.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/evaluation-list.jsp" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/common/entity/check/Summary.class" afterPath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/common/entity/check/Summary.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/common/entity/check/TestPlan.class" afterPath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/common/entity/check/TestPlan.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/WorkPlan.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/WorkPlan.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/user/User.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/user/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/exception/ChException.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/exception/ChException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/Summary.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/Summary.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/TestPlan.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/TestPlan.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/PerformanceMapper.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/PerformanceMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/SummaryMapper.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/SummaryMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/TestPlanMapper.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/TestPlanMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/WorkPlanMapper.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/WorkPlanMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/PerformanceService.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/PerformanceService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/SummaryService.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/SummaryService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/TestPlanService.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/TestPlanService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/WorkPlanService.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/WorkPlanService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/PerformanceServiceImpl.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/PerformanceServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/SummaryServiceImpl.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/SummaryServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/TestPlanServiceImpl.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/TestPlanServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/WorkPlanServiceImpl.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/WorkPlanServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/AbstractController.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/AbstractController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/AllotController.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/AllotController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/DepartmentController.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/DepartmentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/PersonController.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/PersonController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/PowerController.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/PowerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/RoleController.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/RoleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/user/LoginController.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/user/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/TestPlanController.java" afterPath="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/TestPlanController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/performance.mapper.xml" afterPath="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/performance.mapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/summary.mapper.xml" afterPath="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/summary.mapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/testPlan.mapper.xml" afterPath="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/testPlan.mapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/workPlan.mapper.xml" afterPath="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/workPlan.mapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/user/user.mapper.xml" afterPath="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/user/user.mapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/header.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/link.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/link.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/script.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/script.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/sidebar.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/sidebar.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-add.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-detail.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-detail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-list.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-update.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-update.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/plan-management-add.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/plan-management-add.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/plan-management.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/plan-management.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/login.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/account-list.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/account-list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/allot-list.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/allot-list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/department-add.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/department-add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/department-list.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/department-list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/jurisdiction-add.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/jurisdiction-add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/jurisdiction-list.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/jurisdiction-list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/personnel-list.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/personnel-list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/role-add.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/role-add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/role-list.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/role-list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/update-password.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/update-password.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/mapper/user/user.mapper.xml" afterPath="$PROJECT_DIR$/Home/target/classes/com/pandawork/home/mapper/user/user.mapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/target/test-classes/com/pandawork/home/mapper/user/user.mapper.xml" afterPath="$PROJECT_DIR$/Home/target/test-classes/com/pandawork/home/mapper/user/user.mapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/synthetical-list.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/synthetical-list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/exam-detail.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/exam-detail.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/exam-list.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/exam-list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/src/test/java/com/pandawork/home/check/SummaryTest.java" afterPath="$PROJECT_DIR$/Home/src/test/java/com/pandawork/home/check/SummaryTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-add.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/ability-update.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-detail.jsp" afterPath="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/summary-add.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/ssm_eat/target/" />
     <ignored path="$PROJECT_DIR$/Home/target/" />
@@ -71,19 +69,41 @@
       <file leaf-file-name="sidebar.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/sidebar.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="54" column="25" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+            <state relative-caret-position="3888">
+              <caret line="162" column="68" lean-forward="false" selection-start-line="162" selection-start-column="68" selection-end-line="162" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidebar.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/sidebar.html">
+      <file leaf-file-name="plan-management.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/plan-management.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1392">
-              <caret line="38" column="42" lean-forward="false" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+            <state relative-caret-position="2064">
+              <caret line="86" column="124" lean-forward="false" selection-start-line="86" selection-start-column="124" selection-end-line="86" selection-end-column="124" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestPlanController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/TestPlanController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="120" column="15" lean-forward="true" selection-start-line="120" selection-start-column="15" selection-end-line="120" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResultController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/query/ResultController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1272">
+              <caret line="56" column="17" lean-forward="false" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,42 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/query.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/result.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/result-detail.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/user/UserMapper.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/Allot.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/TestPlanController.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/allot-list.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/ChackAllotController.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/CheckAllotController.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/TestPlanMapper.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/TestPlanService.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/exception/ChException.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/TestPlanServiceImpl.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/user/User.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/user/user.mapper.xml" />
-        <option value="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/testPlan.mapper.xml" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/WorkPlan.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/WorkPlanService.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/WorkPlanMapper.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/workPlan.mapper.xml" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/WorkPlanServiceImpl.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/link.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/script.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-add.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-list.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-update.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/plan-management.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/plan-management-add.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/department-add.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/jurisdiction-add.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/role-add.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/account-list.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-detail.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/WorkPlanController.java" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/sidebar.jsp" />
-        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/header.html" />
         <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/header.jsp" />
         <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/update-password.jsp" />
         <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/login.jsp" />
@@ -172,6 +156,42 @@
         <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/AllotController.java" />
         <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/PersonController.java" />
         <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/personnel-list.jsp" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/Summary.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/summary-add.jsp" />
+        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/summary-detail.jsp" />
+        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/summary-list.jsp" />
+        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/summary-update.jsp" />
+        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/ability-update.jsp" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/AbilityController.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/workPlan.mapper.xml" />
+        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/synthetical-list.jsp" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/TestPlan.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/testPlan.mapper.xml" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/TestPlanService.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/TestPlanMapper.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/TestPlanServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/exam-list.jsp" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/WorkPlanController.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/exam-detail.jsp" />
+        <option value="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/summary.mapper.xml" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/SummaryMapper.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/SummaryService.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/SummaryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/SummaryController.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/Summary.java" />
+        <option value="$PROJECT_DIR$/Home/src/test/java/com/pandawork/home/check/SummaryTest.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/summary-list.jsp" />
+        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/summary-detail.jsp" />
+        <option value="$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/performance.mapper.xml" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/PerformanceMapper.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/PerformanceService.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/PerformanceServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/PerformanceController.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/CheckController.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/query/ResultController.java" />
+        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/sidebar.jsp" />
+        <option value="$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/plan-management.jsp" />
+        <option value="$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/TestPlanController.java" />
       </list>
     </option>
   </component>
@@ -231,7 +251,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1924" />
+    <option name="width" value="1932" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -291,7 +311,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -404,41 +423,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ssm-check" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Home" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
+              <option name="myItemId" value="evaluation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -538,6 +523,62 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssm-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssm-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -647,10 +688,313 @@
               <option name="myItemId" value="home" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="query" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssm-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssm-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssm-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssm-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssm-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssm-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssm-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssm-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssm-check" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -690,200 +1034,6 @@
       <recent name="E:\DateBase\Idea\ssm-check\ssm_eat\src\main\java" />
     </key>
   </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/sidebar.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/allot-detail.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/allot-detail.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/allot-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/allot-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-add.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-add.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-detail.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-detail.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-update.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-update.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/plan-management.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/plan-management.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/ability-add.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/ability-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/ability-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/synthetical-add.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/synthetical-detail.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/synthetical-detail.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/synthetical-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/synthetical-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/evaluation-detail.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/evaluation-detail.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/evaluation-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/evaluation-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/exam-detail.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/exam-detail.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/exam-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/exam-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/evaluation-detail.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/evaluation-detail.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/evaluation-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/evaluation-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/exam-detail.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/exam-detail.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/exam-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/exam-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/month/evaluation-detail.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/month/evaluation-detail.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/month/evaluation.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/month/evaluation.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/month/plan-detail.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/month/plan-detail.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/month/plan.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/month/plan.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/query.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/query.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/result-detail.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/result-detail.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/result.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/result.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/account-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/account-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/allot-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/allot-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/department-add.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/department-add.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/department-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/department-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/jurisdiction-add.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/jurisdiction-add.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/jurisdiction-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/jurisdiction-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/personnel-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/personnel-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/role-add.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/role-add.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/role-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/role-list.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/resources/js/pages/exam/month/evaluation-detail.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/resources/js/pages/exam/month/exam-detail.js</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/ability-detail.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/ability-update.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/summary-add.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/summary-detail.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/summary-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/summary-update.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/synthetical-update.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/summary-detail.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/summary-list.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Home/src/main/webapp/resources/js/pages/exam/year/summary-detail.js</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
-  </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat8.5.6">
     <configuration default="false" name="AllotServiceTest.addTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -898,32 +1048,6 @@
       <option name="PACKAGE_NAME" value="com.pandawork.home.system" />
       <option name="MAIN_CLASS_NAME" value="com.pandawork.home.system.AllotServiceTest" />
       <option name="METHOD_NAME" value="addTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="AllotServiceTest.queyByUid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.pandawork.home.system.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="Home_id" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.pandawork.home.system" />
-      <option name="MAIN_CLASS_NAME" value="com.pandawork.home.system.AllotServiceTest" />
-      <option name="METHOD_NAME" value="queyByUid" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1002,6 +1126,32 @@
       <option name="PACKAGE_NAME" value="com.pandawork.home.system" />
       <option name="MAIN_CLASS_NAME" value="com.pandawork.home.system.AllotServiceTest" />
       <option name="METHOD_NAME" value="countAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="SummaryTest.listTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.pandawork.home.check.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Home_id" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.pandawork.home.check" />
+      <option name="MAIN_CLASS_NAME" value="com.pandawork.home.check.SummaryTest" />
+      <option name="METHOD_NAME" value="listTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1496,18 +1646,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Tomcat8.5.6" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.addTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.queyByUid" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.delTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.listAllTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.countAll" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.delTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.listAllTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.countAll" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.SummaryTest.listTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.countAll" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.listAllTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.addTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.delTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.queyByUid" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.SummaryTest.listTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.countAll" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.listAllTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.addTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AllotServiceTest.delTest" />
       </list>
     </recent_temporary>
   </component>
@@ -1560,7 +1710,11 @@
       <workItem from="1504662233576" duration="20255000" />
       <workItem from="1504744738145" duration="18179000" />
       <workItem from="1504837986372" duration="382000" />
-      <workItem from="1504843480390" duration="8587000" />
+      <workItem from="1504843480390" duration="17818000" />
+      <workItem from="1504917221060" duration="1320000" />
+      <workItem from="1504922396199" duration="4591000" />
+      <workItem from="1505018905781" duration="27879000" />
+      <workItem from="1505090282560" duration="65000" />
     </task>
     <task id="LOCAL-00001" summary="目录结构">
       <created>1501552204597</created>
@@ -1723,19 +1877,17 @@
       <option name="project" value="LOCAL" />
       <updated>1504692653138</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="考核管理代码">
+      <created>1504869969910</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1504869969910</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AllotServiceTest_addTest - 2017.09.05 at 09h 02m 52s.xml">
-      <configuration name="AllotServiceTest.addTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AllotServiceTest_addTest - 2017.09.05 at 09h 04m 06s.xml">
-      <configuration name="AllotServiceTest.addTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AllotServiceTest_addTest - 2017.09.05 at 09h 08m 38s.xml">
-      <configuration name="AllotServiceTest.addTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AllotServiceTest_addTest - 2017.09.05 at 09h 08m 47s.xml">
       <configuration name="AllotServiceTest.addTest" configurationId="JUnit" />
     </history-entry>
@@ -1754,12 +1906,21 @@
     <history-entry file="AllotServiceTest_updateTest - 2017.09.05 at 09h 05m 50s.xml">
       <configuration name="AllotServiceTest.updateTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="SummaryTest_listTest - 2017.09.10 at 20h 43m 09s.xml">
+      <configuration name="SummaryTest.listTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SummaryTest_listTest - 2017.09.10 at 20h 49m 41s.xml">
+      <configuration name="SummaryTest.listTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SummaryTest_listTest - 2017.09.10 at 20h 51m 27s.xml">
+      <configuration name="SummaryTest.listTest" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="UserServiceTest_queryByIsDelete - 2017.09.04 at 22h 51m 13s.xml">
       <configuration name="UserServiceTest.queryByIsDelete" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="284807000" />
+    <option name="totallyTimeSpent" value="327893000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1771,12 +1932,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1924" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46296296" sideWeight="0.504315" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39675173" sideWeight="0.5064378" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277027" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1786,19 +1947,18 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6577726" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4211137" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5336427" sideWeight="0.495685" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3259861" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18909512" sideWeight="0.495685" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42923433" sideWeight="0.49356222" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962963" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23596112" sideWeight="0.48381603" order="4" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2483871" sideWeight="0.48381603" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20010729" sideWeight="0.516184" order="3" side_tool="true" content_ui="tabs" />
@@ -1806,6 +1966,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2552204" sideWeight="0.495685" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32955772" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32817337" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1832,7 +1993,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="35" />
+      <option name="time" value="45" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1841,52 +2002,326 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/exam-detail.jsp">
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/TestPlanServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4798">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="494">
+          <caret line="123" column="72" lean-forward="false" selection-start-line="123" selection-start-column="72" selection-end-line="123" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/TestPlanMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="64" column="15" lean-forward="false" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/exam-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1392">
+          <caret line="80" column="51" lean-forward="false" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/WorkPlanService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/evaluation-detail.jsp" />
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-detail.jsp" />
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-add.jsp" />
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/evaluation-list.jsp" />
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-detail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="64" column="37" lean-forward="true" selection-start-line="54" selection-start-column="31" selection-end-line="64" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="71" column="62" lean-forward="false" selection-start-line="71" selection-start-column="62" selection-end-line="71" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/WorkPlanController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="54" column="68" lean-forward="true" selection-start-line="54" selection-start-column="68" selection-end-line="54" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/TestPlan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-57">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/WorkPlan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/WorkDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/SummaryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="108" column="41" lean-forward="false" selection-start-line="108" selection-start-column="41" selection-end-line="108" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/summary-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.1.7.RELEASE/spring-web-4.1.7.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="230" column="0" lean-forward="false" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.1.7.RELEASE/spring-webmvc-4.1.7.RELEASE-sources.jar!/org/springframework/web/servlet/DispatcherServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="898" column="0" lean-forward="false" selection-start-line="898" selection-start-column="0" selection-end-line="898" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.1.7.RELEASE/spring-webmvc-4.1.7.RELEASE-sources.jar!/org/springframework/web/servlet/FrameworkServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="1001" column="0" lean-forward="false" selection-start-line="1001" selection-start-column="0" selection-end-line="1001" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.1.7.RELEASE/spring-web-4.1.7.RELEASE-sources.jar!/org/springframework/web/multipart/support/MultipartFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="121" column="0" lean-forward="false" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.1.7.RELEASE/spring-web-4.1.7.RELEASE-sources.jar!/org/springframework/web/filter/OncePerRequestFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/SummaryMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/SummaryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="20" column="11" lean-forward="true" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/SummaryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="45" column="30" lean-forward="true" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/AbstractController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="184" column="26" lean-forward="true" selection-start-line="184" selection-start-column="26" selection-end-line="184" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/summary.mapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="34" column="15" lean-forward="true" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+          <folding>
+            <marker date="1505045494490" expanded="true" signature="259:479" ph="INSERT INTO t_summary... " />
+            <marker date="1505045494490" expanded="true" signature="535:617" ph="UPDATE t_sum... " />
+            <marker date="1505045494490" expanded="true" signature="671:803" ph="UPDATE t_sum... " />
+            <marker date="1505045494490" expanded="true" signature="880:944" ph="SELECT * FRO... t_summary" />
+            <marker date="1505045494490" expanded="true" signature="1017:1040" ph="SELECT * FRO... t_summary" />
+            <marker date="1505045494490" expanded="true" signature="1115:1155" ph="SELECT * FRO... t_summary" />
+            <marker date="1505045494490" expanded="true" signature="1231:1273" ph="SELECT * FRO... t_summary" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/test/java/com/pandawork/home/check/SummaryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/Summary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/summary-detail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="57" column="49" lean-forward="true" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/summary-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="554">
+          <caret line="83" column="48" lean-forward="false" selection-start-line="83" selection-start-column="48" selection-end-line="83" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/resources/com/pandawork/home/mapper/check/performance.mapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="58" column="35" lean-forward="false" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
+          <folding>
+            <marker date="1505051669312" expanded="true" signature="267:581" ph="INSERT INTO t_performance... " />
+            <marker date="1505051669312" expanded="true" signature="642:755" ph="UPDATE t_per... " />
+            <marker date="1505051669312" expanded="true" signature="813:912" ph="UPDATE t_per... " />
+            <marker date="1505051669312" expanded="true" signature="969:1011" ph="DELETE FROM " />
+            <marker date="1505051669312" expanded="true" signature="1100:1169" ph="SELECT * FRO... t_performance" />
+            <marker date="1505051669312" expanded="true" signature="1260:1333" ph="SELECT * FRO... t_performance" />
+            <marker date="1505051669312" expanded="true" signature="1401:1435" ph="SELECT COUNT... t_performance" />
+            <marker date="1505051669312" expanded="true" signature="1515:1561" ph="SELECT * FRO... t_performance" />
+            <marker date="1505051669312" expanded="true" signature="1641:1701" ph="SELECT * FRO... t_performance" />
+            <marker date="1505051669312" expanded="true" signature="1785:1857" ph="SELECT DISTI... " />
+            <marker date="1505051669312" expanded="true" signature="1785:1876" ph="SELECT DISTI... " />
+            <marker date="1505051669312" expanded="true" signature="1953:1980" ph="select * fro... t_performance" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/mapper/check/PerformanceMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="90" column="11" lean-forward="false" selection-start-line="90" selection-start-column="11" selection-end-line="90" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/impl/PerformanceServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="156" column="43" lean-forward="false" selection-start-line="156" selection-start-column="43" selection-end-line="156" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/PerformanceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="90" column="16" lean-forward="false" selection-start-line="90" selection-start-column="16" selection-end-line="90" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/year/synthetical-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="130" column="40" lean-forward="true" selection-start-line="130" selection-start-column="40" selection-end-line="130" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/month/exam-detail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="91" column="82" lean-forward="false" selection-start-line="91" selection-start-column="82" selection-end-line="91" selection-end-column="82" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/exam/year/exam-list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2926">
+        <state relative-caret-position="-1152">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/month/evaluation.jsp">
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/CheckController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2952">
+        <state relative-caret-position="432">
+          <caret line="135" column="62" lean-forward="true" selection-start-line="135" selection-start-column="62" selection-end-line="135" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/PerformanceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="43" column="34" lean-forward="true" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/resources/js/dist/css/AdminLTE.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/query.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/month/evaluation-detail.jsp">
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/result.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2782">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/month/plan.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2974">
+        <state relative-caret-position="-3430">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/month/plan-detail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2758">
+        <state relative-caret-position="-1008">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/year/ability.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="168">
+          <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -1904,335 +2339,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/query.jsp">
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/query/ResultController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4438">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/result.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4320">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/performance/result-detail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2782">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/department-add.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="79" column="63" lean-forward="false" selection-start-line="79" selection-start-column="63" selection-end-line="79" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/jurisdiction-add.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="88" column="40" lean-forward="false" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/role-add.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="96" column="40" lean-forward="false" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1870">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/link.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="13" column="47" lean-forward="false" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/script.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/link.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="22" column="49" lean-forward="true" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-552">
-          <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-add.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3144">
-          <caret line="113" column="44" lean-forward="false" selection-start-line="113" selection-start-column="44" selection-end-line="113" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/month/plan-detail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="70" column="44" lean-forward="false" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="46" column="19" lean-forward="true" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/user/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="86" column="16" lean-forward="false" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="60" column="55" lean-forward="false" selection-start-line="60" selection-start-column="55" selection-end-line="60" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8903">
-          <caret line="99" column="26" lean-forward="true" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/update-password.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="56" column="79" lean-forward="false" selection-start-line="56" selection-start-column="79" selection-end-line="56" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="71" column="41" lean-forward="false" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/Performance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/check/AbilityTarget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/WorkPlanController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="30" column="48" lean-forward="false" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+        <state relative-caret-position="1272">
+          <caret line="56" column="17" lean-forward="false" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/user/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="46" column="16" lean-forward="true" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1152#1153#0" expanded="false" />
-            <element signature="e#1182#1183#0" expanded="false" />
-            <element signature="e#2402#2403#0" expanded="false" />
-            <element signature="e#2432#2433#0" expanded="false" />
-            <element signature="e#2580#2581#0" expanded="false" />
-            <element signature="e#2613#2614#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/account-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1543">
-          <caret line="115" column="59" lean-forward="false" selection-start-line="115" selection-start-column="59" selection-end-line="115" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/jurisdiction-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="105" column="35" lean-forward="false" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/AbstractController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/PowerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="54" column="49" lean-forward="true" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/department-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="106" column="20" lean-forward="false" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/common/entity/system/Allot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/DepartmentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="71" column="49" lean-forward="true" selection-start-line="71" selection-start-column="11" selection-end-line="71" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/allot-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-564">
-          <caret line="78" column="168" lean-forward="true" selection-start-line="78" selection-start-column="168" selection-end-line="78" selection-end-column="168" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/AllotController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="75" column="49" lean-forward="false" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/net/sf/json-lib/json-lib/2.4/json-lib-2.4-jdk15.jar!/net/sf/json/JSONObject.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="56" column="19" lean-forward="false" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/personnel-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="83" column="210" lean-forward="false" selection-start-line="83" selection-start-column="210" selection-end-line="83" selection-end-column="210" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/PersonController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="140" column="43" lean-forward="true" selection-start-line="140" selection-start-column="43" selection-end-line="140" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/system/role-list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1476">
-          <caret line="109" column="183" lean-forward="false" selection-start-line="109" selection-start-column="183" selection-end-line="109" selection-end-column="183" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/resources/js/site-config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2340">
-          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/system/RoleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="58" column="30" lean-forward="false" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/script.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="25" column="51" lean-forward="false" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/sidebar.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="54" column="25" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+        <state relative-caret-position="3888">
+          <caret line="162" column="68" lean-forward="false" selection-start-line="162" selection-start-column="68" selection-end-line="162" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/common/sidebar.html">
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/service/check/TestPlanService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1392">
-          <caret line="38" column="42" lean-forward="false" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+        <state relative-caret-position="552">
+          <caret line="44" column="7" lean-forward="true" selection-start-line="44" selection-start-column="7" selection-end-line="44" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/webapp/WEB-INF/views/evaluation/plan-management.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2064">
+          <caret line="86" column="124" lean-forward="false" selection-start-line="86" selection-start-column="124" selection-end-line="86" selection-end-column="124" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/src/main/java/com/pandawork/home/web/controller/check/TestPlanController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="120" column="15" lean-forward="true" selection-start-line="120" selection-start-column="15" selection-end-line="120" selection-end-column="15" />
           <folding />
         </state>
       </provider>
