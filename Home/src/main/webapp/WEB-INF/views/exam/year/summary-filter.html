@@ -27,7 +27,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li><a href="#">考核管理</a></li>
+        <li><a href="#">测评模块</a></li>
         <li class="active">能力指标考核</li>
       </ol>
     </section>
@@ -45,45 +45,27 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                      <th>问题</th>
-                      <th>问题所属年份</th>
-                      <th>所属部门</th>
-                      <th>发布人</th>
-                      <th>备注信息</th>
+                      <th>年份</th>
                       <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>吴</td>
-                        <td>1月</td>
-                        <td>产品部</td>
-                        <td>经理</td>
-                        <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
+                        <td>2017</td>
                         <td>
-                            <a href="issues-detail.html" class="btn bg-blue">查看详情</a>
-                            <button type="button" class="btn bg-red">删除此能力指标考核</button>
+                            <a href="summary-filter.html" class="btn bg-blue">查看详情</a>
                         </td>
                     </tr>
                     <tr>
-                        <td>张</td>
-                        <td>2月</td>
-                        <td>技术部</td>
-                        <td>经理</td>
-                        <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
+                        <td>2015</td>
                         <td>
-                            <a href="issues-detail.html" class="btn bg-blue">查看详情</a>
-                            <button type="button" class="btn bg-red">删除此能力指标考核</button>
+                            <a href="summary-filter.html" class="btn bg-blue">查看详情</a>
                         </td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
-                      <th>问题</th>
-                      <th>问题所属年份</th>
-                      <th>所属部门</th>
-                      <th>发布人</th>
-                      <th>备注信息</th>
+                      <th>年份</th>
                       <th>操作</th>
                     </tr>
                 </tfoot>
@@ -95,7 +77,6 @@
         </div>
         <!-- /.col -->
       </div>
-      <a href="issues-add.html" class="btn bg-olive">添加问题</a>
       <!-- /.row -->
     </section>
     <!-- /.content -->
@@ -103,21 +84,15 @@
   <!-- /.content-wrapper -->
   <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
 
-  <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
-
-  <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <!-- page script -->
-<script src="../../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
 <script>
   $(function () {
     // 表格
     $('#example1').DataTable();
-    // 下拉框
-    $('.select2').select2();
   })
 </script>
 </body>

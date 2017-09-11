@@ -97,9 +97,6 @@
     <jsp:include page="../common/footer.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
 
-    <jsp:include page="../common/sidebar.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
-
     <div class="control-sidebar-bg"></div>
     <div class="modal fade" id="modal-default">
         <div class="modal-dialog">

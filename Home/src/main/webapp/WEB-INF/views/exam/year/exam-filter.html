@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>年度考核-副总经理考核结果报表</title>
+  <title>年度考核-能力指标</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
+  <link rel="stylesheet" href="../../../../resources/js/bower_components/select2/dist/css/select2.min.css">
+<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
   
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -21,13 +22,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        年度考核-副总经理考核结果报表
+        年度考核-能力指标
         <small>栏目</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li><a href="#">成绩查询</a></li>
-        <li class="active">年度考核-副总经理考核结果报表</li>
+        <li><a href="#">测评模块</a></li>
+        <li class="active">能力指标考核</li>
       </ol>
     </section>
 
@@ -35,49 +36,37 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box box-default">
+          <div class="box box-success">
             <div class="box-header">
-              <h3 class="box-title">......考核</h3>
+              <h3 class="box-title">年度能力指标列表</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                      <th>考核计划名称</th>
-                      <th>被考核人姓名</th>
-                      <th>所在部门</th>
-                      <th>职位</th>
-                      <th>综合得分</th>
-                      <th>其他信息</th>
+                      <th>年份</th>
+                      <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>章</td>
-                        <td>13837200544</td>
-                        <td>产品</td>
-                        <td>经理</td>
-                        <td>77</td>
-                        <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
+                        <td>1月</td>
+                        <td>
+                            <a href="exam-list.html" class="btn bg-blue">查看详情</a>
+                        </td>
                     </tr>
                     <tr>
-                        <td>章</td>
-                        <td>1384</td>
-                        <td>产品</td>
-                        <td>经理</td>
-                        <td>17</td>
-                        <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
+                        <td>2月</td>
+                        <td>
+                            <a href="exam-list.html" class="btn bg-blue">查看详情</a>
+                        </td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
-                      <th>考核计划名称</th>
-                      <th>被考核人姓名</th>
-                      <th>所在部门</th>
-                      <th>职位</th>
-                      <th>综合得分</th>
-                      <th>其他信息</th>
+                      <th>年份</th>
+                      <th>操作</th>
                     </tr>
                 </tfoot>
               </table>
@@ -99,11 +88,10 @@
 <!-- ./wrapper -->
 
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-<!-- CKeditor -->
-<script src="../../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
 <!-- page script -->
 <script>
   $(function () {
+    // 表格
     $('#example1').DataTable();
   })
 </script>
