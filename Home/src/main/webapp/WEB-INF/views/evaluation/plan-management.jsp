@@ -16,16 +16,15 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- select2 -->
     <link rel="stylesheet" href="../../../resources/js/bower_components/select2/dist/css/select2.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="../../../resources/js/bower_components/bootstrap-daterangepicker/daterangepicker.css">
     <jsp:include page="../common/link.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 
 </head>
 <body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
     <jsp:include page="../common/header.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
     <jsp:include page="../common/sidebar.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/sidebar.html" -->
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -83,9 +82,10 @@
                                             <td>未开启</td>
                                         </c:if>
                                         <td>
-                                            <a type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改计划</a>
-                                            <a type="button" class="btn bg-blue" href="${website}/testplan/toallot/${testPlan.id}">分配考核人员</a>
-                                            <a type="button" class="btn bg-red delete" data-num="${status.index+1}"  href="${website}/testplan/del/${testPlan.id}">改变状态</a>
+                                            <a href="javascript:;" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改计划</a>
+                                            <a class="btn bg-blue" href="${website}/testplan/toallot/${testPlan.id}">分配考核人员</a>
+                                            <a class="btn bg-warning" data-num="${status.index+1}"  href="${website}/testplan/del/${testPlan.id}">改变状态</a>
+
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -160,6 +160,16 @@
                     </div>
 
                     <div class="form-group">
+                      <label>选择时间：</label>
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control pull-right" id="reservation">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
                         <label>备注信息：</label>
                         <textarea class="form-control remark a-require-text" rows="3" placeholder="请输入..."></textarea>
                     </div>
@@ -177,17 +187,51 @@
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
-<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <!-- select2 -->
 <script src="../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
+
+<!-- date-range-picker -->
+<script src="../../../resources/js/bower_components/moment/min/moment-with-locales.js"></script>
+<script src="../../../resources/js/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <script src="../../../resources/js/pages/common/verify.js"></script>
 <script src="../../../resources/js/pages/evaluation/plan-management.js"></script>
 <!-- page script -->
 <script>
-    $(function () {
-        $('#example1').DataTable();
-        $('.select2').select2();
-    })
+    function init() {
+      $('#example1').DataTable();
+      $('.select2').select2();
+            //定义locale汉化插件
+            var locale = {
+                "format": 'YYYY-MM-DD',
+                "separator": " 到 ",
+                "applyLabel": "确定",
+                "cancelLabel": "取消",
+                "fromLabel": "起始时间",
+                "toLabel": "结束时间'",
+                "customRangeLabel": "自定义",
+                "weekLabel": "W",
+                "daysOfWeek": ["日", "一", "二", "三", "四", "五", "六"],
+                "monthNames": ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                "firstDay": 1
+            };
+            //初始化显示当前时间
+            $('#reservation span').html(moment().subtract('hours', 1).format('YYYY-MM-DD') + ' - ' + moment().format('YYYY-MM-DD'));
+            //日期控件初始化
+            $('#reservation').daterangepicker(
+                {
+                    'locale': locale,
+                    //汉化按钮部分
+                    startDate: moment().subtract(29, 'days'),
+                    endDate: moment()
+                },
+                function (start, end) {
+                    $('#daterange-btn span').html(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
+                }
+           );
+        };
+        $(document).ready(function() {
+            init(); 
+        });
 </script>
 </body>
 </html>

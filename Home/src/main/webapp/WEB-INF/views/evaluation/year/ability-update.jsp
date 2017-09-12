@@ -115,7 +115,7 @@
                             <label>工作内容：</label>
                             <textarea id="editor1" name="editor1" rows="10" cols="80">
                        请在这里输入工作计划...
-                </textarea>
+                            </textarea>
                         </div>
 
                         <div class="box-footer">
