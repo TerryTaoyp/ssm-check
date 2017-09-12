@@ -73,8 +73,8 @@
                                                 <td class="nature-text">${testType.name}</td>
                                             </c:if>
                                         </c:forEach>
-                                        <td class="position-text">${testPlan.startTime}</td>
-                                        <td class="remark-text">${testPlan.finishTime}</td>
+                                        <td class="time-start-text">${testPlan.startTime}</td>
+                                        <td class="time-end-text">${testPlan.finishTime}</td>
                                         <c:if test="${testPlan.isAvailable==1}">
                                             <td>已开启</td>
                                         </c:if>
@@ -84,7 +84,8 @@
                                         <td>
                                             <a href="javascript:;" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改计划</a>
                                             <a class="btn bg-blue" href="${website}/testplan/toallot/${testPlan.id}">分配考核人员</a>
-                                            <a class="btn btn-warning" data-num="${status.index+1}"  href="${website}/testplan/del/${testPlan.id}">改变状态</a>
+                                            <a class="btn btn-warning status" data-num="${status.index+1}"  href="${website}/testplan/del/${testPlan.id}">改变状态</a>
+                                            <button type="button" class="btn bg-red delete" data-num="${status.index+1}">删除</button>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -133,15 +134,15 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>选择对象：</label>
                         <select class="form-control select2 position a-require-options" multiple="multiple" data-placeholder="请选择..." style="width: 100%;">
                             <option value="1">对象1</option>
                             <option value="2">对象2</option>
                         </select>
-                    </div>
+                    </div> -->
 
-                    <div class="form-group none kind">
+                    <!-- <div class="form-group none kind">
                         <label>考核方式：</label>
                         <div class="checkbox">
                             <label>
@@ -156,7 +157,7 @@
                                 绩效指标考核
                             </label>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                       <label>选择时间：</label>
@@ -168,10 +169,6 @@
                       </div>
                     </div>
 
-                    <div class="form-group">
-                        <label>备注信息：</label>
-                        <textarea class="form-control remark a-require-text" rows="3" placeholder="请输入..."></textarea>
-                    </div>
                     <p class="text-red tip"></p>
                 </div>
                 <div class="modal-footer">

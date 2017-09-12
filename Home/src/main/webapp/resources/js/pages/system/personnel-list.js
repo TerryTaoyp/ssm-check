@@ -8,7 +8,6 @@ $(document).ready(function() {
 			J_ajax_submit: '.J-ajax-submit', // ajax提交按钮
 			J_department: '.department', // 所属部门名称
 			J_position: '.position', // 职位
-			J_remark: '.remark', // 备注信息
 		};
 
 		// 入口函数
@@ -30,8 +29,7 @@ $(document).ready(function() {
 					department = $(el.J_department).val(), // 所属部门名称
 					department_text = $(el.J_department).find('option:selected').text(), // 所属部门名称的值
 					position = $(el.J_position).val(), // 职位名称
-					position_text = $(el.J_position).find('option:selected').text(), // 职位名称的值
-					remark = $(el.J_remark).val(); //备注信息
+					position_text = $(el.J_position).find('option:selected').text(); //
 				// 如果符合条件无法提交
 				if (!(ajax_flag1 || ajax_flag2 || ajax_flag3)) {
 					$.ajax({
@@ -41,7 +39,6 @@ $(document).ready(function() {
 						data: {
 							position: position,
 							department: department,
-							remark: remark
 						},
 						success: function(data) {
 							// console.log(data.errorMsg[0].msg);
@@ -54,7 +51,6 @@ $(document).ready(function() {
 								var id = $('#dataId').val(); // 获取到当前次序
 								$('.table tr[data-id='+ id +'] > td.department-text').text(department_text);
 								$('.table tr[data-id='+ id +'] > td.position-text').text(position_text);
-								$('.table tr[data-id='+ id +'] > td.remark-text').text(remark);
 							}
 							else{
 								$(el.J_tip).text(data.errorMsg[0].msg);

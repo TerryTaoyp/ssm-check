@@ -6,7 +6,6 @@ $(document).ready(function() {
 			J_change: '.change', // 修改按钮
 			J_delete: '.delete', // 删除按钮
 			J_ajax_submit: '.J-ajax-submit', // ajax提交按钮
-			J_name: '.name', // 权限名称
 			J_level: '.level', // 权限等级
 			J_remark: '.remark', // 备注信息
 		};
@@ -27,7 +26,6 @@ $(document).ready(function() {
 				$(el.J_tip).text('');
 				// 附加上点击此按钮的信息在数据库中的顺序
 				var path_url = _ajax.url.evaluation.plan_management.list.change,
-					name = $(el.J_name).val(), // 权限名称
 					level = $(el.J_level).val(), // 权限等级的值
 					level_text = $(el.J_level).find('option:selected').text(), // 权限等级的文本
 					remark = $(el.J_remark).val(); //备注信息
@@ -38,7 +36,6 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							name: name,
 							level: level,
 							remark: remark
 						},
@@ -51,7 +48,6 @@ $(document).ready(function() {
 								$('button[data-dismiss="modal"]').click();
 								// 修改dom
 								var id = $('#dataId').val(); // 获取到当前次序
-								$('.table tr[data-id='+ id +'] > td.name-text').text(name);
 								$('.table tr[data-id='+ id +'] > td.level-text').text(level_text);
 								$('.table tr[data-id='+ id +'] > td.remark-text').text(remark);
 							}

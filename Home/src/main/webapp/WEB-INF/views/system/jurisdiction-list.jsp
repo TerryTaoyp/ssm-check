@@ -66,7 +66,7 @@
                                         <td class="remark-text">${power.detail}</td>
                                         <td>
                                             <a type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default"  data-num="${status.index+1}" href="${website}/power/ajax/update/${power.id}">修改</a>
-                                            <a type="button" class="btn bg-red delete" data-num="${status.index+1}" href="${website}/power/ajax/del/${power.id}">删除权限</a>
+                                            <a class="btn bg-red delete" data-num="${status.index+1}" href="${website}/power/ajax/del/${power.id}">删除权限</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

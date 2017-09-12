@@ -7,7 +7,6 @@ $(document).ready(function() {
 			J_change: '.change', // 修改按钮
 			J_delete: '.delete', // 删除按钮
 			J_role: '.role',// 角色名称
-			J_remark: '.remark', // 备注信息
 			J_jurisdiction: '.jurisdiction', // 所选权限
 		};
 
@@ -28,8 +27,7 @@ $(document).ready(function() {
 				// 附加上点击此按钮的信息在数据库中的顺序
 				var path_url = _ajax.url.evaluation.plan_management.list.change,
 					role = $(el.J_role).val(), // 角色名称
-					jurisdiction = $(el.J_jurisdiction).val(), // 权限
-					remark = $(el.J_remark).val(); //备注信息
+					jurisdiction = $(el.J_jurisdiction).val(); // 权限
 				// 如果符合条件无法提交
 				if (!(ajax_flag1 || ajax_flag2 || ajax_flag3)) {
 					$.ajax({
@@ -51,7 +49,6 @@ $(document).ready(function() {
 								// 修改dom
 								var id = $('#dataId').val(); // 获取到当前次序
 								$('.table tr[data-id='+ id +'] > td.role-text').text(role);
-								$('.table tr[data-id='+ id +'] > td.remark-text').text(remark);
 							}
 							else{
 								$(el.J_tip).text(data.errorMsg[0].msg);

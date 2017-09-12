@@ -5,12 +5,13 @@ $(document).ready(function() {
 			J_kind: '.kind',// 考核方式复选框
 			J_nature: '.nature',// 考核性质下拉框
 			J_name: '.name',// 计划名称
-			J_position: '.position',// 选择对象
-			J_remark: '.remark', // 备注信息
+			J_time_start: '.daterangepicker_start', // 开始时间
+			J_time_end: '.daterangepicker_end', // 结束时间
 			J_tip: '.tip', //提示信息
 			J_ajax_submit: '.J-ajax-submit', // ajax提交按钮
 			J_change: '.change', // 修改按钮
 			J_delete: '.delete', // 删除按钮
+			J_status: '.status', // 状态按钮
 		};
 
 		// 入口函数
@@ -18,20 +19,20 @@ $(document).ready(function() {
 
 		function init(){
 			// 根据考核性质决定考核方式是否出现
-			$(el.J_nature).change(function() {
-				// 考核性质下拉框的值
-				var val = $(el.J_nature).val();
-				if (val == 1) {
-					$(el.J_kind).removeClass('none');
-				}else{
-					$(el.J_kind).addClass('none');
-					$(el.J_kind + ' input').prop(
-						{
-							checked:false
-						}
-					);
-				}
-			});
+			// $(el.J_nature).change(function() {
+			// 	// 考核性质下拉框的值
+			// 	var val = $(el.J_nature).val();
+			// 	if (val == 1) {
+			// 		$(el.J_kind).removeClass('none');
+			// 	}else{
+			// 		$(el.J_kind).addClass('none');
+			// 		$(el.J_kind + ' input').prop(
+			// 			{
+			// 				checked:false
+			// 			}
+			// 		);
+			// 	}
+			// });
 			// 点击修改计划时传一个次序给修改弹出框
 			$(el.J_change).click(function(ev) {
 				var id = $(this).attr('data-num');
@@ -48,7 +49,8 @@ $(document).ready(function() {
 					position_text = $(el.J_position).find('option:selected').text(), //考核对象选项的文本值
 					nature = $(el.J_nature).val(), // 考核性质选项值
 					nature_text = $(el.J_nature).find('option:selected').text(), // 考核性质的文本值
-					remark = $(el.J_remark).val();
+					time_start = $(el.J_time_start).val(), // 开始时间
+					time_end = $(el.J_time_end).val(); // 结束时间
 				// 如果符合条件无法提交
 				if (!(ajax_flag1 || ajax_flag2 || ajax_flag3)) {
 					$.ajax({
@@ -58,8 +60,8 @@ $(document).ready(function() {
 						data: {
 							name: name,
 							nature: nature,
-							position: position,
-							remark: remark,
+							time_start: time_start,
+							time_end: time_end,
 						},
 						success: function(data) {
 							// console.log(data.errorMsg[0].msg);
@@ -72,8 +74,8 @@ $(document).ready(function() {
 								var id = $('#dataId').val(); // 获取到当前次序
 								$('.table tr[data-id='+ id +'] > td.name-text').text(name);
 								$('.table tr[data-id='+ id +'] > td.nature-text').text(nature_text);
-								$('.table tr[data-id='+ id +'] > td.position-text').text(position_text);
-								$('.table tr[data-id='+ id +'] > td.remark-text').text(remark);
+								$('.table tr[data-id='+ id +'] > td.time-start-text').text(time_start);
+								$('.table tr[data-id='+ id +'] > td.time-end-text').text(time_end);
 							}
 							else{
 								$(el.J_tip).text(data.errorMsg[0].msg);
@@ -114,6 +116,35 @@ $(document).ready(function() {
 						}
 					})
 				}
+			});
+			// ajax修改状态
+			$(el.J_status).click(function(ev) {
+				// 获取序列
+				var 
+					id = $(this).attr('data-num'),
+					path_url = _ajax.url.evaluation.plan_management.list.change,
+					text = $('.table tr[data-id='+ id +'] .status-text').text();
+					$.ajax({
+						url: path_url,
+						type: 'get',
+						dataType: 'json',
+						data: {
+							status: 'true'
+						},
+						success: function(data) {
+							if (text == "已开启") {
+								$('.table tr[data-id='+ id +'] .status-text').text('未开启');
+							}
+							else{
+								$('.table tr[data-id='+ id +'] .status-text').text('已开启');
+							}
+							// 修改数据数量信息
+						},
+						error: function(data,errorMsg) {
+							console.log('error');
+						}
+					})
+					
 			});
 		}
 });

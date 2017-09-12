@@ -81,8 +81,8 @@
                                         <td>${user.phone}</td>
                                         <td>
                                             <button type="button" class="btn bg-blue">查看详情</button>
-                                            <a type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}" href="${website}/user/ajax/update/${user.id}">修改</a>
-                                            <a type="button" class="btn bg-red delete" data-num="${status.index+1}" href="${website}/user/ajax/del/${user.id}">删除</a>
+                                            <a class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}" href="${website}/user/ajax/update/${user.id}">修改</a>
+                                            <a class="btn bg-red delete" data-num="${status.index+1}" href="${website}/user/ajax/del/${user.id}">删除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

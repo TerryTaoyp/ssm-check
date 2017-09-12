@@ -65,7 +65,7 @@
                                         <td>${status.index+1}</td>
                                         <td class="role-text">${role.name}</td>
                                         <td>
-                                            <a type="button" class="btn bg-olive change"  data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}" href="${website}/role/ajax/update/${role.id}">修改</a>
+                                            <button class="btn bg-olive change"  data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}" href="${website}/role/ajax/update/${role.id}">修改</button>
                                             <a type="button" class="btn bg-red delete" data-num="${status.index+1}" href="${website}/role/ajax/del/${role.id}">删除角色</a>
                                         </td>
                                     </tr>

@@ -7,7 +7,6 @@ $(document).ready(function() {
 			J_delete: '.delete', // 删除按钮
 			J_ajax_submit: '.J-ajax-submit', // ajax提交按钮
 			J_department: '.department', // 管辖部门名称
-			J_remark: '.remark', // 备注信息
 		};
 
 		// 入口函数
@@ -26,8 +25,7 @@ $(document).ready(function() {
 				$(el.J_tip).text('');
 				// 附加上点击此按钮的信息在数据库中的顺序
 				var path_url = _ajax.url.evaluation.plan_management.list.change,
-					department = $(el.J_department).val(), // 管辖部门名称
-					remark = $(el.J_remark).val(); //备注信息
+					department = $(el.J_department).val(); // 管辖部门名称
 				// 如果符合条件无法提交
 				if (!(ajax_flag1 || ajax_flag2 || ajax_flag3)) {
 					$.ajax({
@@ -36,7 +34,6 @@ $(document).ready(function() {
 						dataType: 'json',
 						data: {
 							department: department,
-							remark: remark
 						},
 						success: function(data) {
 							// console.log(data.errorMsg[0].msg);
@@ -48,7 +45,6 @@ $(document).ready(function() {
 								// 修改dom
 								var id = $('#dataId').val(); // 获取到当前次序
 								$('.table tr[data-id='+ id +'] > td.department-text').text(department);
-								$('.table tr[data-id='+ id +'] > td.remark-text').text(remark);
 							}
 							else{
 								$(el.J_tip).text(data.errorMsg[0].msg);

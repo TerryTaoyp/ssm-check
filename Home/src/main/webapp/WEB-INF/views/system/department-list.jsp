@@ -61,7 +61,7 @@
                                 <c:forEach items="${departmentList}" var="department" varStatus="status">
                                     <tr data-id="${status.index+1}">
                                         <td>${status.index+1}</td>
-                                        <td>${department.name}</td>
+                                        <td class="department-text">${department.name}</td>
                                         <td>
                                             <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}" href="${website}/department/ajax/update/${department.id}">修改</button>
                                             <a type="button" class="btn bg-red delete" data-num="${status.index+1}" href="${website}/department/ajax/del/${department.id}">删除部门</a>
