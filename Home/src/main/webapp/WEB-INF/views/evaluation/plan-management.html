@@ -9,9 +9,11 @@
   <!-- select2 -->
   <link rel="stylesheet" href="../../../resources/js/bower_components/select2/dist/css/select2.min.css">
   <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="../../../resources/js/bower_components/bootstrap-daterangepicker/daterangepicker.css">
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
 
   <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
@@ -46,18 +48,22 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
+                      <th>序号</th>
                       <th>考核计划名称</th>
                       <th>考核性质</th>
-                      <th>考核对象</th>
-                      <th>备注信息</th>
+                      <th>考核开始时间</th>
+                      <th>考核结束时间</th>
+                      <th>是否开启</th>
                       <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr data-id="1">
+                        <td>1</td>
                         <td class="name-text">2月考核计划</td>
                         <td class="nature-text">月度考核</td>
-                        <td class="position-text">经理</td>
+                        <td class="begin-time">经理</td>
+                        <td class="end-time">经理</td>
                         <td class="remark-text">收到对对对对对对</td>
                         <td>
                             <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="1">修改计划</button>
@@ -66,9 +72,11 @@
                         </td>
                     </tr>
                     <tr data-id="2">
+                        <td>2</td>
                         <td class="name-text">2月考核计划</td>
                         <td class="nature-text">月度考核</td>
-                        <td class="position-text">经理</td>
+                        <td class="begin-time">经理</td>
+                        <td class="end-time">经理</td>
                         <td class="remark-text">收到对对对对对对</td>
                         <td>
                             <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="2">修改计划</button>
@@ -79,10 +87,12 @@
                 </tbody>
                 <tfoot>
                     <tr>
+                      <th>序号</th>
                       <th>考核计划名称</th>
                       <th>考核性质</th>
-                      <th>考核对象</th>
-                      <th>备注信息</th>
+                      <th>考核开始时间</th>
+                      <th>考核结束时间</th>
+                      <th>是否开启</th>
                       <th>操作</th>
                     </tr>
                 </tfoot>
@@ -136,6 +146,17 @@
             </select>
           </div>
 
+          <div class="form-group">
+            <label>选择时间:</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+              </div>
+              <input type="text" class="form-control pull-right" id="reservation">
+            </div>
+            <!-- /.input group -->
+          </div>
+
           <div class="form-group none kind">
             <label>考核方式：</label>
             <div class="checkbox">
@@ -175,12 +196,17 @@
 <!-- select2 -->
 <script src="../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
 <script src="../../../resources/js/pages/common/verify.js"></script>
+<!-- date-range-picker -->
+<script src="../../../resources/js/bower_components/moment/min/moment-with-locales.js"></script>
+<script src="../../../resources/js/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
 <script src="../../../resources/js/pages/evaluation/plan-management.js"></script>
 <!-- page script -->
 <script>
   $(function () {
     $('#example1').DataTable();
     $('.select2').select2();
+    $('#reservation').daterangepicker()
   })
 </script>
 </body>

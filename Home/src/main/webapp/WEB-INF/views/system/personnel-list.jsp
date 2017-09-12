@@ -18,7 +18,7 @@
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
     <jsp:include page="../common/header.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
@@ -70,12 +70,12 @@
                                         <td>${user.realName}</td>
                                         <c:forEach items="${departmentList}" var="department">
                                             <c:if test="${department.id == user.did}">
-                                                <td>${department.name}</td>
+                                                <td class="department-text">${department.name}</td>
                                             </c:if>
                                         </c:forEach>
                                         <c:forEach items="${roleList}" var="role">
                                             <c:if test="${user.rid == role.id}">
-                                                <td>${role.name}</td>
+                                                <td class="position-text">${role.name}</td>
                                             </c:if>
                                         </c:forEach>
                                         <td>${user.phone}</td>
@@ -101,10 +101,6 @@
     </div>
     <!-- /.content-wrapper -->
     <jsp:include page="../common/footer.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
-
-    <!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
     <div class="modal fade" id="modal-default">
         <div class="modal-dialog">
@@ -130,10 +126,6 @@
                             <option>部门经理</option>
                             <option>部门副经理</option>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label>备注信息：</label>
-                        <textarea class="form-control remark a-require-text" rows="3" placeholder="请输入..."></textarea>
                     </div>
                     <p class="text-red tip"></p>
                 </div>

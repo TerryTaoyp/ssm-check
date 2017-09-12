@@ -17,7 +17,7 @@
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
     <jsp:include page="../common/header.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
@@ -76,11 +76,5 @@
 <jsp:include page="../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <script type="text/javascript" src="../../../resources/js/pages/common/verify.js"></script>
-<!-- page script -->
-<script>
-    $(function () {
-        $('#example1').DataTable();
-    })
-</script>
 </body>
 </html>

@@ -18,7 +18,7 @@
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
     <jsp:include page="../common/header.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
@@ -62,8 +62,8 @@
                                 <c:forEach items="${powerList}" var="power" varStatus="status">
                                     <tr data-id="${status.index+1}">
                                         <td>${status.index+1}</td>
-                                        <td>${power.power}</td>
-                                        <td>${power.detail}</td>
+                                        <td class="level-text">${power.power}</td>
+                                        <td class="remark-text">${power.detail}</td>
                                         <td>
                                             <a type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default"  data-num="${status.index+1}" href="${website}/power/ajax/update/${power.id}">修改</a>
                                             <a type="button" class="btn bg-red delete" data-num="${status.index+1}" href="${website}/power/ajax/del/${power.id}">删除权限</a>
@@ -104,7 +104,7 @@
                     <input type="hidden" id="dataId">
                     <div class="form-group">
                         <label>权限等级：</label>
-                        <input type="text" class="form-control a-require-text name" placeholder="请输入..." required="required" name="role">
+                        <input type="text" class="form-control a-require-text level" placeholder="请输入..." required="required">
                     </div>
                     <div class="form-group">
                         <label>备注信息：</label>

@@ -20,7 +20,7 @@
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
     <jsp:include page="../common/header.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
@@ -70,12 +70,11 @@
                                         <td>副总经理</td>
                                         <c:forEach items="${departmentList}" var="department">
                                             <c:if test="${department.id == user.did}">
-                                                <td>${department.name}</td>
+                                                <td class="department-text">${department.name}</td>
                                             </c:if>
                                         </c:forEach>
                                         <td>
                                             <a type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}" href="${website}/allot/ajax/update/${user.id}">修改管辖范围</a>
-                                            <button type="button" class="btn bg-blue">分配权限</button>
                                             <a type="button" class="btn bg-red delete" data-num="${status.index+1}"  href="${website}/allot/ajax/del/${allot.id}">删除</a>
                                         </td>
                                     </tr>
@@ -115,10 +114,10 @@
                             <option>部门2</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>备注信息：</label>
                         <textarea class="form-control a-require-text remark" rows="3" placeholder="请输入..."></textarea>
-                    </div>
+                    </div> -->
                     <p class="text-red tip"></p>
                 </div>
                 <div class="modal-footer">

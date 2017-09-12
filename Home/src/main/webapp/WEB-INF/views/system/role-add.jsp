@@ -20,7 +20,7 @@
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
     <jsp:include page="../common/header.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
@@ -64,10 +64,6 @@
                             </select>
                         </div>
 
-                        <%--<div class="form-group">--%>
-                            <%--<label>备注信息：</label>--%>
-                            <%--<textarea class="form-control require-text" rows="3" placeholder="请输入..."></textarea>--%>
-                        <%--</div>--%>
 
                         <div class="box-footer">
                             <p class="text-red none">信息不完整，请完整填写所需信息</p>

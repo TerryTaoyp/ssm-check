@@ -64,7 +64,7 @@
                 <!-- /.col -->
             </div>
         </form>
-        <h5>${error}</h5>
+        <h5 class="text-red">${error}</h5>
         忘记密码?（请联系管理员）<br>
         <a href="${website}/toregister" class="text-center">注册新账号点这里!</a>
 
