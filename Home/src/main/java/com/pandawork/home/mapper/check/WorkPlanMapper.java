@@ -41,4 +41,12 @@ public interface WorkPlanMapper {
      */
     public WorkPlan queryByTestId(@Param("testId") int testId)throws SSException;
 
+    /**
+     * 根据ID查找
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public WorkPlan queryById(@Param("id") int id)throws SSException;
+
 }

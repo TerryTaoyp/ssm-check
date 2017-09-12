@@ -38,4 +38,12 @@ public interface WorkPlanService {
      * @throws SSException
      */
     public WorkPlan queryByTestId(int testId)throws SSException;
+
+    /**
+     * 根据ID查找
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public WorkPlan queryById(int id)throws SSException;
 }

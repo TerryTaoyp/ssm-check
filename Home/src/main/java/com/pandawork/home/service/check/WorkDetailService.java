@@ -39,4 +39,12 @@ public interface WorkDetailService {
      * @throws SSException
      */
     public boolean delWorkDetail(int id)throws SSException;
+
+    /**
+     * 根据ID查找
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public WorkDetail queryById(int id)throws SSException;
 }

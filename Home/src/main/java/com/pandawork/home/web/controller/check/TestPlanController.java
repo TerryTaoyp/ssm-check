@@ -4,10 +4,14 @@ import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.home.common.entity.check.TestPlan;
 import com.pandawork.home.common.entity.check.TestType;
+import com.pandawork.home.common.entity.system.Department;
+import com.pandawork.home.common.entity.system.Role;
 import com.pandawork.home.common.entity.user.User;
 import com.pandawork.home.service.check.TestPlanService;
 import com.pandawork.home.service.check.TestTypeService;
 import com.pandawork.home.service.check.WorkPlanService;
+import com.pandawork.home.service.system.DepartmentService;
+import com.pandawork.home.service.system.RoleService;
 import com.pandawork.home.service.user.UserService;
 import com.pandawork.home.web.controller.AbstractController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +39,10 @@ public class TestPlanController extends AbstractController{
     TestTypeService testTypeService;
     @Autowired
     UserService userService;
+    @Autowired
+    DepartmentService departmentService;
+    @Autowired
+    RoleService roleService;
 
     /**
      * 获取考核计划列表
@@ -133,12 +141,41 @@ public class TestPlanController extends AbstractController{
     @RequestMapping(value = "/toallot/{id}",method = RequestMethod.GET)
     public String toAllot(@PathVariable("id") int id,Model model)throws Exception{
         TestPlan testPlan = testPlanService.queryTestPlan(id);
+        List<User> userList = userService.queryByIsDelete(1);
+        List<Department> departmentList = departmentService.listAll();
+        List<Role> roleList = roleService.listAll();
+        model.addAttribute("departmentList",departmentList);
+        model.addAttribute("roleList",roleList);
+        model.addAttribute("userList",userList);
         model.addAttribute("testPlan",testPlan);
         return "evaluation/allot-detail";
     }
 
-    @RequestMapping(value = "/detail",method = RequestMethod.GET)
-    public String toAllotDetail()throws Exception{
-        return "evaluation/allot-detail";
+    /**
+     * 参与考核
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/join/{id}",method = RequestMethod.GET)
+    public String join(@PathVariable("id") int id)throws Exception{
+        User user = userService.queryById(id);
+        user.setIsJoinCheck(1);
+        userService.isJoinCheck(user);
+        return "redirect:/testplan/toallot/{id}";
+    }
+
+    /**
+     * 不参与考核
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/del/join/{id}",method = RequestMethod.GET)
+    public String delJoin(@PathVariable("id") int id)throws Exception{
+        User user = userService.queryById(id);
+        user.setIsJoinCheck(0);
+        userService.isJoinCheck(user);
+        return "redirect:/testplan/toallot/{id}";
     }
 }

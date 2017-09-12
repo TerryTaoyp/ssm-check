@@ -75,4 +75,17 @@ public class WorkPlanServiceImpl implements WorkPlanService {
             throw SSException.get(ChException.QueryWorkPlanByUidFailed);
         }
     }
+
+    @Override
+    public WorkPlan queryById(int id) throws SSException {
+        try {
+            if (Assert.isNull(id)){
+                return null;
+            }
+            return workPlanMapper.queryById(id);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryWorkPlanByUidFailed);
+        }
+    }
 }

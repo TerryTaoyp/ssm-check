@@ -34,4 +34,8 @@
     <select id="queryByTestId" resultMap="pw.WorkPlan">
         SELECT * FROM t_work_plan WHERE test_id = #{testId}
     </select>
+
+    <select id="queryById" resultMap="pw.WorkPlan">
+        SELECT * FROM t_work_plan WHERE id = #{id}
+    </select>
 </mapper>

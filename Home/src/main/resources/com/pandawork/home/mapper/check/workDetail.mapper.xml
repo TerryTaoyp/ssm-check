@@ -29,4 +29,8 @@
     <delete id="delWorkDetail">
         DELETE FROM t_work_detail WHERE id = #{id}
     </delete>
+
+    <select id="queryById" resultMap="pw.WorkDetail">
+        SELECT * FROM t_work_detail WHERE id = #{id}
+    </select>
 </mapper>

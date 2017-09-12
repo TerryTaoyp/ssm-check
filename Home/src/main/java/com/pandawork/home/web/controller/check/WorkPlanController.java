@@ -64,6 +64,17 @@ public class WorkPlanController extends AbstractController {
     }
 
     /**
+     * 跳转到更新页面
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/month/update/{id}",method = RequestMethod.GET)
+    public String monthUpdate(@PathVariable("id") int id,Model model)throws Exception{
+        WorkDetail workDetail = workDetailService.queryById(id);
+        model.addAttribute("workDetail",workDetail);
+        return "evaluation/month/plan-update";
+    }
+    /**
      * 获得月季度工作计划的详情
      * @param model
      * @param session
@@ -76,14 +87,29 @@ public class WorkPlanController extends AbstractController {
             User user = userService.queryByUname((String) session.getAttribute("username"));
             WorkPlan workPlan = workPlanService.queryByTestId(id);
             List<WorkDetail> workDetailList = workDetailService.queryByWId(workPlan.getId());
+            TestPlan testPlan = testPlanService.queryTestPlan(workPlan.getTestId());
             model.addAttribute("workPlan",workPlan);
             model.addAttribute("workDetailList",workDetailList);
+            model.addAttribute("testPlan",testPlan);
             return "evaluation/month/plan-detail";
         }catch (SSException e){
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
             return ADMIN_SYS_ERR_PAGE;
         }
+    }
+
+    /**
+     * 跳转到新增页面
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/month/add/{id}",method = RequestMethod.GET)
+    public String monthAdd(@PathVariable("id") int id,Model model)throws Exception{
+        WorkPlan workPlan = workPlanService.queryById(id);
+        model.addAttribute("workPlan",workPlan);
+        return "evaluation/month/plan-add";
     }
 
     /**

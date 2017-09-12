@@ -39,4 +39,12 @@ public interface WorkDetailMapper {
      * @throws SSException
      */
     public boolean delWorkDetail(@Param("id") int id)throws SSException;
+
+    /**
+     * 根据ID差找
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public WorkDetail queryById(@Param("id") int id)throws SSException;
 }

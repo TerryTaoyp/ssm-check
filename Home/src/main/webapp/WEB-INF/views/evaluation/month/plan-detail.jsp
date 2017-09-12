@@ -68,13 +68,15 @@
                                 <c:forEach items="${workDetailList}" var="detail" varStatus="status">
                                     <tr>
                                         <td>${status.index+1}</td>
-                                        <td></td>
-                                        <td>产品部</td>
-                                        <td>产品部副经理</td>
-                                        <td>50%</td>
-                                        <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
+                                        <td>${testPlan.testName}</td>
+                                        <td>${detail.startTime}</td>
+                                        <td>${detail.endTime}</td>
+                                        <td>${detail.weight}</td>
+                                        <td>${detail.expectResult}</td>
+                                        <td>${detail.completion}</td>
+                                        <td>${detail.testScore}</td>
                                         <td>
-                                            <a href="plan-update.html" class="btn bg-olive">修改计划</a>
+                                            <a href="${website}/workplan/month/update/${detail.id}" class="btn bg-olive">修改计划</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -88,6 +90,8 @@
                 </div>
                 <!-- /.col -->
             </div>
+            <a href="${website}/workplan/month/list" class="btn bg-olive">返回列表</a>
+            <a href="${website}/workplan/month/add/${workPlan.id}" class="btn bg-blue">添加计划</a>
             <!-- /.row -->
         </section>
         <!-- /.content -->

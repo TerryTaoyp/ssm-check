@@ -2,7 +2,9 @@ package com.pandawork.home.web.controller.user;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.util.Assert;
+import com.pandawork.home.common.entity.system.Department;
 import com.pandawork.home.common.entity.user.User;
+import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.user.UserService;
 import com.pandawork.home.web.controller.AbstractController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by Taoyongpan on 2017/9/2.
@@ -25,6 +28,8 @@ public class LoginController extends AbstractController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    DepartmentService departmentService;
 
     /**
      * 跳到登录页面
@@ -78,7 +83,10 @@ public class LoginController extends AbstractController {
      * @return
      */
     @RequestMapping(value = "/toregister",method = RequestMethod.GET)
-    public String toRegister(){
+    public String toRegister(Model model) throws Exception {
+
+        List<Department> departmentList = departmentService.listAll();
+        model.addAttribute("departmentList",departmentList);
         return "register";
     }
     /**

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -111,49 +112,53 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
+                                    <th>序号</th>
                                     <th>考核计划名称</th>
                                     <th>姓名</th>
                                     <th>所属部门</th>
                                     <th>职位</th>
                                     <th>是否参与本次考核</th>
-                                    <th>其他信息</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>7月考核</td>
-                                    <td>章</td>
-                                    <td>13837200544</td>
-                                    <td>经理</td>
-                                    <td>未审核</td>
-                                    <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                    <td>
-                                        <a href="javascript:;" class="btn bg-blue">添加</a>
-                                        <button type="button" class="btn bg-red">移除</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>7月考核</td>
-                                    <td>章</td>
-                                    <td>1384</td>
-                                    <td>经理</td>
-                                    <td>已参与</td>
-                                    <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                    <td>
-                                        <a href="javascript:;" class="btn bg-blue">添加</a>
-                                        <button type="button" class="btn bg-red">移除</button>
-                                    </td>
-                                </tr>
+                                <c:forEach items="${userList}" var="user" varStatus="status">
+                                    <tr>
+                                        <td>${status.index+1}</td>
+                                        <td>${testPlan.testName}</td>
+                                        <td>${user.realName}</td>
+                                        <c:forEach items="${departmentList}" var="department">
+                                            <c:if test="${user.did == department.id}">
+                                                <td>${department.name}</td>
+                                            </c:if>
+                                        </c:forEach>
+                                        <c:forEach items="${roleList}" var="role" varStatus="status">
+                                            <c:if test="${user.rid == role.id}">
+                                                <td>${role.name}</td>
+                                            </c:if>
+                                        </c:forEach>
+                                        <c:if test="${user.isJoinCheck == 1}">
+                                            <td>已参与</td>
+                                        </c:if>
+                                        <c:if test="${user.isJoinCheck == 0}">
+                                            <td>未参与</td>
+                                        </c:if>
+                                        <td>
+                                            <a href="${website}/testplan/join/${user.id}" class="btn bg-blue">添加</a>
+                                            <a type="button" class="btn bg-red" href="${website}/testplan/del/join/${user.id}">移除</a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+
                                 </tbody>
                                 <tfoot>
                                 <tr>
+                                    <th>序号</th>
                                     <th>考核计划名称</th>
                                     <th>姓名</th>
                                     <th>所属部门</th>
                                     <th>职位</th>
                                     <th>是否参与本次考核</th>
-                                    <th>其他信息</th>
                                     <th>
                                         操作
                                         <button type="button" class="btn bg-blue">全部添加</button>
@@ -175,28 +180,8 @@
     <!-- /.content-wrapper -->
     <jsp:include page="../common/footer.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
-
-    <div class="control-sidebar-bg"></div>
-    <div class="modal fade" id="modal-default">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">查看详情</h4>
-                </div>
-                <div class="modal-body">
-                    <p>One fine body&hellip;</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存修改</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
+    <jsp:include page="../common/control-sidebar.jsp"/>
+    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
