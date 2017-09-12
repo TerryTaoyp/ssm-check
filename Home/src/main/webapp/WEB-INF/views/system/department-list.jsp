@@ -119,7 +119,7 @@
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-<script src="../../../resources/js/pages/js/common/verify.js"></script>
+<script src="../../../resources/js/pages/common/verify.js"></script>
 <script src="../../../resources/js/pages/system/department-list.js"></script>
 <!-- page script -->
 <script>
