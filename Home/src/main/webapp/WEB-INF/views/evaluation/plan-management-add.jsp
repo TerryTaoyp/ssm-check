@@ -12,24 +12,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>考核计划管理</title>
-    <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- select2 -->
     <link rel="stylesheet" href="../../../resources/js/bower_components/select2/dist/css/select2.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="../../../resources/js/bower_components/bootstrap-daterangepicker/daterangepicker.css">
     <jsp:include page="../common/link.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 
 </head>
 <body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
     <jsp:include page="../common/header.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
     <jsp:include page="../common/sidebar.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/sidebar.html" -->
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
                 考核计划管理
@@ -50,8 +46,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <form action="${website}/testplan/add" method="post">
-
+                    <form action="${website}/testplan/add" method="post" class="col-xs-8">
                         <div class="form-group">
                             <label>考核计划名称：</label>
                             <input type="text" class="form-control require-text" placeholder="请输入..." name="testName">
@@ -72,7 +67,6 @@
                             <select class="form-control select2 require-options" multiple="multiple" data-placeholder="请选择..." style="width: 100%;">
                                 <option>对象1</option>
                                 <option>对象2</option>
-
                             </select>
                         </div>
 
@@ -94,17 +88,15 @@
                 <!-- /.box-body -->
             </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
     <jsp:include page="../common/footer.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
 
     <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
-<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
+<!-- date-range-picker -->
+<script src="../../../resources/js/bower_components/moment/min/moment-with-locales.js"></script>
+<script src="../../../resources/js/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- select2 -->
 <script src="../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
 <script src="../../../resources/js/pages/common/verify.js"></script>

@@ -104,7 +104,7 @@
                     <input type="hidden" id="dataId">
                     <div class="form-group">
                         <label>权限等级：</label>
-                        <input type="text" class="form-control a-require-text level" placeholder="请输入..." required="required">
+                        <input type="text" class="form-control a-require-text level" placeholder="请输入...">
                     </div>
                     <div class="form-group">
                         <label>备注信息：</label>
