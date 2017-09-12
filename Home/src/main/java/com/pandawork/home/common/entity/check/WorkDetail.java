@@ -38,6 +38,17 @@ public class WorkDetail {
     //该条 工作计划得分
     @Column(name = "test_score")
     private Double testScore;
+    //被考核用户的ID
+    @Column(name = "uid")
+    private Integer uid;
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
 
     public Integer getId() {
         return id;

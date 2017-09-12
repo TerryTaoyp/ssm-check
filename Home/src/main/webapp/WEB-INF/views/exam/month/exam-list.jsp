@@ -54,37 +54,33 @@
                                 <tr>
                                     <th>序号</th>
                                     <th>考核计划名称</th>
-                                    <th>被考核者用户名</th>
-                                    <th>所属部门</th>
-                                    <th>所属角色</th>
+                                    <th>考核开始时间</th>
+                                    <th>考核结束时间</th>
+                                    <th>开启状态</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${testPlanList}" var="testPlan" varStatus="status">
-                                    <tr>
-                                        <td>${status.index+1}</td>
-                                        <td>${testPlan.testName}</td>
-                                        <c:forEach items="${userList}" var="user">
-                                            <c:if test="${user.id == testPlan.uid}">
-                                                <td>${user.username}</td>
-                                                <c:forEach items="${departmentList}" var="department">
-                                                    <c:if test="${user.did == department.id}">
-                                                        <td>${department.name}</td>
-                                                    </c:if>
-                                                </c:forEach>
-                                                <c:forEach items="${roleList}" var="role">
-                                                    <c:if test="${user.rid == role.id}">
-                                                        <td>${role.name}</td>
-                                                    </c:if>
-                                                </c:forEach>
+                                    <c:if test="${testPlan.testTypeId != 1}">
+                                        <tr>
+                                            <td>${status.index+1}</td>
+                                            <td>${testPlan.testName}</td>
+                                            <td>${testPlan.startTime}</td>
+                                            <td>${testPlan.finishTime}</td>
+                                            <c:if test="${testPlan.isAvailable == 1}">
+                                                <td>已开启</td>
+
                                             </c:if>
-                                        </c:forEach>
-                                        <td>
-                                            <a href="${website}/check/month/detail/${testPlan.id}" class="btn bg-green">进入考核</a>
-                                            <button type="button" class="btn bg-red disabled">已经参与过此次考核</button>
-                                        </td>
-                                    </tr>
+                                            <c:if test="${testPlan.isAvailable == 0}">
+                                                <td>未开启</td>
+                                            </c:if>
+                                            <td>
+                                                <a href="${website}/check/month/detail/list/${testPlan.id}" class="btn bg-green">进入考核</a>
+                                                <button type="button" class="btn bg-red disabled">已经参与过此次考核</button>
+                                            </td>
+                                        </tr>
+                                    </c:if>
                                 </c:forEach>
                                 </tbody>
                             </table>

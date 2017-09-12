@@ -47,4 +47,13 @@ public interface WorkDetailMapper {
      * @throws SSException
      */
     public WorkDetail queryById(@Param("id") int id)throws SSException;
+
+    /**
+     * 根据被考核用户ID和工作计划ID查找
+     * @param uid
+     * @param wid
+     * @return
+     * @throws SSException
+     */
+    public List<WorkDetail> queryByUidAndWid(@Param("uid") int uid,@Param("wid") int wid)throws SSException;
 }

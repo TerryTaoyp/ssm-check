@@ -5,11 +5,12 @@
 
     <insert id="addPosition">
         INSERT INTO t_ability_position(
-          did,target_id,weight
+          did,target_id,weight,test_id
         )VALUES (
         #{abilityPosition.did},
         #{abilityPosition.targetId},
-        #{abilityPosition.weight}
+        #{abilityPosition.weight},
+        #{abilityPosition.testId}
         )
     </insert>
 

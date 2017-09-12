@@ -47,4 +47,13 @@ public interface WorkDetailService {
      * @throws SSException
      */
     public WorkDetail queryById(int id)throws SSException;
+
+    /**
+     * 根据被考核用户ID和工作计划ID查找
+     * @param uid
+     * @param wid
+     * @return
+     * @throws SSException
+     */
+    public List<WorkDetail> queryByUidAndWid(int uid, int wid)throws SSException;
 }

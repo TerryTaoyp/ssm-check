@@ -4,10 +4,10 @@
 <mapper namespace="com.pandawork.home.mapper.check.WorkDetailMapper">
     <insert id="addWorkDetail">
         INSERT INTO t_work_detail(
-          wid,start_time,end_time,plan_content,except_result,weight
+          wid,start_time,end_time,plan_content,except_result,weight,uid
         )VALUES (
         #{workDetail.wid},#{workDetail.startTime},#{workDetail.endTime},
-        #{workDetail.planContent},#{workDetail.expectResult},#{workDetail.weight}
+        #{workDetail.planContent},#{workDetail.expectResult},#{workDetail.weight},#{workDetail.uid}
         )
     </insert>
 
@@ -32,5 +32,9 @@
 
     <select id="queryById" resultMap="pw.WorkDetail">
         SELECT * FROM t_work_detail WHERE id = #{id}
+    </select>
+
+    <select id="queryByUidAndWid" resultMap="pw.WorkDetail">
+        SELECT * FROM t_work_detail WHERE uid = #{uid} AND wid = #{wid}
     </select>
 </mapper>

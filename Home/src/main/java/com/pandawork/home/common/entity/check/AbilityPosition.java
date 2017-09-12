@@ -32,6 +32,17 @@ public class AbilityPosition {
     //是否可用，0是不可用，1是可用
     @Column(name = "is_available")
     private Integer isAvailable;
+    //此次的考核计划ID
+    @Column(name = "test_id")
+    private Integer testId;
+
+    public Integer getTestId() {
+        return testId;
+    }
+
+    public void setTestId(Integer testId) {
+        this.testId = testId;
+    }
 
     public Integer getId() {
         return id;

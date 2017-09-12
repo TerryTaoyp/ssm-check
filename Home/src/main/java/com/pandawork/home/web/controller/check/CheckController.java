@@ -47,6 +47,10 @@ public class CheckController extends AbstractController {
     SummaryService summaryService;
     @Autowired
     PerformanceService performanceService;
+    @Autowired
+    TestTypeService testTypeService;
+    @Autowired
+    JoinTestService joinTestService;
 
     /**
      * 获取月份的工作计划
@@ -68,12 +72,8 @@ public class CheckController extends AbstractController {
                 List<TestPlan> testPlanList = testPlanService.queryByDid(user.getDid());
                 model.addAttribute("testPlanList",testPlanList);
             }
-            List<Department> departmentList =departmentService.listAll();
-            List<Role> roleList = roleService.listAll();
-            List<User> userList = userService.listAll();
-            model.addAttribute("userList",userList);
-            model.addAttribute("roleList",roleList);
-            model.addAttribute("departmentList",departmentList);
+            List<TestType> testTypeList = testTypeService.listAll();
+            model.addAttribute("testTypeList",testTypeList);
         }catch (SSException e){
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
@@ -83,16 +83,51 @@ public class CheckController extends AbstractController {
     }
 
     /**
-     * 跳转到月份 的详情页面
+     * 跳转到某一次列表页
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/month/detail/list/{id}" ,method = RequestMethod.GET)
+    public String detailList(@PathVariable("id") int id, HttpSession session, Model model)throws Exception{
+        try {
+            User user = userService.queryByUname((String) session.getAttribute("username"));
+            Role role = roleService.queryById(user.getRid());
+            Power power = powerService.queryById(role.getPid());
+            List<JoinTest> joinTestList = joinTestService.queryByTid(id);
+            List<Department> departmentList =departmentService.listAll();
+            List<Role> roleList = roleService.listAll();
+            if (power.getPower()<=1){
+                List<User> userList = userService.listAll();
+                model.addAttribute("userList",userList);
+            }else if (power.getPower()==5){
+                List<User> userList = userService.queryByDid(user.getDid());
+                model.addAttribute("userList",userList);
+            }
+            TestPlan testPlan = testPlanService.queryTestPlan(id);
+            model.addAttribute("testPlan",testPlan);
+            model.addAttribute("power",power);
+            model.addAttribute("joinTestList",joinTestList);
+            model.addAttribute("roleList",roleList);
+            model.addAttribute("departmentList",departmentList);
+        }catch (SSException e){
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+        return "exam/month/exam-detail-list";
+    }
+    /**
+     * 跳转到月份的详情页面
      * @param id
      * @param model
      * @return
      * @throws Exception
      */
     @RequestMapping(value = "/month/detail/{id}",method = RequestMethod.GET)
-    public String monthDetail(@PathVariable("id") int id,Model model)throws Exception{
+    public String monthDetail(@PathVariable("id") int id,Model model,HttpSession session)throws Exception{
+        User user = userService.queryByUname((String) session.getAttribute("username"));
         WorkPlan workPlan = workPlanService.queryByTestId(id);
-        List<WorkDetail> workDetailList = workDetailService.queryByWId(workPlan.getId());
+        List<WorkDetail> workDetailList = workDetailService.queryByUidAndWid(user.getId(),workPlan.getId());
         List<User> userList = userService.listAll();
         List<TestPlan> testPlanList = testPlanService.listAll();
         model.addAttribute("testPlanList",testPlanList);
@@ -107,8 +142,20 @@ public class CheckController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/year/ability",method = RequestMethod.GET)
-    public String yearAbility()throws Exception{
+    @RequestMapping(value = "/year/ability/list",method = RequestMethod.GET)
+    public String yearAbility(HttpSession session,Model model)throws Exception{
+        User user = userService.queryByUname((String) session.getAttribute("username"));
+        Role role = roleService.queryById(user.getRid());
+        Power power = powerService.queryById(role.getPid());
+        if (power.getPower()<=1){
+            List<TestPlan> testPlanList = testPlanService.listAll();
+            model.addAttribute("testPlanList",testPlanList);
+        }else if (power.getPower() == 5){
+            List<TestPlan> testPlanList = testPlanService.queryByDid(user.getDid());
+            model.addAttribute("testPlanList",testPlanList);
+        }
+        List<TestType> testTypeList = testTypeService.listAll();
+        model.addAttribute("testTypeList",testTypeList);
         return "exam/year/evaluation-list";
     }
 
@@ -125,17 +172,39 @@ public class CheckController extends AbstractController {
         Role role = roleService.queryById(user.getRid());
         Power power = powerService.queryById(role.getPid());
         if (power.getPower()<=1){
-            List<Performance> performanceList = performanceService.listAll();
-            model.addAttribute("performanceList",performanceList);
-        }else if (power.getPower()==5){
-            List<Performance> performanceList = performanceService.queryByDid(user.getDid());
-            model.addAttribute("performanceList",performanceList);
+            List<TestPlan> testPlanList = testPlanService.listAll();
+            model.addAttribute("testPlanList",testPlanList);
+        }else if (power.getPower() == 5){
+            List<TestPlan> testPlanList = testPlanService.queryByDid(user.getDid());
+            model.addAttribute("testPlanList",testPlanList);
         }
-        List<Performance> performanceYear = performanceService.queryYearByUid(user.getId());
-        List<WorkPlan> workPlanList = workPlanService.queryByUid(user.getId());
-        model.addAttribute("performanceYear",performanceYear);
-        model.addAttribute("workPlanList",workPlanList);
+        List<TestType> testTypeList = testTypeService.listAll();
+        model.addAttribute("testTypeList",testTypeList);
         return "exam/year/exam-list";
+    }
+
+    /**
+     * 年度绩效考核
+     * @param model
+     * @param session
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/year/summary/list",method = RequestMethod.GET)
+    public String yearSummary(Model model,HttpSession session)throws Exception{
+        User user = userService.queryByUname((String) session.getAttribute("username"));
+        Role role = roleService.queryById(user.getRid());
+        Power power = powerService.queryById(role.getPid());
+        if (power.getPower()<=1){
+            List<TestPlan> testPlanList = testPlanService.listAll();
+            model.addAttribute("testPlanList",testPlanList);
+        }else if (power.getPower() == 5){
+            List<TestPlan> testPlanList = testPlanService.queryByDid(user.getDid());
+            model.addAttribute("testPlanList",testPlanList);
+        }
+        List<TestType> testTypeList = testTypeService.listAll();
+        model.addAttribute("testTypeList",testTypeList);
+        return "exam/year/summary-detail-list";
     }
 
     /**
@@ -145,26 +214,11 @@ public class CheckController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/year/summary",method = RequestMethod.GET)
-    public String yearSummary(Model model,HttpSession session)throws Exception{
-        User user = userService.queryByUname((String) session.getAttribute("username"));
-        Role role = roleService.queryById(user.getRid());
-        Power power = powerService.queryById(role.getPid());
-        if (power.getPower()<=1){
-            List<Summary> summaryList = summaryService.listAll();
-            model.addAttribute("summaryList",summaryList);
-        }else if (power.getPower() == 5){
-            List<Summary> summaryList = summaryService.queryByDid(user.getDid());
-            model.addAttribute("summaryList",summaryList);
-        }
-        List<Department> departmentList =departmentService.listAll();
-        List<Role> roleList = roleService.listAll();
-        model.addAttribute("roleList",roleList);
-        model.addAttribute("departmentList",departmentList);
-        model.addAttribute("user",user);
-        return "exam/year/summary-list";
-    }
-
+//    @RequestMapping(value = "/year/summary/{id}",method = RequestMethod.GET)
+//    public String yearSummary1(@PathVariable("id") int id,Model model,HttpSession session)throws Exception{
+//        User user = userService.queryByUname((String) session.getAttribute("username"));
+//
+//    }
     /**
      * 年度总结详情页面
      * @param id
@@ -177,5 +231,35 @@ public class CheckController extends AbstractController {
         Summary summary = summaryService.queryById(id);
         model.addAttribute("summary",summary);
         return "exam/year/summary-detail";
+    }
+
+    @RequestMapping(value = "/year/user/{id}",method = RequestMethod.GET)
+    public String yearUser(HttpSession session,Model model,@PathVariable("id") int id)throws Exception{
+        try {
+            User user = userService.queryByUname((String) session.getAttribute("username"));
+            Role role = roleService.queryById(user.getRid());
+            Power power = powerService.queryById(role.getPid());
+            List<JoinTest> joinTestList = joinTestService.queryByTid(id);
+            List<Department> departmentList =departmentService.listAll();
+            List<Role> roleList = roleService.listAll();
+            if (power.getPower()<=1){
+                List<User> userList = userService.listAll();
+                model.addAttribute("userList",userList);
+            }else if (power.getPower()==5){
+                List<User> userList = userService.queryByDid(user.getDid());
+                model.addAttribute("userList",userList);
+            }
+            TestPlan testPlan = testPlanService.queryTestPlan(id);
+            model.addAttribute("testPlan",testPlan);
+            model.addAttribute("power",power);
+            model.addAttribute("joinTestList",joinTestList);
+            model.addAttribute("roleList",roleList);
+            model.addAttribute("departmentList",departmentList);
+        }catch (SSException e){
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+        return "exam/year/user-list";
     }
 }

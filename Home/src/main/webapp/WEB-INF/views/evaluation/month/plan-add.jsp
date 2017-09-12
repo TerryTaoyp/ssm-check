@@ -47,45 +47,37 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <form role="form">
-
+                    <form action="${website}/workplan/month/add" method="post">
+                        <input type="text" class="form-control require-text" name="wid" value="${workPlan.id}" hidden/>
                         <div class="form-group">
                             <label>所属考核计划：</label>
-                            <select class="form-control require-option">
-                                <option value="-1" selected="selected">请选择</option>
-                                <option>8月考核计划</option>
-                                <option>7月考核计划</option>
-                            </select>
+                            <input type="text" class="form-control require-text" value="${testPlan.testName}" disabled>
                         </div>
 
                         <div class="form-group">
-                            <label>部门：</label>
-                            <select class="form-control require-option">
-                                <option value="-1" selected="selected">请选择</option>
-                                <option>产品部</option>
-                                <option>技术部</option>
-                            </select>
+                            <label>开始时间：</label>
+                            <input type="date" class="form-control require-text" name="startTime">
                         </div>
 
                         <div class="form-group">
-                            <label>发布人：</label>
-                            <input type="text" class="form-control require-text" placeholder="请输入..." name="role">
+                            <label>结束时间：</label>
+                            <input type="date" class="form-control require-text"  name="endTime">
                         </div>
 
                         <div class="form-group">
-                            <label>计划比重：</label>
-                            <select class="form-control require-option">
-                                <option value="-1" selected="selected">请选择</option>
-                                <option>1%</option>
-                                <option>2%</option>
-                            </select>
+                            <label>所占权重：</label>
+                            <input type="text" class="form-control require-text"  name="weight">
                         </div>
 
                         <div class="form-group">
                             <label>工作内容：</label>
-                            <textarea id="editor1" name="editor1" rows="10" cols="80">
+                            <textarea id="editor1" name="planContent" rows="10" cols="80">
                                 请在这里输入工作计划...
                             </textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>预期工作成果：</label>
+                            <input type="text" class="form-control require-text"  name="excpetResult">
                         </div>
 
                         <div class="box-footer">

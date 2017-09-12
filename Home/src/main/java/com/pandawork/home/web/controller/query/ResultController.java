@@ -1,6 +1,13 @@
 package com.pandawork.home.web.controller.query;
 
+import com.pandawork.home.service.check.TestPlanService;
+import com.pandawork.home.service.check.WorkDetailService;
+import com.pandawork.home.service.check.WorkPlanService;
+import com.pandawork.home.service.system.DepartmentService;
+import com.pandawork.home.service.system.RoleService;
+import com.pandawork.home.service.user.UserService;
 import com.pandawork.home.web.controller.AbstractController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,8 +18,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/query")
 public class ResultController extends AbstractController {
-
-
+    @Autowired
+    TestPlanService testPlanService;
+    @Autowired
+    WorkPlanService workPlanService;
+    @Autowired
+    WorkDetailService workDetailService;
+    @Autowired
+    UserService userService;
+    @Autowired
+    DepartmentService departmentService;
+    @Autowired
+    RoleService roleService;
     /**
      * 报表展示页面
      * @return

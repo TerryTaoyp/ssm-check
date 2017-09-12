@@ -46,4 +46,13 @@ public interface WorkPlanService {
      * @throws SSException
      */
     public WorkPlan queryById(int id)throws SSException;
+
+    /**
+     * 根据被考核用户的ID和测试计划ID查询
+     * @param beCheckId
+     * @param testId
+     * @return
+     * @throws SSException
+     */
+    public WorkPlan queryByTidAndUid(int beCheckId,int testId)throws SSException;
 }

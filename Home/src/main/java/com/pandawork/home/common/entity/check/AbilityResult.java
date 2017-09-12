@@ -38,6 +38,17 @@ public class AbilityResult {
     //能力指标考核结束时间
     @Column(name = "finish_time")
     private String finishTime;
+    //此次的考核计划ID
+    @Column(name = "test_id")
+    private Integer testId;
+
+    public Integer getTestId() {
+        return testId;
+    }
+
+    public void setTestId(Integer testId) {
+        this.testId = testId;
+    }
 
     public Integer getId() {
         return id;

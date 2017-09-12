@@ -137,15 +137,15 @@
                                                 <td>${role.name}</td>
                                             </c:if>
                                         </c:forEach>
-                                        <c:if test="${user.isJoinCheck == 1}">
-                                            <td>已参与</td>
-                                        </c:if>
-                                        <c:if test="${user.isJoinCheck == 0}">
-                                            <td>未参与</td>
-                                        </c:if>
+                                        <%--<c:forEach items="${joinTestList}" var="joinTest" varStatus="status">--%>
+                                            <%--<c:if test="${joinTest.uid == user.id}">--%>
+                                                <%--<td>已参与</td>--%>
+                                            <%--</c:if>--%>
+                                        <%--</c:forEach>--%>
+                                        <td></td>
                                         <td>
-                                            <a href="${website}/testplan/join/${user.id}" class="btn bg-blue">添加</a>
-                                            <a type="button" class="btn bg-red" href="${website}/testplan/del/join/${user.id}">移除</a>
+                                            <a href="${website}/testplan/join/${testPlan.id}" class="btn bg-blue">添加</a>
+                                            <a type="button" class="btn bg-red" href="${website}/testplan/del/join/${testPlan.id}">移除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

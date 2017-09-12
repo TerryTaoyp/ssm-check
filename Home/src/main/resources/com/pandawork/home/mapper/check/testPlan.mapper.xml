@@ -57,4 +57,8 @@
     <select id="queryByUid" resultMap="pw.TestPlan">
         SELECT * FROM t_test_plan WHERE uid = #{uid}
     </select>
+
+    <select id="queryByUidAndTypeId" resultMap="pw.TestPlan">
+        SELECT * FROM t_test_plan WHERE uid = #{uid} AND test_type_id = #{testTypeId}
+    </select>
 </mapper>

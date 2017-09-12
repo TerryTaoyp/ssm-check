@@ -117,7 +117,16 @@ public enum  ChException implements IBizExceptionMes{
     QueryPerformanceByYAM("根据年份和月份查找失败",1404),
     QueryPerformanceByYAQ("根据年份和季度查找失败",1405),
     CountAllPerformance("计算年度查找总条数失败",1406),
-    QueryPerformanceByDid("根据部门DI查找成绩失败",1407)
+    QueryPerformanceByDid("根据部门DI查找成绩失败",1407),
+
+
+    AddCheckFailed("添加失败",1500),
+    DelCheckByIdFailed("删除失败",1501),
+    QueryJoinTestById("根据ID查询失败",1502),
+    QueryJoinTestByUid("根据用户ID查询失败",1503),
+    QueryJoinTestByTid("根据本次的考核 ID查询失败",1504),
+    QueryJoinTestByUidAndTid("根据用户ID和本次测试ID查询失败",1505),
+
 
     ;
     private String mes;

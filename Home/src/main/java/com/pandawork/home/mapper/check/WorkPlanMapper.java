@@ -49,4 +49,13 @@ public interface WorkPlanMapper {
      */
     public WorkPlan queryById(@Param("id") int id)throws SSException;
 
+    /**
+     * 根据被考核用户的ID和测试计划ID查询
+     * @param beCheckId
+     * @param testId
+     * @return
+     * @throws SSException
+     */
+    public WorkPlan queryByTidAndUid(@Param("beCheckId") int beCheckId,@Param("testId") int testId)throws SSException;
+
 }

@@ -2,15 +2,11 @@ package com.pandawork.home.web.controller.check;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
-import com.pandawork.home.common.entity.check.TestPlan;
-import com.pandawork.home.common.entity.check.TestType;
-import com.pandawork.home.common.entity.check.WorkDetail;
-import com.pandawork.home.common.entity.check.WorkPlan;
+import com.pandawork.home.common.entity.check.*;
+import com.pandawork.home.common.entity.system.Department;
 import com.pandawork.home.common.entity.user.User;
-import com.pandawork.home.service.check.TestPlanService;
-import com.pandawork.home.service.check.TestTypeService;
-import com.pandawork.home.service.check.WorkDetailService;
-import com.pandawork.home.service.check.WorkPlanService;
+import com.pandawork.home.service.check.*;
+import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.user.UserService;
 import com.pandawork.home.web.controller.AbstractController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -39,6 +36,10 @@ public class WorkPlanController extends AbstractController {
     TestPlanService testPlanService;
     @Autowired
     TestTypeService testTypeService;
+    @Autowired
+    JoinTestService joinTestService;
+    @Autowired
+    DepartmentService departmentService;
 
     /**
      * 获得月份的列表
@@ -51,8 +52,10 @@ public class WorkPlanController extends AbstractController {
             User user = userService.queryByUname((String) session.getAttribute("username"));
 
 //            List<WorkPlan> workPlanList = workPlanService.queryByUid(user.getId());
-            List<TestPlan> testPlanList = testPlanService.queryByUid(user.getId());
+            List<JoinTest> joinTestList = joinTestService.queryByUid(user.getId());
+            List<TestPlan> testPlanList = testPlanService.listAll();
             List<TestType> testTypeList = testTypeService.listAll();
+            model.addAttribute("joinTestList",joinTestList);
             model.addAttribute("testTypeList",testTypeList);
             model.addAttribute("testPlanList",testPlanList);
             return "evaluation/month/plan-list";
@@ -85,12 +88,17 @@ public class WorkPlanController extends AbstractController {
     public String monthDetail(Model model,HttpSession session,@PathVariable("id") int id)throws Exception{
         try {
             User user = userService.queryByUname((String) session.getAttribute("username"));
-            WorkPlan workPlan = workPlanService.queryByTestId(id);
-            List<WorkDetail> workDetailList = workDetailService.queryByWId(workPlan.getId());
-            TestPlan testPlan = testPlanService.queryTestPlan(workPlan.getTestId());
-            model.addAttribute("workPlan",workPlan);
-            model.addAttribute("workDetailList",workDetailList);
-            model.addAttribute("testPlan",testPlan);
+            WorkPlan workPlan1 = workPlanService.queryByTestId(id);
+            if (workPlan1==null){
+                model.addAttribute("workDetailList",null);
+                model.addAttribute("testPlan",null);
+            }else {
+                List<WorkDetail> workDetailList = workDetailService.queryByUidAndWid(user.getId(),workPlan1.getId());
+                model.addAttribute("workDetailList",workDetailList);
+                TestPlan testPlan = testPlanService.queryTestPlan(workPlan1.getTestId());
+                model.addAttribute("testPlan",testPlan);
+            }
+            model.addAttribute("workPlan1",workPlan1);
             return "evaluation/month/plan-detail";
         }catch (SSException e){
             LogClerk.errLog.error(e);
@@ -105,10 +113,15 @@ public class WorkPlanController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/month/add/{id}",method = RequestMethod.GET)
-    public String monthAdd(@PathVariable("id") int id,Model model)throws Exception{
+    @RequestMapping(value = "/month/to/add/{id}",method = RequestMethod.GET)
+    public String monthToAdd(@PathVariable("id") int id,Model model,HttpSession session)throws Exception{
+        User user = userService.queryByUname((String) session.getAttribute("username"));
         WorkPlan workPlan = workPlanService.queryById(id);
+        List<Department> departmentList = departmentService.listAll();
+        TestPlan testPlan = testPlanService.queryTestPlan(workPlan.getTestId());
         model.addAttribute("workPlan",workPlan);
+        model.addAttribute("departmentList",departmentList);
+        model.addAttribute("testPlan",testPlan);
         return "evaluation/month/plan-add";
     }
 
@@ -117,8 +130,18 @@ public class WorkPlanController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/month/add",method = RequestMethod.GET)
-    public String monthAdd()throws Exception{
-        return "evaluation/month/plan-add";
+    @RequestMapping(value = "/month/add",method = RequestMethod.POST)
+    public String monthAdd(@RequestParam("wid") int wid, @RequestParam("startTime")String startTime,@RequestParam("endTime")String endTime,@RequestParam("weight")String weight,@RequestParam("planContent") String planContent,@RequestParam("excpetResult") String excpetResult, HttpSession session)throws Exception{
+        User user = userService.queryByUname((String) session.getAttribute("username"));
+        WorkDetail workDetail = new WorkDetail();
+        workDetail.setUid(user.getId());
+        workDetail.setWid(wid);
+        workDetail.setWeight(weight);
+        workDetail.setStartTime(startTime);
+        workDetail.setEndTime(endTime);
+        workDetail.setPlanContent(planContent);
+        workDetail.setExpectResult(excpetResult);
+        workDetailService.addWorkDetail(workDetail);
+        return "redirect:/workplan/month/detail/1";
     }
 }

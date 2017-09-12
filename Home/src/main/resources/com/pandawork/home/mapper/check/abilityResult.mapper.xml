@@ -10,7 +10,8 @@
         year,
         did,
         total_score,
-        finish_time
+        finish_time,
+        test_id
         )VALUES (
         #{abilityResult.beCheckId},
         #{abilityResult.checkId},
@@ -18,7 +19,8 @@
         #{abilityResult.year},
         #{abilityResult.did},
         #{abilityResult.totalScore},
-        #{abilityResult.finishTime}
+        #{abilityResult.finishTime},
+        #{abilityResult.testId}
         )
     </insert>
 

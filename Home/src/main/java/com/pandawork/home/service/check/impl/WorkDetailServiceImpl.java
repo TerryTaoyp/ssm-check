@@ -89,4 +89,17 @@ public class WorkDetailServiceImpl implements WorkDetailService {
             throw SSException.get(ChException.QueryWorkDetailByWidFailed);
         }
     }
+
+    @Override
+    public List<WorkDetail> queryByUidAndWid(int uid, int wid) throws SSException {
+        try {
+            if (Assert.isNull(uid)||Assert.isNull(wid)){
+                return null;
+            }
+            return workDetailMapper.queryByUidAndWid(uid,wid);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryWorkDetailByWidFailed);
+        }
+    }
 }
