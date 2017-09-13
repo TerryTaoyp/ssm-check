@@ -67,7 +67,7 @@ public class PersonController extends AbstractController {
             user.setIsDelete(0);
             userService.delUser(user);
 
-            return sendJsonObject(AJAX_SUCCESS_CODE);
+            return sendJsonObject(1);
         }catch (SSException e){
             LogClerk.errLog.error(e);
             return sendErrMsgAndErrCode("操作失败！");
@@ -98,7 +98,7 @@ public class PersonController extends AbstractController {
     }
 
     /**
-     * 审核
+     * 审核通过
      * @param id
      * @return
      * @throws Exception
@@ -108,10 +108,31 @@ public class PersonController extends AbstractController {
         try{
             User user = userService.queryById(id);
             int i = user.getStatus();
-            if (i==0){
+            if (i==0||i==2){
                 i =1;
-            }else {
-                i=0;
+            }
+            user.setStatus(i);
+            userService.statusUser(user);
+            return "redirect:/user/account/list";
+        }catch (SSException e){
+            LogClerk.errLog.error(e);
+            sendErrMsg(e.getMessage());
+            return ADMIN_SYS_ERR_PAGE;
+        }
+    }
+    /**
+     * 审核不通过
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/status/not/{id}",method = RequestMethod.GET)
+    public String statusN(@PathVariable("id") int id)throws Exception{
+        try{
+            User user = userService.queryById(id);
+            int i = user.getStatus();
+            if (i==0||i==1){
+                i =2;
             }
             user.setStatus(i);
             userService.statusUser(user);

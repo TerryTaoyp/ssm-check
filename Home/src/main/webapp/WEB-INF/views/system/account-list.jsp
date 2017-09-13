@@ -85,11 +85,13 @@
                                         <c:if test="${user.status == 0}">
                                             <td>未审核</td>
                                         </c:if>
+                                            <c:if test="${user.status == 2}">
+                                                <td>审核不通过</td>
+                                            </c:if>
 
                                         <td>
                                             <a type="button" class="btn bg-olive"href="${website}/user/status/${user.id}">审核通过</a>
-                                            <a type="button" class="btn bg-orange">审核不通过</a>
-                                            <a type="button" class="btn bg-red delete" data-num="${status.index+1}">删除</a>
+                                            <a type="button" class="btn bg-orange" href="${website}/user/status/not/${user.id}">审核不通过</a>
                                         </td>
                                 </tr>
                                     </c:forEach>

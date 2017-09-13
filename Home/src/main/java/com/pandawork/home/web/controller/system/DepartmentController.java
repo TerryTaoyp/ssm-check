@@ -66,7 +66,7 @@ public class DepartmentController extends AbstractController {
             Department department = departmentService.queryById(id);
             department.setIsDelete(0);
             departmentService.delDepartment(department);
-            return sendJsonObject(AJAX_SUCCESS_CODE);
+            return sendJsonObject(1);
         }catch (SSException e){
             LogClerk.errLog.error(e);
             return sendErrMsgAndErrCode("操作失败！");

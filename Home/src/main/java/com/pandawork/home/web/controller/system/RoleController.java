@@ -55,7 +55,7 @@ public class RoleController extends AbstractController {
         try{
             Role role  = roleService.queryById(id);
             roleService.delRole(role);
-            return sendJsonObject(AJAX_SUCCESS_CODE);
+            return sendJsonObject(1);
         }catch (SSException e)
         {
             LogClerk.errLog.error(e);

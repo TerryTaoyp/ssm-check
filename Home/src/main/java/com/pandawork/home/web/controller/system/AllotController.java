@@ -70,7 +70,7 @@ public class AllotController extends AbstractController {
     public JSONObject del(@PathVariable("id") int id)throws Exception{
         try{
             allotService.delAllot(id);
-            return sendJsonObject(AJAX_SUCCESS_CODE);
+            return sendJsonObject(1);
         }catch (SSException e){
             LogClerk.errLog.error(e);
             return sendErrMsgAndErrCode("操作失败！");
@@ -105,10 +105,10 @@ public class AllotController extends AbstractController {
      */
     @RequestMapping(value = "/ajax/update/{id}",method = RequestMethod.GET)
     public JSONObject update(@PathVariable("id") int id)throws Exception{
-        Allot allot = (Allot) allotService.queryByUid(id);
+        List<Allot> allotList =  allotService.queryByUid(id);
         List<Department> departmentList = departmentService.listAll();
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("allot",allot);
+        jsonObject.put("allotList",allotList);
         jsonObject.put("departmentList",departmentList);
         return sendJsonObject(jsonObject);
     }

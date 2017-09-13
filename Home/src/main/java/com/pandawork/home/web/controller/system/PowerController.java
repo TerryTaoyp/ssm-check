@@ -49,7 +49,7 @@ public class PowerController extends AbstractController {
      public JSONObject del(@PathVariable("id") int id)throws Exception{
         try{
             powerService.delPower(id);
-            return sendJsonObject(AJAX_SUCCESS_CODE);
+            return sendJsonObject(1);
         }catch (SSException e){
             LogClerk.errLog.error(e);
             return sendErrMsgAndErrCode("操作失败！");
