@@ -20,7 +20,7 @@ $(document).ready(function() {
 				var id = $(this).attr('data-num');
 				$('#dataId').val(id);// 传值成功
 			});
-			// ajax修改
+			// ajax修改提交
 			$(el.J_ajax_submit).click(function(ev) {
 				// 先清空提示信息
 				$(el.J_tip).text('');
@@ -35,6 +35,7 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
+							id:id,
 							role: role,
 							jurisdiction: jurisdiction,
 							remark: remark
@@ -64,6 +65,30 @@ $(document).ready(function() {
 					$(el.J_tip).text('信息为空,无法提交');
 				}
 			});
+			// ajax点击修改
+			$(el.J_change).click(function(ev) {
+				// 获取序列
+				var 
+					id = $(this).attr('data-num'),
+					path_url = _ajax.url.system.role.list.change;
+					console.log(path_url);
+				$.ajax({
+					url: '/role/ajax/update',
+					type: 'post',
+					dataType: 'json',
+					data: {
+						id: id
+					},
+					success: function(data) {
+						// $('.table tr[data-id='+ id +']').remove();
+						console.log(data);
+						// 修改数据数量信息
+					},
+					error: function(data,errorMsg) {
+						console.log('error');
+					}
+				})
+			});
 			// ajax删除
 			$(el.J_delete).click(function(ev) {
 				// 获取序列
@@ -77,7 +102,7 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							delete: 'true'
+							id: id
 						},
 						success: function(data) {
 							$('.table tr[data-id='+ id +']').remove();

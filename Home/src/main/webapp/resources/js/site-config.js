@@ -2,7 +2,7 @@
 
     var site = {
         //这是前端本地需要配置的，用来看自己写的页面
-        website:'http://www.appraisal.com/', //站点地址
+        website:'http://localhost:8080/', //站点地址
         //静态资源地址
         staticWebsite: 'http://www.appraisal.com/ssm-check/Home/src/main/webapp/resources/'
     }
@@ -23,7 +23,8 @@
                role:{
                     // 列表
                     list:{
-                        change: site.staticWebsite + 'mock/role.json'
+                        change: site.website + 'role/ajax/update'
+                        // change: site.staticWebsite + 'mock/role.json'
                     },
                     // 添加
                     add:{
