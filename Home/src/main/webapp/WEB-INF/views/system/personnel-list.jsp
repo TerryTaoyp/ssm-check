@@ -123,16 +123,22 @@
                     <div class="form-group">
                         <label>所属部门：</label>
                         <select class="form-control a-require-option department" name="did">
+
                             <option value="-1">请选择</option>
-                            <option selected="">技术部</option>
-                            <option selected="">产品部</option>
+                            <c:forEach items="${departmentList}" var="department">
+                                <option value="${department.id}">${department.name}</option>
+                            </c:forEach>
+
                         </select>
                     </div>
                     <div class="form-group">
                         <label>职位：</label>
                         <select class="form-control a-require-option position" name="rid">
-                            <option selected="">部门经理</option>
-                            <option selected="">部门副经理</option>
+                            <option value="-1">请选择</option>
+                            <c:forEach items="${roleList}" var="role">
+                                <option value="${role.id}">${role.name}</option>
+                            </c:forEach>
+
                         </select>
                     </div>
                     <div class="form-group">

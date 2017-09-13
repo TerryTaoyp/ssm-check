@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -112,47 +113,72 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
+                                    <th>序号</th>
                                     <th>考核计划名称</th>
                                     <th>被考核人姓名</th>
+                                    <th>被考核人部门</th>
                                     <th>职位</th>
-                                    <th>综合得分</th>
-                                    <th>其他信息</th>
+                                    <th>年度总结得分</th>
+                                    <th>年度综合绩效得分</th>
+                                    <th>年度能力指标得分</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>章</td>
-                                    <td>13837200544</td>
-                                    <td>经理</td>
-                                    <td>77</td>
-                                    <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                    <td>
-                                        <a href="result-detail.html" class="btn bg-blue">查看详情</a>
-                                        <button type="button" class="btn bg-green">打印此报表</button>
-                                    </td>
+                                    <c:forEach items="${workPlanList}" var="workPlan" varStatus="status">
+                                        <tr>
+                                        <td>${status.index+1}</td>
+                                        <c:forEach items="${testPlanList}" var="testPlan">
+                                            <c:if test="${testPlan.id == workPlan.testId}">
+                                                <td>${testPlan.testName}</td>
+                                                <c:forEach items="${userList}" var="user">
+                                                    <c:if test="${workPlan.beCheckId==user.id}">
+                                                        <td>${user.username}</td>
+                                                        <c:forEach items="${departmentList}" var="department">
+                                                            <c:if test="${department.id == user.did}">
+                                                                <td>${department.name}</td>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                        <c:forEach items="${roleList}" var="role">
+                                                            <c:if test="${role.id==user.rid}">
+                                                                <td>${role.name}</td>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </c:if>
+                                                </c:forEach>
+                                            </c:if>
+                                        </c:forEach>
+
+                                            <c:forEach items="${performanceList}" var="performance">
+                                                <c:if test="${workPlan.id == performance.beCheckId && workPlan.year == performance.year}">
+                                                    <td>${performance.summaryScore}</td>
+                                                    <td>${performance.yearScore}</td>
+                                                </c:if>
+                                            </c:forEach>
+                                            <c:forEach items="${abilityResultList}" var="result">
+                                                <c:if test="${workPlan.id ==result.beCheckId && workPlan.testId == result.testId}">
+                                                    <td>${result.totalScore}</td>
+                                                </c:if>
+                                            </c:forEach>
+                                        <td>
+                                            <button type="button" class="btn bg-green">打印此报表</button>
+                                        </td>
                                 </tr>
-                                <tr>
-                                    <td>章</td>
-                                    <td>1384</td>
-                                    <td>经理</td>
-                                    <td>17</td>
-                                    <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                    <td>
-                                        <a href="result-detail.html" class="btn bg-blue">查看详情</a>
-                                        <button type="button" class="btn bg-green">打印此报表</button>
-                                    </td>
-                                </tr>
+                                    </c:forEach>
+
                                 </tbody>
                                 <tfoot>
                                 <tr>
+                                    <th>序号</th>
                                     <th>考核计划名称</th>
                                     <th>被考核人姓名</th>
+                                    <th>被考核人部门</th>
                                     <th>职位</th>
-                                    <th>综合得分</th>
-                                    <th>其他信息</th>
+                                    <th>年度总结得分</th>
+                                    <th>年度能力指标得分</th>
+                                    <th>年度综合绩效得分</th>
+                                    <th>操作</th>
                                     <th>
-                                        操作
                                         <button type="button" class="btn bg-green">全部导出</button>
                                     </th>
                                 </tr>

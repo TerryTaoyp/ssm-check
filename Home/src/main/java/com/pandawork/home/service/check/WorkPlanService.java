@@ -64,4 +64,6 @@ public interface WorkPlanService {
      * @throws SSException
      */
     public List<WorkPlan> queryByUidAndYear(int beCheckId,int year)throws SSException;
+
+    public List<WorkPlan> listAll()throws SSException;
 }

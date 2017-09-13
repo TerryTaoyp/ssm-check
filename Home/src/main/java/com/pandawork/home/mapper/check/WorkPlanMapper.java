@@ -66,4 +66,6 @@ public interface WorkPlanMapper {
      * @throws SSException
      */
     public List<WorkPlan> queryByUidAndYear(@Param("beCheckId") int beCheckId,@Param("year") int year)throws SSException;
+
+    public List<WorkPlan> listAll()throws SSException;
 }

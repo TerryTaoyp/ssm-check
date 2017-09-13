@@ -114,4 +114,9 @@ public class WorkPlanServiceImpl implements WorkPlanService {
             throw SSException.get(ChException.QueryWorkPlanByUidFailed);
         }
     }
+
+    @Override
+    public List<WorkPlan> listAll() throws SSException {
+        return workPlanMapper.listAll();
+    }
 }
