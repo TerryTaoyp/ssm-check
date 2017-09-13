@@ -148,8 +148,8 @@
                             </ul>
                         </div>
                         <div class="box-footer">
-                            <a href="ability-list.html" class="btn btn-primary">返回列表</a>
-                            <a href="ability-update.html" class="btn bg-olive">修改题目</a>
+                            <a href="../../../view/evaluation/year/ability-list.html" class="btn btn-primary">返回列表</a>
+                            <a href="../../../view/evaluation/year/ability-update.html" class="btn bg-olive">修改题目</a>
                         </div>
                     </div>
                 </div>

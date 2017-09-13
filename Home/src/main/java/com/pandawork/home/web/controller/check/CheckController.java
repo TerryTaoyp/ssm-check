@@ -172,7 +172,7 @@ public class CheckController extends AbstractController {
         model.addAttribute("testPlan",testPlan);
         WorkPlan workPlan = workPlanService.queryByTestId(id);
         List<WorkPlan> workPlanList = workPlanService.queryByUidAndYear(uid,workPlan.getYear());
-        Summary summary = summaryService.queryByYear(workPlan.getYear());
+        Summary summary = summaryService.queryByUidAndYear(uid,workPlan.getYear());
         List<TestType> testTypeList = testTypeService.listAll();
         int sumScore = 0;
         if (testPlan.getTestTypeId()==1){
@@ -189,6 +189,8 @@ public class CheckController extends AbstractController {
         model.addAttribute("testTypeList",testTypeList);
         model.addAttribute("summary",summary);
         model.addAttribute("workPlanList",workPlanList);
+        model.addAttribute("id",id);
+        model.addAttribute("uid",uid);
         return "exam/year/exam-list";
     }
 
@@ -223,11 +225,17 @@ public class CheckController extends AbstractController {
      * @return
      * @throws Exception
      */
-//    @RequestMapping(value = "/year/summary/{id}",method = RequestMethod.GET)
-//    public String yearSummary1(@PathVariable("id") int id,Model model,HttpSession session)throws Exception{
-//        User user = userService.queryByUname((String) session.getAttribute("username"));
-//
-//    }
+    @RequestMapping(value = "/year/summary/{id}&{uid}",method = RequestMethod.GET)
+    public String yearSummary1(@PathVariable("id") int id,@PathVariable("uid") int uid,Model model,HttpSession session)throws Exception{
+        User user = userService.queryByUname((String) session.getAttribute("username"));
+        TestPlan testPlan = testPlanService.queryTestPlan(id);
+        WorkPlan workPlan = workPlanService.queryByTestId(testPlan.getId());
+        Summary summary = summaryService.queryByUidAndYear(uid,workPlan.getYear());
+        model.addAttribute("summary",summary);
+        model.addAttribute("id",id);
+        model.addAttribute("uid",uid);
+        return "exam/year/summary-detail";
+    }
     /**
      * 年度总结详情页面
      * @param id

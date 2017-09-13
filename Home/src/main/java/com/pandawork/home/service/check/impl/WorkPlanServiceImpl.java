@@ -119,4 +119,17 @@ public class WorkPlanServiceImpl implements WorkPlanService {
     public List<WorkPlan> listAll() throws SSException {
         return workPlanMapper.listAll();
     }
+
+    @Override
+    public List<WorkPlan> queryByYear(int year) throws SSException {
+        try {
+            if (Assert.isNull(year)){
+                return null;
+            }
+            return workPlanMapper.queryByYear(year);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryWorkPlanByUidFailed);
+        }
+    }
 }

@@ -54,79 +54,30 @@
                                 <thead>
                                 <tr>
                                     <th>序号</th>
-                                    <th>考核年份</th>
-                                    <th>1月</th>
-                                    <th>2月</th>
-                                    <th>3月</th>
-                                    <th>4月</th>
-                                    <th>5月</th>
-                                    <th>6月</th>
-                                    <th>7月</th>
-                                    <th>8月</th>
-                                    <th>9月</th>
-                                    <th>10月</th>
-                                    <th>11月</th>
-                                    <th>12月</th>
-                                    <th>平均得分</th>
-                                    <th>年度总结得分</th>
-                                    <th>您的得分</th>
+                                    <th>考核名称</th>
+                                    <th>考核时间</th>
+                                    <th>考核状态</th>
+                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${performanceList}" var="performance" varStatus="status">
-                                    <tr>
-                                        <td>${status.index+1}</td>
-                                        <c:forEach items="${performanceYear}" var="year">
-                                            <td>${year.year}</td>
-                                            <c:forEach items="${workPlanList}" var="workPlan">
-                                                <c:if test="${workPlan.month == 1 && workPlan.year == year.year}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-                                                <c:if test="${workPlan.month ==2 && workPlan.year == year.year}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-                                                <c:if test="${workPlan.month == 3 && workPlan.year == year.year}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-                                                <c:if test="${workPlan.month == 4 && workPlan.year == year.year}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-                                                <c:if test="${workPlan.month == 5 && workPlan.year == year.year}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-                                                <c:if test="${workPlan.month == 6 && workPlan.year == year.year}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-                                                <c:if test="${workPlan.month == 7 && workPlan.year == year.year}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-                                                <c:if test="${workPlan.month == 8 && workPlan.year == year.year}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-                                                <c:if test="${workPlan.month == 9 && workPlan.year == year.year}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-                                                <c:if test="${workPlan.month == 10 && workPlan.year == year.year}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-                                                <c:if test="${workPlan.month == 11 && workPlan.year == year.year}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-                                                <c:if test="${workPlan.month == 12 && workPlan.year == year.year}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-                                            </c:forEach>
-                                            <c:if test="${year.year == performance.year}">
-                                                <td>${performance.suggestScore}</td>
+                                <c:forEach items="${testPlanList}" var="testPlan" varStatus="status">
+                                    <c:if test="${testPlan.testTypeId ==1 ||testPlan.testTypeId==2}">
+                                        <tr>
+                                            <td>${status.index+1}</td>
+                                            <td>${testPlan.testName}</td>
+                                            <td>${testPlan.startTime}</td>
+                                            <c:if test="${testPlan.isAvailable == 1}">
+                                                <td>已开启</td>
                                             </c:if>
-                                            <c:if test="${year.year == performance.year}">
-                                                <td>${performance.summaryScore}</td>
+                                            <c:if test="${testPlan.isAvailable == 0}">
+                                                <td>未开启</td>
                                             </c:if>
-                                            <c:if test="${year.year == performance.year}">
-                                                <td>${performance.yearScore}</td>
-                                            </c:if>
-                                            </tr>
-                                        </c:forEach>
+                                            <td>
+                                                <a href="${website}/performance/detail/${testPlan.id}" class="btn bg-blue">查看详情</a>
+                                            </td>
+                                        </tr>
+                                    </c:if>
                                 </c:forEach>
                                 </tbody>
 

@@ -109,9 +109,11 @@
                     <input type="hidden" id="dataId">
                     <div class="form-group">
                         <label>选择部门：</label>
-                        <select class="form-control select2 a-require-options department" multiple="multiple" data-placeholder="请选择..." style="width: 100%;">
-                            <option>部门1</option>
-                            <option>部门2</option>
+                        <select class="form-control select2 a-require-options department" multiple="multiple" data-placeholder="请选择..." style="width: 100%;" name="did">
+                            <option selected="" value="-1">请选择</option>
+                            <c:forEach items="${departmentList}" var="department">
+                                <option selected="" value="${department.id}">${department.name}</option>
+                            </c:forEach>
                         </select>
                     </div>
                     <!-- <div class="form-group">

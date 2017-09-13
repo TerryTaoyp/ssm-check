@@ -53,6 +53,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label>考核计划所属年份：</label>
+                            <input type="text" class="form-control require-text" placeholder="请输入..." name="year">
+                        </div>
+
+                        <div class="form-group">
                             <label>考核性质</label>
                             <select class="form-control require-option" name="testTypeId">
                                 <option value="-1">请选择</option>

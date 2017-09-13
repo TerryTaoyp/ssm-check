@@ -117,7 +117,7 @@
                                         <td>${summary.summaryScore}</td>
                                         <td></td>
                                         <td>
-                                            <a href="exam-detail.html" class="btn bg-green">打分</a>
+                                            <a href="../../../view/exam/year/exam-detail.html" class="btn bg-green">打分</a>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -156,7 +156,7 @@
                                             <td>${summary.summaryScore}</td>
                                             <td></td>
                                             <td>
-                                                <a href="exam-detail.html" class="btn bg-green">打分</a>
+                                                <a href="../../../view/exam/year/exam-detail.html" class="btn bg-green">打分</a>
                                             </td>
                                         </c:forEach>
                                     </tr>
@@ -171,6 +171,7 @@
                 <!-- /.col -->
             </div>
             <!-- /.row -->
+            <a href="${website}/check/year/user/${id}" class="btn bg-green">返回列表</a>
         </section>
         <!-- /.content -->
     </div>

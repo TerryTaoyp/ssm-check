@@ -67,7 +67,7 @@
                                     <td>77</td>
                                     <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
                                     <td>
-                                        <a href="allot-detail.html" class="btn bg-blue">设置管理</a>
+                                        <a href="../../view/evaluation/allot-detail.html" class="btn bg-blue">设置管理</a>
                                     </td>
                                 </tr>
                                 <tr>

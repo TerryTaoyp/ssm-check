@@ -94,5 +94,14 @@ public interface PerformanceMapper {
      */
     public List<Performance> listAll()throws SSException;
 
+    /**
+     * 根据被考核用户DI和年份查询
+     * @param beCheckId
+     * @param year
+     * @return
+     * @throws SSException
+     */
+    public Performance queryByUidAndYear(@Param("beCheckId") int beCheckId,@Param("year") int year)throws SSException;
+
 
 }

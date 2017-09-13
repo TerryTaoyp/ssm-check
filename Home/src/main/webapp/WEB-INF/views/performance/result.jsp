@@ -126,14 +126,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${workPlanList}" var="workPlan" varStatus="status">
+                                    <c:forEach items="${joinTestList}" var="joinTest" varStatus="status">
                                         <tr>
                                         <td>${status.index+1}</td>
                                         <c:forEach items="${testPlanList}" var="testPlan">
-                                            <c:if test="${testPlan.id == workPlan.testId}">
+                                            <c:if test="${joinTest.testId == testPlan.id}">
                                                 <td>${testPlan.testName}</td>
                                                 <c:forEach items="${userList}" var="user">
-                                                    <c:if test="${workPlan.beCheckId==user.id}">
+                                                    <c:if test="${joinTest.uid == user.id}">
                                                         <td>${user.username}</td>
                                                         <c:forEach items="${departmentList}" var="department">
                                                             <c:if test="${department.id == user.did}">
@@ -141,7 +141,7 @@
                                                             </c:if>
                                                         </c:forEach>
                                                         <c:forEach items="${roleList}" var="role">
-                                                            <c:if test="${role.id==user.rid}">
+                                                            <c:if test="${role.id == user.rid}">
                                                                 <td>${role.name}</td>
                                                             </c:if>
                                                         </c:forEach>
@@ -149,24 +149,22 @@
                                                 </c:forEach>
                                             </c:if>
                                         </c:forEach>
-
                                             <c:forEach items="${performanceList}" var="performance">
-                                                <c:if test="${workPlan.id == performance.beCheckId && workPlan.year == performance.year}">
+                                                <c:if test="${joinTest.testId == performance.testId && joinTest.uid == performance.beCheckId}">
                                                     <td>${performance.summaryScore}</td>
                                                     <td>${performance.yearScore}</td>
                                                 </c:if>
                                             </c:forEach>
                                             <c:forEach items="${abilityResultList}" var="result">
-                                                <c:if test="${workPlan.id ==result.beCheckId && workPlan.testId == result.testId}">
+                                                <c:if test="${joinTest.testId == result.testId && joinTest.uid == result.beCheckId}">
                                                     <td>${result.totalScore}</td>
                                                 </c:if>
                                             </c:forEach>
                                         <td>
                                             <button type="button" class="btn bg-green">打印此报表</button>
                                         </td>
-                                </tr>
+                                        </tr>
                                     </c:forEach>
-
                                 </tbody>
                                 <tfoot>
                                 <tr>

@@ -93,4 +93,15 @@ public interface PerformanceService {
      * @throws SSException
      */
     public List<Performance> listAll()throws SSException;
+
+    /**
+     * 根据被考核用户DI和年份查询
+     * @param beCheckId
+     * @param year
+     * @return
+     * @throws SSException
+     */
+    public Performance queryByUidAndYear(int beCheckId,int year)throws SSException;
+
+
 }

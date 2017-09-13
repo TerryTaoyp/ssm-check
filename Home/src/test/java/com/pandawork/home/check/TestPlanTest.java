@@ -1,5 +1,6 @@
 package com.pandawork.home.check;
 
+import com.pandawork.core.common.exception.SSException;
 import com.pandawork.home.AbstractTestCase;
 import com.pandawork.home.common.entity.check.TestPlan;
 import com.pandawork.home.service.check.TestPlanService;
@@ -81,5 +82,10 @@ public class TestPlanTest extends AbstractTestCase {
     @Test
     public void testCountAll()throws Exception{
         testPlanService.countAll();
+    }
+
+    @Test
+    public void testQueryByUid()throws SSException{
+        testPlanService.queryByUid(7);
     }
 }

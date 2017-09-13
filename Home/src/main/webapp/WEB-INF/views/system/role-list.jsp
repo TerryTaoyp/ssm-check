@@ -107,9 +107,10 @@
                         <div class="form-group">
                             <label>选择权限：</label>
                             <select class="form-control select2 a-require-options jurisdiction" multiple="multiple" data-placeholder="请选择..." style="width: 100%;" name="pid">
-                                <option selected="">而非工本费</option>
-                                <option selected="">过时不候人</option>
-                                <option selected="">121</option>
+                                <option selected="" value="-1">请选择</option>
+                                <c:forEach items="${powerList}" var="power">
+                                    <option selected="" value="${power.id}">${power.power}</option>
+                                </c:forEach>
                             </select>
                         </div>
                         <p class="text-red tip"></p>

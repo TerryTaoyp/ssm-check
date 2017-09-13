@@ -105,12 +105,25 @@ public class SummaryServiceImpl implements SummaryService {
     }
 
     @Override
-    public Summary queryByYear(int year) throws SSException {
+    public List<Summary> queryByYear(int year) throws SSException {
         try {
             if (Assert.isNull(year)){
                 return null;
             }
             return summaryMapper.queryByYear(year);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QuerySummaryByUserFailed);
+        }
+    }
+
+    @Override
+    public Summary queryByUidAndYear(int beCheckId, int year) throws SSException {
+        try {
+            if (Assert.isNull(beCheckId)||Assert.isNull(year)){
+                return null;
+            }
+            return summaryMapper.queryByUidAndYear(beCheckId,year);
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.QuerySummaryByUserFailed);

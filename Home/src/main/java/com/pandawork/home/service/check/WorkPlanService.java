@@ -66,4 +66,12 @@ public interface WorkPlanService {
     public List<WorkPlan> queryByUidAndYear(int beCheckId,int year)throws SSException;
 
     public List<WorkPlan> listAll()throws SSException;
+
+    /**
+     * 根据年份查询
+     * @param year
+     * @return
+     * @throws SSException
+     */
+    public List<WorkPlan> queryByYear(int year)throws SSException;
 }

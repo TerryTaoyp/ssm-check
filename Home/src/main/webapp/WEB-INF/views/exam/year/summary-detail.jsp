@@ -55,7 +55,7 @@
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <a href="${website}/check/year/summary" class="btn bg-olive">返回列表</a>
+                            <a href="${website}/check/year/user/${id}" class="btn bg-green">返回列表</a>
                             <button type="button" class="btn bg-primary" data-toggle="modal" data-target="#modal-default">打分</button>
                         </div>
                     </div>

@@ -117,7 +117,7 @@ public class TestPlanController extends AbstractController{
      * @throws Exception
      */
     @RequestMapping(value = "/add",method = RequestMethod.POST)
-    public String add(@RequestParam("testName") String testName, @RequestParam("testTypeId") int testTypeId, @RequestParam("startTime") String startTime, @RequestParam("startTime") String finishTime, HttpSession session)throws Exception{
+    public String add(@RequestParam("testName") String testName, @RequestParam("testTypeId") int testTypeId, @RequestParam("startTime") String startTime, @RequestParam("startTime") String finishTime,@RequestParam("year") int year, HttpSession session)throws Exception{
         try{
             User  user = userService.queryByUname((String) session.getAttribute("username"));
 
@@ -128,6 +128,7 @@ public class TestPlanController extends AbstractController{
             testPlan.setStartTime(startTime);
             testPlan.setFinishTime(finishTime);
             testPlan.setDid(user.getDid());
+            testPlan.setYear(year);
             testPlanService.addTestPlan(testPlan);
             return "redirect:/testplan/list";
         }catch (SSException e){

@@ -68,5 +68,14 @@ public interface SummaryMapper {
      * @return
      * @throws SSException
      */
-    public Summary queryByYear(@Param("year") int year)throws SSException;
+    public List<Summary> queryByYear(@Param("year") int year)throws SSException;
+
+    /**
+     * 根据被考核用户ID和年份查找
+     * @param beCheckId
+     * @param year
+     * @return
+     * @throws SSException
+     */
+    public Summary queryByUidAndYear(@Param("beCheckId") int beCheckId,@Param("year") int year)throws SSException;
 }

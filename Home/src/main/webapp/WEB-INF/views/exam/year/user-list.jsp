@@ -89,7 +89,7 @@
                                         <td>已开启</td>
                                         <td>
                                             <a href="${website}/check/year/performance/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核综合能力</a>
-                                            <a href="${website}/check/year/summary/${testPlan.id}" class="btn bg-green">进入考核年度总结</a>
+                                            <a href="${website}/check/year/summary/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核年度总结</a>
                                         </td>
                                     </c:if>
                                     <c:if test="${testPlan.isAvailable == 0}">

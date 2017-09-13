@@ -46,4 +46,8 @@
     <select id="queryByYear" resultMap="pw.Summary">
         SELECT * FROM t_summary WHERE year = #{year}
     </select>
+
+    <select id="queryByUidAndYear" resultMap="pw.Summary">
+        SELECT * FROM t_summary WHERE be_check_id = #{beCheckId} AND year = #{year}
+    </select>
 </mapper>

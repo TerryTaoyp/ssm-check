@@ -37,6 +37,8 @@ public class RoleController extends AbstractController {
     public String list(Model model) throws Exception {
 
         List<Role> roleList = roleService.queryByIsDelete(1);
+        List<Power> powerList = powerService.listAll();
+        model.addAttribute("powerList",powerList);
         model.addAttribute("roleList",roleList);
         return "system/role-list";
     }
@@ -51,7 +53,6 @@ public class RoleController extends AbstractController {
     @RequestMapping(value = "/ajax/del",method = RequestMethod.GET)
     public JSONObject del(@RequestParam("id") int id)throws Exception{
         try{
-
             Role role  = roleService.queryById(id);
             roleService.delRole(role);
             return sendJsonObject(1);

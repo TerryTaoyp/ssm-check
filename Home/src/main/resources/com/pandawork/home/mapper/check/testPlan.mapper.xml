@@ -10,14 +10,16 @@
         start_time,
         finish_time,
         test_name,
-        did
+        did,
+        year
         )VALUES (
         #{testPlan.uid},
         #{testPlan.testTypeId},
         #{testPlan.startTime},
         #{testPlan.finishTime},
         #{testPlan.testName},
-        #{testPlan.did}
+        #{testPlan.did},
+        #{testPlan.year}
         )
     </insert>
 
@@ -28,7 +30,8 @@
         start_time = #{testPlan.startTime},
         finish_time = #{testPlan.finishTime},
         test_name = #{testPlan.testName},
-        did = #{testPlan.did}
+        did = #{testPlan.did},
+        year = #{testPlan.year}
         WHERE id = #{testPlan.id}
     </update>
 

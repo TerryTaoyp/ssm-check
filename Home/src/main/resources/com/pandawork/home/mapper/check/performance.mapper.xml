@@ -59,4 +59,8 @@
         select * from t_performance
     </select>
 
+    <select id="queryByUidAndYear" resultMap="pw.Performance">
+        SELECT * FROM t_performance WHERE be_check_id = #{beCheckId} AND year = #{year}
+    </select>
+
 </mapper>

@@ -64,7 +64,7 @@
             </div>
         </form>
         <h3>${msg}</h3>
-        <a href="login.html" class="text-center">已经有账号?这里登录!</a>
+        <a href="${website}/tologin" class="text-center">已经有账号?这里登录!</a>
     </div>
     <!-- /.form-box -->
 </div>

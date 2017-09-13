@@ -67,7 +67,7 @@
                                     <td>77</td>
                                     <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
                                     <td>
-                                        <a href="plan-detail.html" class="btn bg-blue">查看详情</a>
+                                        <a href="../../../view/performance/month/plan-detail.html" class="btn bg-blue">查看详情</a>
                                         <button type="button" class="btn bg-green">打印此报表</button>
                                     </td>
                                 </tr>
@@ -78,7 +78,7 @@
                                     <td>17</td>
                                     <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
                                     <td>
-                                        <a href="plan-detail.html" class="btn bg-blue">查看详情</a>
+                                        <a href="../../../view/performance/month/plan-detail.html" class="btn bg-blue">查看详情</a>
                                         <button type="button" class="btn bg-green">打印此报表</button>
                                     </td>
                                 </tr>

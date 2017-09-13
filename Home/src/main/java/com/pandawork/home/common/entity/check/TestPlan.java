@@ -35,6 +35,16 @@ public class TestPlan {
     //部门ID
     @Column(name = "did")
     private Integer did;
+    //此次考核所属的年份
+    private Integer year;
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
 
     public Integer getId() {
         return id;

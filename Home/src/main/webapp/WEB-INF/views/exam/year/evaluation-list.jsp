@@ -66,7 +66,7 @@
                                     <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
                                     <td>
                                         <!-- <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#modal-default">查看详情1</button> -->
-                                        <a href="evaluation-detail.html" class="btn bg-green">我要评价</a>
+                                        <a href="../../../view/exam/year/evaluation-detail.html" class="btn bg-green">我要评价</a>
                                         <button type="button" class="btn bg-red disabled">已打分</button>
                                     </td>
                                 </tr>
@@ -77,7 +77,7 @@
                                     <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
                                     <td>
                                         <!-- <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#modal-default">查看详情1</button> -->
-                                        <a href="evaluation-detail.html" class="btn bg-green">我要评价</a>
+                                        <a href="../../../view/exam/year/evaluation-detail.html" class="btn bg-green">我要评价</a>
                                         <button type="button" class="btn bg-red disabled">已打分</button>
                                     </td>
                                 </tr>

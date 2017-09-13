@@ -64,26 +64,29 @@
                                 <tbody>
                                     <c:forEach items="${joinTestList}" var="joinTest" varStatus="st">
                                         <c:forEach items="${testPlanList}" var="testPlan" varStatus="status">
-                                            <c:if test="${joinTest.testId == testPlan.id && testPlan.testTypeId ==5 ||testPlan.testTypeId==6}">
-                                                <tr data-id="${st.index+1}">
-                                                    <td>${st.index+1}</td>
-                                                    <td>${testPlan.testName}</td>
-                                                    <c:forEach items="${testTypeList}" var="testType">
-                                                        <c:if test="${testPlan.testTypeId == testType.id}">
-                                                            <td>${testType.name}</td>
+                                            <c:if test="${joinTest.testId == testPlan.id}">
+                                                <c:if test="${testPlan.testTypeId ==5 ||testPlan.testTypeId==6}">
+                                                    <tr data-id="${st.index+1}">
+                                                        <td>${st.index+1}</td>
+                                                        <td>${testPlan.testName}</td>
+                                                        <c:forEach items="${testTypeList}" var="testType">
+                                                            <c:if test="${testPlan.testTypeId == testType.id}">
+                                                                <td>${testType.name}</td>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                        <td>${testPlan.startTime}</td>
+                                                        <c:if test="${testPlan.isAvailable ==1}">
+                                                            <td>已开启</td>
                                                         </c:if>
-                                                    </c:forEach>
-                                                    <td>${testPlan.startTime}</td>
-                                                    <c:if test="${testPlan.isAvailable ==1}">
-                                                        <td>已开启</td>
-                                                    </c:if>
-                                                    <c:if test="${testPlan.isAvailable ==0}">
-                                                        <td>未开启</td>
-                                                    </c:if>
-                                                    <td>
-                                                        <a href="${website}/workplan/month/detail/${testPlan.id}" class="btn bg-blue">查看详情</a>
-                                                    </td>
-                                                </tr>
+                                                        <c:if test="${testPlan.isAvailable ==0}">
+                                                            <td>未开启</td>
+                                                        </c:if>
+                                                        <td>
+                                                            <a href="${website}/workplan/month/detail/${testPlan.id}" class="btn bg-blue">查看详情</a>
+                                                        </td>
+                                                    </tr>
+                                                </c:if>
+
                                             </c:if>
                                         </c:forEach>
                                     </c:forEach>

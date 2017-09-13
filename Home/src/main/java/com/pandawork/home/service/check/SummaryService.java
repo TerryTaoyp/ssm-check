@@ -67,5 +67,14 @@ public interface SummaryService {
      * @return
      * @throws SSException
      */
-    public Summary queryByYear(int year)throws SSException;
+    public List<Summary> queryByYear(int year)throws SSException;
+
+    /**
+     * 根据被考核用户ID和年份查找
+     * @param beCheckId
+     * @param year
+     * @return
+     * @throws SSException
+     */
+    public Summary queryByUidAndYear(int beCheckId,int year)throws SSException;
 }
