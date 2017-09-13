@@ -6,8 +6,11 @@ $(document).ready(function() {
 			J_change: '.change', // 修改按钮
 			J_delete: '.delete', // 删除按钮
 			J_ajax_submit: '.J-ajax-submit', // ajax提交按钮
+			J_username: '.username', // 用户名
+			J_realname: '.realname', // 真实姓名
 			J_department: '.department', // 所属部门名称
 			J_position: '.position', // 职位
+			J_phone: '.phone', //手机号
 		};
 
 		// 入口函数
@@ -15,12 +18,7 @@ $(document).ready(function() {
 
 		function init(){
 
-			// 点击修改计划时传一个次序给修改弹出框
-			$(el.J_change).click(function(ev) {
-				var id = $(this).attr('data-num');
-				$('#dataId').val(id);// 传值成功
-			});
-			// ajax修改
+			// ajax修改提交
 			$(el.J_ajax_submit).click(function(ev) {
 				// 先清空提示信息
 				$(el.J_tip).text('');
@@ -66,12 +64,42 @@ $(document).ready(function() {
 					$(el.J_tip).text('信息为空,无法提交');
 				}
 			});
+			// ajax修改
+			$(el.J_change).click(function(ev) {
+				// 点击修改计划时传一个次序给修改弹出框
+				var id = $(this).attr('data-num'),
+					path_url = _ajax.url.system.personnel.list.update;
+					 // 传值成功
+					 $('#dataId').val(id);
+				$.ajax({
+					url: path_url,
+					type: 'get',
+					dataType: 'json',
+					data: {
+						id: id
+					},
+					success: function(data) {
+						// 添加默认值
+						// 用户名称
+						$(el.J_username).val(data.data.user.username);
+						// 真实姓名
+						$(el.J_realname).val(data.data.user.realName);
+						// 所属部门 暂无
+						// $(el.J_department).find('selector') 
+						// 手机号
+						$(el.J_phone).val(data.data.user.phone);
+					},
+					error: function(data,errorMsg) {
+						console.log('error');
+					}
+				})
+			})
 			// ajax删除
 			$(el.J_delete).click(function(ev) {
 				// 获取序列
 				var 
 					id = $(this).attr('data-num'),
-					path_url = _ajax.url.evaluation.plan_management.list.change;
+					path_url = _ajax.url.system.personnel.list.del;
 				// 删除确认
 				if (confirm("确认要删除？")) {
 					$.ajax({
@@ -79,7 +107,7 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							delete: 'true'
+							id: id
 						},
 						success: function(data) {
 							$('.table tr[data-id='+ id +']').remove();

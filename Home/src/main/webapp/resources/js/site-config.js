@@ -23,8 +23,10 @@
                role:{
                     // 列表
                     list:{
-                        change: site.website + 'role/ajax/update'
-                        // change: site.staticWebsite + 'mock/role.json'
+                        test: site.staticWebsite + 'mock/plan_management.json',
+                        update: site.website + 'role/ajax/update', // 点击
+                        del: site.website + 'role/ajax/del', //删除
+                        submit: site.website + ''// 提交
                     },
                     // 添加
                     add:{
@@ -35,7 +37,9 @@
                 jurisdiction:{
                     // 列表
                     list:{
-                        change: site.staticWebsite + 'mock/jurisdiction.json'
+                        del: site.website + 'power/ajax/del', //删除
+                        update: site.website + 'power/ajax/update', //点击修改
+                        submit: site.website + 'power/update' // 提交
                     },
                     // 添加
                     add:{
@@ -46,7 +50,9 @@
                 department:{
                     // 列表
                     list:{
-                        change: site.staticWebsite + 'mock/department.json'
+                        update: site.website + 'department/ajax/update', // 点击修改
+                        del: site.website + 'department/ajax/del', // 点击修改
+                        submit: site.website + 'department/update', // 提交
                     },
                     // 添加
                     add:{
@@ -57,7 +63,9 @@
                 personnel:{
                     // 列表
                     list:{
-                        change: site.staticWebsite + 'mock/personnel.json'
+                        update: site.website + 'user/ajax/update', //点击修改
+                        del : site.website + 'user/ajax/update', //删除
+                        
                     }
                 },
                 //管辖分配

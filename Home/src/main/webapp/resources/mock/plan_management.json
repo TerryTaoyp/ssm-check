@@ -1,8 +1,1 @@
-{
-    "code":1,
-    "errorMsg":[
-        {
-            "msg":"信息为空,无法提交"
-        }
-    ]
-}
+{"code":0,"data":{"powerList":[{"detail":"","id":1,"power":2},{"detail":"","id":2,"power":2},{"detail":"而非工本费","id":5,"power":5},{"detail":"过时不候人","id":6,"power":2},{"detail":"121","id":7,"power":1}],"role":{"id":9,"isDelete":1,"name":"部门副经理","pid":5}}}

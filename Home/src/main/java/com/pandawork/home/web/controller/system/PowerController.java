@@ -93,7 +93,7 @@ public class PowerController extends AbstractController {
      */
     @ResponseBody
     @RequestMapping(value = "/ajax/update",method = RequestMethod.GET)
-    public JSONObject update(@PathVariable("id") int id)throws Exception{
+    public JSONObject update(@RequestParam("id") int id)throws Exception{
         Power power = powerService.queryById(id);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("power",power);

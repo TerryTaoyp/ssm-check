@@ -66,7 +66,7 @@
                                         <td class="role-text">${role.name}</td>
                                         <td>
                                             <button class="btn bg-olive change"  data-toggle="modal" data-target="#modal-default" data-num="${role.id}">修改</button>
-                                            <button type="button" class="btn bg-red delete" data-num="${role.id}">删除角色</button>
+                                            <button type="button" class="btn bg-red delete" data-num="${role.id}" href="${website}/role/ajax/del/${role.id}">删除角色</button>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -107,9 +107,9 @@
                         <div class="form-group">
                             <label>选择权限：</label>
                             <select class="form-control select2 a-require-options jurisdiction" multiple="multiple" data-placeholder="请选择..." style="width: 100%;" name="pid">
-                                <option>权限1</option>
-                                <option>权限2</option>
-                                <option>权限3</option>
+                                <option selected="">而非工本费</option>
+                                <option selected="">过时不候人</option>
+                                <option selected="">121</option>
                             </select>
                         </div>
                         <p class="text-red tip"></p>

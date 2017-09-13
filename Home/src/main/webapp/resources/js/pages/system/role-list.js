@@ -15,11 +15,6 @@ $(document).ready(function() {
 
 		function init(){
 
-			// 点击修改计划时传一个次序给修改弹出框
-			$(el.J_change).click(function(ev) {
-				var id = $(this).attr('data-num');
-				$('#dataId').val(id);// 传值成功
-			});
 			// ajax修改提交
 			$(el.J_ajax_submit).click(function(ev) {
 				// 先清空提示信息
@@ -70,19 +65,35 @@ $(document).ready(function() {
 				// 获取序列
 				var 
 					id = $(this).attr('data-num'),
-					path_url = _ajax.url.system.role.list.change;
-					console.log(path_url);
+					path_url = _ajax.url.system.role.list.update;
+					 // 传值成功
+					$('#dataId').val(id);
 				$.ajax({
-					url: '/role/ajax/update',
+					url: path_url,
 					type: 'post',
 					dataType: 'json',
 					data: {
 						id: id
 					},
 					success: function(data) {
-						// $('.table tr[data-id='+ id +']').remove();
-						console.log(data);
-						// 修改数据数量信息
+						// 添加默认值
+						// 多选
+						var length = data.data.powerList.length, // 获取已有权限长度
+							length2 = $('.jurisdiction option').length; // 当前存在长度
+							// 预先选中属性
+							for (var i = 0;i<length;i++) {
+								var arr1 = data.data.powerList[i].detail;
+								for(var j=0;j<length2;j++){
+									var arr2 = $('.jurisdiction option').eq(j).text();
+									if (arr1 == arr2) {
+										$('.jurisdiction option').eq(j).prop('selected',true);
+									}
+								}
+							}
+						// 角色名称
+						$(el.J_role).val(data.data.role.name);
+						
+
 					},
 					error: function(data,errorMsg) {
 						console.log('error');
@@ -94,11 +105,11 @@ $(document).ready(function() {
 				// 获取序列
 				var 
 					id = $(this).attr('data-num'),
-					path_url = _ajax.url.evaluation.plan_management.list.change;
+					path_url = _ajax.url.system.role.list.del;
 				// 删除确认
 				if (confirm("确认要删除？")) {
 					$.ajax({
-						url: 'http://localhost:8080/role/ajax/del',
+						url: path_url,
 						type: 'get',
 						dataType: 'json',
 						data: {
@@ -110,7 +121,7 @@ $(document).ready(function() {
 							// 暂定
 						},
 						error: function(data,errorMsg) {
-							console.log('error');
+							console.log(errorMsg);
 						}
 					})
 				}

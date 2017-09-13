@@ -15,12 +15,7 @@ $(document).ready(function() {
 
 		function init(){
 
-			// 点击修改计划时传一个次序给修改弹出框
-			$(el.J_change).click(function(ev) {
-				var id = $(this).attr('data-num');
-				$('#dataId').val(id);// 传值成功
-			});
-			// ajax修改
+			// ajax修改提交
 			$(el.J_ajax_submit).click(function(ev) {
 				// 先清空提示信息
 				$(el.J_tip).text('');
@@ -65,12 +60,37 @@ $(document).ready(function() {
 					$(el.J_tip).text('信息为空,无法提交');
 				}
 			});
+
+				$(el.J_change).click(function(ev) {
+					// 点击修改计划时传一个次序给修改弹出框
+					var id = $(this).attr('data-num'),
+						path_url = _ajax.url.system.jurisdiction.list.update;
+						 // 传值成功
+						 $('#dataId').val(id);
+					$.ajax({
+						url: path_url,
+						type: 'get',
+						dataType: 'json',
+						data: {
+							id: id
+						},
+						success: function(data) {
+							// 添加默认值
+							// 权限名称
+							$(el.J_level).val(data.data.power.power);
+							$(el.J_remark).val(data.data.power.detail);
+						},
+						error: function(data,errorMsg) {
+							console.log('error');
+						}
+					})
+				});
 			// ajax删除
 			$(el.J_delete).click(function(ev) {
 				// 获取序列
 				var 
 					id = $(this).attr('data-num'),
-					path_url = _ajax.url.evaluation.plan_management.list.change;
+					path_url = _ajax.url.system.jurisdiction.list.del;
 				// 删除确认
 				if (confirm("确认要删除？")) {
 					$.ajax({
@@ -78,7 +98,7 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							delete: 'true'
+							id: id
 						},
 						success: function(data) {
 							$('.table tr[data-id='+ id +']').remove();

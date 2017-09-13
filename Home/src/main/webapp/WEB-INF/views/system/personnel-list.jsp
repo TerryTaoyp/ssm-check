@@ -64,7 +64,7 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${userList}" var="user" varStatus="status">
-                                    <tr data-id="${status.index+1}">
+                                    <tr data-id="${user.id}">
                                         <td>${status.index+1}</td>
                                         <td>${user.username}</td>
                                         <td>${user.realName}</td>
@@ -81,8 +81,8 @@
                                         <td>${user.phone}</td>
                                         <td>
                                             <button type="button" class="btn bg-blue">查看详情</button>
-                                            <a class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}" href="${website}/user/ajax/update/${user.id}">修改</a>
-                                            <a class="btn bg-red delete" data-num="${status.index+1}" href="${website}/user/ajax/del/${user.id}">删除</a>
+                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${user.id}">修改</button>
+                                            <button type="button" class="btn bg-red delete" data-num="${user.id}">删除</button>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -114,30 +114,30 @@
                     <input type="hidden" id="dataId">
                     <div class="form-group">
                         <label>用户名：</label>
-                        <input type="text" name="username" value="${user.username}" class="form-control a-require-option department"/>
+                        <input type="text" name="username" value="${user.username}" class="form-control a-require-option username"/>
                     </div>
                     <div class="form-group">
                         <label>真实姓名：</label>
-                        <input type="text" name="realName" value="${user.realName}" class="form-control a-require-option department"/>
+                        <input type="text" name="realName" value="${user.realName}" class="form-control a-require-option realname"/>
                     </div>
                     <div class="form-group">
                         <label>所属部门：</label>
                         <select class="form-control a-require-option department" name="did">
                             <option value="-1">请选择</option>
-                            <option>技术部</option>
-                            <option>产品部</option>
+                            <option selected="">技术部</option>
+                            <option selected="">产品部</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>职位：</label>
                         <select class="form-control a-require-option position" name="rid">
-                            <option>部门经理</option>
-                            <option>部门副经理</option>
+                            <option selected="">部门经理</option>
+                            <option selected="">部门副经理</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>手机号：</label>
-                        <input type="text" name="phone" value="${user.phone}" class="form-control a-require-option department"/>
+                        <input type="text" name="phone" value="${user.phone}" class="form-control a-require-option phone"/>
                     </div>
                     <p class="text-red tip"></p>
                 </div>
