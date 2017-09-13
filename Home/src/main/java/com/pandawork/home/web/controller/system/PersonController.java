@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -150,7 +151,7 @@ public class PersonController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/ajax/update/{id}")
+    @RequestMapping(value = "/ajax/update/{id}",method = RequestMethod.GET)
     public JSONObject update(@PathVariable("id") int id)throws Exception{
         User user = userService.queryById(id);
         List<Role> roleList = roleService.listAll();
@@ -160,5 +161,17 @@ public class PersonController extends AbstractController {
         jsonObject.put("roleList",roleList);
         jsonObject.put("departmentList",departmentList);
         return  sendJsonObject(jsonObject);
+    }
+    @RequestMapping(value = "/update/{id}",method = RequestMethod.GET)
+    public String update(@PathVariable("id") int id, @RequestParam("username") String username, @RequestParam("realName") String realName,@RequestParam("did") int did,@RequestParam("rid") int rid,@RequestParam("phone") String phone)throws Exception{
+
+        User user = userService.queryById(id);
+        user.setUsername(username);
+        user.setRealName(realName);
+        user.setRid(rid);
+        user.setDid(did);
+        user.setPhone(phone);
+        userService.updateUser(user);
+        return "redirect:/user/list";
     }
 }

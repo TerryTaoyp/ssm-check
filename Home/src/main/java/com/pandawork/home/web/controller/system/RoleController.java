@@ -98,7 +98,7 @@ public class RoleController extends AbstractController {
     }
 
     /**
-     * 更新角色
+     * 跳转至更新角色
      * @return
      * @throws Exception
      */
@@ -110,5 +110,19 @@ public class RoleController extends AbstractController {
         jsonObject.put("powerList",powerList);
         jsonObject.put("role",role);
         return sendJsonObject(jsonObject);
+    }
+
+    /**
+     * 更新角色
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/update/{id}",method = RequestMethod.GET)
+    public String update(@PathVariable("id") int id,@RequestParam("pid") int pid,@RequestParam("name") String name)throws Exception{
+        Role role = roleService.queryById(id);
+        role.setName(name);
+        role.setPid(pid);
+        roleService.updateRole(role);
+        return "redirect:/role/list";
     }
 }

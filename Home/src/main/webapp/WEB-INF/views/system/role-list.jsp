@@ -102,11 +102,11 @@
                         <input type="hidden" id="dataId">
                         <div class="form-group">
                             <label>角色名称：</label>
-                            <input type="text" class="form-control a-require-text role" value="${role.name}" placeholder="请输入..." name="role">
+                            <input type="text" class="form-control a-require-text role" value="${role.name}" placeholder="请输入..." name="name">
                         </div>
                         <div class="form-group">
                             <label>选择权限：</label>
-                            <select class="form-control select2 a-require-options jurisdiction" multiple="multiple" data-placeholder="请选择..." style="width: 100%;" name="jurisdiction">
+                            <select class="form-control select2 a-require-options jurisdiction" multiple="multiple" data-placeholder="请选择..." style="width: 100%;" name="pid">
                                 <option>权限1</option>
                                 <option>权限2</option>
                                 <option>权限3</option>
@@ -116,7 +116,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-primary J-ajax-submit">修改</button>
+                        <a type="button" class="btn btn-primary J-ajax-submit" href="${website}/role/update/${role.id}">修改</a>
                     </div>
                 </div>
                 <!-- /.modal-content -->

@@ -112,4 +112,10 @@ public class AllotController extends AbstractController {
         jsonObject.put("departmentList",departmentList);
         return sendJsonObject(jsonObject);
     }
+
+    @RequestMapping(value = "/update/{id}",method = RequestMethod.GET)
+    public String update(int id,int did)throws Exception{
+
+        return "redirect:/allot/list";
+    }
 }

@@ -113,8 +113,16 @@
                 <div class="modal-body">
                     <input type="hidden" id="dataId">
                     <div class="form-group">
+                        <label>用户名：</label>
+                        <input type="text" name="username" value="${user.username}" class="form-control a-require-option department"/>
+                    </div>
+                    <div class="form-group">
+                        <label>真实姓名：</label>
+                        <input type="text" name="realName" value="${user.realName}" class="form-control a-require-option department"/>
+                    </div>
+                    <div class="form-group">
                         <label>所属部门：</label>
-                        <select class="form-control a-require-option department">
+                        <select class="form-control a-require-option department" name="did">
                             <option value="-1">请选择</option>
                             <option>技术部</option>
                             <option>产品部</option>
@@ -122,10 +130,14 @@
                     </div>
                     <div class="form-group">
                         <label>职位：</label>
-                        <select class="form-control a-require-option position">
+                        <select class="form-control a-require-option position" name="rid">
                             <option>部门经理</option>
                             <option>部门副经理</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label>手机号：</label>
+                        <input type="text" name="phone" value="${user.phone}" class="form-control a-require-option department"/>
                     </div>
                     <p class="text-red tip"></p>
                 </div>
