@@ -54,20 +54,18 @@
                                 <tr>
                                     <th>序号</th>
                                     <th>考核计划名称</th>
-                                    <th>考核开始时间</th>
-                                    <th>考核结束时间</th>
+                                    <th>考核时间</th>
                                     <th>开启状态</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${testPlanList}" var="testPlan" varStatus="status">
-                                    <c:if test="${testPlan.testTypeId != 1}">
+                                    <c:if test="${testPlan.testTypeId == 5 || testPlan.testTypeId == 6}">
                                         <tr>
                                             <td>${status.index+1}</td>
                                             <td>${testPlan.testName}</td>
                                             <td>${testPlan.startTime}</td>
-                                            <td>${testPlan.finishTime}</td>
                                             <c:if test="${testPlan.isAvailable == 1}">
                                                 <td>已开启</td>
 

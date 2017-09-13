@@ -56,8 +56,7 @@
                                     <th>序号</th>
                                     <th>所属考核名称</th>
                                     <th>所属考核计划</th>
-                                    <th>考核开始时间</th>
-                                    <th>考核结束时间</th>
+                                    <th>考核时间</th>
                                     <th>是否开启</th>
                                     <th>操作</th>
                                 </tr>
@@ -65,9 +64,9 @@
                                 <tbody>
                                     <c:forEach items="${joinTestList}" var="joinTest" varStatus="st">
                                         <c:forEach items="${testPlanList}" var="testPlan" varStatus="status">
-                                            <c:if test="${joinTest.testId == testPlan.id && testPlan.testTypeId !=1}">
-                                                <tr data-id="${status.index+1}">
-                                                    <td>${status.index+1}</td>
+                                            <c:if test="${joinTest.testId == testPlan.id && testPlan.testTypeId ==5 ||testPlan.testTypeId==6}">
+                                                <tr data-id="${st.index+1}">
+                                                    <td>${st.index+1}</td>
                                                     <td>${testPlan.testName}</td>
                                                     <c:forEach items="${testTypeList}" var="testType">
                                                         <c:if test="${testPlan.testTypeId == testType.id}">
@@ -75,7 +74,6 @@
                                                         </c:if>
                                                     </c:forEach>
                                                     <td>${testPlan.startTime}</td>
-                                                    <td>${testPlan.finishTime}</td>
                                                     <c:if test="${testPlan.isAvailable ==1}">
                                                         <td>已开启</td>
                                                     </c:if>

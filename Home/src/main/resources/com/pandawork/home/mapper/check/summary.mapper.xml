@@ -42,4 +42,8 @@
     <select id="queryByDid" resultMap="pw.Summary">
         SELECT * FROM t_summary WHERE did = #{did}
     </select>
+
+    <select id="queryByYear" resultMap="pw.Summary">
+        SELECT * FROM t_summary WHERE year = #{year}
+    </select>
 </mapper>

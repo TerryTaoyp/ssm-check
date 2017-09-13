@@ -117,7 +117,7 @@ public class TestPlanController extends AbstractController{
      * @throws Exception
      */
     @RequestMapping(value = "/add",method = RequestMethod.POST)
-    public String add(@RequestParam("testName") String testName, @RequestParam("testTypeId") int testTypeId, @RequestParam("startTime") String startTime, @RequestParam("finishTime") String finishTime, HttpSession session)throws Exception{
+    public String add(@RequestParam("testName") String testName, @RequestParam("testTypeId") int testTypeId, @RequestParam("startTime") String startTime, @RequestParam("startTime") String finishTime, HttpSession session)throws Exception{
         try{
             User  user = userService.queryByUname((String) session.getAttribute("username"));
 

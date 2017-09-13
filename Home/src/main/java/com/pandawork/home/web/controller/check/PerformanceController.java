@@ -44,7 +44,7 @@ public class PerformanceController extends AbstractController {
             List<Performance> performanceYear = performanceService.queryYearByUid(user.getId());
             List<WorkPlan> workPlanList = workPlanService.queryByUid(user.getId());
             int size = performanceYear.size();
-//            Performance performance =
+
             model.addAttribute("performanceList",performanceList);
             model.addAttribute("performanceYear",performanceYear);
             model.addAttribute("size",size);

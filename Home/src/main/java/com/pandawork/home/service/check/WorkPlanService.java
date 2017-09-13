@@ -55,4 +55,13 @@ public interface WorkPlanService {
      * @throws SSException
      */
     public WorkPlan queryByTidAndUid(int beCheckId,int testId)throws SSException;
+
+    /**
+     * 根据被考核用户ID和年份查找
+     * @param beCheckId
+     * @param year
+     * @return
+     * @throws SSException
+     */
+    public List<WorkPlan> queryByUidAndYear(int beCheckId,int year)throws SSException;
 }

@@ -22,9 +22,9 @@ public class AbstractController extends Base {
     //每页的数据条数
     public static final int pageSize = 15;
     // ajax默认成功代码
-    protected final static int AJAX_SUCCESS_CODE = 0;
+    protected final static int AJAX_SUCCESS_CODE = 1;
     // ajax默认失败代码
-    protected final static int AJAX_FAILURE_CODE = 1;
+    protected final static int AJAX_FAILURE_CODE = 0;
 
     //保存成功
     protected final static String SAVE_SUCCESS_MSG = "保存成功!";
@@ -54,7 +54,7 @@ public class AbstractController extends Base {
      */
     public JSONObject sendJsonObject(JSONObject json) {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("code", 0);
+        jsonObject.put("code", 1);
         if (json != null) {
             jsonObject.put("data", json);
         }
@@ -98,7 +98,7 @@ public class AbstractController extends Base {
     @ResponseBody
     JSONObject sendJsonArray(JSONArray jsonArray) {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("code", 0);
+        jsonObject.put("code", 1);
         jsonObject.put("data", jsonArray);
         return jsonObject;
     }
@@ -111,7 +111,7 @@ public class AbstractController extends Base {
      */
     public JSONObject sendJsonArray(JSONArray jsonArray, int dataCount) {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("code", 0);
+        jsonObject.put("code", 1);
         jsonObject.put("data", jsonArray);
         jsonObject.put("dataCount", dataCount);
         return jsonObject;
@@ -129,7 +129,7 @@ public class AbstractController extends Base {
     public JSONObject sendErrMsgAndErrCode(String e) {
         JSONObject json = new JSONObject();
         json.put("errMsg", e);
-        json.put("code", 1);
+        json.put("code", 0);
         return json;
     }
 

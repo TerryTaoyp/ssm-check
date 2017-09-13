@@ -61,4 +61,12 @@ public interface SummaryMapper {
      * @throws SSException
      */
     public List<Summary> queryByDid(@Param("did") int did)throws SSException;
+
+    /**
+     * 根据年份查找
+     * @param year
+     * @return
+     * @throws SSException
+     */
+    public Summary queryByYear(@Param("year") int year)throws SSException;
 }

@@ -57,8 +57,7 @@
                                     <th>序号</th>
                                     <th>考核计划名称</th>
                                     <th>考核性质</th>
-                                    <th>考核开始时间</th>
-                                    <th>考核结束时间</th>
+                                    <th>考核时间</th>
                                     <th>是否开启</th>
                                     <th>操作</th>
                                 </tr>
@@ -74,7 +73,6 @@
                                             </c:if>
                                         </c:forEach>
                                         <td class="time-start-text">${testPlan.startTime}</td>
-                                        <td class="time-end-text">${testPlan.finishTime}</td>
                                         <c:if test="${testPlan.isAvailable==1}">
                                             <td>已开启</td>
                                         </c:if>

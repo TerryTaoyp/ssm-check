@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -49,48 +50,118 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>考核计划名称</th>
-                                    <th>考核方式</th>
-                                    <th>所属部门</th>
-                                    <th>其他信息</th>
-                                    <th>操作</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>章</td>
-                                    <td>工作计划</td>
-                                    <td>技术部</td>
-                                    <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                    <td>
-                                        <!-- <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#modal-default">查看详情1</button> -->
-                                        <a href="exam-detail.html" class="btn bg-green">进入考核</a>
-                                        <button type="button" class="btn bg-red disabled">已经参与过此次考核</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>章</td>
-                                    <td>能力指标</td>
-                                    <td>产品部</td>
-                                    <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                    <td>
-                                        <!-- <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#modal-default">查看详情1</button> -->
-                                        <a href="exam-detail.html" class="btn bg-green">进入考核</a>
-                                        <button type="button" class="btn bg-red disabled">已经参与过此次考核</button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>考核计划名称</th>
-                                    <th>考核方式</th>
-                                    <th>所属部门</th>
-                                    <th>其他信息</th>
-                                    <th>操作</th>
-                                </tr>
-                                </tfoot>
+                                <c:if test="${testPlan.testTypeId==2}">
+                                    <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>一月</th>
+                                        <th>二月</th>
+                                        <th>三月</th>
+                                        <th>四月</th>
+                                        <th>五月</th>
+                                        <th>六月</th>
+                                        <th>七月</th>
+                                        <th>八月</th>
+                                        <th>九月</th>
+                                        <th>十月</th>
+                                        <th>十一月</th>
+                                        <th>十一月</th>
+                                        <th>平均得分</th>
+                                        <th>年度总结得分</th>
+                                        <th>最终得分</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <c:forEach items="${workPlanList}" var="workPlan" varStatus="status">
+                                            <c:if test="${workPlan.month == 1}">
+                                                <td>${workPlan.monthScore}</td>
+                                            </c:if>
+                                            <c:if test="${workPlan.month == 2}">
+                                                <td>${workPlan.monthScore}</td>
+                                            </c:if>
+                                            <c:if test="${workPlan.month == 3}">
+                                                <td>${workPlan.monthScore}</td>
+                                            </c:if>
+                                            <c:if test="${workPlan.month == 4}">
+                                                <td>${workPlan.monthScore}</td>
+                                            </c:if>
+                                            <c:if test="${workPlan.month == 5}">
+                                                <td>${workPlan.monthScore}</td>
+                                            </c:if>
+                                            <c:if test="${workPlan.month == 6}">
+                                                <td>${workPlan.monthScore}</td>
+                                            </c:if>
+                                            <c:if test="${workPlan.month == 7}">
+                                                <td>${workPlan.monthScore}</td>
+                                            </c:if>
+                                            <c:if test="${workPlan.month == 8}">
+                                                <td>${workPlan.monthScore}</td>
+                                            </c:if>
+                                            <c:if test="${workPlan.month == 9}">
+                                                <td>${workPlan.monthScore}</td>
+                                            </c:if>
+                                            <c:if test="${workPlan.month == 10}">
+                                                <td>${workPlan.monthScore}</td>
+                                            </c:if>
+                                            <c:if test="${workPlan.month == 11}">
+                                                <td>${workPlan.monthScore}</td>
+                                            </c:if>
+                                            <c:if test="${workPlan.month == 12}">
+                                                <td>${workPlan.monthScore}</td>
+                                            </c:if>
+                                        </c:forEach>
+                                        <th>${score}</th>
+                                        <td>${summary.summaryScore}</td>
+                                        <td></td>
+                                        <td>
+                                            <a href="exam-detail.html" class="btn bg-green">打分</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </c:if>
+                                <c:if test="${tesPlan.testTypeId==1}">
+                                    <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>一季度</th>
+                                        <th>二季度</th>
+                                        <th>三季度</th>
+                                        <th>四季度</th>
+                                        <th>平均得分</th>
+                                        <th>年度总结得分</th>
+                                        <th>最终得分</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <c:forEach items="${workPlanList}" var="workPlan" varStatus="status">
+                                            <td>${status.index+1}</td>
+                                            <c:if test="${workPlan.queater == 1}">
+                                                <td>${workPlan.queaterScore}</td>
+                                            </c:if>
+                                            <c:if test="${workPlan.queater == 2}">
+                                                <td>${workPlan.queaterScore}</td>
+                                            </c:if>
+                                            <c:if test="${workPlan.queater == 3}">
+                                                <td>${workPlan.queaterScore}</td>
+                                            </c:if>
+                                            <c:if test="${workPlan.queater == 4}">
+                                                <td>${workPlan.queaterScore}</td>
+                                            </c:if>
+                                            <th>${score}</th>
+                                            <td>${summary.summaryScore}</td>
+                                            <td></td>
+                                            <td>
+                                                <a href="exam-detail.html" class="btn bg-green">打分</a>
+                                            </td>
+                                        </c:forEach>
+                                    </tr>
+                                    </tbody>
+                                </c:if>
                             </table>
                         </div>
                         <!-- /.box-body -->

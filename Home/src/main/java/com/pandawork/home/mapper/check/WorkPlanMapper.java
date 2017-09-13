@@ -58,4 +58,12 @@ public interface WorkPlanMapper {
      */
     public WorkPlan queryByTidAndUid(@Param("beCheckId") int beCheckId,@Param("testId") int testId)throws SSException;
 
+    /**
+     * 根据被考核用户ID和年份查找
+     * @param beCheckId
+     * @param year
+     * @return
+     * @throws SSException
+     */
+    public List<WorkPlan> queryByUidAndYear(@Param("beCheckId") int beCheckId,@Param("year") int year)throws SSException;
 }

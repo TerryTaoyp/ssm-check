@@ -60,4 +60,12 @@ public interface SummaryService {
      * @throws SSException
      */
     public List<Summary> queryByDid(int did)throws SSException;
+
+    /**
+     * 根据年份查找
+     * @param year
+     * @return
+     * @throws SSException
+     */
+    public Summary queryByYear(int year)throws SSException;
 }

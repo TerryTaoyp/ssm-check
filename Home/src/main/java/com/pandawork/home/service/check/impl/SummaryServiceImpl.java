@@ -103,4 +103,17 @@ public class SummaryServiceImpl implements SummaryService {
             throw SSException.get(ChException.QuerySummaryByUserFailed);
         }
     }
+
+    @Override
+    public Summary queryByYear(int year) throws SSException {
+        try {
+            if (Assert.isNull(year)){
+                return null;
+            }
+            return summaryMapper.queryByYear(year);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QuerySummaryByUserFailed);
+        }
+    }
 }

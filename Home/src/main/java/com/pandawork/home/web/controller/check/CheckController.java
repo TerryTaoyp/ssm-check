@@ -166,14 +166,29 @@ public class CheckController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "year/performance/{id}",method = RequestMethod.GET)
-    public String yearPerformance(@PathVariable("id") int id,HttpSession session,Model model)throws Exception{
-        User user = userService.queryByUname((String) session.getAttribute("username"));
-        Role role = roleService.queryById(user.getRid());
-        Power power = powerService.queryById(role.getPid());
-
+    @RequestMapping(value = "year/performance/{id}&{uid}",method = RequestMethod.GET)
+    public String yearPerformance(@PathVariable("id") int id,@PathVariable("uid") int uid,HttpSession session,Model model)throws Exception{
+        TestPlan testPlan = testPlanService.queryTestPlan(id);
+        model.addAttribute("testPlan",testPlan);
+        WorkPlan workPlan = workPlanService.queryByTestId(id);
+        List<WorkPlan> workPlanList = workPlanService.queryByUidAndYear(uid,workPlan.getYear());
+        Summary summary = summaryService.queryByYear(workPlan.getYear());
         List<TestType> testTypeList = testTypeService.listAll();
+        int sumScore = 0;
+        if (testPlan.getTestTypeId()==1){
+            for (WorkPlan workPlan1 : workPlanList){
+                sumScore+=workPlan1.getQueaterScore();
+            }
+            model.addAttribute("score",sumScore/4);
+        }else if (testPlan.getTestTypeId()==2){
+            for (WorkPlan workPlan1 : workPlanList){
+                sumScore+=workPlan1.getMonthScore();
+            }
+            model.addAttribute("score",sumScore/12);
+        }
         model.addAttribute("testTypeList",testTypeList);
+        model.addAttribute("summary",summary);
+        model.addAttribute("workPlanList",workPlanList);
         return "exam/year/exam-list";
     }
 

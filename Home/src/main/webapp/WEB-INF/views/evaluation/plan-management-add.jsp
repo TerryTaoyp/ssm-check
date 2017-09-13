@@ -63,20 +63,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label>选择对象：</label>
-                            <select class="form-control select2 require-options" multiple="multiple" data-placeholder="请选择..." style="width: 100%;">
-                                <option>对象1</option>
-                                <option>对象2</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
                           <label>选择时间:</label>
                           <div class="input-group">
                             <div class="input-group-addon">
                               <i class="fa fa-calendar"></i>
                             </div>
-                            <input type="text" class="form-control pull-right" id="reservation">
+                            <input type="text" class="form-control pull-right" id="reservation" name="startTime">
                           </div>
                         </div>
 

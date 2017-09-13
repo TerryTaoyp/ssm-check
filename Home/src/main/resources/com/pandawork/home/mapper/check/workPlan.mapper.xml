@@ -42,4 +42,8 @@
     <select id="queryByTidAndUid" resultMap="pw.WorkPlan">
         SELECT * FROM t_work_plan WHERE be_check_id = #{beCheckId} AND test_id = #{testId}
     </select>
+
+    <select id="queryByUidAndYear" resultMap="pw.WorkPlan">
+        SELECT * FROM t_work_plan WHERE be_check_id = #{beCheckId} AND year = #{year}
+    </select>
 </mapper>
