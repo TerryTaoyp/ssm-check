@@ -9,10 +9,7 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -45,8 +42,9 @@ public class PowerController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/ajax/del/{id}",method = RequestMethod.GET)
-     public JSONObject del(@PathVariable("id") int id)throws Exception{
+    @ResponseBody
+    @RequestMapping(value = "/ajax/del",method = RequestMethod.GET)
+     public JSONObject del(@RequestParam("id") int id)throws Exception{
         try{
             powerService.delPower(id);
             return sendJsonObject(1);
@@ -93,7 +91,8 @@ public class PowerController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/ajax/update/{id}",method = RequestMethod.GET)
+    @ResponseBody
+    @RequestMapping(value = "/ajax/update",method = RequestMethod.GET)
     public JSONObject update(@PathVariable("id") int id)throws Exception{
         Power power = powerService.queryById(id);
         JSONObject jsonObject = new JSONObject();
