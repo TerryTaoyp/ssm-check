@@ -166,18 +166,12 @@ public class CheckController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "year/performance",method = RequestMethod.GET)
-    public String yearPerformance(HttpSession session,Model model)throws Exception{
+    @RequestMapping(value = "year/performance/{id}",method = RequestMethod.GET)
+    public String yearPerformance(@PathVariable("id") int id,HttpSession session,Model model)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
         Role role = roleService.queryById(user.getRid());
         Power power = powerService.queryById(role.getPid());
-        if (power.getPower()<=1){
-            List<TestPlan> testPlanList = testPlanService.listAll();
-            model.addAttribute("testPlanList",testPlanList);
-        }else if (power.getPower() == 5){
-            List<TestPlan> testPlanList = testPlanService.queryByDid(user.getDid());
-            model.addAttribute("testPlanList",testPlanList);
-        }
+
         List<TestType> testTypeList = testTypeService.listAll();
         model.addAttribute("testTypeList",testTypeList);
         return "exam/year/exam-list";

@@ -98,7 +98,7 @@ $(document).ready(function() {
 				// 删除确认
 				if (confirm("确认要删除？")) {
 					$.ajax({
-						url: path_url,
+						url: 'http://localhost:8080/role/ajax/del',
 						type: 'get',
 						dataType: 'json',
 						data: {
