@@ -191,7 +191,7 @@ public class CheckController extends AbstractController {
         model.addAttribute("workPlanList",workPlanList);
         model.addAttribute("id",id);
         model.addAttribute("uid",uid);
-        return "exam/year/exam-list";
+        return "exam/year/exam-detail";
     }
 
     /**
