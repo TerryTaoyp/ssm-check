@@ -128,6 +128,11 @@ public enum  ChException implements IBizExceptionMes{
     QueryJoinTestByUidAndTid("根据用户ID和本次测试ID查询失败",1505),
 
 
+
+    AddTestPositionFailed("新增考核问题失败",1600),
+    DelTestPositionFailed("删除考核问题失败",1601),
+    QueryTestPositionByTestIdFailed("根据考核计划ID查询失败",1602)
+
     ;
     private String mes;
     private int code;
