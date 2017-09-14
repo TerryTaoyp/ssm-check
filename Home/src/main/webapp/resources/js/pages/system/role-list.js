@@ -20,7 +20,9 @@ $(document).ready(function() {
 				// 先清空提示信息
 				$(el.J_tip).text('');
 				// 附加上点击此按钮的信息在数据库中的顺序
-				var path_url = _ajax.url.evaluation.plan_management.list.change,
+				var 
+					id = $('#dataId').val(), // 获取id
+					path_url = _ajax.url.evaluation.plan_management.list.change,
 					role = $(el.J_role).val(), // 角色名称
 					jurisdiction = $(el.J_jurisdiction).val(); // 权限
 				// 如果符合条件无法提交
@@ -30,20 +32,17 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							id:id,
+							id: id,
 							role: role,
 							jurisdiction: jurisdiction,
-							remark: remark
 						},
 						success: function(data) {
-							// console.log(data.errorMsg[0].msg);
 							if (data.code) {
 								// 提示信息
 								alert('修改成功');
 								// 隐藏填写表单
 								$('button[data-dismiss="modal"]').click();
 								// 修改dom
-								var id = $('#dataId').val(); // 获取到当前次序
 								$('.table tr[data-id='+ id +'] > td.role-text').text(role);
 							}
 							else{

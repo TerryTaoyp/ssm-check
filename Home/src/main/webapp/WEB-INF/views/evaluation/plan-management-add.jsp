@@ -104,7 +104,7 @@
             //定义locale汉化插件
             var locale = {
                 "format": 'YYYY-MM-DD',
-                "separator": " 到 ",
+                "separator": " —— ",
                 "applyLabel": "确定",
                 "cancelLabel": "取消",
                 "fromLabel": "起始时间",

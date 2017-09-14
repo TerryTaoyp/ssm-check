@@ -105,9 +105,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="${website}/query/result"><i class="fa fa-circle-o"></i> 测评结果展示报表</a></li>
+                    <li><a href="${website}/query/year/plan"><i class="fa fa-circle-o"></i> 年度考核测评结果</a></li>
                     <li><a href="${website}/query/month/plan"><i class="fa fa-circle-o"></i>月/季度考核测评结果</a></li>
-                    <li class="treeview">
+                    <%--<li class="treeview">
                         <a href="#"><i class="fa fa-circle-o"></i>年度考核测评结果
                             <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
@@ -118,7 +118,7 @@
                             <li><a href="${website}/query/year/synthetical"><i class="fa fa-circle-o"></i>综合绩效考评结果报表</a></li>
                             <li><a href="${website}/query/year/ability"><i class="fa fa-circle-o"></i>能力指标考评结果报表</a></li>
                         </ul>
-                    </li>
+                    </li>--%>
                 </ul>
             </li>
         </ul>
