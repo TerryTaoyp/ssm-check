@@ -156,7 +156,7 @@ public class CheckController extends AbstractController {
         }
         List<TestType> testTypeList = testTypeService.listAll();
         model.addAttribute("testTypeList",testTypeList);
-        return "exam/year/evaluation-list";
+        return "exam/year/ability-list";
     }
 
     /**
@@ -215,7 +215,7 @@ public class CheckController extends AbstractController {
         }
         List<TestType> testTypeList = testTypeService.listAll();
         model.addAttribute("testTypeList",testTypeList);
-        return "exam/year/summary-detail-list";
+        return "exam/year/evaluation-list";
     }
 
     /**
@@ -277,6 +277,6 @@ public class CheckController extends AbstractController {
             sendErrMsg(e.getMessage());
             return ADMIN_SYS_ERR_PAGE;
         }
-        return "exam/year/user-list";
+        return "exam/year/evaluation-user";
     }
 }
