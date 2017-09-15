@@ -35,6 +35,17 @@ public class AbilityPosition {
     //此次的考核计划ID
     @Column(name = "test_id")
     private Integer testId;
+    //考核问题指标ID
+    @Column(name = "target_type_id")
+    private Integer targetTypeId;
+
+    public Integer getTargetTypeId() {
+        return targetTypeId;
+    }
+
+    public void setTargetTypeId(Integer targetTypeId) {
+        this.targetTypeId = targetTypeId;
+    }
 
     public Integer getTestId() {
         return testId;

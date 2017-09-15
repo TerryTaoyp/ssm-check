@@ -24,7 +24,7 @@ public class AbilityOptionTest extends AbstractTestCase {
                AbilityOption();
        abilityOption.setPositionId(1);
        abilityOption.setTargetId(1);
-       abilityOption.setOptionName("A");
+       abilityOption.setOptionName(1);
        abilityOption.setMaxScore(10.0);
        abilityOption.setMinScore(1.2);
        abilityOption.setOptionContent("nihao");
@@ -50,7 +50,7 @@ public class AbilityOptionTest extends AbstractTestCase {
         abilityOption.setId(2);
         abilityOption.setPositionId(1);
         abilityOption.setTargetId(1);
-        abilityOption.setOptionName("A");
+        abilityOption.setOptionName(1);
         abilityOption.setMaxScore(10.0);
         abilityOption.setMinScore(1.2);
         abilityOption.setOptionContent("nihao");

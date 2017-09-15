@@ -1,6 +1,7 @@
 package com.pandawork.home.service.check;
 
 import com.pandawork.core.common.exception.SSException;
+import com.pandawork.home.common.dto.TestPositionDto;
 import com.pandawork.home.common.entity.check.TestPosition;
 
 import java.util.List;
@@ -32,4 +33,12 @@ public interface TestPositionService {
      * @throws SSException
      */
     public List<TestPosition> queryByTestId(int testId)throws SSException;
+
+    /**
+     * 根据考核计划ID查找DTO
+     * @param testId
+     * @return
+     * @throws SSException
+     */
+    public List<TestPositionDto> queryDtoByTesId(int testId)throws SSException;
 }

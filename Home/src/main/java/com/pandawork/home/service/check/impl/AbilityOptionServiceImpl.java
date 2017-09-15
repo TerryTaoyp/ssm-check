@@ -77,4 +77,17 @@ public class AbilityOptionServiceImpl implements AbilityOptionService {
             throw SSException.get(ChException.QueryOptionByPositionId);
         }
     }
+
+    @Override
+    public List<AbilityOption> queryByTestId(int testId) throws SSException {
+        try {
+            if (Assert.isNull(testId)){
+                return null;
+            }
+            return abilityOptionMapper.queryByTestId(testId);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryOptionByPositionId);
+        }
+    }
 }

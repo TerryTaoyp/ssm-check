@@ -9,14 +9,16 @@
           option_name,
           max_score,
           min_score,
-          option_content
+          option_content,
+          test_id
         )VALUES (
         #{abilityOption.positionId},
         #{abilityOption.targetId},
         #{abilityOption.optionName},
         #{abilityOption.maxScore},
         #{abilityOption.minScore},
-        #{abilityOption.optionContent}
+        #{abilityOption.optionContent},
+        #{abilityOption.testId}
         )
     </insert>
     <delete id="delOption">
@@ -35,5 +37,9 @@
 
     <select id="queryByPositionId" resultMap="pw.AbilityOption">
       SELECT * FROM t_ability_option WHERE position_id = #{positionId}
+    </select>
+    
+    <select id="queryByTestId" resultMap="pw.AbilityOption">
+        SELECT *  FROM t_ability_option WHERE test_id = #{testId}
     </select>
 </mapper>

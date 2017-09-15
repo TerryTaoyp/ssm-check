@@ -5,12 +5,13 @@
 
     <insert id="addPosition">
         INSERT INTO t_ability_position(
-          did,target_id,weight,test_id
+          did,target_id,weight,test_id,target_type_id
         )VALUES (
         #{abilityPosition.did},
         #{abilityPosition.targetId},
         #{abilityPosition.weight},
-        #{abilityPosition.testId}
+        #{abilityPosition.testId},
+        #{abilityPosition.targetTyprId}
         )
     </insert>
 
@@ -22,6 +23,7 @@
          UPDATE t_ability_position SET
          did = #{abilityPosition.did},
          target_id = #{abilityPosition.targetId},
+         target_type_id = #{abilityPosition.targetTypeId},
          weight = #{abilityPosition.weight}
          WHERE id = #{abilityPosition.id}
     </update>

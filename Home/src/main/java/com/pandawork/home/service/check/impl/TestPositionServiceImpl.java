@@ -3,6 +3,7 @@ package com.pandawork.home.service.check.impl;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.core.common.util.Assert;
+import com.pandawork.home.common.dto.TestPositionDto;
 import com.pandawork.home.common.entity.check.TestPosition;
 import com.pandawork.home.common.exception.ChException;
 import com.pandawork.home.mapper.check.TestPositionMapper;
@@ -59,6 +60,19 @@ public class TestPositionServiceImpl implements TestPositionService {
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.QueryTestPositionByTestIdFailed);
+        }
+    }
+
+    @Override
+    public List<TestPositionDto> queryDtoByTesId(int testId) throws SSException {
+        try {
+            if(Assert.isNull(testId)){
+                return null;
+            }
+            return testPositionMapper.queryDtoByTestId(testId);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryPositionByDidFailed);
         }
     }
 }

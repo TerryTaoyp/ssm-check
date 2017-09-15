@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -56,90 +57,61 @@
                                 </li>
                                 <!-- /.timeline-label -->
                                 <!-- timeline item -->
-                                <li>
-                                    <i class="fa bg-blue">1</i>
-
-                                    <div class="timeline-item">
-                                        <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-                                        <h3 class="timeline-header">
-                                            <a href="#">【创新题20%】</a>
-                                            你觉得公司怎么样？
-                                        </h3>
-
-                                        <div class="timeline-body box-body">
-                                            <div class="form-group">
-                                                <label>
-                                                    A.答案1
-                                                </label>
-                                                <a class="btn bg-olive btn-xs">优秀(9~10分)</a>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>
-                                                    B.答案1
-                                                </label>
-                                                <a class="btn btn-primary btn-xs">良好(7~8分)</a>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>
-                                                    C.答案1
-                                                </label>
-                                                <a class="btn bg-orange btn-xs">一般(5~6分)</a>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>
-                                                    D.答案1
-                                                </label>
-                                                <a class="btn bg-red btn-xs">不及格(0~4分)</a>
+                                <c:forEach items="${testPositionList}" var="testPosition" varStatus="status">
+                                    <li>
+                                        <i class="fa bg-blue">${status.index+1}</i>
+                                        <div class="timeline-item">
+                                            <h3 class="timeline-header">
+                                                <a href="#">【${testPosition
+                                                .targetType}${testPosition.weight}】</a>
+                                                ${testPosition.target}
+                                            </h3>
+                                            <div class="timeline-body box-body">
+                                                <c:forEach items="${abilityOptionList}" var="option">
+                                                    <c:if test="${testPosition.id == option.positionId}">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                <c:if test="${option.optionName == 1}">
+                                                                    A.${option.content}
+                                                                </c:if>
+                                                            </label>
+                                                            <a class="btn bg-olive btn-xs">优(${option.minScore}分~${option.maxScore}分)</a>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>
+                                                                <c:if test="${option.optionName == 2}">
+                                                                    A.${option.content}
+                                                                </c:if>
+                                                            </label>
+                                                            <a class="btn bg-olive btn-xs">良(${option.minScore}分~${option.maxScore}分)</a>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>
+                                                                <c:if test="${option.optionName == 3}">
+                                                                    A.${option.content}
+                                                                </c:if>
+                                                            </label>
+                                                            <a class="btn bg-olive btn-xs">中(${option.minScore}分~${option.maxScore}分)</a>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>
+                                                                <c:if test="${option.optionName == 4}">
+                                                                    A.${option.content}
+                                                                </c:if>
+                                                            </label>
+                                                            <a class="btn bg-olive btn-xs">差(${option.minScore}分~${option.maxScore}分)</a>
+                                                        </div>
+                                                    </c:if>
+                                                </c:forEach>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                </c:forEach>
 
-                                <li>
-                                    <i class="fa bg-blue">2</i>
-
-                                    <div class="timeline-item">
-                                        <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-                                        <h3 class="timeline-header">
-                                            <a href="#">【创新题20%】</a>
-                                            你觉得公司怎么样？
-                                        </h3>
-
-                                        <div class="timeline-body box-body">
-                                            <div class="form-group">
-                                                <label>
-                                                    A.答案1
-                                                </label>
-                                                <a class="btn bg-olive btn-xs">优秀(9~10分)</a>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>
-                                                    B.答案1
-                                                </label>
-                                                <a class="btn btn-primary btn-xs">良好(7~8分)</a>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>
-                                                    C.答案1
-                                                </label>
-                                                <a class="btn bg-orange btn-xs">一般(5~6分)</a>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>
-                                                    D.答案1
-                                                </label>
-                                                <a class="btn bg-red btn-xs">不及格(0~4分)</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </li>
                                 <li class="time-label">
-                      <span class="bg-green">
-                        考核结束
-                      </span>
+                                    <span class="bg-green">
+                                        考核结束
+                                    </span>
                                 </li>
                                 <!-- /.timeline-label -->
                                 <li>
@@ -148,8 +120,8 @@
                             </ul>
                         </div>
                         <div class="box-footer">
-                            <a href="../../../view/evaluation/year/ability-list.html" class="btn btn-primary">返回列表</a>
-                            <a href="../../../view/evaluation/year/ability-update.html" class="btn bg-olive">修改题目</a>
+                            <a href="${website}/ability/list" class="btn btn-primary">返回列表</a>
+                            <a href="${website}/test/position/add/${id}" class="btn bg-olive">修改题目</a>
                         </div>
                     </div>
                 </div>

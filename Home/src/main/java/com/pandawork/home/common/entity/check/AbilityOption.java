@@ -32,6 +32,17 @@ public class AbilityOption {
     //该选项的具体内容
     @Column(name = "option_content")
     private String optionContent;
+    //根据考核计划ID查找
+    @Column(name = "test_id")
+    private Integer testId;
+
+    public Integer getTestId() {
+        return testId;
+    }
+
+    public void setTestId(Integer testId) {
+        this.testId = testId;
+    }
 
     public Integer getId() {
         return id;

@@ -38,4 +38,12 @@ public interface AbilityOptionService {
      * @throws SSException
      */
     public List<AbilityOption> queryByPositionId(int positionId)throws SSException;
+
+    /**
+     * 根据考核计划ID查找选项
+     * @param testId
+     * @return
+     * @throws SSException
+     */
+    public List<AbilityOption> queryByTestId(int testId)throws SSException;
 }

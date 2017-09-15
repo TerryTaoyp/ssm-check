@@ -1,6 +1,7 @@
 package com.pandawork.home.mapper.check;
 
 import com.pandawork.core.common.exception.SSException;
+import com.pandawork.home.common.dto.TestPositionDto;
 import com.pandawork.home.common.entity.check.TestPosition;
 import org.apache.ibatis.annotations.Param;
 
@@ -32,4 +33,12 @@ public interface TestPositionMapper {
      * @throws SSException
      */
     public List<TestPosition> queryByTestId(@Param("testId") int testId)throws SSException;
+
+    /**
+     * 根据考核计划ID查找DTO
+     * @param testId
+     * @return
+     * @throws SSException
+     */
+    public List<TestPositionDto> queryDtoByTestId(@Param("testId") int testId)throws SSException;
 }
