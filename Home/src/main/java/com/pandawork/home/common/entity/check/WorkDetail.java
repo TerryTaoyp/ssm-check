@@ -31,7 +31,7 @@ public class WorkDetail {
     private String expectResult;
     //该条工作计划所占的权重
     @Column(name = "weight")
-    private String weight;
+    private Integer weight;
     //工作计划完成说明
     @Column(name = "completion")
     private String completion;
@@ -98,11 +98,11 @@ public class WorkDetail {
         this.expectResult = expectResult;
     }
 
-    public String getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 

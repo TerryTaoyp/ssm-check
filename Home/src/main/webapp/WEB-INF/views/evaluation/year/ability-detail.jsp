@@ -64,16 +64,9 @@
                                                 <button type="button" class="btn bg-red delete"> 删除 </button>
                                             </span>
                                             <h3 class="timeline-header">
-                                                <a href="#">
-                                                    【
-                                                    <span class="type">
-                                                    ${testPosition.targetType}
-                                                    </span>
-                                                    <span class="weight">${testPosition.weight}
-                                                    </span>
-                                                    】
-                                                </a>
-                                                <span class="title">${testPosition.target}</span>
+                                                <a href="#">【${testPosition
+                                                .targetType}${testPosition.weight}】</a>
+                                                ${testPosition.target}
                                             </h3>
                                             <div class="timeline-body box-body">
                                                 <c:forEach items="${abilityOptionList}" var="option">
@@ -81,7 +74,7 @@
                                                         <div class="form-group">
                                                             <label>
                                                                 <c:if test="${option.optionName == 1}">
-                                                                    A.<span class="option1">${option.content}</span>
+                                                                    A.${option.content}
                                                                 </c:if>
                                                             </label>
                                                             <a class="btn bg-olive btn-xs">优(${option.minScore}分~${option.maxScore}分)</a>
@@ -89,7 +82,7 @@
                                                         <div class="form-group">
                                                             <label>
                                                                 <c:if test="${option.optionName == 2}">
-                                                                    A.<span class="option2">${option.content}</span>
+                                                                    A.${option.content}
                                                                 </c:if>
                                                             </label>
                                                             <a class="btn bg-olive btn-xs">良(${option.minScore}分~${option.maxScore}分)</a>
@@ -97,15 +90,15 @@
                                                         <div class="form-group">
                                                             <label>
                                                                 <c:if test="${option.optionName == 3}">
-                                                                    A.<span class="option3">${option.content}</span>
+                                                                    A.${option.content}
                                                                 </c:if>
                                                             </label>
                                                             <a class="btn bg-olive btn-xs">中(${option.minScore}分~${option.maxScore}分)</a>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="4">
+                                                            <label>
                                                                 <c:if test="${option.optionName == 4}">
-                                                                    A.<span class="option4">${option.content}</span>
+                                                                    A.${option.content}
                                                                 </c:if>
                                                             </label>
                                                             <a class="btn bg-olive btn-xs">差(${option.minScore}分~${option.maxScore}分)</a>
@@ -154,16 +147,16 @@
                         <input type="text" class="form-control" value="计划1" disabled="disabled">
                     </div>
                     
-                    <div class="form-group">
-                      <label>所属部门：</label>
-                        <input type="text" class="form-control" value="产品部" disabled="disabled">
-                    </div>
+                    <%--<div class="form-group">--%>
+                      <%--<label>所属部门：</label>--%>
+                        <%--<input type="text" class="form-control" value="产品部" disabled="disabled">--%>
+                    <%--</div>--%>
 
                     <div class="form-group">
                           <div class="form-group">
                               <div class="col-xs-6">
                                   <label>问题类型：</label>
-                                    <select class="add-type form-control">
+                                    <select class="add-type form-control" name="targetTypeId">
                                         <option>创新形</option>
                                         <option>创新形</option>
                                         <option>创新形</option>
@@ -171,40 +164,43 @@
                               </div>
                               <div class="col-xs-6">
                                   <label>权重：</label>
-                                    <input type="text" placeholder="请输入1-100之内的数字..." class="add-weight form-control">
+                                    <input type="text" name="weight" placeholder="请输入..." class="add-weight form-control">
                               </div>
                           </div>
 
                           <label>
                               问题题目：
                           </label>
-                          <input type="text" class="form-control a-require-text add-title" placeholder="请输入...">
+                          <input type="text" name="target" class="form-control a-require-text" placeholder="请输入...">
 
                           <label>
-                           答案1：<a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
+                           选项A：<a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
                            </label>
-                          <input type="text" class="form-control add-option1" placeholder="请输入...">
+                          <input type="hidden" class="form-control" value="1" name="optionName">
+                          <input type="text" class="form-control" name="content" placeholder="请输入...">
 
                           <label>
-                           答案2：<a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
+                           选项B：<a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
                            </label>
-                          <input type="text" class="form-control add-option2" placeholder="请输入...">
+                            <input type="hidden" class="form-control" value="2" name="optionName">
+                            <input type="text" class="form-control" name="content" placeholder="请输入...">
+                          <label>
+                           选项C：<a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
+                           </label>
+                            <input type="hidden" class="form-control" value="3" name="optionName">
+                            <input type="text" class="form-control" name="content" placeholder="请输入...">
 
                           <label>
-                           答案3：<a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
+                           选项D：<a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
                            </label>
-                          <input type="text" class="form-control add-option3" placeholder="请输入...">
-
-                          <label>
-                           答案4：<a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
-                           </label>
-                          <input type="text" class="form-control add-option4" placeholder="请输入...">
+                            <input type="hidden" class="form-control" value="4" name="optionName">
+                            <input type="text" class="form-control" name="content" placeholder="请输入...">
                     </div>
                     <p class="text-red tip"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary J-ajax-submit1 J-ajax-submit">修改</button>
+                    <button type="button" class="btn btn-primary J-ajax-submit1">新增</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -218,7 +214,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">修改题目</h4>
+                    <h4 class="modal-title">增添题目</h4>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="dataId">
@@ -226,58 +222,56 @@
                       <label>计划名称：</label>
                         <input type="text" class="form-control" value="计划1" disabled="disabled">
                     </div>
-                    
-                    <div class="form-group">
-                      <label>所属部门：</label>
-                        <input type="text" class="form-control" value="产品部" disabled="disabled">
-                    </div>
 
                     <div class="form-group">
-                          <div class="form-group">
-                              <div class="col-xs-6">
-                                  <label>问题类型：</label>
-                                    <select class="update-type form-control">
-                                        <option selected="">创新形</option>
-                                        <option selected="">创新形</option>
-                                        <option selected="">创新形</option>
-                                    </select>
-                              </div>
-                              <div class="col-xs-6">
-                                  <label>权重：</label>
-                                    <input type="text" placeholder="请输入1-100之内的数字..." class="update-weight form-control">
-                              </div>
-                          </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label>问题类型：</label>
+                                <select class="add-type form-control" name="targetTypeId">
+                                    <option>创新形</option>
+                                    <option>创新形</option>
+                                    <option>创新形</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-6">
+                                <label>权重：</label>
+                                <input type="text" name="weight" placeholder="请输入..." class="add-weight form-control">
+                            </div>
+                        </div>
 
-                          <label>
-                              问题题目：
-                          </label>
-                          <input type="text" class="form-control a-require-text" placeholder="请输入...">
+                        <label>
+                            问题题目：
+                        </label>
+                        <input type="text" name="target" class="form-control a-require-text" placeholder="请输入...">
 
-                          <label>
-                           答案1：<a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
-                           </label>
-                          <input type="text" class="form-control update-option1" placeholder="请输入...">
+                        <label>
+                            选项A：<a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
+                        </label>
+                        <input type="hidden" class="form-control" value="1" name="optionName1">
+                        <input type="text" class="form-control" name="content1" placeholder="请输入...">
 
-                          <label>
-                           答案2：<a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
-                           </label>
-                          <input type="text" class="form-control update-option2" placeholder="请输入...">
+                        <label>
+                            选项B：<a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
+                        </label>
+                        <input type="hidden" class="form-control" value="2" name="optionName2">
+                        <input type="text" class="form-control" name="content2" placeholder="请输入...">
+                        <label>
+                            选项C：<a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
+                        </label>
+                        <input type="hidden" class="form-control" value="3" name="optionName3">
+                        <input type="text" class="form-control" name="content3" placeholder="请输入...">
 
-                          <label>
-                           答案3：<a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
-                           </label>
-                          <input type="text" class="form-control update-option3" placeholder="请输入...">
-
-                          <label>
-                           答案4：<a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
-                           </label>
-                          <input type="text" class="form-control update-option4" placeholder="请输入...">
+                        <label>
+                            选项D：<a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
+                        </label>
+                        <input type="hidden" class="form-control" value="4" name="optionName4">
+                        <input type="text" class="form-control" name="content4" placeholder="请输入...">
                     </div>
                     <p class="text-red tip"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary J-ajax-submit2 J-ajax-submit">修改</button>
+                    <button type="button" class="btn btn-primary J-ajax-submit1">修改</button>
                 </div>
             </div>
             <!-- /.modal-content -->

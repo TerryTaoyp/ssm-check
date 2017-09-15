@@ -28,7 +28,7 @@ public class AbilityPosition {
     private Integer targetId;
     //所占权重
     @Column(name = "weight")
-    private String weight;
+    private Integer weight;
     //是否可用，0是不可用，1是可用
     @Column(name = "is_available")
     private Integer isAvailable;
@@ -95,11 +95,11 @@ public class AbilityPosition {
         this.targetId = targetId;
     }
 
-    public String getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 

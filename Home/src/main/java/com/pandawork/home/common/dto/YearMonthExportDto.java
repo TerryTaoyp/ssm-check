@@ -4,7 +4,7 @@ package com.pandawork.home.common.dto;
  * Created by Taoyongpan on 2017/9/14.
  * 导出模板的dto
  */
-public class YearExportDto {
+public class YearMonthExportDto {
 
     //考核计划名称
     private String testName;

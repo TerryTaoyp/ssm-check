@@ -6,12 +6,14 @@ import com.pandawork.home.common.entity.check.AbilityOption;
 import com.pandawork.home.common.entity.check.AbilityPosition;
 import com.pandawork.home.service.check.*;
 import com.pandawork.home.web.controller.AbstractController;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -55,8 +57,14 @@ public class TestPositionController extends AbstractController {
      * @throws SSException
      */
     @RequestMapping(value = "/add/{id}")
-    public String addTestPosition(@PathVariable("id") int id)throws SSException{
-
-        return "evaluation/year/ability-add";
+    public JSONObject addTestPosition(@RequestParam("id") int id, @RequestParam("targetTypeId") int targetTypeId,
+                                      @RequestParam("weight") int weight, @RequestParam("target") String target,
+                                      @RequestParam("optionName1") int optionName1, @RequestParam("content1") String content1,
+                                      @RequestParam("optionName2") int optionName2, @RequestParam("content2") String content2,
+                                      @RequestParam("optionName3") int optionName3, @RequestParam("content3") String content3,
+                                      @RequestParam("optionName4") int optionName4, @RequestParam("content4") String content4
+                                      )throws SSException{
+        
+        return sendJsonObject(1);
     }
 }
