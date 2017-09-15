@@ -66,7 +66,7 @@
                                         <td class="role-text">${role.name}</td>
                                         <td>
                                             <button class="btn bg-olive change"  data-toggle="modal" data-target="#modal-default" data-num="${role.id}">修改</button>
-                                            <button type="button" class="btn bg-red delete" data-num="${role.id}" href="${website}/role/ajax/del/${role.id}">删除角色</button>
+                                            <button type="button" class="btn bg-red delete" data-num="${role.id}">删除角色</button>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -117,13 +117,13 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                        <a type="button" class="btn btn-primary J-ajax-submit" href="${website}/role/update/${role.id}">修改</a>
+                        <button type="button" class="btn btn-primary J-ajax-submit">修改</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
             </div>
             <!-- /.modal-dialog -->
-</div>
+        </div>
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
