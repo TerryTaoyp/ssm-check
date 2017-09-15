@@ -75,4 +75,12 @@ public interface TestPlanService {
      * @throws SSException
      */
     public List<TestPlan> queryByUidAndTypeId(int uid,int testTypeId)throws SSException;
+
+    /**
+     * 根据考核类型查找考核计划
+     * @param testTypeId
+     * @return
+     * @throws SSException
+     */
+    public List<TestPlan> queryByTypeId(int testTypeId)throws SSException;
 }

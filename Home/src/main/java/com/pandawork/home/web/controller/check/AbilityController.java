@@ -1,5 +1,6 @@
 package com.pandawork.home.web.controller.check;
 
+import com.pandawork.core.common.exception.SSException;
 import com.pandawork.home.common.entity.check.TestPlan;
 import com.pandawork.home.common.entity.user.User;
 import com.pandawork.home.service.check.*;
@@ -46,7 +47,7 @@ public class AbilityController extends AbstractController {
     public String list(Model model, HttpSession session)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
         int testTypeId = 3;
-        List<TestPlan> testPlanList = testPlanService.queryByUidAndTypeId(user.getId(),testTypeId);
+        List<TestPlan> testPlanList = testPlanService.queryByTypeId(testTypeId);
         model.addAttribute("testPlanList",testPlanList);
         return "evaluation/year/ability-list";
     }
@@ -62,5 +63,10 @@ public class AbilityController extends AbstractController {
 
 
         return "evaluation/year/ability-detail";
+    }
+
+    @RequestMapping(value = "/user/{id}",method = RequestMethod.GET)
+    public String user(int id)throws SSException{
+        return "evaluation/year/ability-user";
     }
 }

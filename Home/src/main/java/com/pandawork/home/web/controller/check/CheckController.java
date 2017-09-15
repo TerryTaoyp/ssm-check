@@ -151,7 +151,7 @@ public class CheckController extends AbstractController {
             List<TestPlan> testPlanList = testPlanService.listAll();
             model.addAttribute("testPlanList",testPlanList);
         }else if (power.getPower() == 5){
-            List<TestPlan> testPlanList = testPlanService.queryByDid(user.getDid());
+            List<TestPlan> testPlanList = testPlanService.queryByTypeId(3);
             model.addAttribute("testPlanList",testPlanList);
         }
         List<TestType> testTypeList = testTypeService.listAll();
@@ -159,6 +159,10 @@ public class CheckController extends AbstractController {
         return "exam/year/ability-list";
     }
 
+    @RequestMapping(value = "/year/ability/user/{id}",method = RequestMethod.GET)
+    public String user(@PathVariable("id") int id)throws SSException{
+        return "exam/year/ability-user";
+    }
     /**
      * 综合绩效列表
      * @param session

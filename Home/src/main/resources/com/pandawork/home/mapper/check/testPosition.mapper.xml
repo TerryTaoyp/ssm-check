@@ -26,10 +26,10 @@
 
     <select id="queryDtoByTestId" resultType="TestPositionDto">
         SELECT
-        tap.id AS id
+        tap.id AS id,
         tap.test_id AS testId,
         (SELECT tat.name FROM t_ability_target tat WHERE tap.target_id = tat.id) AS target,
-        (SELECT tatt.name FROM t_ability_target_type WHERE tap.target_type_id = tatt.id) AS targetType,
+        (SELECT tatt.name FROM t_ability_target_type tatt WHERE tap.target_type_id = tatt.id) AS targetType,
         tap.weight AS weight
         FROM t_ability_position tap
         WHERE tap.test_id = #{testId}

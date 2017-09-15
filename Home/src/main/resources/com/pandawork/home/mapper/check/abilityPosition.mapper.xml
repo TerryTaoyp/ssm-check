@@ -37,6 +37,6 @@
     </select>
 
     <select id="queryByTestId" resultMap="pw.AbilityPosition">
-        SELECT * FROM t_ability_position WHERE testId = #{testId}
+        SELECT * FROM t_ability_position WHERE test_id = #{testId}
     </select>
 </mapper>
