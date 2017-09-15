@@ -118,12 +118,15 @@ public class RoleController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/update/{id}",method = RequestMethod.GET)
-    public String update(@PathVariable("id") int id,@RequestParam("pid") int pid,@RequestParam("name") String name)throws Exception{
+    @RequestMapping(value = "/update",method = RequestMethod.GET)
+    public JSONObject update(@RequestParam("id") int id,@RequestParam("pid") int pid,@RequestParam("name") String name)throws Exception{
         Role role = roleService.queryById(id);
         role.setName(name);
         role.setPid(pid);
-        roleService.updateRole(role);
-        return "redirect:/role/list";
+        if (role==null){
+            return sendJsonObject(0);
+        }else {
+            return sendJsonObject(1);
+        }
     }
 }

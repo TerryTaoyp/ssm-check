@@ -46,4 +46,12 @@ public interface AbilityPositionService {
      */
     public int countAll()throws SSException;
 
+    /**
+     * 根据考核计划ID查找问题
+     * @param testId
+     * @return
+     * @throws SSException
+     */
+    public List<AbilityPosition> queryByTestId(int testId)throws SSException;
+
 }

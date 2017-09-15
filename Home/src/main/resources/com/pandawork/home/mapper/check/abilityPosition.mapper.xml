@@ -33,4 +33,8 @@
     <select id="countAll" resultType="int">
         SELECT COUNT (1) FROM t_ability_position
     </select>
+
+    <select id="queryByTestId" resultMap="pw.AbilityPosition">
+        SELECT * FROM t_ability_position WHERE testId = #{testId}
+    </select>
 </mapper>

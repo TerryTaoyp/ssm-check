@@ -161,8 +161,8 @@ public class PersonController extends AbstractController {
         jsonObject.put("departmentList",departmentList);
         return  sendJsonObject(jsonObject);
     }
-    @RequestMapping(value = "/update/{id}",method = RequestMethod.GET)
-    public String update(@PathVariable("id") int id, @RequestParam("username") String username, @RequestParam("realName") String realName,@RequestParam("did") int did,@RequestParam("rid") int rid,@RequestParam("phone") String phone)throws Exception{
+    @RequestMapping(value = "/update",method = RequestMethod.GET)
+    public JSONObject update(@RequestParam("id") int id, @RequestParam("username") String username, @RequestParam("realName") String realName, @RequestParam("did") int did, @RequestParam("rid") int rid, @RequestParam("phone") String phone)throws Exception{
 
         User user = userService.queryById(id);
         user.setUsername(username);
@@ -171,6 +171,10 @@ public class PersonController extends AbstractController {
         user.setDid(did);
         user.setPhone(phone);
         userService.updateUser(user);
-        return "redirect:/user/list";
+        if (user==null){
+            return sendJsonObject(0);
+        }else {
+            return sendJsonObject(1);
+        }
     }
 }

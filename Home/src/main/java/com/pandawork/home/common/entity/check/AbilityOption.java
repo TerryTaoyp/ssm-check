@@ -22,7 +22,7 @@ public class AbilityOption {
     private Integer targetId;
     //选项名字，例如优良中差，ABCD
     @Column(name = "option_name")
-    private String optionName;
+    private Integer optionName;
     //得分上限
     @Column(name = "max_score")
     private Double maxScore;
@@ -57,11 +57,11 @@ public class AbilityOption {
         this.targetId = targetId;
     }
 
-    public String getOptionName() {
+    public Integer getOptionName() {
         return optionName;
     }
 
-    public void setOptionName(String optionName) {
+    public void setOptionName(Integer optionName) {
         this.optionName = optionName;
     }
 

@@ -100,12 +100,16 @@ public class PowerController extends AbstractController {
         return sendJsonObject(jsonObject);
     }
 
-    @RequestMapping(value = "/update/{id}",method = RequestMethod.GET)
-    public String update(@PathVariable("id") int id,@RequestParam("power") int power,@RequestParam("detail") String detail)throws Exception{
+    @RequestMapping(value = "/update",method = RequestMethod.GET)
+    public JSONObject update(@RequestParam("id") int id,@RequestParam("power") int power,@RequestParam("detail") String detail)throws Exception{
         Power power1 = powerService.queryById(id);
         power1.setPower(power);
         power1.setDetail(detail);
         powerService.updatePower(power1);
-        return "redirect:/power/list";
+        if (power1==null){
+            return sendJsonObject(0);
+        }else {
+            return sendJsonObject(1);
+        }
     }
 }

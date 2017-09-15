@@ -217,7 +217,12 @@ public class AbstractController extends Base {
     /**
      * 考核分配
      */
+    @Autowired
     protected static JoinTestService joinTestService;
-
+    /**
+     * 考核问题分配
+     */
+    @Autowired
+    protected static TestPositionService testPositionService;
 
 }

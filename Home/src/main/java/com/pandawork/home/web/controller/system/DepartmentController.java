@@ -107,10 +107,15 @@ public class DepartmentController extends AbstractController {
     }
     @ResponseBody
     @RequestMapping(value = "/update/{id}",method = RequestMethod.GET)
-    public String update(@PathVariable("id") int id,@RequestParam("name") String name)throws Exception{
+    public JSONObject update(@PathVariable("id") int id, @RequestParam("name") String name)throws Exception{
         Department department = departmentService.queryById(id);
         department.setName(name);
         departmentService.updateDepartment(department);
-        return "redirect:/department/list";
+        if (department==null){
+            return sendJsonObject(0);
+        }else {
+            return sendJsonObject(1);
+        }
+//        return "redirect:/department/list";
     }
 }

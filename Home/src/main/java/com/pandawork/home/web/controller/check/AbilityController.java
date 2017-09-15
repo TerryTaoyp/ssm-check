@@ -45,7 +45,7 @@ public class AbilityController extends AbstractController {
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String list(Model model, HttpSession session)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
-        int testTypeId = 1;
+        int testTypeId = 3;
         List<TestPlan> testPlanList = testPlanService.queryByUidAndTypeId(user.getId(),testTypeId);
         model.addAttribute("testPlanList",testPlanList);
         return "evaluation/year/ability-list";
