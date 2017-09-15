@@ -41,50 +41,56 @@
             </div>
             <div class="box-body">
               <ul class="timeline">
-                <!-- timeline time label -->
                 <li class="time-label">
                       <span class="bg-green">
                         考核开始
                       </span>
                 </li>
-                <!-- /.timeline-label -->
-                <!-- timeline item -->
-                <li>
+
+                <li data-id="1">
                   <i class="fa bg-blue">1</i>
 
                   <div class="timeline-item">
                     <span class="time">
-                      <button type="button" class="btn bg-olive change" style="margin-left: 10px;" data-toggle="modal" data-target="#update-list"> 修改 </button>
-                      <button type="button" class="btn bg-red delete"> 删除 </button>
+                      <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#update-list" data-num="1"> 修改 </button>
+                      <button type="button" class="btn bg-red delete" data-num="1" style="margin-left: 10px;"> 删除 </button>
                     </span>
 
                     <h3 class="timeline-header">
-                      <a href="#">【创新题20%】</a> 
-                      你觉得公司怎么样？
+                      <a href="#">
+                          【
+                          <span class="type">
+                          创新性
+                          </span>
+                          <span class="weight">12
+                          </span>
+                          % 】
+                      </a>
+                      <span class="title">什么问题</span>
                     </h3>
 
                     <div class="timeline-body box-body">
                       <div class="form-group">
                         <label>
-                          A.答案1
+                          A.<span class="option1">答案1</span>
                         </label>
                         <a class="btn bg-olive btn-xs">优秀(9~10分)</a>
                       </div>
                       <div class="form-group">
                         <label>
-                          B.答案1
+                          B.<span class="option2">答案1</span>
                         </label>
                         <a class="btn btn-primary btn-xs">良好(7~8分)</a>
                       </div>
                       <div class="form-group">
                         <label>
-                          C.答案1
+                          C.<span class="option3">答案1</span>
                         </label>
                         <a class="btn bg-orange btn-xs">一般(5~6分)</a>
                       </div>
                       <div class="form-group">
                         <label>
-                          D.答案1
+                          D.<span class="option4">答案1</span>
                         </label>
                         <a class="btn bg-red btn-xs">不及格(0~4分)</a>
                       </div>
@@ -92,46 +98,57 @@
                   </div>
                 </li>
                 
-                <li>
+                <li data-id="2">
                   <i class="fa bg-blue">2</i>
 
                   <div class="timeline-item">
-                    <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+                    <span class="time">
+                      <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#update-list" data-num="2"> 修改 </button>
+                      <button type="button" class="btn bg-red delete" data-num="2" style="margin-left: 10px;"> 删除 </button>
+                    </span>
 
                     <h3 class="timeline-header">
-                      <a href="#">【创新题20%】</a> 
-                      你觉得公司怎么样？
+                      <a href="#">
+                          【
+                          <span class="type">
+                          创新性
+                          </span>
+                          <span class="weight">12
+                          </span>
+                          % 】
+                      </a>
+                      <span class="title">什么问题</span>
                     </h3>
 
                     <div class="timeline-body box-body">
                       <div class="form-group">
                         <label>
-                          A.答案1
+                          A.<span class="option1">答案1</span>
                         </label>
                         <a class="btn bg-olive btn-xs">优秀(9~10分)</a>
                       </div>
                       <div class="form-group">
                         <label>
-                          B.答案1
+                          B.<span class="option2">答案1</span>
                         </label>
                         <a class="btn btn-primary btn-xs">良好(7~8分)</a>
                       </div>
                       <div class="form-group">
                         <label>
-                          C.答案1
+                          C.<span class="option3">答案1</span>
                         </label>
                         <a class="btn bg-orange btn-xs">一般(5~6分)</a>
                       </div>
                       <div class="form-group">
                         <label>
-                          D.答案1
+                          D.<span class="option4">答案1</span>
                         </label>
                         <a class="btn bg-red btn-xs">不及格(0~4分)</a>
                       </div>
-
                     </div>
                   </div>
                 </li>
+
                 <li class="time-label">
                       <span class="bg-green">
                         考核结束
@@ -145,7 +162,7 @@
             </div>
             <div class="box-footer">
                 <a href="ability-list.html" class="btn btn-primary">返回列表</a>
-                <button type="button" class="btn bg-olive add" data-toggle="modal" data-target="#update-list">新增题目</button>
+                <button type="button" class="btn bg-olive add" data-toggle="modal" data-target="#add-list">新增题目</button>
             </div>
           </div>
       </div>
@@ -183,42 +200,42 @@
                                       <option value="3">创新形3</option>
                                   </select>
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-xs-5">
                                 <label>权重：</label>
-                                  <input type="text" placeholder="请输入..." class="add-weight form-control">
+                                  <input type="text" placeholder="请输入1-100数字..." class="add-weight form-control">
                             </div>
                         </div>
 
                         <label>
                             问题题目：
                         </label>
-                        <input type="text" class="form-control a-require-text" placeholder="请输入...">
+                        <input type="text" class="form-control a-require-text add-title" placeholder="请输入...">
 
                         <label>
                          答案1：<a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
                          </label>
-                        <input type="text" class="form-control" placeholder="请输入...">
+                        <input type="text" class="form-control add-option1" placeholder="请输入...">
 
                         <label>
                          答案2：<a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
                          </label>
-                        <input type="text" class="form-control" placeholder="请输入...">
+                        <input type="text" class="form-control add-option2" placeholder="请输入...">
 
                         <label>
                          答案3：<a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
                          </label>
-                        <input type="text" class="form-control" placeholder="请输入...">
+                        <input type="text" class="form-control add-option3" placeholder="请输入...">
 
                         <label>
                          答案4：<a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
                          </label>
-                        <input type="text" class="form-control" placeholder="请输入...">
+                        <input type="text" class="form-control add-option4" placeholder="请输入...">
                   </div>
                   <p class="text-red tip"></p>
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                  <button type="button" class="btn btn-primary J-ajax-submit">修改</button>
+                  <button type="button" class="btn btn-primary J-ajax-submit1 J-ajax-submit">修改</button>
               </div>
           </div>
           <!-- /.modal-content -->
@@ -232,7 +249,7 @@
               <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">增添题目</h4>
+                  <h4 class="modal-title">修改题目</h4>
               </div>
               <div class="modal-body">
                   <input type="hidden" id="dataId">
@@ -250,48 +267,49 @@
                         <div class="form-group">
                             <div class="col-xs-6">
                                 <label>问题类型：</label>
-                                  <select class="type form-control">
-                                      <option>创新形</option>
-                                      <option>创新形</option>
-                                      <option>创新形</option>
+                                  <select class="update-type form-control">
+                                      <option selected="">创新形</option>
+                                      <option selected="">创新形</option>
+                                      <option selected="" value="4">创231</option>
                                   </select>
                             </div>
                             <div class="col-xs-6">
                                 <label>权重：</label>
-                                  <input type="text" placeholder="请输入..." class="weight form-control">
+                                  <input type="text" placeholder="请输入1-100数字..." class="update-weight form-control">
                             </div>
                         </div>
 
                         <label>
                             问题题目：
                         </label>
-                        <input type="text" class="form-control a-require-text" placeholder="请输入...">
+                        <input type="text" class="form-control a-require-text update-title" placeholder="请输入...">
 
-                        <label>
-                         答案1：<a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
-                         </label>
-                        <input type="text" class="form-control" placeholder="请输入...">
+                        <label class="option1">
+                         答案1：</label>
+                         <a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
+                         
+                        <input type="text" class="form-control update-option1" placeholder="请输入...">
 
                         <label>
                          答案2：<a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
                          </label>
-                        <input type="text" class="form-control" placeholder="请输入...">
+                        <input type="text" class="form-control update-option2" placeholder="请输入...">
 
                         <label>
                          答案3：<a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
                          </label>
-                        <input type="text" class="form-control" placeholder="请输入...">
+                        <input type="text" class="form-control update-option3" placeholder="请输入...">
 
                         <label>
                          答案4：<a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
                          </label>
-                        <input type="text" class="form-control" placeholder="请输入...">
+                        <input type="text" class="form-control update-option4" placeholder="请输入...">
                   </div>
                   <p class="text-red tip"></p>
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                  <button type="button" class="btn btn-primary J-ajax-submit">修改</button>
+                  <button type="button" class="btn btn-primary J-ajax-submit2 J-ajax-submit">修改</button>
               </div>
           </div>
           <!-- /.modal-content -->
