@@ -15,6 +15,7 @@ import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.system.RoleService;
 import com.pandawork.home.service.user.UserService;
 import com.pandawork.home.web.controller.AbstractController;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -69,13 +70,13 @@ public class TestPlanController extends AbstractController{
     }
 
     /**
-     * 根据ID删除考核计划
+     * 改变考核计划的开启状态
      * @param id
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/del/{id}",method = RequestMethod.GET)
-    public String del(@PathVariable("id") int id)throws Exception{
+    @RequestMapping(value = "/edit/{id}",method = RequestMethod.GET)
+    public String edit(@PathVariable("id") int id)throws Exception{
         try {
             TestPlan testPlan = testPlanService.queryTestPlan(id);
             if (testPlan.getIsAvailable()==1){
@@ -92,6 +93,17 @@ public class TestPlanController extends AbstractController{
         }
     }
 
+    /**
+     * 根据ID删除
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/del",method = RequestMethod.GET)
+    public JSONObject del(@RequestParam("id") int id)throws Exception{
+        testPlanService.del(id);
+        return sendJsonObject(1);
+    }
     /**
      * 跳转到新增页面
      * @return
@@ -119,7 +131,6 @@ public class TestPlanController extends AbstractController{
     public String add(@RequestParam("testName") String testName, @RequestParam("testTypeId") int testTypeId, @RequestParam("startTime") String startTime, @RequestParam("startTime") String finishTime,@RequestParam("year") int year, HttpSession session)throws Exception{
         try{
             User  user = userService.queryByUname((String) session.getAttribute("username"));
-
             TestPlan testPlan = new TestPlan();
             testPlan.setUid(user.getId());
             testPlan.setTestName(testName);
@@ -164,14 +175,14 @@ public class TestPlanController extends AbstractController{
      * @throws Exception
      */
     @RequestMapping(value = "/join/{id}",method = RequestMethod.GET)
-    public String join(@PathVariable("id") int id,HttpSession session)throws Exception{
+    public JSONObject join(@PathVariable("id") int id, HttpSession session)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
         TestPlan testPlan = testPlanService.queryTestPlan(id);
         JoinTest joinTest = new JoinTest();
         joinTest.setUid(user.getId());
         joinTest.setTestId(testPlan.getId());
         joinTestService.addCheck(joinTest);
-        return "redirect:/testplan/toallot/{id}";
+        return sendJsonObject(1);
     }
 
     /**
@@ -181,7 +192,7 @@ public class TestPlanController extends AbstractController{
      * @throws Exception
      */
     @RequestMapping(value = "/del/join/{id}",method = RequestMethod.GET)
-    public String delJoin(@PathVariable("id") int id,HttpSession session)throws Exception{
+    public JSONObject delJoin(@PathVariable("id") int id,HttpSession session)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
         TestPlan testPlan = testPlanService.queryTestPlan(id);
         JoinTest joinTest = new JoinTest();
@@ -189,6 +200,6 @@ public class TestPlanController extends AbstractController{
         joinTest.setUid(user.getId());
         JoinTest joinTest1 = joinTestService.queryByUidAndTid(joinTest);
         joinTestService.delById(joinTest1.getId());
-        return "redirect:/testplan/toallot/{id}";
+        return sendJsonObject(1);
     }
 }

@@ -82,7 +82,7 @@
                                         <td>
                                             <a href="javascript:;" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改计划</a>
                                             <a class="btn bg-blue" href="${website}/testplan/toallot/${testPlan.id}">分配考核人员</a>
-                                            <a class="btn btn-warning status" data-num="${status.index+1}"  href="${website}/testplan/del/${testPlan.id}">改变状态</a>
+                                            <a class="btn btn-warning status" data-num="${status.index+1}"  href="${website}/testplan/edit/${testPlan.id}">改变状态</a>
                                             <button type="button" class="btn bg-red delete" data-num="${status.index+1}">删除</button>
                                         </td>
                                     </tr>

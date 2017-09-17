@@ -91,4 +91,12 @@ public interface TestPlanService {
      * @throws SSException
      */
     public List<AllotDto> listAllUser()throws SSException;
+
+    /**
+     * 根据ID删除
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public boolean del(int id)throws SSException;
 }

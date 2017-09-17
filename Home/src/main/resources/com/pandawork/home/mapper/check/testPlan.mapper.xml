@@ -79,4 +79,8 @@
         FROM t_user tu
         WHERE tu.is_delete = 1
     </select>
+
+    <delete id="del">
+        DELETE FROM t_test_plan WHERE id = #{id}
+    </delete>
 </mapper>

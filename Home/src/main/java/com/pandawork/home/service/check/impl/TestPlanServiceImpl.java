@@ -156,4 +156,13 @@ public class TestPlanServiceImpl implements TestPlanService {
     public List<AllotDto> listAllUser() throws SSException {
         return testPlanMapper.listAllUser();
     }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class,Exception.class, RuntimeException.class})
+    public boolean del(int id) throws SSException {
+        if (Assert.isNull(id)){
+            return false;
+        }
+        return testPlanMapper.del(id);
+    }
 }

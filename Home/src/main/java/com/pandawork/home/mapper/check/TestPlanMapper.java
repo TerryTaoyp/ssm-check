@@ -93,4 +93,12 @@ public interface TestPlanMapper {
      * @throws SSException
      */
     public List<AllotDto> listAllUser()throws SSException;
+
+    /**
+     * 根据ID删除
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public boolean del(@Param("id") int id)throws SSException;
 }

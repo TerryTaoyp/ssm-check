@@ -103,7 +103,7 @@ public class PersonController extends AbstractController {
      * @throws Exception
      */
     @RequestMapping(value = "/status/{id}",method = RequestMethod.GET)
-    public String status(@PathVariable("id") int id)throws Exception{
+    public JSONObject status(@PathVariable("id") int id)throws Exception{
         try{
             User user = userService.queryById(id);
             int i = user.getStatus();
@@ -112,11 +112,11 @@ public class PersonController extends AbstractController {
             }
             user.setStatus(i);
             userService.statusUser(user);
-            return "redirect:/user/account/list";
+            return sendJsonObject(1);
         }catch (SSException e){
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
+            return sendErrMsgAndErrCode("操作失败！");
         }
     }
     /**
@@ -126,7 +126,7 @@ public class PersonController extends AbstractController {
      * @throws Exception
      */
     @RequestMapping(value = "/status/not/{id}",method = RequestMethod.GET)
-    public String statusN(@PathVariable("id") int id)throws Exception{
+    public JSONObject statusN(@PathVariable("id") int id)throws Exception{
         try{
             User user = userService.queryById(id);
             int i = user.getStatus();
@@ -135,11 +135,11 @@ public class PersonController extends AbstractController {
             }
             user.setStatus(i);
             userService.statusUser(user);
-            return "redirect:/user/account/list";
+            return sendJsonObject(1);
         }catch (SSException e){
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
+            return sendErrMsgAndErrCode("操作失败！");
         }
     }
 
