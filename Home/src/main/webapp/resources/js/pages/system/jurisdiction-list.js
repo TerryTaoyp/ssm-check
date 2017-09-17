@@ -20,7 +20,9 @@ $(document).ready(function() {
 				// 先清空提示信息
 				$(el.J_tip).text('');
 				// 附加上点击此按钮的信息在数据库中的顺序
-				var path_url = _ajax.url.evaluation.plan_management.list.change,
+				var 
+					path_url = _ajax.url.system.jurisdiction.list.submit,
+					id = $('#dataId').val(), // 当前id值
 					level = $(el.J_level).val(), // 权限等级的值
 					level_text = $(el.J_level).find('option:selected').text(), // 权限等级的文本
 					remark = $(el.J_remark).val(); //备注信息
@@ -31,8 +33,9 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							level: level,
-							remark: remark
+							id: id,
+							power: level,
+							detail: remark
 						},
 						success: function(data) {
 							// console.log(data.errorMsg[0].msg);
@@ -42,8 +45,7 @@ $(document).ready(function() {
 								// 隐藏填写表单
 								$('button[data-dismiss="modal"]').click();
 								// 修改dom
-								var id = $('#dataId').val(); // 获取到当前次序
-								$('.table tr[data-id='+ id +'] > td.level-text').text(level_text);
+								$('.table tr[data-id='+ id +'] > td.level-text').text(level);
 								$('.table tr[data-id='+ id +'] > td.remark-text').text(remark);
 							}
 							else{

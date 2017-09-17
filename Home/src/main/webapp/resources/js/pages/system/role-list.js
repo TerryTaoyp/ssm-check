@@ -21,7 +21,7 @@ $(document).ready(function() {
 				$(el.J_tip).text('');
 				// 附加上点击此按钮的信息在数据库中的顺序
 				var 
-					id = $('#dataId').val(), // 获取id
+					id = parseInt($('#dataId').val()), // 获取id
 					path_url = _ajax.url.system.role.list.submit,
 					name = $(el.J_role).val(), // 角色名称
 					jurisdiction = $(el.J_jurisdiction).val(); // 权限

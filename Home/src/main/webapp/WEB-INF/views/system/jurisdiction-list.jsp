@@ -104,17 +104,17 @@
                     <input type="hidden" id="dataId">
                     <div class="form-group">
                         <label>权限等级：</label>
-                        <input type="text" name="power" class="form-control a-require-text level" placeholder="请输入...">
+                        <input type="text" class="form-control a-require-text level" placeholder="请输入...">
                     </div>
                     <div class="form-group">
                         <label>备注信息：</label>
-                        <textarea class="form-control a-require-text remark" name="detail" rows="3" placeholder="请输入..."></textarea>
+                        <textarea class="form-control a-require-text remark" rows="3" placeholder="请输入..."></textarea>
                     </div>
                     <p class="text-red tip"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <a href="${website}/power/update/${power.id}" type="submit" class="btn btn-primary J-ajax-submit">修改</a>
+                    <button type="button" class="btn btn-primary J-ajax-submit">修改</button>
                 </div>
             </div>
             <!-- /.modal-content -->

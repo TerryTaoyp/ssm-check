@@ -101,14 +101,14 @@
                     <input type="hidden" id="dataId">
                     <div class="form-group">
                         <label>部门名称：</label>
-                        <input type="text" class="form-control department a-require-text" placeholder="请输入..." name="name">
+                        <input type="text" class="form-control department a-require-text" placeholder="请输入...">
                     </div>
 
                     <p class="text-red tip"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button href="${website}/department/update/${department.id}" type="button" class="btn btn-primary J-ajax-submit">修改</button>
+                    <button type="button" class="btn btn-primary J-ajax-submit">修改</button>
                 </div>
             </div>
             <!-- /.modal-content -->

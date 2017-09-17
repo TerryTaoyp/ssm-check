@@ -19,7 +19,9 @@ $(document).ready(function() {
 				// 先清空提示信息
 				$(el.J_tip).text('');
 				// 附加上点击此按钮的信息在数据库中的顺序
-				var path_url = _ajax.url.evaluation.plan_management.list.change,
+				var 
+					id = $('#dataId').val(), // 获取到当前次序
+					path_url = _ajax.url.system.department.list.submit,
 					department = $(el.J_department).val(); // 部门名称
 				// 如果符合条件无法提交
 				if (!(ajax_flag1 || ajax_flag2 || ajax_flag3)) {
@@ -28,7 +30,8 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							remark: remark
+							id: id,
+							name: department
 						},
 						success: function(data) {
 							// console.log(data.errorMsg[0].msg);
@@ -38,7 +41,6 @@ $(document).ready(function() {
 								// 隐藏填写表单
 								$('button[data-dismiss="modal"]').click();
 								// 修改dom
-								var id = $('#dataId').val(); // 获取到当前次序
 								$('.table tr[data-id='+ id +'] > td.department-text').text(department);
 							}
 							else{

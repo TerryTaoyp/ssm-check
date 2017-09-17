@@ -23,11 +23,17 @@ $(document).ready(function() {
 				// 先清空提示信息
 				$(el.J_tip).text('');
 				// 附加上点击此按钮的信息在数据库中的顺序
-				var path_url = _ajax.url.evaluation.plan_management.list.change,
+				var 
+					id = $('#dataId').val(), // 获取到当前次序
+					path_url = _ajax.url.system.personnel.list.submit,
 					department = $(el.J_department).val(), // 所属部门名称
 					department_text = $(el.J_department).find('option:selected').text(), // 所属部门名称的值
 					position = $(el.J_position).val(), // 职位名称
-					position_text = $(el.J_position).find('option:selected').text(); //
+					position_text = $(el.J_position).find('option:selected').text(), 
+					username = $(el.J_username).val(),// 用户名
+					realname = $(el.J_realname).val(),// 真实名
+					phone = $(el.J_phone).val(); // 手机号
+
 				// 如果符合条件无法提交
 				if (!(ajax_flag1 || ajax_flag2 || ajax_flag3)) {
 					$.ajax({
@@ -35,20 +41,25 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							position: position,
-							department: department,
+							id: id,
+							username: username,
+							realName: realname,
+							did: department,
+							rid: position,
+							phone: phone,
 						},
 						success: function(data) {
-							// console.log(data.errorMsg[0].msg);
 							if (data.code) {
 								// 提示信息
 								alert('修改成功');
 								// 隐藏填写表单
 								$('button[data-dismiss="modal"]').click();
 								// 修改dom
-								var id = $('#dataId').val(); // 获取到当前次序
+								$('.table tr[data-id='+ id +'] > td.username-text').text(username);
+								$('.table tr[data-id='+ id +'] > td.realname-text').text(realname);
 								$('.table tr[data-id='+ id +'] > td.department-text').text(department_text);
 								$('.table tr[data-id='+ id +'] > td.position-text').text(position_text);
+								$('.table tr[data-id='+ id +'] > td.phone-text').text(phone);
 							}
 							else{
 								$(el.J_tip).text(data.errorMsg[0].msg);
@@ -85,7 +96,9 @@ $(document).ready(function() {
 						// 真实姓名
 						$(el.J_realname).val(data.data.user.realName);
 						// 所属部门 暂无
-						// $(el.J_department).find('selector') 
+						$(el.J_department).find('option[value='+data.data.user.did+']').prop('selected',true);
+						// 职位
+						$(el.J_position).find('option[value='+data.data.user.rid+']').prop('selected',true);
 						// 手机号
 						$(el.J_phone).val(data.data.user.phone);
 					},

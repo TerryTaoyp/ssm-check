@@ -39,6 +39,7 @@
 
         <!-- Main content -->
         <section class="content">
+            <div class="none" id="id">${id}</div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="box box-success">
@@ -53,8 +54,6 @@
                         考核开始
                       </span>
                                 </li>
-                                <!-- /.timeline-label -->
-                                <!-- timeline item -->
                                 <c:forEach items="${testPositionList}" var="testPosition" varStatus="status">
                                     <li>
                                         <i class="fa bg-blue">${status.index+1}</i>
@@ -124,7 +123,6 @@
                         <div class="box-footer">
                             <a href="${website}/ability/list" class="btn btn-primary">返回列表</a>
                             <button type="button" class="btn bg-olive add" data-toggle="modal" data-target="#add-list">增添题目</button>
-                            <!-- href="${website}/test/position/add/${id}" -->
                         </div>
                     </div>
                 </div>
@@ -156,43 +154,43 @@
                               </div>
                               <div class="col-xs-6">
                                   <label>权重：</label>
-                                    <input type="text" name="weight" placeholder="请输入..." class="add-weight form-control">
+                                    <input type="text" placeholder="请输入..." class="add-weight form-control">
                               </div>
                           </div>
 
                           <label>
                               问题题目：
                           </label>
-                          <input type="text" name="target" class="form-control a-require-text" placeholder="请输入...">
+                          <input type="text" name="target" class="form-control a-require-text add-title" placeholder="请输入...">
 
                           <label>
                            选项A：<a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
                            </label>
-                          <input type="hidden" class="form-control" value="1" name="optionName">
-                          <input type="text" class="form-control" name="content" placeholder="请输入...">
+                          <input type="hidden" class="form-control" value="1">
+                          <input type="text" class="form-control add-option1" placeholder="请输入...">
 
                           <label>
                            选项B：<a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
                            </label>
-                            <input type="hidden" class="form-control" value="2" name="optionName">
-                            <input type="text" class="form-control" name="content" placeholder="请输入...">
+                            <input type="hidden" class="form-control" value="2">
+                            <input type="text" class="form-control add-option2" placeholder="请输入...">
                           <label>
                            选项C：<a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
                            </label>
-                            <input type="hidden" class="form-control" value="3" name="optionName">
-                            <input type="text" class="form-control" name="content" placeholder="请输入...">
+                            <input type="hidden" class="form-control" value="3">
+                            <input type="text" class="form-control add-option3" placeholder="请输入...">
 
                           <label>
                            选项D：<a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
                            </label>
-                            <input type="hidden" class="form-control" value="4" name="optionName">
-                            <input type="text" class="form-control" name="content" placeholder="请输入...">
+                            <input type="hidden" class="form-control" value="4">
+                            <input type="text" class="form-control add-option4" placeholder="请输入...">
                     </div>
                     <p class="text-red tip"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary J-ajax-submit1">新增</button>
+                    <button type="button" class="btn btn-primary J-ajax-submit1 J-ajax-submit">新增</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -219,47 +217,47 @@
                         <div class="form-group">
                             <div class="col-xs-6">
                                 <label>问题类型：</label>
-                                <input type="text" name="type" placeholder="请输入..." class="add-type form-control">
+                                <input type="text" name="type" placeholder="请输入..." class="update-type form-control">
                             </div>
                             <div class="col-xs-6">
                                 <label>权重：</label>
-                                <input type="text" name="weight" placeholder="请输入..." class="add-weight form-control">
+                                <input type="text" placeholder="请输入..." class="update-weight form-control">
                             </div>
                         </div>
 
                         <label>
                             问题题目：
                         </label>
-                        <input type="text" name="target" class="form-control a-require-text" placeholder="请输入...">
+                        <input type="text" name="target" class="form-control a-require-text update-title" placeholder="请输入...">
 
                         <label>
                             选项A：<a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
                         </label>
-                        <input type="hidden" class="form-control" value="1" name="optionName1">
-                        <input type="text" class="form-control" name="content1" placeholder="请输入...">
+                        <input type="hidden" class="form-control update-option1" value="1">
+                        <input type="text" class="form-control update-content1" placeholder="请输入...">
 
                         <label>
                             选项B：<a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
                         </label>
-                        <input type="hidden" class="form-control" value="2" name="optionName2">
-                        <input type="text" class="form-control" name="content2" placeholder="请输入...">
+                        <input type="hidden" class="form-control update-option2" value="2">
+                        <input type="text" class="form-control update-content2" placeholder="请输入...">
                         <label>
                             选项C：<a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
                         </label>
-                        <input type="hidden" class="form-control" value="3" name="optionName3">
-                        <input type="text" class="form-control" name="content3" placeholder="请输入...">
+                        <input type="hidden" class="form-control" value="3">
+                        <input type="text" class="form-control update-content2" placeholder="请输入...">
 
                         <label>
                             选项D：<a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
                         </label>
-                        <input type="hidden" class="form-control" value="4" name="optionName4">
-                        <input type="text" class="form-control" name="content4" placeholder="请输入...">
+                        <input type="hidden" class="form-control" value="4">
+                        <input type="text" class="form-control" placeholder="请输入...">
                     </div>
                     <p class="text-red tip"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary J-ajax-submit1">修改</button>
+                    <button type="button" class="btn btn-primary J-ajax-submit2">修改</button>
                 </div>
             </div>
             <!-- /.modal-content -->

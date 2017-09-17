@@ -66,8 +66,8 @@
                                 <c:forEach items="${userList}" var="user" varStatus="status">
                                     <tr data-id="${user.id}">
                                         <td>${status.index+1}</td>
-                                        <td>${user.username}</td>
-                                        <td>${user.realName}</td>
+                                        <td class="username-text">${user.username}</td>
+                                        <td class="realname-text">${user.realName}</td>
                                         <c:forEach items="${departmentList}" var="department">
                                             <c:if test="${department.id == user.did}">
                                                 <td class="department-text">${department.name}</td>
@@ -78,7 +78,7 @@
                                                 <td class="position-text">${role.name}</td>
                                             </c:if>
                                         </c:forEach>
-                                        <td>${user.phone}</td>
+                                        <td class="phone-text">${user.phone}</td>
                                         <td>
                                             <button type="button" class="btn bg-blue">查看详情</button>
                                             <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${user.id}">修改</button>
@@ -126,7 +126,7 @@
 
                             <option value="-1">请选择</option>
                             <c:forEach items="${departmentList}" var="department">
-                                <option value="${department.id}">${department.name}</option>
+                                <option value="${department.id}" selected="">${department.name}</option>
                             </c:forEach>
 
                         </select>
@@ -136,7 +136,7 @@
                         <select class="form-control a-require-option position" name="rid">
                             <option value="-1">请选择</option>
                             <c:forEach items="${roleList}" var="role">
-                                <option value="${role.id}">${role.name}</option>
+                                <option value="${role.id}" selected="">${role.name}</option>
                             </c:forEach>
 
                         </select>

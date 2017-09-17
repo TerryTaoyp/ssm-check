@@ -161,6 +161,7 @@ public class PersonController extends AbstractController {
         jsonObject.put("departmentList",departmentList);
         return  sendJsonObject(jsonObject);
     }
+    @ResponseBody
     @RequestMapping(value = "/update",method = RequestMethod.GET)
     public JSONObject update(@RequestParam("id") int id, @RequestParam("username") String username, @RequestParam("realName") String realName, @RequestParam("did") int did, @RequestParam("rid") int rid, @RequestParam("phone") String phone)throws Exception{
 

@@ -100,6 +100,7 @@ public class PowerController extends AbstractController {
         return sendJsonObject(jsonObject);
     }
 
+    @ResponseBody
     @RequestMapping(value = "/update",method = RequestMethod.GET)
     public JSONObject update(@RequestParam("id") int id,@RequestParam("power") int power,@RequestParam("detail") String detail)throws Exception{
         Power power1 = powerService.queryById(id);

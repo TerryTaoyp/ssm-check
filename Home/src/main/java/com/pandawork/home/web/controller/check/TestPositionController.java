@@ -56,7 +56,7 @@ public class TestPositionController extends AbstractController {
      * @return
      * @throws SSException
      */
-    @RequestMapping(value = "/add/{id}")
+    @RequestMapping(value = "/add")
     public JSONObject addTestPosition(@RequestParam("id") int id, @RequestParam("targetType") String targetType,
                                       @RequestParam("weight") int weight, @RequestParam("target") String target,
                                       @RequestParam("optionName1") int optionName1, @RequestParam("content1") String content1,

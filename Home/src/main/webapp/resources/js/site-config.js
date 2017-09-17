@@ -64,8 +64,8 @@
                     // 列表
                     list:{
                         update: site.website + 'user/ajax/update', //点击修改
-                        del : site.website + 'user/ajax/update', //删除
-                        
+                        del : site.website + 'user/ajax/del', //删除
+                        submit: site.website + 'user/update', // 提交
                     }
                 },
                 //管辖分配
@@ -122,7 +122,7 @@
                     },
                     // 能力指标列表
                     ability_list:{
-                        change: site.staticWebsite + 'mock/ability_list.json'
+                        change: site.website + 'test/position/add'
                     },
                 }
             },
