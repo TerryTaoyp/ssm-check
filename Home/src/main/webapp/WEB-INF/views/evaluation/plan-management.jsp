@@ -74,10 +74,10 @@
                                         </c:forEach>
                                         <td class="time-start-text">${testPlan.startTime}</td>
                                         <c:if test="${testPlan.isAvailable==1}">
-                                            <td>已开启</td>
+                                            <td class="status">已开启</td>
                                         </c:if>
                                         <c:if test="${testPlan.isAvailable==0}">
-                                            <td>未开启</td>
+                                            <td class="status">未开启</td>
                                         </c:if>
                                         <td>
                                             <a href="javascript:;" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改计划</a>

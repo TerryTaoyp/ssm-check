@@ -13,17 +13,14 @@
     <meta htt-equiv="X-UA-Compatible" content="IE=edge">
     <title>账号管理</title>
     <!-- Tell the browser to be responsive to screen width -->
-    <meta content="widh=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">t
+    <meta content="widh=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <jsp:include page="../common/link.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 
 </head>
 <body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
     <jsp:include page="../common/header.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
     <jsp:include page="../common/sidebar.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/sidebar.html" -->
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -80,18 +77,18 @@
                                         </c:forEach>
 
                                         <c:if test="${user.status == 1}">
-                                            <td>审核通过</td>
+                                            <td class="status">审核通过</td>
                                         </c:if>
                                         <c:if test="${user.status == 0}">
-                                            <td>未审核</td>
+                                            <td class="status">未审核</td>
                                         </c:if>
                                             <c:if test="${user.status == 2}">
-                                                <td>审核不通过</td>
+                                                <td class="status">审核不通过</td>
                                             </c:if>
 
                                         <td>
-                                            <a type="button" class="btn bg-olive"href="${website}/user/status/${user.id}">审核通过</a>
-                                            <a type="button" class="btn bg-orange" href="${website}/user/status/not/${user.id}">审核不通过</a>
+                                            <button type="button" class="btn bg-olive pass" data-num="${user.rid}">审核通过</button>
+                                            <button type="button" class="btn bg-red refuse" data-num="${user.rid}">审核不通过</button>
                                         </td>
                                 </tr>
                                     </c:forEach>
@@ -111,12 +108,10 @@
     </div>
     <!-- /.content-wrapper -->
     <jsp:include page="../common/footer.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
-<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-<script src="../../../resources/js/pages/common/verify.js"></script>
+<script src="../../../resources/js/pages/system/account-list.js"></script>
 <!-- page script -->
 <script>
     $(function () {

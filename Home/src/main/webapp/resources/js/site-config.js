@@ -79,7 +79,8 @@
                 account:{
                     // 列表
                     list:{
-                        change: site.staticWebsite + 'mock/account.json'
+                        pass: site.website + 'user/status', // 通过
+                        no_pass: site.website + 'user/status/not', // 不通过
                     }
                 },
             },
