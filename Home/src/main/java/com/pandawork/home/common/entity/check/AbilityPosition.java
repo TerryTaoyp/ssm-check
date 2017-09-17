@@ -37,6 +37,10 @@ public class AbilityPosition {
         this.targetId = targetId;
     }
 
+    public String getTargetId() {
+        return targetId;
+    }
+
     public String getTargetTypeId() {
         return targetTypeId;
     }
