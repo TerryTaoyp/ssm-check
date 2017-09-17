@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>月/季度考核-工作计划结果报表</title>
+    <title>月度考核-工作计划结果报表</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <jsp:include page="../../common/link.jsp"/>
@@ -29,13 +29,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                月季度考核-工作计划结果报表
+                月度考核-工作计划结果报表
                 <small>栏目</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
                 <li><a href="#">成绩查询</a></li>
-                <li class="active">月季度考核-工作计划结果报表</li>
+                <li class="active">月度考核-工作计划结果报表</li>
             </ol>
         </section>
 
@@ -52,7 +52,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>序号</th>
+                                    <%--<th>序号</th>--%>
                                     <th>考核计划名称</th>
                                     <th>部门</th>
                                     <th>姓名</th>
@@ -75,36 +75,38 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${list}" var="list" varStatus="status">
-                                    <tr>
-                                        <td>${status.index+1}</td>
-                                        <td>${list.year}年度成绩</td>
-                                        <td>${list.department}</td>
-                                        <td>${list.username}</td>
-                                        <td>${list.role}</td>
-                                        <td>${list.month1}</td>
-                                        <td>${list.month2}</td>
-                                        <td>${list.month3}</td>
-                                        <td>${list.month4}</td>
-                                        <td>${list.month5}</td>
-                                        <td>${list.month6}</td>
-                                        <td>${list.month7}</td>
-                                        <td>${list.month8}</td>
-                                        <td>${list.month9}</td>
-                                        <td>${list.month10}</td>
-                                        <td>${list.month11}</td>
-                                        <td>${list.month12}</td>
-                                        <td>${list.summaryScore}</td>
-                                        <td>${list.yearScore}</td>
-                                        <td>
-                                            <button type="button" class="btn bg-green">打印此报表</button>
-                                        </td>
-                                    </tr>
+                                <c:forEach items="${list}" var="list">
+                                    <c:if test="${list.testType==2}">
+                                        <tr>
+                                            <%--<td>${status.index+1}</td>--%>
+                                            <td>${list.year}年度成绩</td>
+                                            <td>${list.department}</td>
+                                            <td>${list.username}</td>
+                                            <td>${list.role}</td>
+                                            <td>${list.month1}</td>
+                                            <td>${list.month2}</td>
+                                            <td>${list.month3}</td>
+                                            <td>${list.month4}</td>
+                                            <td>${list.month5}</td>
+                                            <td>${list.month6}</td>
+                                            <td>${list.month7}</td>
+                                            <td>${list.month8}</td>
+                                            <td>${list.month9}</td>
+                                            <td>${list.month10}</td>
+                                            <td>${list.month11}</td>
+                                            <td>${list.month12}</td>
+                                            <td>${list.summaryScore}</td>
+                                            <td>${list.yearScore}</td>
+                                            <td>
+                                                <button type="button" class="btn bg-green">打印此报表</button>
+                                            </td>
+                                        </tr>
+                                    </c:if>
                                 </c:forEach>
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th>序号</th>
+                                    <%--<th>序号</th>--%>
                                     <th>考核计划名称</th>
                                     <th>部门</th>
                                     <th>姓名</th>

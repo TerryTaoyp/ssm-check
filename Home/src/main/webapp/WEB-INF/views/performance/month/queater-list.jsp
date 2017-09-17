@@ -2,15 +2,16 @@
   Created by IntelliJ IDEA.
   User: Taoyongpan
   Date: 2017/9/5
-  Time: 22:51
+  Time: 22:50
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>月/季度考核-工作计划结果报表详情</title>
+    <title>季度考核-工作计划结果报表</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <jsp:include page="../../common/link.jsp"/>
@@ -28,13 +29,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                月/季度考核-工作计划结果报表详情
+                季度考核-工作计划结果报表
                 <small>栏目</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
                 <li><a href="#">成绩查询</a></li>
-                <li class="active">月/季度考核-工作计划结果报表详情</li>
+                <li class="active">季度考核-工作计划结果报表</li>
             </ol>
         </section>
 
@@ -44,47 +45,66 @@
                 <div class="col-xs-12">
                     <div class="box box-default">
                         <div class="box-header">
-                            <h3 class="box-title">......考核</h3>
+                            <h3 class="box-title">全部考核列表</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
+                                    <%--<th>序号</th>--%>
                                     <th>考核计划名称</th>
-                                    <th>被考核人姓名</th>
-                                    <th>所在部门</th>
+                                    <th>部门</th>
+                                    <th>姓名</th>
                                     <th>职位</th>
+                                    <th>一季度</th>
+                                    <th>二季度</th>
+                                    <th>三季度</th>
+                                    <th>四季度</th>
+                                    <th>总结得分</th>
                                     <th>综合得分</th>
-                                    <th>其他信息</th>
+                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>章</td>
-                                    <td>13837200544</td>
-                                    <td>产品</td>
-                                    <td>经理</td>
-                                    <td>77</td>
-                                    <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                </tr>
-                                <tr>
-                                    <td>章</td>
-                                    <td>1384</td>
-                                    <td>产品</td>
-                                    <td>经理</td>
-                                    <td>17</td>
-                                    <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                </tr>
+                                <c:forEach items="${list}" var="list">
+                                    <c:if test="${list.testType==1}">
+                                        <tr>
+                                            <%--<td>${status.index+1}</td>--%>
+                                            <td>${list.year}年度成绩</td>
+                                            <td>${list.department}</td>
+                                            <td>${list.username}</td>
+                                            <td>${list.role}</td>
+                                            <td>${list.queater1}</td>
+                                            <td>${list.queater2}</td>
+                                            <td>${list.queater3}</td>
+                                            <td>${list.queater4}</td>
+                                            <td>${list.summaryScore}</td>
+                                            <td>${list.yearScore}</td>
+                                            <td>
+                                                <button type="button" class="btn bg-green">打印此报表</button>
+                                            </td>
+                                        </tr>
+                                    </c:if>
+                                </c:forEach>
                                 </tbody>
                                 <tfoot>
                                 <tr>
+                                    <%--<th>序号</th>--%>
                                     <th>考核计划名称</th>
-                                    <th>被考核人姓名</th>
-                                    <th>所在部门</th>
+                                    <th>部门</th>
+                                    <th>姓名</th>
                                     <th>职位</th>
+                                    <th>一季度</th>
+                                    <th>二季度</th>
+                                    <th>三季度</th>
+                                    <th>四季度</th>
+                                    <th>总结得分</th>
                                     <th>综合得分</th>
-                                    <th>其他信息</th>
+                                    <th>
+                                        操作
+                                        <button type="button" class="btn bg-green">全部导出</button>
+                                    </th>
                                 </tr>
                                 </tfoot>
                             </table>
@@ -102,6 +122,7 @@
     <!-- /.content-wrapper -->
     <jsp:include page="../../common/footer.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
+
     <div class="control-sidebar-bg"></div>
     <div class="modal fade" id="modal-default">
         <div class="modal-dialog">

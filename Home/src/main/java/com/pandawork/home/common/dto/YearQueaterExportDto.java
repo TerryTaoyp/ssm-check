@@ -29,6 +29,18 @@ public class YearQueaterExportDto {
     private Double abilityScore;
     //年度得分
     private Double yearScore;
+    //当前考核 计划所在的年份
+    private Integer year;
+    //考核计划类型
+    private Integer testType;
+
+    public Integer getTestType() {
+        return testType;
+    }
+
+    public void setTestType(Integer testType) {
+        this.testType = testType;
+    }
 
     public Integer getId() {
         return id;

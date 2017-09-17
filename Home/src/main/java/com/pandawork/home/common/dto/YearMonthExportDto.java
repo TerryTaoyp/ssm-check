@@ -48,6 +48,16 @@ public class YearMonthExportDto {
     private Double yearScore;
     //当前考核 计划所在的年份
     private Integer year;
+    //考核计划类型
+    private Integer testType;
+
+    public Integer getTestType() {
+        return testType;
+    }
+
+    public void setTestType(Integer testType) {
+        this.testType = testType;
+    }
 
     public Integer getYear() {
         return year;

@@ -1,8 +1,10 @@
 package com.pandawork.home.web.controller.query;
 
 import com.pandawork.home.common.dto.YearMonthExportDto;
+import com.pandawork.home.common.dto.YearQueaterExportDto;
 import com.pandawork.home.service.check.*;
 import com.pandawork.home.service.query.YearMonthService;
+import com.pandawork.home.service.query.YearQueaterService;
 import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.system.RoleService;
 import com.pandawork.home.service.user.UserService;
@@ -42,12 +44,16 @@ public class ResultController extends AbstractController {
     JoinTestService joinTestService;
     @Autowired
     YearMonthService yearMonthService;
+    @Autowired
+    YearQueaterService yearQueaterService;
+
+
     /**
      * 报表展示页面
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/result",method = RequestMethod.GET)
+    @RequestMapping(value = "/month/result",method = RequestMethod.GET)
     public String queryResult(Model model, HttpSession session)throws Exception{
 //
 //        List<User> userList = userService.queryByIsDelete(1);
@@ -69,7 +75,7 @@ public class ResultController extends AbstractController {
 
         List<YearMonthExportDto> list = yearMonthService.listAll();
         model.addAttribute("list",list);
-        return "performance/month/plan";
+        return "performance/month/month-list";
     }
 
     /**
@@ -77,38 +83,11 @@ public class ResultController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/month/plan",method = RequestMethod.GET)
-    public String monthList()throws Exception{
-        return "performance/month/plan";
+    @RequestMapping(value = "/queater/result",method = RequestMethod.GET)
+    public String monthList(Model model)throws Exception{
+        List<YearQueaterExportDto> list = yearQueaterService.listAll();
+        model.addAttribute("list",list);
+        return "performance/month/queater-list";
     }
 
-    /**
-     * 副总经理结果查询
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping(value = "/year/vice",method = RequestMethod.GET)
-    public String yearVice()throws Exception{
-        return "performance/year/vice-president";
-    }
-
-    /**
-     * 综合绩效考评结果报表
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping(value = "/year/synthetical",method = RequestMethod.GET)
-    public String yearSynthetical()throws Exception{
-        return "performance/year/synthetical";
-    }
-
-    /**
-     * 能力指标考评结果报表
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping(value = "/year/ability",method = RequestMethod.GET)
-    public String yearAbility()throws Exception{
-        return "performance/year/ability";
-    }
 }
