@@ -102,8 +102,9 @@ public class PersonController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/status/{id}",method = RequestMethod.GET)
-    public JSONObject status(@PathVariable("id") int id)throws Exception{
+    @ResponseBody
+    @RequestMapping(value = "/status",method = RequestMethod.GET)
+    public JSONObject status(@RequestParam("id") int id)throws Exception{
         try{
             User user = userService.queryById(id);
             int i = user.getStatus();
@@ -125,8 +126,9 @@ public class PersonController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/status/not/{id}",method = RequestMethod.GET)
-    public JSONObject statusN(@PathVariable("id") int id)throws Exception{
+    @ResponseBody
+    @RequestMapping(value = "/status/not",method = RequestMethod.GET)
+    public JSONObject statusN(@RequestParam("id") int id)throws Exception{
         try{
             User user = userService.queryById(id);
             int i = user.getStatus();

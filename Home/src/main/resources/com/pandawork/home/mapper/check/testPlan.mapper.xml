@@ -71,7 +71,7 @@
     
     <select id="listAllUser" resultType="AllotDto">
         SELECT
-        tu.id AS id,
+        tu.id AS uid,
         tu.username AS username,
         tu.real_name AS realName,
         (SELECT td.name FROM t_department td WHERE td.id = tu.did) AS department,

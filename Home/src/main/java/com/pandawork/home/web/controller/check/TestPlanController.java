@@ -19,10 +19,7 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -75,8 +72,9 @@ public class TestPlanController extends AbstractController{
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/edit/{id}",method = RequestMethod.GET)
-    public String edit(@PathVariable("id") int id)throws Exception{
+    @ResponseBody
+    @RequestMapping(value = "/edit",method = RequestMethod.GET)
+    public JSONObject edit(@RequestParam("id") int id)throws Exception{
         try {
             TestPlan testPlan = testPlanService.queryTestPlan(id);
             if (testPlan.getIsAvailable()==1){
@@ -85,11 +83,14 @@ public class TestPlanController extends AbstractController{
                 testPlan.setIsAvailable(1);
             }
             testPlanService.delTestPlan(testPlan);
-            return "redirect:/testplan/list";
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("code",1);
+            jsonObject.put("status",testPlan.getIsAvailable());
+            return sendJsonObject(jsonObject);
         }catch (SSException e){
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
-            return ADMIN_SYS_ERR_PAGE;
+            return sendErrMsgAndErrCode("错误");
         }
     }
 
@@ -170,36 +171,33 @@ public class TestPlanController extends AbstractController{
 
     /**
      * 参与考核
-     * @param id
+     * @param tid
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/join/{id}",method = RequestMethod.GET)
-    public JSONObject join(@PathVariable("id") int id, HttpSession session)throws Exception{
-        User user = userService.queryByUname((String) session.getAttribute("username"));
-        TestPlan testPlan = testPlanService.queryTestPlan(id);
+    @ResponseBody
+    @RequestMapping(value = "/join",method = RequestMethod.GET)
+    public JSONObject join(@RequestParam("id") int tid,@RequestParam("uid") int uid, HttpSession session)throws Exception{
         JoinTest joinTest = new JoinTest();
-        joinTest.setUid(user.getId());
-        joinTest.setTestId(testPlan.getId());
+        joinTest.setUid(uid);
+        joinTest.setTestId(tid);
         joinTestService.addCheck(joinTest);
         return sendJsonObject(1);
     }
 
     /**
      * 不参与考核
-     * @param id
+     * @param tid
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/del/join/{id}",method = RequestMethod.GET)
-    public JSONObject delJoin(@PathVariable("id") int id,HttpSession session)throws Exception{
-        User user = userService.queryByUname((String) session.getAttribute("username"));
-        TestPlan testPlan = testPlanService.queryTestPlan(id);
+    @ResponseBody
+    @RequestMapping(value = "/del/join",method = RequestMethod.GET)
+    public JSONObject notJoin(@RequestParam("id") int tid,@RequestParam("uid") int uid)throws Exception{
         JoinTest joinTest = new JoinTest();
-        joinTest.setTestId(testPlan.getId());
-        joinTest.setUid(user.getId());
-        JoinTest joinTest1 = joinTestService.queryByUidAndTid(joinTest);
-        joinTestService.delById(joinTest1.getId());
+        joinTest.setUid(uid);
+        joinTest.setTestId(tid);
+        joinTestService.addCheck(joinTest);
         return sendJsonObject(1);
     }
 }

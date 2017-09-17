@@ -129,16 +129,16 @@
                                         <td>${user.department}</td>
                                         <td>${user.realName}</td>
                                         <td>${user.role}</td>
-                                        <td>
+                                        <td class="status">
                                             <c:forEach items="${joinTestList}" var="joinTest" varStatus="status">
-                                                <c:if test="${joinTest.uid == user.id}">
+                                                <c:if test="${joinTest.uid == user.uid}">
                                                     已参与
                                                 </c:if>
                                             </c:forEach>
                                         </td>
                                         <td>
-                                            <a href="${website}/testplan/join/${testPlan.id}&${user.id}" class="btn bg-blue">添加</a>
-                                            <a type="button" class="btn bg-red" href="${website}/testplan/del/join/${testPlan.id}&${user.id}">移除</a>
+                                            <button class="btn bg-blue add" data-test="${testPlan.id}" data-user="${user.uid}">添加</button>
+                                            <button type="button" class="btn bg-red delete" data-test="${testPlan.id}" data-user="${user.uid}">移除</button>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -172,15 +172,10 @@
     </div>
     <!-- /.content-wrapper -->
     <jsp:include page="../common/footer.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
-<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-<!-- CKeditor -->
-<script src="../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
-<!-- page script -->
+<script src="../../../resources/js/pages/evaluation/allot-detail.js"></script>
 <script>
     $(function () {
         $('#example1').DataTable();

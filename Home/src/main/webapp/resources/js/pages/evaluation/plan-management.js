@@ -122,22 +122,20 @@ $(document).ready(function() {
 				// 获取序列
 				var 
 					id = $(this).attr('data-num'),
-					path_url = _ajax.url.evaluation.plan_management.list.change,
-					text = $('.table tr[data-id='+ id +'] .status-text').text();
+					path_url = _ajax.url.evaluation.plan_management.list.edit,
+					status = {
+						1: "已开启",
+						0: "未开启"
+					}
 					$.ajax({
 						url: path_url,
 						type: 'get',
 						dataType: 'json',
 						data: {
-							status: 'true'
+							id: id
 						},
 						success: function(data) {
-							if (text == "已开启") {
-								$('.table tr[data-id='+ id +'] .status-text').text('未开启');
-							}
-							else{
-								$('.table tr[data-id='+ id +'] .status-text').text('已开启');
-							}
+								$('.table tr[data-id='+ id +'] .status-text').text(status[data.data.status]);
 							// 修改数据数量信息
 						},
 						error: function(data,errorMsg) {

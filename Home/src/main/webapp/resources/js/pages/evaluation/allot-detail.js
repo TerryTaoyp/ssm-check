@@ -16,17 +16,19 @@ $(document).ready(function() {
 			$(el.J_add).click(function(ev) {
 				// 获取序列
 				var 
-					id = $(this).attr('data-num'),
-					path_url = _ajax.url.evaluation.plan_management.list.change;
+					id = $(this).attr('data-test'),
+					uid = $(this).attr('data-user'),
+					path_url = _ajax.url.evaluation.plan_management.detail.add;
 				$.ajax({
 					url: path_url,
 					type: 'get',
 					dataType: 'json',
 					data: {
-						add: 'true'
+						id: id,
+						uid: uid
 					},
 					success: function(data) {
-						$('.table tr[data-id='+ id +'] .status-text').text('参与');
+						$('.table button[data-test='+ id +']').parents('tr').children('.status').text('已参与');
 						// 修改按钮状态
 						$('.add[data-num='+ id +']').attr('disabled','disabled');
 						$('.add[data-num='+ id +']').text('已添加');
@@ -43,18 +45,20 @@ $(document).ready(function() {
 			$(el.J_delete).click(function(ev) {
 				// 获取序列
 				var 
-					id = $(this).attr('data-num'),
-					path_url = _ajax.url.evaluation.plan_management.list.change;
+					id = $(this).attr('data-test'),
+					uid = $(this).attr('data-user'),
+					path_url = _ajax.url.evaluation.plan_management.detail.del;
 				// 删除确认
 					$.ajax({
 						url: path_url,
 						type: 'get',
 						dataType: 'json',
 						data: {
-							delete: 'true'
+							id: id,
+							uid: uid
 						},
 						success: function(data) {
-							$('.table tr[data-id='+ id +'] .status-text').text('不参与');
+							$('.table button[data-test='+ id +']').parents('tr').children('.status').text('');
 							// 修改按钮状态
 							$('.delete[data-num='+ id +']').attr('disabled','disabled');
 							$('.delete[data-num='+ id +']').text('已移除');

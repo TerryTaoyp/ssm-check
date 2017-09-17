@@ -64,7 +64,7 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${testPlanList}" var="testPlan" varStatus="status">
-                                    <tr data-id="${status.index+1}">
+                                    <tr data-id="${testPlan.id}">
                                         <td>${status.index+1}</td>
                                         <td class="name-text">${testPlan.testName}</td>
                                         <c:forEach items="${testTypeList}" var="testType">
@@ -74,16 +74,16 @@
                                         </c:forEach>
                                         <td class="time-start-text">${testPlan.startTime}</td>
                                         <c:if test="${testPlan.isAvailable==1}">
-                                            <td class="status">已开启</td>
+                                            <td class="status-text">已开启</td>
                                         </c:if>
                                         <c:if test="${testPlan.isAvailable==0}">
-                                            <td class="status">未开启</td>
+                                            <td class="status-text">未开启</td>
                                         </c:if>
                                         <td>
-                                            <a href="javascript:;" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}">修改计划</a>
+                                            <a href="javascript:;" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${testPlan.id}">修改计划</a>
                                             <a class="btn bg-blue" href="${website}/testplan/toallot/${testPlan.id}">分配考核人员</a>
-                                            <a class="btn btn-warning status" data-num="${status.index+1}"  href="${website}/testplan/edit/${testPlan.id}">改变状态</a>
-                                            <button type="button" class="btn bg-red delete" data-num="${status.index+1}">删除</button>
+                                            <button class="btn btn-warning status" data-num="${testPlan.id}">改变状态</button>
+                                            <button type="button" class="btn bg-red delete" data-num="${testPlan.id}">删除</button>
                                         </td>
                                     </tr>
                                 </c:forEach>

@@ -90,18 +90,12 @@
                plan_management:{
                     // 列表
                     list:{
-                        change: site.staticWebsite + 'mock/plan_management.json'
+                        edit: site.website + 'testplan/edit'
                     },
-                    // 添加
-                    add:{
-                        // 暂无
-                    }
-                },
-                //考核分配
-                allot:{
-                    // 列表
-                    list:{
-                        change: site.staticWebsite + 'mock/allot.json'
+                    // 详情页 分配
+                    detail:{
+                        add: site.website + 'testplan/join', //添加
+                        del: site.website + 'testplan/del/join', //移除
                     }
                 },
                 //月/季度考核管理
