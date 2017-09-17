@@ -49,6 +49,10 @@ public class AbilityPosition {
         this.targetTypeId = targetTypeId;
     }
 
+    public String getTargetId() {
+        return targetId;
+    }
+
     public Integer getTestId() {
         return testId;
     }

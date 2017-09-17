@@ -2,11 +2,10 @@ package com.pandawork.home.web.controller.check;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
+import com.pandawork.home.common.dto.AllotDto;
 import com.pandawork.home.common.entity.check.JoinTest;
 import com.pandawork.home.common.entity.check.TestPlan;
 import com.pandawork.home.common.entity.check.TestType;
-import com.pandawork.home.common.entity.system.Department;
-import com.pandawork.home.common.entity.system.Role;
 import com.pandawork.home.common.entity.user.User;
 import com.pandawork.home.service.check.JoinTestService;
 import com.pandawork.home.service.check.TestPlanService;
@@ -146,18 +145,14 @@ public class TestPlanController extends AbstractController{
     @RequestMapping(value = "/toallot/{id}",method = RequestMethod.GET)
     public String toAllot(@PathVariable("id") int id,Model model)throws Exception{
         TestPlan testPlan = testPlanService.queryTestPlan(id);
-        List<User> userList = userService.queryByIsDelete(1);
-        List<Department> departmentList = departmentService.listAll();
-        List<Role> roleList = roleService.listAll();
+        List<AllotDto> list = testPlanService.listAllUser();
         List<JoinTest> joinTestList = joinTestService.queryByTid(testPlan.getId());
         if (joinTestList == null){
             model.addAttribute("joinTestList",null);
         }else {
             model.addAttribute("joinTestList",joinTestList);
         }
-        model.addAttribute("departmentList",departmentList);
-        model.addAttribute("roleList",roleList);
-        model.addAttribute("userList",userList);
+        model.addAttribute("list",list);
         model.addAttribute("testPlan",testPlan);
         return "evaluation/allot-detail";
     }

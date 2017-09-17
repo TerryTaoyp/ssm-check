@@ -3,6 +3,7 @@ package com.pandawork.home.service.check.impl;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.core.common.util.Assert;
+import com.pandawork.home.common.dto.AllotDto;
 import com.pandawork.home.common.entity.check.TestPlan;
 import com.pandawork.home.common.exception.ChException;
 import com.pandawork.home.mapper.check.TestPlanMapper;
@@ -149,5 +150,10 @@ public class TestPlanServiceImpl implements TestPlanService {
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.QueryTestPlanByUidFailed);
         }
+    }
+
+    @Override
+    public List<AllotDto> listAllUser() throws SSException {
+        return testPlanMapper.listAllUser();
     }
 }

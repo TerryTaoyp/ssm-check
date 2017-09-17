@@ -1,6 +1,7 @@
 package com.pandawork.home.mapper.check;
 
 import com.pandawork.core.common.exception.SSException;
+import com.pandawork.home.common.dto.AllotDto;
 import com.pandawork.home.common.entity.check.TestPlan;
 import org.apache.ibatis.annotations.Param;
 
@@ -85,4 +86,11 @@ public interface TestPlanMapper {
      * @throws SSException
      */
     public List<TestPlan> queryByTypeId(@Param("testTypeId") int testTypeId)throws SSException;
+
+    /**
+     * 列出所有的用户
+     * @return
+     * @throws SSException
+     */
+    public List<AllotDto> listAllUser()throws SSException;
 }

@@ -68,4 +68,15 @@
     <select id="queryByTypeId" resultMap="pw.TestPlan">
         SELECT * FROM t_test_plan WHERE test_type_id = #{testTypeId}
     </select>
+    
+    <select id="listAllUser" resultType="AllotDto">
+        SELECT
+        tu.id AS id,
+        tu.username AS username,
+        tu.real_name AS realName,
+        (SELECT td.name FROM t_department td WHERE td.id = tu.did) AS department,
+        (SELECT tr.name FROM  t_role tr WHERE tr.id = tu.rid)AS role
+        FROM t_user tu
+        WHERE tu.is_delete = 1
+    </select>
 </mapper>

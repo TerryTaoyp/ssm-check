@@ -114,38 +114,31 @@
                                 <tr>
                                     <th>序号</th>
                                     <th>考核计划名称</th>
-                                    <th>姓名</th>
                                     <th>所属部门</th>
+                                    <th>姓名</th>
                                     <th>职位</th>
                                     <th>是否参与本次考核</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${userList}" var="user" varStatus="status">
+                                <c:forEach items="${list}" var="user" varStatus="status">
                                     <tr>
                                         <td>${status.index+1}</td>
                                         <td>${testPlan.testName}</td>
+                                        <td>${user.department}</td>
                                         <td>${user.realName}</td>
-                                        <c:forEach items="${departmentList}" var="department">
-                                            <c:if test="${user.did == department.id}">
-                                                <td>${department.name}</td>
-                                            </c:if>
-                                        </c:forEach>
-                                        <c:forEach items="${roleList}" var="role" varStatus="status">
-                                            <c:if test="${user.rid == role.id}">
-                                                <td>${role.name}</td>
-                                            </c:if>
-                                        </c:forEach>
-                                        <%--<c:forEach items="${joinTestList}" var="joinTest" varStatus="status">--%>
-                                            <%--<c:if test="${joinTest.uid == user.id}">--%>
-                                                <%--<td>已参与</td>--%>
-                                            <%--</c:if>--%>
-                                        <%--</c:forEach>--%>
-                                        <td></td>
+                                        <td>${user.role}</td>
                                         <td>
-                                            <a href="${website}/testplan/join/${testPlan.id}" class="btn bg-blue">添加</a>
-                                            <a type="button" class="btn bg-red" href="${website}/testplan/del/join/${testPlan.id}">移除</a>
+                                            <c:forEach items="${joinTestList}" var="joinTest" varStatus="status">
+                                                <c:if test="${joinTest.uid == user.id}">
+                                                    已参与
+                                                </c:if>
+                                            </c:forEach>
+                                        </td>
+                                        <td>
+                                            <a href="${website}/testplan/join/${testPlan.id}&${user.id}" class="btn bg-blue">添加</a>
+                                            <a type="button" class="btn bg-red" href="${website}/testplan/del/join/${testPlan.id}&${user.id}">移除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -155,8 +148,8 @@
                                 <tr>
                                     <th>序号</th>
                                     <th>考核计划名称</th>
-                                    <th>姓名</th>
                                     <th>所属部门</th>
+                                    <th>姓名</th>
                                     <th>职位</th>
                                     <th>是否参与本次考核</th>
                                     <th>
@@ -180,7 +173,6 @@
     <!-- /.content-wrapper -->
     <jsp:include page="../common/footer.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
-    <jsp:include page="../common/control-sidebar.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/control-sidebar.html" -->
 </div>
 <!-- ./wrapper -->

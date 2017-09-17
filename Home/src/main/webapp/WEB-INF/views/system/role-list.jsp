@@ -63,7 +63,7 @@
                                         <td class="role-text">${role.name}</td>
                                         <td>
                                             <button class="btn bg-olive change"  data-toggle="modal" data-target="#modal-default" data-num="${role.id}">修改</button>
-                                            <button type="button" class="btn bg-red delete" data-num="${role.id}">删除角色</button>
+                                            <%--<button type="button" class="btn bg-red delete" data-num="${role.id}">删除角色</button>--%>
                                         </td>
                                     </tr>
                                 </c:forEach>

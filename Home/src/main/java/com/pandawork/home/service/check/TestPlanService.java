@@ -1,6 +1,7 @@
 package com.pandawork.home.service.check;
 
 import com.pandawork.core.common.exception.SSException;
+import com.pandawork.home.common.dto.AllotDto;
 import com.pandawork.home.common.entity.check.TestPlan;
 
 import java.util.List;
@@ -83,4 +84,11 @@ public interface TestPlanService {
      * @throws SSException
      */
     public List<TestPlan> queryByTypeId(int testTypeId)throws SSException;
+
+    /**
+     * 列出所有的用户
+     * @return
+     * @throws SSException
+     */
+    public List<AllotDto> listAllUser()throws SSException;
 }
