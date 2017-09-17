@@ -69,11 +69,13 @@
                                                     <tr data-id="${st.index+1}">
                                                         <td>${st.index+1}</td>
                                                         <td>${testPlan.testName}</td>
+                                                        <td>
                                                         <c:forEach items="${testTypeList}" var="testType">
                                                             <c:if test="${testPlan.testTypeId == testType.id}">
-                                                                <td>${testType.name}</td>
+                                                                ${testType.name}
                                                             </c:if>
                                                         </c:forEach>
+                                                        </td>
                                                         <td>${testPlan.startTime}</td>
                                                         <c:if test="${testPlan.isAvailable ==1}">
                                                             <td>已开启</td>

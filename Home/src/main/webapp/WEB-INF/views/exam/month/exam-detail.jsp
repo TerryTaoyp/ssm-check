@@ -75,11 +75,13 @@
                                 <c:forEach items="${workDetailList}" var="workDetail" varStatus="status">
                                 <tr>
                                     <td>${status.index+1}</td>
+                                    <td>
                                     <c:forEach items="${userList}" var="user">
                                         <c:if test="${user.id == workPlan.beCheckId}">
-                                            <td>${user.username}</td>
+                                            ${user.username}
                                         </c:if>
                                     </c:forEach>
+                                    </td>
                                     <td>${workDetail.planContent}</td>
                                     <td>${workDetail.startTime}</td>
                                     <td>${workDetail.endTime}</td>

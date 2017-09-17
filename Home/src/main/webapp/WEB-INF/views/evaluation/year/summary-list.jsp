@@ -65,16 +65,20 @@
                                     <tr>
                                         <td>${status.index+1}</td>
                                         <td>${summary.year}</td>
+                                        <td>
                                         <c:forEach items="${departmentList}" var="department">
                                             <c:if test="${user.did == department.id}">
-                                                <td>${department.name}</td>
+                                                ${department.name}
                                             </c:if>
                                         </c:forEach>
+                                        </td>
+                                        <td>
                                         <c:forEach items="${roleList}" var="role">
                                             <c:if test="${user.rid == role.id}">
-                                                <td>${role.name}</td>
+                                                ${role.name}
                                             </c:if>
                                         </c:forEach>
+                                        </td>
                                         <td>
                                             <a href="${website}/summary/detail/${summary.id}" class="btn bg-blue">查看详情</a>
                                             <%--<button type="button" class="btn bg-red">删除此能力指标考核</button>--%>

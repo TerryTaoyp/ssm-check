@@ -67,11 +67,13 @@
                                     <tr data-id="${testPlan.id}">
                                         <td>${status.index+1}</td>
                                         <td class="name-text">${testPlan.testName}</td>
+                                        <td class="nature-text">
                                         <c:forEach items="${testTypeList}" var="testType">
                                             <c:if test="${testPlan.testTypeId == testType.id}">
-                                                <td class="nature-text">${testType.name}</td>
+                                                ${testType.name}
                                             </c:if>
                                         </c:forEach>
+                                        </td>
                                         <td class="time-start-text">${testPlan.startTime}</td>
                                         <c:if test="${testPlan.isAvailable==1}">
                                             <td class="status-text">已开启</td>

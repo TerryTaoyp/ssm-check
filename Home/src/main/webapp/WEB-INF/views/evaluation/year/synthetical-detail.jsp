@@ -78,42 +78,66 @@
                                         <td>1</td>
                                             <td>${testPlan.year}</td>
                                             <c:forEach items="${workPlanList}" var="workPlan">
+                                                <td>
                                                 <c:if test="${workPlan.month == 1}">
-                                                    <td>${workPlan.monthScore}</td>
+                                                    ${workPlan.monthScore}
                                                 </c:if>
+                                                </td>
+                                                <td>
                                                 <c:if test="${workPlan.month ==2}">
-                                                    <td>${workPlan.monthScore}</td>
+                                                    ${workPlan.monthScore}
                                                 </c:if>
+                                                </td>
+                                                <td>
                                                 <c:if test="${workPlan.month == 3}">
-                                                    <td>${workPlan.monthScore}</td>
+                                                    ${workPlan.monthScore}
                                                 </c:if>
+                                                </td>
+                                                <td>
                                                 <c:if test="${workPlan.month == 4}">
-                                                    <td>${workPlan.monthScore}</td>
+                                                    ${workPlan.monthScore}
                                                 </c:if>
+                                                </td>
+                                                <td>
                                                 <c:if test="${workPlan.month == 5}">
-                                                    <td>${workPlan.monthScore}</td>
+                                                    ${workPlan.monthScore}
                                                 </c:if>
+                                                </td>
+                                                <td>
                                                 <c:if test="${workPlan.month == 6}">
-                                                    <td>${workPlan.monthScore}</td>
+                                                    ${workPlan.monthScore}
                                                 </c:if>
+                                                </td>
+                                                <td>
                                                 <c:if test="${workPlan.month == 7}">
-                                                    <td>${workPlan.monthScore}</td>
+                                                    ${workPlan.monthScore}
                                                 </c:if>
+                                                </td>
+                                                <td>
                                                 <c:if test="${workPlan.month == 8}">
-                                                    <td>${workPlan.monthScore}</td>
+                                                    ${workPlan.monthScore}
                                                 </c:if>
+                                                </td>
+                                                <td>
                                                 <c:if test="${workPlan.month == 9}">
-                                                    <td>${workPlan.monthScore}</td>
+                                                    ${workPlan.monthScore}
                                                 </c:if>
+                                                </td>
+                                                <td>
                                                 <c:if test="${workPlan.month == 10}">
-                                                    <td>${workPlan.monthScore}</td>
+                                                    ${workPlan.monthScore}
                                                 </c:if>
+                                                </td>
+                                                <td>
                                                 <c:if test="${workPlan.month == 11}">
-                                                    <td>${workPlan.monthScore}</td>
+                                                    ${workPlan.monthScore}
                                                 </c:if>
+                                                </td>
+                                                <td>
                                                 <c:if test="${workPlan.month == 12}">
-                                                    <td>${workPlan.monthScore}</td>
+                                                    ${workPlan.monthScore}
                                                 </c:if>
+                                                </td>
                                             </c:forEach>
                                                 <td>${performance.suggestScore}</td>
                                                 <td>${performance.summaryScore}</td>
@@ -140,18 +164,26 @@
                                         <td>1</td>
                                         <td>${testPlan.year}</td>
                                         <c:forEach items="${workPlanList}" var="workPlan">
+                                            <td>
                                             <c:if test="${workPlan.queater == 1}">
-                                                <td>${workPlan.queaterScore}</td>
+                                                ${workPlan.queaterScore}
                                             </c:if>
+                                            </td>
+                                            <td>
                                             <c:if test="${workPlan.queater ==2}">
-                                                <td>${workPlan.queaterScore}</td>
+                                                ${workPlan.queaterScore}
                                             </c:if>
+                                            </td>
+                                            <td>
                                             <c:if test="${workPlan.queater == 3}">
-                                                <td>${workPlan.queaterScore}</td>
+                                                ${workPlan.queaterScore}
                                             </c:if>
+                                            </td>
+                                            <td>
                                             <c:if test="${workPlan.queater == 4}">
-                                                <td>${workPlan.queaterScore}</td>
+                                                ${workPlan.queaterScore}
                                             </c:if>
+                                            </td>
                                         </c:forEach>
                                         <td>${performance.suggestScore}</td>
                                         <td>${performance.summaryScore}</td>

@@ -71,16 +71,20 @@
                                         <c:forEach items="${userList}" var="user">
                                             <c:if test="${joinTest.uid == user.id}">
                                                 <td>${user.username}</td>
+                                                <td>
                                                 <c:forEach items="${departmentList}" var="department">
                                                     <c:if test="${user.did == department.id}">
-                                                        <td>${department.name}</td>
+                                                        ${department.name}
                                                     </c:if>
                                                 </c:forEach>
+                                                </td>
+                                                <td>
                                                 <c:forEach items="${roleList}" var="role">
                                                     <c:if test="${user.rid == role.id}">
-                                                        <td>${role.name}</td>
+                                                        ${role.name}
                                                     </c:if>
                                                 </c:forEach>
+                                                </td>
                                             </c:if>
                                         </c:forEach>
                                             <td>${testPlan.startTime}</td>
