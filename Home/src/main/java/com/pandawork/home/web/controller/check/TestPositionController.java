@@ -97,4 +97,37 @@ public class TestPositionController extends AbstractController {
         abilityOptionService.addOption(abilityOption4);
         return sendJsonObject(1);
     }
+
+    /**
+     * 跳转到编辑页面
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/to/edit",method = RequestMethod.GET)
+    public JSONObject toEdit(@RequestParam("positionId") int id)throws Exception{
+
+        return sendJsonObject(1);
+    }
+
+    /**
+     * 编辑本道题
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/edit",method = RequestMethod.GET)
+    public JSONObject edit()throws Exception{
+
+        return sendJsonObject(1);
+    }
+
+    /**
+     * 删除本道题
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/del",method = RequestMethod.GET)
+    public JSONObject del(@RequestParam("positionId") int id)throws Exception{
+//        abilityPositionService.delPosition();
+        return sendJsonObject(1);
+    }
 }
