@@ -75,7 +75,6 @@
                                             </c:if>
                                             <td>
                                                 <a href="${website}/check/month/detail/list/${testPlan.id}" class="btn bg-green">进入考核</a>
-                                                <button type="button" class="btn bg-red disabled">已经参与过此次考核</button>
                                             </td>
                                         </tr>
                                     </c:if>

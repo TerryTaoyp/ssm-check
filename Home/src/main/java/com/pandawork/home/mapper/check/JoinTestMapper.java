@@ -63,4 +63,11 @@ public interface JoinTestMapper {
      * @throws SSException
      */
     public List<JoinTest> listAll()throws SSException;
+
+    /**
+     * 此次参与的考核时候否被考核
+     * @param joinTest
+     * @throws SSException
+     */
+    public void isJoin(@Param("joinTest") JoinTest joinTest)throws SSException;
 }

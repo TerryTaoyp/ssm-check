@@ -79,7 +79,6 @@
                                         </c:if>
                                         <td>
                                             <a href="${website}/test/position/list/${testPlan.id}" class="btn bg-blue">查看详情</a>
-                                            <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#modal-default">修改计划</button>
                                         </td>
                                     </tr>
 

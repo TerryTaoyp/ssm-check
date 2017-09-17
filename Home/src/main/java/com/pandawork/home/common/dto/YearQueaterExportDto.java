@@ -15,13 +15,13 @@ public class YearQueaterExportDto {
     private String department;
     //用户的角色
     private String role;
-    //一月份得分
+    //一季度得分
     private Double queater1;
-    //二月份得分
+    //二季度得分
     private Double queater2;
-    //三月份得分
+    //三季度得分
     private Double queater3;
-    //四月份得分
+    //四季度得分
     private Double queater4;
     //年度总结得分
     private Double summaryScore;

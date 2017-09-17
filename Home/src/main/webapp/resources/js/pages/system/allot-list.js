@@ -73,7 +73,7 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							delete: 'true'
+							id: id
 						},
 						success: function(data) {
 							$('.table tr[data-id='+ id +']').remove();

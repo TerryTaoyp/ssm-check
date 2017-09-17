@@ -23,7 +23,6 @@
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
     <jsp:include page="../../common/sidebar.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/sidebar.html" -->
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -57,9 +56,8 @@
                                     <th>被考核用户名</th>
                                     <th>所属部门</th>
                                     <th>所属角色</th>
-                                    <th>考核开始时间</th>
-                                    <th>考核结束时间</th>
-                                    <th>开启状态</th>
+                                    <th>考核时间</th>
+                                    <%--<th>考核结束时间</th>--%>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -84,16 +82,15 @@
                                             </c:if>
                                         </c:forEach>
                                         <td>${testPlan.startTime}</td>
-                                        <td>${testPlan.finishTime}</td>
-                                        <c:if test="${testPlan.isAvailable == 1}">
-                                            <td>已开启</td>
-                                        </c:if>
-                                        <c:if test="${testPlan.isAvailable == 0}">
-                                            <td>未开启</td>
-                                        </c:if>
+                                        <%--<td>${testPlan.finishTime}</td>--%>
                                         <td>
                                             <a href="${website}/check/month/detail/${testPlan.id}" class="btn bg-green">进入考核</a>
-                                            <button type="button" class="btn bg-red disabled">已经参与过此次考核</button>
+                                            <c:if test="${joinTest.isJoin==1}">
+                                                <button type="button" class="btn bg-red disabled">已经参与过此次考核</button>
+                                            </c:if>
+                                            <c:if test="${joinTest.isJoin==0}">
+                                                <button type="button" class="btn bg-green disabled">未参与过此次考核</button>
+                                            </c:if>
                                         </td>
                                     </tr>
                                 </c:forEach>

@@ -31,4 +31,5 @@
     <select id="countAll" resultType="int">
         SELECT COUNT(1) FROM t_allot
     </select>
+
 </mapper>

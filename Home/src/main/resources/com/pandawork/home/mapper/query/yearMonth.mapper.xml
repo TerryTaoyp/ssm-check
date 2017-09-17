@@ -24,6 +24,7 @@
         (SELECT twp.month_score FROM t_work_plan twp WHERE twp.year = (SELECT ttp.year FROM t_test_plan ttp WHERE ttp.id = tjt.test_id) AND twp.month = 11)AS month11,
         (SELECT twp.month_score FROM t_work_plan twp WHERE twp.year = (SELECT ttp.year FROM t_test_plan ttp WHERE ttp.id = tjt.test_id) AND twp.month = 12)AS month12,
         (SELECT tp.summary_score FROM t_performance tp WHERE tp.year = (SELECT ttp.year FROM t_test_plan ttp WHERE ttp.id = tjt.test_id))AS summaryScore,
+        (SELECT tar.total_score FROM t_ability_result tar WHERE tar.year =(SELECT ttp.year FROM t_test_plan ttp WHERE ttp.id = tjt.test_id))AS abilityScore,
         (SELECT tp.year_score FROM t_performance tp WHERE tp.year = (SELECT ttp.year FROM t_test_plan ttp WHERE ttp.id = tjt.test_id))AS yearScore,
         (SELECT ttp.test_type_id FROM t_test_plan ttp WHERE ttp.id = tjt.test_id)AS testType
         FROM t_join_test tjt

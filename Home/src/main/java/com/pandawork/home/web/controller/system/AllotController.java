@@ -44,7 +44,7 @@ public class AllotController extends AbstractController {
             List<Allot> allotList  = allotService.listAll();
             List<User> userList = userService.listAll();
             List<Department> departmentList = departmentService.listAll();
-            List<User> userList1 = userService.queryByRole(9);
+            List<User> userList1 = userService.queryByRole(7);
             model.addAttribute("allotList",allotList);
             model.addAttribute("userList",userList);
             model.addAttribute("departmentList",departmentList);
@@ -96,7 +96,7 @@ public class AllotController extends AbstractController {
     }
 
     /**
-     * 编辑管辖分配
+     * 跳转到编辑管辖分配
      * @param id
      * @return
      * @throws Exception
@@ -112,9 +112,25 @@ public class AllotController extends AbstractController {
         return sendJsonObject(jsonObject);
     }
 
-    @RequestMapping(value = "/update/{id}",method = RequestMethod.GET)
-    public String update(int id,int did)throws Exception{
-
+    /**
+     * 编辑管辖分配范围
+     * @param id
+     * @param dids
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/update",method = RequestMethod.GET)
+    public String update(@RequestParam("id") int id,@RequestParam("did[]") List<Integer>dids)throws Exception{
+        List<Allot> list = allotService.queryByUid(id);
+        for (Allot i:list){
+            allotService.delAllot(i.getId());
+        }
+        for (int i:dids){
+            Allot allot = new Allot();
+            allot.setUid(id);
+            allot.setDid(i);
+            allotService.addAllot(allot);
+        }
         return "redirect:/allot/list";
     }
 }

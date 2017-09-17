@@ -120,42 +120,22 @@
                     <input type="hidden" id="dataId">
                     <div class="form-group">
                         <label>考核计划名称：</label>
-                        <input type="text" class="form-control name a-require-text" placeholder="请输入..." name="role">
+                        <input type="text" class="form-control name a-require-text" placeholder="请输入..." name="testName">
+                    </div>
+                    <div class="form-group">
+                        <label>考核计划所属年份：</label>
+                        <input type="text" class="form-control name a-require-text" placeholder="请输入..." name="year">
                     </div>
 
                     <div class="form-group">
                         <label>考核性质：</label>
-                        <select class="form-control nature a-require-option">
+                        <select class="form-control nature a-require-option" name="testTypeId">
                             <option value="-1">请选择</option>
-                            <option value="1">月度考核</option>
-                            <option value="2">年度考核</option>
+                            <c:forEach items="${testTypeList}" var="testType" varStatus="status">
+                                <option selected = "" value="${testType.id}">${testType.name}</option>
+                            </c:forEach>
                         </select>
                     </div>
-
-                    <!-- <div class="form-group">
-                        <label>选择对象：</label>
-                        <select class="form-control select2 position a-require-options" multiple="multiple" data-placeholder="请选择..." style="width: 100%;">
-                            <option value="1">对象1</option>
-                            <option value="2">对象2</option>
-                        </select>
-                    </div> -->
-
-                    <!-- <div class="form-group none kind">
-                        <label>考核方式：</label>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" checked="checked" name="kind">
-                                工作计划考核
-                            </label>
-                        </div>
-
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">
-                                绩效指标考核
-                            </label>
-                        </div>
-                    </div> -->
 
                     <div class="form-group">
                       <label>选择时间：</label>
@@ -163,7 +143,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-calendar"></i>
                         </div>
-                        <input type="text" class="form-control pull-right" id="reservation">
+                        <input type="text" class="form-control pull-right" id="reservation" name="startTime">
                       </div>
                     </div>
 

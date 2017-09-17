@@ -21,6 +21,17 @@ public class JoinTest{
     //参与 此考核计划的ID
     @Column(name = "uid")
     private Integer uid;
+    //此次参与的考核是否被考核
+    @Column(name = "is_join")
+    private Integer isJoin;
+
+    public Integer getIsJoin() {
+        return isJoin;
+    }
+
+    public void setIsJoin(Integer isJoin) {
+        this.isJoin = isJoin;
+    }
 
     public Integer getId() {
         return id;

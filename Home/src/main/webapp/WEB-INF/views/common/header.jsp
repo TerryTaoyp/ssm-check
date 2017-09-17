@@ -31,7 +31,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-user fa-2x user-image"></i>
-                        <span class="hidden-xs">您好,管理员</span>
+                        <span class="hidden-xs">您好,${sessionScope.username}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
@@ -44,10 +44,10 @@
                         <li class="user-body">
                             <div class="row">
                                 <div class="col-xs-6 text-center">
-                                    <a href="#">目前所在部门：产品部</a>
+                                    <a href="#">目前所在部门：${sessionScope.department}</a>
                                 </div>
                                 <div class="col-xs-6 text-center">
-                                    <a href="#">目前所任职位：副经理</a>
+                                    <a href="#">目前所任职位：${sessionScope.role}</a>
                                 </div>
                             </div>
                             <!-- /.row -->

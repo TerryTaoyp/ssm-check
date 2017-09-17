@@ -53,4 +53,5 @@ public interface AllotService {
      * @throws SSException
      */
     public int countAll()throws SSException;
+
 }

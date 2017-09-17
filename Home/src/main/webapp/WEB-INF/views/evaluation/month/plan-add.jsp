@@ -48,7 +48,7 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <form action="${website}/workplan/month/add" method="post">
-                        <input type="text" class="form-control require-text" name="wid" value="${workPlan.id}" hidden/>
+                        <input type="hidden" class="form-control require-text" name="wid" value="${workPlan.id}" />
                         <div class="form-group">
                             <label>所属考核计划：</label>
                             <input type="text" class="form-control require-text" value="${testPlan.testName}" disabled>

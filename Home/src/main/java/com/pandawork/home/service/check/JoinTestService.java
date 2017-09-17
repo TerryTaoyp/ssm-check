@@ -62,4 +62,11 @@ public interface JoinTestService {
      * @throws SSException
      */
     public List<JoinTest> listAll()throws SSException;
+
+    /**
+     * 此次参与的考核时候否被考核
+     * @param joinTest
+     * @throws SSException
+     */
+    public void isJoin(JoinTest joinTest)throws SSException;
 }

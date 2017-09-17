@@ -65,7 +65,7 @@
                                         <th>九月</th>
                                         <th>十月</th>
                                         <th>十一月</th>
-                                        <th>十一月</th>
+                                        <th>十二月</th>
                                         <th>平均得分</th>
                                         <th>年度总结得分</th>
                                         <th>最终得分</th>
@@ -76,48 +76,72 @@
                                     <tr>
                                         <td>1</td>
                                         <c:forEach items="${workPlanList}" var="workPlan" varStatus="status">
+                                            <td>
                                             <c:if test="${workPlan.month == 1}">
-                                                <td>${workPlan.monthScore}</td>
+                                                ${workPlan.monthScore}
                                             </c:if>
-                                            <c:if test="${workPlan.month == 2}">
-                                                <td>${workPlan.monthScore}</td>
-                                            </c:if>
-                                            <c:if test="${workPlan.month == 3}">
-                                                <td>${workPlan.monthScore}</td>
-                                            </c:if>
-                                            <c:if test="${workPlan.month == 4}">
-                                                <td>${workPlan.monthScore}</td>
-                                            </c:if>
-                                            <c:if test="${workPlan.month == 5}">
-                                                <td>${workPlan.monthScore}</td>
-                                            </c:if>
-                                            <c:if test="${workPlan.month == 6}">
-                                                <td>${workPlan.monthScore}</td>
-                                            </c:if>
-                                            <c:if test="${workPlan.month == 7}">
-                                                <td>${workPlan.monthScore}</td>
-                                            </c:if>
-                                            <c:if test="${workPlan.month == 8}">
-                                                <td>${workPlan.monthScore}</td>
-                                            </c:if>
-                                            <c:if test="${workPlan.month == 9}">
-                                                <td>${workPlan.monthScore}</td>
-                                            </c:if>
-                                            <c:if test="${workPlan.month == 10}">
-                                                <td>${workPlan.monthScore}</td>
-                                            </c:if>
-                                            <c:if test="${workPlan.month == 11}">
-                                                <td>${workPlan.monthScore}</td>
-                                            </c:if>
-                                            <c:if test="${workPlan.month == 12}">
-                                                <td>${workPlan.monthScore}</td>
-                                            </c:if>
+                                            </td>
+                                            <td>
+                                                <c:if test="${workPlan.month == 2}">
+                                                    ${workPlan.monthScore}
+                                                </c:if>
+                                            </td>
+                                            <td>
+                                                <c:if test="${workPlan.month == 3}">
+                                                    ${workPlan.monthScore}
+                                                </c:if>
+                                            </td>
+                                            <td>
+                                                <c:if test="${workPlan.month == 4}">
+                                                    ${workPlan.monthScore}
+                                                </c:if>
+                                            </td>
+                                            <td>
+                                                <c:if test="${workPlan.month == 5}">
+                                                    ${workPlan.monthScore}
+                                                </c:if>
+                                            </td>
+                                            <td>
+                                                <c:if test="${workPlan.month == 6}">
+                                                    ${workPlan.monthScore}
+                                                </c:if>
+                                            </td>
+                                            <td>
+                                                <c:if test="${workPlan.month == 7}">
+                                                    ${workPlan.monthScore}
+                                                </c:if>
+                                            </td>
+                                            <td>
+                                                <c:if test="${workPlan.month == 8}">
+                                                    ${workPlan.monthScore}
+                                                </c:if>
+                                            </td>
+                                            <td>
+                                                <c:if test="${workPlan.month == 9}">
+                                                    ${workPlan.monthScore}
+                                                </c:if>
+                                            </td>
+                                            <td>
+                                                <c:if test="${workPlan.month == 10}">
+                                                    ${workPlan.monthScore}
+                                                </c:if>
+                                            </td>
+                                            <td>
+                                                <c:if test="${workPlan.month == 11}">
+                                                    ${workPlan.monthScore}
+                                                </c:if>
+                                            </td>
+                                            <td>
+                                                <c:if test="${workPlan.month == 12}">
+                                                    ${workPlan.monthScore}
+                                                </c:if>
+                                            </td>
                                         </c:forEach>
-                                        <th>${score}</th>
+                                        <td>${score}</td>
                                         <td>${summary.summaryScore}</td>
                                         <td></td>
                                         <td>
-                                            <a href="../../../view/exam/year/exam-detail.html" class="btn bg-green">打分</a>
+                                            <a href="${website}/check" class="btn bg-green">打分</a>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -140,19 +164,27 @@
                                     <tr>
                                         <c:forEach items="${workPlanList}" var="workPlan" varStatus="status">
                                             <td>${status.index+1}</td>
+                                            <td>
                                             <c:if test="${workPlan.queater == 1}">
-                                                <td>${workPlan.queaterScore}</td>
+                                                ${workPlan.queaterScore}
                                             </c:if>
-                                            <c:if test="${workPlan.queater == 2}">
-                                                <td>${workPlan.queaterScore}</td>
-                                            </c:if>
-                                            <c:if test="${workPlan.queater == 3}">
-                                                <td>${workPlan.queaterScore}</td>
-                                            </c:if>
-                                            <c:if test="${workPlan.queater == 4}">
-                                                <td>${workPlan.queaterScore}</td>
-                                            </c:if>
-                                            <th>${score}</th>
+                                            </td>
+                                            <td>
+                                                <c:if test="${workPlan.queater == 2}">
+                                                    ${workPlan.queaterScore}
+                                                </c:if>
+                                            </td>
+                                            <td>
+                                                <c:if test="${workPlan.queater == 3}">
+                                                    ${workPlan.queaterScore}
+                                                </c:if>
+                                            </td>
+                                            <td>
+                                                <c:if test="${workPlan.queater == 4}">
+                                                    ${workPlan.queaterScore}
+                                                </c:if>
+                                            </td>
+                                            <td>${score}</td>
                                             <td>${summary.summaryScore}</td>
                                             <td></td>
                                             <td>

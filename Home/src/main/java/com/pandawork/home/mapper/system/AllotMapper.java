@@ -53,4 +53,5 @@ public interface AllotMapper {
      * @throws SSException
      */
     public int countAll()throws SSException;
+
 }

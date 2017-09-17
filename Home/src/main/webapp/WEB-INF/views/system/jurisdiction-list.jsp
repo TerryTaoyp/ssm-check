@@ -55,7 +55,7 @@
                                     <th>序号</th>
                                     <th>权限等级</th>
                                     <th>备注信息</th>
-                                    <th>操作</th>
+                                    <%--<th>操作</th>--%>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -64,10 +64,10 @@
                                         <td>${status.index+1}</td>
                                         <td class="level-text">${power.power}</td>
                                         <td class="remark-text">${power.detail}</td>
-                                        <td>
-                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default"  data-num="${power.id}">修改</button>
-                                            <a class="btn bg-red delete" data-num="${power.id}" href="javascript:;">删除权限</a>
-                                        </td>
+                                        <%--<td>--%>
+                                            <%--<button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default"  data-num="${power.id}">修改</button>--%>
+                                            <%--<a class="btn bg-red delete" data-num="${power.id}" href="javascript:;">删除权限</a>--%>
+                                        <%--</td>--%>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -80,7 +80,7 @@
                 <!-- /.col -->
             </div>
             <!-- /.row -->
-            <a href="${website}/power/toadd" class="btn bg-olive">添加</a>
+            <%--<a href="${website}/power/toadd" class="btn bg-olive">添加</a>--%>
         </section>
 
         <!-- /.content -->

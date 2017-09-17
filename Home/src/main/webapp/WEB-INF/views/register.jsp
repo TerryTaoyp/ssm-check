@@ -51,10 +51,14 @@
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
+                <input type="text" class="form-control" name="phone" placeholder="手机号码">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
                 <label>部门：</label>
                 <select class="form-control" name="did">
                     <option>请选择</option>
-                    <c:forEach items="${departmentList}" var="department" varStatus="statsu">
+                    <c:forEach items="${departmentList}" var="department" varStatus="status">
                         <option value="${department.id}">${department.name}</option>
                     </c:forEach>
                 </select>

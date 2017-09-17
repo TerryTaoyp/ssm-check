@@ -9,6 +9,8 @@ import com.pandawork.home.mapper.system.AllotMapper;
 import com.pandawork.home.service.system.AllotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class AllotServiceImpl implements AllotService {
     AllotMapper allotMapper;
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public void addAllot(Allot allot) throws SSException {
         try{
             if (Assert.isNull(allot)){
@@ -34,6 +37,7 @@ public class AllotServiceImpl implements AllotService {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public void updateAllot(Allot allot) throws SSException {
         try {
             if (Assert.isNull(allot)){
@@ -60,6 +64,7 @@ public class AllotServiceImpl implements AllotService {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class, Exception.class, RuntimeException.class})
     public boolean delAllot(int id) throws SSException {
         try{
             if (Assert.isNull(id)){
@@ -91,4 +96,5 @@ public class AllotServiceImpl implements AllotService {
             throw SSException.get(ChException.CountAllAllotFailed);
         }
     }
+
 }

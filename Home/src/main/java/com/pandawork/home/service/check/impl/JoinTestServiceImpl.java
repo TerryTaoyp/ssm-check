@@ -106,4 +106,17 @@ public class JoinTestServiceImpl implements JoinTestService{
     public List<JoinTest> listAll() throws SSException {
         return joinTestMapper.listAll();
     }
+
+    @Override
+    public void isJoin(JoinTest joinTest) throws SSException {
+        try {
+            if (Assert.isNull(joinTest)){
+                return;
+            }
+            joinTestMapper.isJoin(joinTest);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryJoinTestByTid);
+        }
+    }
 }

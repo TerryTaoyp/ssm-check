@@ -35,4 +35,8 @@
     <select id="listAll" resultMap="pw.JoinTest">
         SELECT * FROM t_join_test
     </select>
+
+    <update id="isJoin">
+        UPDATE t_join_test SET is_join = #{joinTest.isJoin} WHERE id  = #{joinTest.id}
+    </update>
 </mapper>

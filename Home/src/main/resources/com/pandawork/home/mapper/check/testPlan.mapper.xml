@@ -83,4 +83,8 @@
     <delete id="del">
         DELETE FROM t_test_plan WHERE id = #{id}
     </delete>
+
+    <update id="addAll">
+        UPDATE
+    </update>
 </mapper>

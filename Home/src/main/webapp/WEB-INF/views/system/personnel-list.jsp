@@ -80,7 +80,6 @@
                                         </c:forEach>
                                         <td class="phone-text">${user.phone}</td>
                                         <td>
-                                            <button type="button" class="btn bg-blue">查看详情</button>
                                             <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${user.id}">修改</button>
                                             <button type="button" class="btn bg-red delete" data-num="${user.id}">删除</button>
                                         </td>

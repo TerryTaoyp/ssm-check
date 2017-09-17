@@ -3,10 +3,15 @@ package com.pandawork.home.web.controller.user;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.util.Assert;
 import com.pandawork.home.common.entity.system.Department;
+import com.pandawork.home.common.entity.system.Power;
+import com.pandawork.home.common.entity.system.Role;
 import com.pandawork.home.common.entity.user.User;
 import com.pandawork.home.service.system.DepartmentService;
+import com.pandawork.home.service.system.PowerService;
+import com.pandawork.home.service.system.RoleService;
 import com.pandawork.home.service.user.UserService;
 import com.pandawork.home.web.controller.AbstractController;
+import com.pandawork.home.common.util.Md5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
@@ -30,6 +37,10 @@ public class LoginController extends AbstractController {
     UserService userService;
     @Autowired
     DepartmentService departmentService;
+    @Autowired
+    RoleService roleService;
+    @Autowired
+    PowerService powerService;
 
     /**
      * 跳到登录页面
@@ -47,19 +58,23 @@ public class LoginController extends AbstractController {
      * @return
      */
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String login(HttpServletRequest request, HttpServletResponse response, @RequestParam("username") String username, @RequestParam("password") String password, HttpSession session,Model model) throws SSException {
+    public String login(HttpServletRequest request, HttpServletResponse response, @RequestParam("username") String username, @RequestParam("password") String password, HttpSession session,Model model) throws Exception {
         User user = userService.queryByUname(username);
         if (!Assert.isNull(user)){
             if (user.getPassword().equals(password)){
-                session.setAttribute("username",user.getUsername());
-//            if (user.getStatus()==1&&user.getPassword().equals(password)){
-//                user.getDid()
-                return "index";
-//            }else {
-//                return "login";
-//            }
-//            if (user.getPassword().equals(password))
-//            return "index";
+                if (user.getStatus()==1){
+                    Department department = departmentService.queryById(user.getDid());
+                    Role role = roleService.queryById(user.getRid());
+                    Power power = powerService.queryById(role.getPid());
+                    session.setAttribute("department",department.getName());
+                    session.setAttribute("role",role.getName());
+                    session.setAttribute("power",power.getPower());
+                    session.setAttribute("username",user.getUsername());
+                    return "index";
+                }else {
+                    model.addAttribute("error","审核未通过或者管理员还没有进行审核");
+                    return "login";
+                }
             }else {
                 model.addAttribute("error","用户名或密码错误");
                 return "login";
@@ -71,7 +86,7 @@ public class LoginController extends AbstractController {
     }
 
     /**
-     * 跳转到 主页
+     * 跳转到主页
      * @return
      */
     @RequestMapping(value = "/toindex",method = RequestMethod.GET)
@@ -94,16 +109,19 @@ public class LoginController extends AbstractController {
      * @return
      */
     @RequestMapping(value = "/register",method = RequestMethod.POST)
-    public String register(@RequestParam("username") String username,@RequestParam("realName") String realName,@RequestParam("did") int did,@RequestParam("password") String password,Model model) throws SSException {
+    public String register(@RequestParam("username") String username,@RequestParam("realName") String realName,@RequestParam("did") int did,@RequestParam("password") String password,@RequestParam("phone") String phone,Model model) throws SSException, UnsupportedEncodingException, NoSuchAlgorithmException {
         if (userService.queryByUname(username)!=null){
             model.addAttribute("error","账户名已经存在！");
-            return "register";
+            return "redirect:/register";
         }else {
             User user = new User();
             user.setUsername(username);
             user.setRealName(realName);
             user.setDid(did);
-            user.setPassword(password);
+            user.setPassword(Md5Util.EncoderByMd5(password));
+            user.setPhone(phone);
+            user.setRid(10);//默认注册人员为一般员工
+            user.setStatus(0);
             userService.addUser(user);
             return "login";
         }
@@ -147,7 +165,10 @@ public class LoginController extends AbstractController {
      */
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
     public String logout(HttpSession session)throws Exception{
-        session.invalidate();
+        session.removeAttribute("username");
+        session.removeAttribute("power");
+        session.removeAttribute("role");
+        session.removeAttribute("department");
         return "login";
     }
 

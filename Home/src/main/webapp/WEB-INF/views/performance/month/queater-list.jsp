@@ -41,6 +41,44 @@
 
         <!-- Main content -->
         <section class="content">
+            <!-- /.box-header -->
+            <div class="box-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label>所在部门：</label>
+                        <select class="form-control" name="departmentId">
+                            <option value="-1" selected = "selected">请选择</option>
+                            <c:forEach items="${departmentList}" var="department">
+                                <option selected = "" value="${department.id}">${department.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>职位：</label>
+                        <select class="form-control" name="roleId">
+                            <option value="-1" selected = "selected">请选择</option>
+                            <c:forEach items="${roleList}" var="role" >
+                                <option selected = "" value="${role.id}">${role.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>年份：</label>
+                        <input type="text" name="year" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>姓名：</label>
+                        <input type="text" name="username" class="form-control">
+                    </div>
+                    <div class="box-footer">
+                        <input type="submit" class="btn btn-primary" value="查询">
+                    </div>
+                </form>
+            </div>
+            <!-- /.box-body -->
+
+
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box box-default">
@@ -62,6 +100,7 @@
                                     <th>三季度</th>
                                     <th>四季度</th>
                                     <th>总结得分</th>
+                                    <th>能力指标得分</th>
                                     <th>综合得分</th>
                                     <th>操作</th>
                                 </tr>
@@ -80,6 +119,7 @@
                                             <td>${list.queater3}</td>
                                             <td>${list.queater4}</td>
                                             <td>${list.summaryScore}</td>
+                                            <td>${list.abilityScore}</td>
                                             <td>${list.yearScore}</td>
                                             <td>
                                                 <button type="button" class="btn bg-green">打印此报表</button>
@@ -100,6 +140,7 @@
                                     <th>三季度</th>
                                     <th>四季度</th>
                                     <th>总结得分</th>
+                                    <th>能力指标得分</th>
                                     <th>综合得分</th>
                                     <th>
                                         操作

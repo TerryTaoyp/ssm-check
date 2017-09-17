@@ -46,7 +46,7 @@
                 <div class="col-xs-12">
                     <div class="box box-success">
                         <div class="box-header">
-                            <h3 class="box-title">3月考核工作计划（产品部）详情信息</h3>
+                            <h3 class="box-title">${testPlan.testName}详情信息</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -71,7 +71,7 @@
                                         <td>${testPlan.testName}</td>
                                         <td>${detail.startTime}</td>
                                         <td>${detail.endTime}</td>
-                                        <td>${detail.weight}</td>
+                                        <td>${detail.weight}%</td>
                                         <td>${detail.expectResult}</td>
                                         <td>${detail.completion}</td>
                                         <td>${detail.testScore}</td>

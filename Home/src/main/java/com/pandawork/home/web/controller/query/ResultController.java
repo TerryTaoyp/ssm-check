@@ -2,6 +2,8 @@ package com.pandawork.home.web.controller.query;
 
 import com.pandawork.home.common.dto.YearMonthExportDto;
 import com.pandawork.home.common.dto.YearQueaterExportDto;
+import com.pandawork.home.common.entity.system.Department;
+import com.pandawork.home.common.entity.system.Role;
 import com.pandawork.home.service.check.*;
 import com.pandawork.home.service.query.YearMonthService;
 import com.pandawork.home.service.query.YearQueaterService;
@@ -55,25 +57,12 @@ public class ResultController extends AbstractController {
      */
     @RequestMapping(value = "/month/result",method = RequestMethod.GET)
     public String queryResult(Model model, HttpSession session)throws Exception{
-//
-//        List<User> userList = userService.queryByIsDelete(1);
-//        List<Department> departmentList = departmentService.listAll();
-//        List<Role> roleList = roleService.listAll();
-//        List<Performance> performanceList = performanceService.listAll();
-//        List<AbilityResult> abilityResultList = abilityResultService.listAll();
-//        List<TestPlan> testPlanList = testPlanService.listAll();
-//        List<WorkPlan> workPlanList = workPlanService.listAll();
-//        List<JoinTest> joinTestList = joinTestService.listAll();
-//        model.addAttribute("joinTestList",joinTestList);
-//        model.addAttribute("workPlanList",workPlanList);
-//        model.addAttribute("userList",userList);
-//        model.addAttribute("departmentList",departmentList);
-//        model.addAttribute("roleList",roleList);
-//        model.addAttribute("performanceList",performanceList);
-//        model.addAttribute("abilityResultList",abilityResultList);
-//        model.addAttribute("testPlanList",testPlanList);
-
         List<YearMonthExportDto> list = yearMonthService.listAll();
+
+        List<Department> departmentList = departmentService.listAll();
+        List<Role> roleList = roleService.listAll();
+        model.addAttribute("departmentList",departmentList);
+        model.addAttribute("roleList",roleList);
         model.addAttribute("list",list);
         return "performance/month/month-list";
     }
@@ -86,8 +75,14 @@ public class ResultController extends AbstractController {
     @RequestMapping(value = "/queater/result",method = RequestMethod.GET)
     public String monthList(Model model)throws Exception{
         List<YearQueaterExportDto> list = yearQueaterService.listAll();
+        List<Department> departmentList = departmentService.listAll();
+        List<Role> roleList = roleService.listAll();
+        model.addAttribute("departmentList",departmentList);
+        model.addAttribute("roleList",roleList);
         model.addAttribute("list",list);
         return "performance/month/queater-list";
     }
+
+
 
 }

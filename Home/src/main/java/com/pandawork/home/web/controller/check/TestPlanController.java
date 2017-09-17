@@ -67,6 +67,40 @@ public class TestPlanController extends AbstractController{
     }
 
     /**
+     * 跳转到修改考核计划页面
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/to/update",method = RequestMethod.GET)
+    public JSONObject toUpdate(@RequestParam("id") int id, Model model)throws Exception{
+        TestPlan testPlan = testPlanService.queryTestPlan(id);
+        List<TestType> testTypeList = testTypeService.listAll();
+        model.addAttribute("testPlan",testPlan);
+        model.addAttribute("testTypeList",testTypeList);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("testPlan",testPlan);
+        jsonObject.put("testTypeList",testTypeList);
+        return sendJsonObject(jsonObject);
+    }
+
+    /**
+     * 更新考核计划内容
+     * @param testId
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/update",method = RequestMethod.GET)
+    public JSONObject update(@RequestParam("testId") int testId,@RequestParam("testName") String testName,@RequestParam("testTypeId") int testTypeId,@RequestParam("startTime") String startTime,@RequestParam("year") int year)throws Exception{
+        TestPlan testPlan = new TestPlan();
+        testPlan.setId(testId);
+        testPlan.setYear(year);
+        testPlan.setTestName(testName);
+        testPlan.setTestTypeId(testTypeId);
+        testPlan.setStartTime(startTime);
+        testPlanService.updateTestPlan(testPlan);
+        return sendJsonObject(1);
+    }
+    /**
      * 改变考核计划的开启状态
      * @param id
      * @return
@@ -199,6 +233,23 @@ public class TestPlanController extends AbstractController{
         joinTest.setUid(uid);
         joinTest.setTestId(tid);
         joinTestService.addCheck(joinTest);
+        return sendJsonObject(1);
+    }
+
+    /**
+     * 添加全部人员
+     * @param uid
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/add/all",method = RequestMethod.GET)
+    public JSONObject addAll(@RequestParam("tid") int tid,@RequestParam("uid[]") List<Integer> uid)throws Exception{
+        for (int i:uid){
+            JoinTest joinTest = new JoinTest();
+            joinTest.setTestId(tid);
+            joinTest.setUid(i);
+            joinTestService.addCheck(joinTest);
+        }
         return sendJsonObject(1);
     }
 }
