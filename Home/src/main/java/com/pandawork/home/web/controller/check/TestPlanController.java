@@ -100,6 +100,7 @@ public class TestPlanController extends AbstractController{
      * @return
      * @throws Exception
      */
+    @ResponseBody
     @RequestMapping(value = "/del",method = RequestMethod.GET)
     public JSONObject del(@RequestParam("id") int id)throws Exception{
         testPlanService.del(id);

@@ -96,7 +96,7 @@ $(document).ready(function() {
 				// 获取序列
 				var 
 					id = $(this).attr('data-num'),
-					path_url = _ajax.url.evaluation.plan_management.list.change;
+					path_url = _ajax.url.evaluation.plan_management.list.del;
 				// 删除确认
 				if (confirm("确认要删除？")) {
 					$.ajax({
@@ -104,11 +104,10 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							delete: 'true'
+							id: id
 						},
 						success: function(data) {
-							$('.table tr[data-id='+ id +']').remove();
-							// 修改数据数量信息
+							$('button[data-num='+ id +']').parents('tr').remove();
 							// 暂定
 						},
 						error: function(data,errorMsg) {

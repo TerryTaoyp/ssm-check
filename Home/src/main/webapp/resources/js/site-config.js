@@ -90,7 +90,8 @@
                plan_management:{
                     // 列表
                     list:{
-                        edit: site.website + 'testplan/edit'
+                        edit: site.website + 'testplan/edit', // 修改状态
+                        del: site.website + 'testplan/del', // 删除
                     },
                     // 详情页 分配
                     detail:{

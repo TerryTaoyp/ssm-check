@@ -80,7 +80,7 @@
                                             <td class="status-text">未开启</td>
                                         </c:if>
                                         <td>
-                                            <a href="javascript:;" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${testPlan.id}">修改计划</a>
+                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${testPlan.id}">修改计划</button>
                                             <a class="btn bg-blue" href="${website}/testplan/toallot/${testPlan.id}">分配考核人员</a>
                                             <button class="btn btn-warning status" data-num="${testPlan.id}">改变状态</button>
                                             <button type="button" class="btn bg-red delete" data-num="${testPlan.id}">删除</button>
