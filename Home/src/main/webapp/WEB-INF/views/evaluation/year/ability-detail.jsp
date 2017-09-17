@@ -147,20 +147,12 @@
                         <input type="text" class="form-control" value="计划1" disabled="disabled">
                     </div>
                     
-                    <%--<div class="form-group">--%>
-                      <%--<label>所属部门：</label>--%>
-                        <%--<input type="text" class="form-control" value="产品部" disabled="disabled">--%>
-                    <%--</div>--%>
 
                     <div class="form-group">
                           <div class="form-group">
                               <div class="col-xs-6">
                                   <label>问题类型：</label>
-                                    <select class="add-type form-control" name="targetTypeId">
-                                        <option>创新形</option>
-                                        <option>创新形</option>
-                                        <option>创新形</option>
-                                    </select>
+                                  <input type="text" name="type" placeholder="请输入..." class="add-type form-control">
                               </div>
                               <div class="col-xs-6">
                                   <label>权重：</label>
@@ -227,11 +219,7 @@
                         <div class="form-group">
                             <div class="col-xs-6">
                                 <label>问题类型：</label>
-                                <select class="add-type form-control" name="targetTypeId">
-                                    <option>创新形</option>
-                                    <option>创新形</option>
-                                    <option>创新形</option>
-                                </select>
+                                <input type="text" name="type" placeholder="请输入..." class="add-type form-control">
                             </div>
                             <div class="col-xs-6">
                                 <label>权重：</label>

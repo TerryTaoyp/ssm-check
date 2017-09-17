@@ -118,6 +118,7 @@ public class RoleController extends AbstractController {
      * @return
      * @throws Exception
      */
+    @ResponseBody
     @RequestMapping(value = "/update",method = RequestMethod.GET)
     public JSONObject update(@RequestParam("id") int id,@RequestParam("pid") int pid,@RequestParam("name") String name)throws Exception{
         Role role = roleService.queryById(id);

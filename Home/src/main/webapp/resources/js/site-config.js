@@ -26,7 +26,7 @@
                         test: site.staticWebsite + 'mock/plan_management.json',
                         update: site.website + 'role/ajax/update', // 点击
                         del: site.website + 'role/ajax/del', //删除
-                        submit: site.website + ''// 提交
+                        submit: site.website + 'role/update'// 提交
                     },
                     // 添加
                     add:{

@@ -17,15 +17,12 @@
     <!-- select2 -->
     <link rel="stylesheet" href="http://localhost:8080/resources/js/bower_components/select2/dist/css/select2.min.css">
     <jsp:include page="../common/link.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 
 </head>
 <body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
     <jsp:include page="../common/header.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
     <jsp:include page="../common/sidebar.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/sidebar.html" -->
 
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -104,7 +101,11 @@
                             <label>角色名称：</label>
                             <input type="text" class="form-control a-require-text role" value="${role.name}" placeholder="请输入..." name="name">
                         </div>
-                        <div class="form-group">
+                        <div>
+                            <label>权限备注信息</label>
+                            <textarea class="form-control" disabled="disabled">${power.detail}</textarea>
+                        </div>
+                        <!-- <div class="form-group">
                             <label>选择权限：</label>
                             <select class="form-control select2 a-require-options jurisdiction" multiple="multiple" data-placeholder="请选择..." style="width: 100%;" name="pid">
                                 <option selected="" value="-1">请选择</option>
@@ -112,7 +113,7 @@
                                     <option selected="" value="${power.id}">${power.power}</option>
                                 </c:forEach>
                             </select>
-                        </div>
+                        </div> -->
                         <p class="text-red tip"></p>
                     </div>
                     <div class="modal-footer">
