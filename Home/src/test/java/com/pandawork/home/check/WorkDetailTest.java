@@ -27,7 +27,7 @@ public class WorkDetailTest extends AbstractTestCase{
         workDetail.setEndTime("20171212");
         workDetail.setPlanContent("系统开发");
         workDetail.setExpectResult("完成系统开发");
-        workDetail.setWeight("20%");
+        workDetail.setWeight(20);
         workDetailService.addWorkDetail(workDetail);
     }
 
@@ -44,7 +44,7 @@ public class WorkDetailTest extends AbstractTestCase{
         workDetail.setEndTime("20171212");
         workDetail.setPlanContent("系统开发");
         workDetail.setExpectResult("完成系统开发");
-        workDetail.setWeight("20%");
+        workDetail.setWeight(20);
         workDetailService.updateWorkDetail(workDetail);
     }
 

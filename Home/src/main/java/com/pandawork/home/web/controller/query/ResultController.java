@@ -1,10 +1,8 @@
 package com.pandawork.home.web.controller.query;
 
-import com.pandawork.home.common.entity.check.*;
-import com.pandawork.home.common.entity.system.Department;
-import com.pandawork.home.common.entity.system.Role;
-import com.pandawork.home.common.entity.user.User;
+import com.pandawork.home.common.dto.YearMonthExportDto;
 import com.pandawork.home.service.check.*;
+import com.pandawork.home.service.query.YearMonthService;
 import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.system.RoleService;
 import com.pandawork.home.service.user.UserService;
@@ -42,6 +40,8 @@ public class ResultController extends AbstractController {
     TestPlanService testPlanService;
     @Autowired
     JoinTestService joinTestService;
+    @Autowired
+    YearMonthService yearMonthService;
     /**
      * 报表展示页面
      * @return
@@ -49,24 +49,27 @@ public class ResultController extends AbstractController {
      */
     @RequestMapping(value = "/result",method = RequestMethod.GET)
     public String queryResult(Model model, HttpSession session)throws Exception{
+//
+//        List<User> userList = userService.queryByIsDelete(1);
+//        List<Department> departmentList = departmentService.listAll();
+//        List<Role> roleList = roleService.listAll();
+//        List<Performance> performanceList = performanceService.listAll();
+//        List<AbilityResult> abilityResultList = abilityResultService.listAll();
+//        List<TestPlan> testPlanList = testPlanService.listAll();
+//        List<WorkPlan> workPlanList = workPlanService.listAll();
+//        List<JoinTest> joinTestList = joinTestService.listAll();
+//        model.addAttribute("joinTestList",joinTestList);
+//        model.addAttribute("workPlanList",workPlanList);
+//        model.addAttribute("userList",userList);
+//        model.addAttribute("departmentList",departmentList);
+//        model.addAttribute("roleList",roleList);
+//        model.addAttribute("performanceList",performanceList);
+//        model.addAttribute("abilityResultList",abilityResultList);
+//        model.addAttribute("testPlanList",testPlanList);
 
-        List<User> userList = userService.queryByIsDelete(1);
-        List<Department> departmentList = departmentService.listAll();
-        List<Role> roleList = roleService.listAll();
-        List<Performance> performanceList = performanceService.listAll();
-        List<AbilityResult> abilityResultList = abilityResultService.listAll();
-        List<TestPlan> testPlanList = testPlanService.listAll();
-        List<WorkPlan> workPlanList = workPlanService.listAll();
-        List<JoinTest> joinTestList = joinTestService.listAll();
-        model.addAttribute("joinTestList",joinTestList);
-        model.addAttribute("workPlanList",workPlanList);
-        model.addAttribute("userList",userList);
-        model.addAttribute("departmentList",departmentList);
-        model.addAttribute("roleList",roleList);
-        model.addAttribute("performanceList",performanceList);
-        model.addAttribute("abilityResultList",abilityResultList);
-        model.addAttribute("testPlanList",testPlanList);
-        return "performance/result";
+        List<YearMonthExportDto> list = yearMonthService.listAll();
+        model.addAttribute("list",list);
+        return "performance/month/plan";
     }
 
     /**

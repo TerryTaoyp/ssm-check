@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -51,45 +52,77 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
+                                    <th>序号</th>
                                     <th>考核计划名称</th>
-                                    <th>被考核人姓名</th>
+                                    <th>部门</th>
+                                    <th>姓名</th>
                                     <th>职位</th>
+                                    <th>一月</th>
+                                    <th>二月</th>
+                                    <th>三月</th>
+                                    <th>四月</th>
+                                    <th>五月</th>
+                                    <th>六月</th>
+                                    <th>七月</th>
+                                    <th>八月</th>
+                                    <th>九月</th>
+                                    <th>十月</th>
+                                    <th>十一月</th>
+                                    <th>十二月</th>
+                                    <th>总结得分</th>
                                     <th>综合得分</th>
-                                    <th>其他信息</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>章</td>
-                                    <td>13837200544</td>
-                                    <td>经理</td>
-                                    <td>77</td>
-                                    <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                    <td>
-                                        <a href="../../../view/performance/month/plan-detail.html" class="btn bg-blue">查看详情</a>
-                                        <button type="button" class="btn bg-green">打印此报表</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>章</td>
-                                    <td>1384</td>
-                                    <td>经理</td>
-                                    <td>17</td>
-                                    <td>收到对对对对对对多多多多多多多多多多多多多多多多多多多多多多多多</td>
-                                    <td>
-                                        <a href="../../../view/performance/month/plan-detail.html" class="btn bg-blue">查看详情</a>
-                                        <button type="button" class="btn bg-green">打印此报表</button>
-                                    </td>
-                                </tr>
+                                <c:forEach items="${list}" var="list" varStatus="status">
+                                    <tr>
+                                        <td>${status.index+1}</td>
+                                        <td>${list.year}年度成绩</td>
+                                        <td>${list.department}</td>
+                                        <td>${list.username}</td>
+                                        <td>${list.role}</td>
+                                        <td>${list.month1}</td>
+                                        <td>${list.month2}</td>
+                                        <td>${list.month3}</td>
+                                        <td>${list.month4}</td>
+                                        <td>${list.month5}</td>
+                                        <td>${list.month6}</td>
+                                        <td>${list.month7}</td>
+                                        <td>${list.month8}</td>
+                                        <td>${list.month9}</td>
+                                        <td>${list.month10}</td>
+                                        <td>${list.month11}</td>
+                                        <td>${list.month12}</td>
+                                        <td>${list.summaryScore}</td>
+                                        <td>${list.yearScore}</td>
+                                        <td>
+                                            <button type="button" class="btn bg-green">打印此报表</button>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                                 <tfoot>
                                 <tr>
+                                    <th>序号</th>
                                     <th>考核计划名称</th>
-                                    <th>被考核人姓名</th>
+                                    <th>部门</th>
+                                    <th>姓名</th>
                                     <th>职位</th>
+                                    <th>一月</th>
+                                    <th>二月</th>
+                                    <th>三月</th>
+                                    <th>四月</th>
+                                    <th>五月</th>
+                                    <th>六月</th>
+                                    <th>七月</th>
+                                    <th>八月</th>
+                                    <th>九月</th>
+                                    <th>十月</th>
+                                    <th>十一月</th>
+                                    <th>十二月</th>
+                                    <th>总结得分</th>
                                     <th>综合得分</th>
-                                    <th>其他信息</th>
                                     <th>
                                         操作
                                         <button type="button" class="btn bg-green">全部导出</button>

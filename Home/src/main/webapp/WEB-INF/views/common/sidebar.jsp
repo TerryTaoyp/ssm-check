@@ -105,7 +105,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="${website}/query/year/plan"><i class="fa fa-circle-o"></i> 年度考核测评结果</a></li>
+                    <li><a href="${website}/query/result"><i class="fa fa-circle-o"></i> 年度考核测评结果</a></li>
                     <li><a href="${website}/query/month/plan"><i class="fa fa-circle-o"></i>月/季度考核测评结果</a></li>
                     <%--<li class="treeview">
                         <a href="#"><i class="fa fa-circle-o"></i>年度考核测评结果

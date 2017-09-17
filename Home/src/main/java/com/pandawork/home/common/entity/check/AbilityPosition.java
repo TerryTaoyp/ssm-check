@@ -17,15 +17,9 @@ public class AbilityPosition {
     //部门ID
     @Column(name = "did")
     private Integer did;
-    //被考核用户的ID
-    @Column(name = "be_check_id")
-    private Integer beCheckId;
-    //考核该用户的用户ID
-    @Column(name = "check_id")
-    private Integer checkId;
     //指标ID
     @Column(name = "target_id")
-    private Integer targetId;
+    private String targetId;
     //所占权重
     @Column(name = "weight")
     private Integer weight;
@@ -37,13 +31,17 @@ public class AbilityPosition {
     private Integer testId;
     //考核问题指标ID
     @Column(name = "target_type_id")
-    private Integer targetTypeId;
+    private String targetTypeId;
 
-    public Integer getTargetTypeId() {
+    public void setTargetId(String targetId) {
+        this.targetId = targetId;
+    }
+
+    public String getTargetTypeId() {
         return targetTypeId;
     }
 
-    public void setTargetTypeId(Integer targetTypeId) {
+    public void setTargetTypeId(String targetTypeId) {
         this.targetTypeId = targetTypeId;
     }
 
@@ -69,30 +67,6 @@ public class AbilityPosition {
 
     public void setDid(Integer did) {
         this.did = did;
-    }
-
-    public Integer getBeCheckId() {
-        return beCheckId;
-    }
-
-    public void setBeCheckId(Integer beCheckId) {
-        this.beCheckId = beCheckId;
-    }
-
-    public Integer getCheckId() {
-        return checkId;
-    }
-
-    public void setCheckId(Integer checkId) {
-        this.checkId = checkId;
-    }
-
-    public Integer getTargetId() {
-        return targetId;
-    }
-
-    public void setTargetId(Integer targetId) {
-        this.targetId = targetId;
     }
 
     public Integer getWeight() {
