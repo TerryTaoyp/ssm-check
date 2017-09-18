@@ -63,7 +63,6 @@
                                         <td class="role-text">${role.name}</td>
                                         <td>
                                             <button class="btn bg-olive change"  data-toggle="modal" data-target="#modal-default" data-num="${role.id}">修改</button>
-                                            <%--<button type="button" class="btn bg-red delete" data-num="${role.id}">删除角色</button>--%>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -97,11 +96,11 @@
                         <input type="hidden" id="dataId">
                         <div class="form-group">
                             <label>角色名称：</label>
-                            <input type="text" class="form-control a-require-text role" value="${role.name}" placeholder="请输入..." name="name">
+                            <input type="text" class="form-control a-require-text role"  placeholder="请输入..." name="name">
                         </div>
                         <div>
                             <label>权限备注信息：</label>
-                            <textarea class="form-control" disabled="disabled">${power.detail}</textarea>
+                            <textarea class="form-control" disabled="disabled"></textarea>
                         </div>
                         <!-- <div class="form-group">
                             <label>选择权限：</label>

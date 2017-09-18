@@ -61,34 +61,39 @@
                                 </thead>
                                 <tbody>
                                     <c:forEach items="${userList}" var="user" varStatus="status">
-                                        <tr data-id="${status.index+1}">
+                                        <tr data-id="${user.id}">
                                         <td>${status.index+1}</td>
                                         <td>${user.realName}</td>
                                         <td>${user.phone}</td>
-                                        <c:forEach items="${departmentList}" var="department">
-                                            <c:if test="${department.id == user.did}">
-                                                <td>${department.name}</td>
-                                            </c:if>
-                                        </c:forEach>
-                                        <c:forEach items="${roleList}" var="role">
-                                            <c:if test="${user.rid == role.id}">
-                                                <td>${role.name}</td>
-                                            </c:if>
-                                        </c:forEach>
-
-                                        <c:if test="${user.status == 1}">
-                                            <td class="status">审核通过</td>
-                                        </c:if>
-                                        <c:if test="${user.status == 0}">
-                                            <td class="status">未审核</td>
-                                        </c:if>
-                                            <c:if test="${user.status == 2}">
-                                                <td class="status">审核不通过</td>
-                                            </c:if>
+                                            <td>
+                                                <c:forEach items="${departmentList}" var="department">
+                                                    <c:if test="${department.id == user.did}">
+                                                        ${department.name}
+                                                    </c:if>
+                                                </c:forEach>
+                                            </td>
+                                            <td>
+                                                <c:forEach items="${roleList}" var="role">
+                                                    <c:if test="${user.rid == role.id}">
+                                                     ${role.name}
+                                                </c:if>
+                                                </c:forEach>
+                                            </td>
+                                            <td class="status">
+                                                <c:if test="${user.status == 1}">
+                                                    审核通过
+                                                </c:if>
+                                                <c:if test="${user.status == 0}">
+                                                    未审核
+                                                </c:if>
+                                                <c:if test="${user.status == 2}">
+                                                    审核不通过
+                                                </c:if>
+                                            </td>
 
                                         <td>
-                                            <button type="button" class="btn bg-olive pass" data-num="${user.rid}">审核通过</button>
-                                            <button type="button" class="btn bg-red refuse" data-num="${user.rid}">审核不通过</button>
+                                            <button type="button" class="btn bg-olive pass" data-num="${user.id}">审核通过</button>
+                                            <button type="button" class="btn bg-red refuse" data-num="${user.id}">审核不通过</button>
                                         </td>
                                 </tr>
                                     </c:forEach>
