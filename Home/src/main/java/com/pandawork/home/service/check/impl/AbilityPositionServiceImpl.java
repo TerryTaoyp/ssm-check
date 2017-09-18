@@ -98,4 +98,31 @@ public class AbilityPositionServiceImpl implements AbilityPositionService {
             throw SSException.get(ChException.QueryPositionByDidFailed);
         }
     }
+
+    @Override
+    public AbilityPosition queryById(int id) throws SSException {
+        try {
+            if (Assert.isNull(id)){
+                return null;
+            }
+            return abilityPositionMapper.queryById(id);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryPositionByDidFailed);
+        }
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class,Exception.class, RuntimeException.class})
+    public boolean del(int id) throws SSException {
+        try {
+            if (Assert.isNull(id)){
+                return false;
+            }
+            return abilityPositionMapper.del(id);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.DelPositionFailed);
+        }
+    }
 }

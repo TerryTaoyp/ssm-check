@@ -54,4 +54,19 @@ public interface AbilityPositionMapper {
      */
     public List<AbilityPosition> queryByTestId(@Param("testId") int testId)throws SSException;
 
+    /**
+     * 根据ID查找问题
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public AbilityPosition queryById(@Param("id") int id)throws SSException;
+
+    /**
+     * 根据ID删除
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public boolean del(@Param("id") int id)throws SSException;
 }

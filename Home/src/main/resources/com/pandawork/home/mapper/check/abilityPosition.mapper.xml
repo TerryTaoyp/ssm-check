@@ -10,7 +10,7 @@
         #{abilityPosition.targetId},
         #{abilityPosition.weight},
         #{abilityPosition.testId},
-        #{abilityPosition.targetTyprId}
+        #{abilityPosition.targetTypeId}
         )
     </insert>
 
@@ -37,4 +37,11 @@
     <select id="queryByTestId" resultMap="pw.AbilityPosition">
         SELECT * FROM t_ability_position WHERE test_id = #{testId}
     </select>
+
+    <select id="queryById" resultMap="pw.AbilityPosition">
+        SELECT * FROM t_ability_position WHERE id = #{id}
+    </select>
+    <delete id="del">
+        DELETE FROM t_ability_position WHERE id =#{id}
+    </delete>
 </mapper>

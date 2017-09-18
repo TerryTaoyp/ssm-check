@@ -42,4 +42,8 @@
     <select id="queryByTestId" resultMap="pw.AbilityOption">
         SELECT *  FROM t_ability_option WHERE test_id = #{testId}
     </select>
+
+    <select id="queryByPidAndOption" resultMap="pw.AbilityOption">
+        SELECT * FROM t_ability_option WHEN position_id = #{positionId} AND option_name = #{optionName}
+    </select>
 </mapper>

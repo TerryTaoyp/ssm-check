@@ -46,4 +46,13 @@ public interface AbilityOptionMapper {
      * @throws SSException
      */
     public List<AbilityOption> queryByTestId(@Param("testId") int testId)throws SSException;
+
+    /**
+     * 根据问题ID和问题选项
+     * @param positionId
+     * @param optionName
+     * @return
+     * @throws SSException
+     */
+    public AbilityOption queryByPidAndOption(@Param("positionId") int positionId,@Param("optionName") int optionName)throws SSException;
 }

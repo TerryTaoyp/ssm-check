@@ -54,4 +54,20 @@ public interface AbilityPositionService {
      */
     public List<AbilityPosition> queryByTestId(int testId)throws SSException;
 
+    /**
+     * 根据ID查找问题
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public AbilityPosition queryById(int id)throws SSException;
+
+    /**
+     * 根据ID删除
+     * @param id
+     * @return
+     * @throws SSException
+     */
+    public boolean del(int id)throws SSException;
+
 }

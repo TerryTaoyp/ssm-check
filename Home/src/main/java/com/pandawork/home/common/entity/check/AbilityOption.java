@@ -36,6 +36,17 @@ public class AbilityOption {
     @Column(name = "test_id")
     private Integer testId;
 
+    @Column(name = "target_type_id")
+    private String targetTypeId;
+
+    public String getTargetTypeId() {
+        return targetTypeId;
+    }
+
+    public void setTargetTypeId(String targetTypeId) {
+        this.targetTypeId = targetTypeId;
+    }
+
     public Integer getTestId() {
         return testId;
     }

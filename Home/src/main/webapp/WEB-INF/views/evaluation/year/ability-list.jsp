@@ -57,8 +57,7 @@
                                     <td>序号</td>
                                     <th>考核计划名称</th>
                                     <th>所属考核计划</th>
-                                    <th>考核开始时间</th>
-                                    <th>考核结束时间</th>
+                                    <th>考核时间</th>
                                     <th>是否开启</th>
                                     <th>操作</th>
                                 </tr>
@@ -70,7 +69,6 @@
                                         <td>${testPlan.testName}</td>
                                         <td>年度能力指标考核</td>
                                         <td>${testPlan.startTime}</td>
-                                        <td>${testPlan.finishTime}</td>
                                         <c:if test="${testPlan.isAvailable == 1}">
                                             <td>已开启</td>
                                         </c:if>

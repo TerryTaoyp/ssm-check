@@ -14,7 +14,6 @@
     <title>年度考核-能力指标详情</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
     <jsp:include page="../../common/link.jsp"/>
 </head>
 <body class="hold-transition skin-black sidebar-mini">
@@ -142,7 +141,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                       <label>计划名称：</label>
-                        <input type="text" class="form-control" value="计划1" disabled="disabled">
+                        <input type="text" class="form-control" value="${testPlan.testName}" disabled="disabled">
                     </div>
                     
 
