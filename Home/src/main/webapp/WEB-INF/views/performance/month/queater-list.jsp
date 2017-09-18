@@ -141,7 +141,9 @@
                                     <th>能力指标得分</th>
                                     <th>综合得分</th>
                                     <th>
-                                        <a type="button" class="btn bg-green" href="${website}/export/quarter">全部导出</a>
+                                        <c:if test="${list.size() != 0}">
+                                            <a type="button" class="btn bg-green" href="${website}/export/quarter">全部导出</a>
+                                        </c:if>
                                     </th>
                                 </tr>
                                 </tfoot>

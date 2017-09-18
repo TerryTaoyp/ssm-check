@@ -161,7 +161,17 @@ public final class ExcelUtil {
             e.printStackTrace();
          }
     }
+    /**
+     * 调用core导出Excel
+     *
+     * @param o   要导出的数据集合
+     * @param sheetName    Excel的sheet名称
+     * @param path         导出Excel名称
+     * SSException
+     */
+    public static void writeExcel1(Object o, String sheetName, String path, HttpServletResponse response){
 
+    }
     public static String encodeFilename(String filename, HttpServletRequest request) {
         String agent = request.getHeader("USER-AGENT");
         try {
