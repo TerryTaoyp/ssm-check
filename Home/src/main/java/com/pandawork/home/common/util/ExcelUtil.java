@@ -32,28 +32,30 @@ public final class ExcelUtil {
     public static Map<String,String> exportFieldDesc = new HashMap<>();
     static{
         //学籍信息
-        exportFieldDesc.put("name","姓名");
-        exportFieldDesc.put("idNumber","身份证号");
-        exportFieldDesc.put("candidateNumber","考生号");
-        exportFieldDesc.put("studentNumber","学号");
-        exportFieldDesc.put("sex","性别");
-        exportFieldDesc.put("nationCode","民族代码");
-        exportFieldDesc.put("nation","民族");
-        exportFieldDesc.put("politicalStandCode","政治面貌代码");
-        exportFieldDesc.put("politicalStand","政治面貌");
-        exportFieldDesc.put("schoolCode","院校代码");
-        exportFieldDesc.put("school","院校");
-        exportFieldDesc.put("stuLength","学制");
-        exportFieldDesc.put("qualificationNow","在读学历");
-        exportFieldDesc.put("qualificationCode","学历代码");
-        exportFieldDesc.put("qualification","学历");
-        exportFieldDesc.put("collegeCode","学院代码");
-        exportFieldDesc.put("college","学院");
-        exportFieldDesc.put("grade","年级");
-        exportFieldDesc.put("majorQualification","专业层次");
-        exportFieldDesc.put("majorCode","专业代码");
-        exportFieldDesc.put("major","专业名称");
-
+        exportFieldDesc.put("year","年度考核年份");
+        exportFieldDesc.put("department","部门");
+        exportFieldDesc.put("username","姓名");
+        exportFieldDesc.put("realName","真实姓名");
+        exportFieldDesc.put("role","角色");
+        exportFieldDesc.put("month1","一月得分");
+        exportFieldDesc.put("month2","二月得分");
+        exportFieldDesc.put("month3","三月得分");
+        exportFieldDesc.put("month4","四月得分");
+        exportFieldDesc.put("month5","五月得分");
+        exportFieldDesc.put("month6","六月得分");
+        exportFieldDesc.put("month7","七月得分");
+        exportFieldDesc.put("month8","八月得分");
+        exportFieldDesc.put("month9","九月得分");
+        exportFieldDesc.put("month10","十月得分");
+        exportFieldDesc.put("month11","十一月得分");
+        exportFieldDesc.put("month12","十二月得分");
+        exportFieldDesc.put("queater1","第一季度得分");
+        exportFieldDesc.put("queater2","第二季度得分");
+        exportFieldDesc.put("queater3","第三季度得分");
+        exportFieldDesc.put("queater4","第四季度得分");
+        exportFieldDesc.put("summaryScore","年度总结得分");
+        exportFieldDesc.put("abilityScore","年度能指标得分");
+        exportFieldDesc.put("yearScore","年度绩效得分");
     }
 
     /**

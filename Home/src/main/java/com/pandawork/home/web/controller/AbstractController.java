@@ -3,6 +3,7 @@ package com.pandawork.home.web.controller;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.framework.web.spring.controller.Base;
 import com.pandawork.home.service.check.*;
+import com.pandawork.home.service.query.ExportService;
 import com.pandawork.home.service.system.AllotService;
 import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.system.PowerService;
@@ -224,5 +225,10 @@ public class AbstractController extends Base {
      */
     @Autowired
     protected static TestPositionService testPositionService;
+    /**
+     * 导出数据的 service
+     */
+    @Autowired
+    protected static ExportService exportService;
 
 }

@@ -8,12 +8,15 @@ public class YearMonthExportDto {
 
     //用户ID
     private Integer id;
+    //当前考核 计划所在的年份
+    private Integer year;
+    //用户的部门名称
+    private String department;
     //用户的登录名
     private String username;
     //用户的真实姓名
     private String realName;
-    //用户的部门名称
-    private String department;
+
     //用户的角色
     private String role;
     //一月份得分
@@ -46,8 +49,7 @@ public class YearMonthExportDto {
     private Double abilityScore;
     //年度得分
     private Double yearScore;
-    //当前考核 计划所在的年份
-    private Integer year;
+
     //考核计划类型
     private Integer testType;
 

@@ -107,7 +107,6 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${list}" var="list">
-                                    <c:if test="${list.testType==1}">
                                         <tr>
                                             <%--<td>${status.index+1}</td>--%>
                                             <td>${list.year}年度成绩</td>
@@ -125,7 +124,6 @@
                                                 <button type="button" class="btn bg-green">打印此报表</button>
                                             </td>
                                         </tr>
-                                    </c:if>
                                 </c:forEach>
                                 </tbody>
                                 <tfoot>
@@ -143,8 +141,7 @@
                                     <th>能力指标得分</th>
                                     <th>综合得分</th>
                                     <th>
-                                        操作
-                                        <button type="button" class="btn bg-green">全部导出</button>
+                                        <a type="button" class="btn bg-green" href="${website}/export/quarter">全部导出</a>
                                     </th>
                                 </tr>
                                 </tfoot>
