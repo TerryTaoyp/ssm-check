@@ -18,6 +18,6 @@ public class AbilityPositionTest extends AbstractTestCase {
     @Test
     public void addTest()throws SSException{
         AbilityPosition abilityPosition = new AbilityPosition();
-
+        abilityPositionService.queryByTestId(6);
     }
 }

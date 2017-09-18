@@ -140,7 +140,7 @@
                                             <td>${list.abilityScore}</td>
                                             <td>${list.yearScore}</td>
                                             <td>
-                                                <a type="button" class="btn bg-green" href="${website}/export/month/${list.id}">打印此报表</a>
+                                                <%--<a type="button" class="btn bg-green" href="${website}/export/month/${list.id}">打印此报表</a>--%>
                                             </td>
                                         </tr>
                                 </c:forEach>

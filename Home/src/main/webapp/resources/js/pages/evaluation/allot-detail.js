@@ -18,6 +18,7 @@ $(document).ready(function() {
 				var 
 					id = $(this).attr('data-test'),
 					uid = $(this).attr('data-user'),
+					tid = $(this).attr('data-data'),
 					path_url = _ajax.url.evaluation.plan_management.detail.add;
 				$.ajax({
 					url: path_url,
@@ -25,16 +26,17 @@ $(document).ready(function() {
 					dataType: 'json',
 					data: {
 						id: id,
-						uid: uid
+						uid: uid,
+						tid: tid
 					},
 					success: function(data) {
 						$('.table button[data-test='+ id +']').parents('tr').children('.status').text('已参与');
 						// 修改按钮状态
-						$('.add[data-num='+ id +']').attr('disabled','disabled');
-						$('.add[data-num='+ id +']').text('已添加');
+						$('.add[data-test='+ id +']').attr('disabled','disabled');
+						$('.add[data-test='+ id +']').text('已添加');
 						// 删除恢复
-						$('.delete[data-num='+ id +']').removeAttr('disabled');
-						$('.delete[data-num='+ id +']').text('移除');
+						$('.delete[data-test='+ id +']').removeAttr('disabled');
+						$('.delete[data-test='+ id +']').text('移除');
 					},
 					error: function(data,errorMsg) {
 						console.log('error');
@@ -44,9 +46,10 @@ $(document).ready(function() {
 			// ajax移除
 			$(el.J_delete).click(function(ev) {
 				// 获取序列
-				var 
-					id = $(this).attr('data-test'),
-					uid = $(this).attr('data-user'),
+				var
+                    id = $(this).attr('data-test'),
+                    uid = $(this).attr('data-user'),
+                    tid = $(this).attr('data-data'),
 					path_url = _ajax.url.evaluation.plan_management.detail.del;
 				// 删除确认
 					$.ajax({
@@ -55,16 +58,17 @@ $(document).ready(function() {
 						dataType: 'json',
 						data: {
 							id: id,
-							uid: uid
+							uid: uid,
+							tid: tid
 						},
 						success: function(data) {
 							$('.table button[data-test='+ id +']').parents('tr').children('.status').text('');
 							// 修改按钮状态
-							$('.delete[data-num='+ id +']').attr('disabled','disabled');
-							$('.delete[data-num='+ id +']').text('已移除');
+							$('.delete[data-test='+ id +']').attr('disabled','disabled');
+							$('.delete[data-test='+ id +']').text('已移除');
 							// 添加恢复
-							$('.add[data-num='+ id +']').removeAttr('disabled');
-							$('.add[data-num='+ id +']').text('添加');
+							$('.add[data-test='+ id +']').removeAttr('disabled');
+							$('.add[data-test='+ id +']').text('添加');
 						},
 						error: function(data,errorMsg) {
 							console.log('error');

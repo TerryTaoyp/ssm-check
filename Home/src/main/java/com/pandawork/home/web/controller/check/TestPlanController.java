@@ -214,7 +214,7 @@ public class TestPlanController extends AbstractController{
      */
     @ResponseBody
     @RequestMapping(value = "/join",method = RequestMethod.GET)
-    public JSONObject join(@RequestParam("id") int tid,@RequestParam("uid") int uid, HttpSession session)throws Exception{
+    public JSONObject join(@RequestParam("tid") int tid,@RequestParam("uid") int uid, HttpSession session)throws Exception{
         JoinTest joinTest = new JoinTest();
         joinTest.setUid(uid);
         joinTest.setTestId(tid);

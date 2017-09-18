@@ -71,13 +71,17 @@
                                         <td>${testPlan.startTime}</td>
                                         <c:if test="${testPlan.isAvailable == 1}">
                                             <td>已开启</td>
+                                            <td>
+                                                <a href="${website}/test/position/list/${testPlan.id}" class="btn bg-blue">查看详情</a>
+                                            </td>
                                         </c:if>
                                         <c:if test="${testPlan.isAvailable == 0}">
                                             <td>未开启</td>
+                                            <td>
+                                                <a disabled="true"  class="btn bg-blue">查看详情</a>
+                                            </td>
                                         </c:if>
-                                        <td>
-                                            <a href="${website}/test/position/list/${testPlan.id}" class="btn bg-blue">查看详情</a>
-                                        </td>
+
                                     </tr>
 
                                 </c:forEach>

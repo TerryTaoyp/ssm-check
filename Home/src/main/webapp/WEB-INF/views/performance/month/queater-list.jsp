@@ -121,7 +121,7 @@
                                             <td>${list.abilityScore}</td>
                                             <td>${list.yearScore}</td>
                                             <td>
-                                                <button type="button" class="btn bg-green">打印此报表</button>
+                                                <%--<button type="button" class="btn bg-green">打印此报表</button>--%>
                                             </td>
                                         </tr>
                                 </c:forEach>

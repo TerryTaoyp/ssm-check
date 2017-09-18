@@ -53,36 +53,33 @@
                         考核开始
                       </span>
                                 </li>
-                                <c:forEach items="${testPositionList}" var="testPosition" varStatus="status">
+                                <c:forEach items="${abilityPositionList}" var="abilityPosition" varStatus="status">
                                     <li>
                                         <i class="fa bg-blue">${status.index+1}</i>
                                         <div class="timeline-item">
-                                            <span class="time">
-                                                <button type="button" class="btn bg-olive change" style="margin-left: 10px;" data-toggle="modal" data-target="#update-list"> 修改 </button>
-                                                <button type="button" class="btn bg-red delete"> 删除 </button>
-                                            </span>
                                             <h3 class="timeline-header">
-                                                <a href="#">【${testPosition
-                                                .targetType}&nbsp;&nbsp;&nbsp;&nbsp;${testPosition.weight}%】</a>
-                                                ${testPosition.target}
+                                                <a href="#">【${abilityPosition
+                                                .targetTypeId}${abilityPosition.weight}】</a>
+                                                ${abilityPosition.targetId}
                                             </h3>
                                             <div class="timeline-body box-body">
                                                 <c:forEach items="${abilityOptionList}" var="option">
-                                                    <c:if test="${testPosition.id == option.positionId}">
+                                                    <c:if test="${abilityPosition.id == option.positionId}">
                                                         <div class="form-group">
                                                             <c:if test="${option.optionName == 1}">
                                                             <label>
                                                                     A.${option.optionContent}
                                                             </label>
-                                                            <a class="btn bg-olive btn-xs">优(9.0分~10分)</a>
+                                                                <a class="btn bg-olive btn-xs">优(9.0分~10.0分)</a>
                                                             </c:if>
+
                                                         </div>
                                                         <div class="form-group">
                                                             <c:if test="${option.optionName == 2}">
                                                             <label>
                                                                     B.${option.optionContent}
                                                             </label>
-                                                            <a class="btn btn-primary  btn-xs">良(8.0分~$9.0分)</a>
+                                                            <a class="btn btn-primary btn-xs">良(8.0分~9.0分)</a>
                                                             </c:if>
                                                         </div>
                                                         <div class="form-group">
@@ -90,16 +87,18 @@
                                                             <label>
                                                                     C.${option.optionContent}
                                                             </label>
-                                                            <a class="btn bg-orange btn-xs">中(6.0分~8.0分)</a>
+                                                                <a class="btn bg-orange btn-xs">中(6.0分~8.0分)</a>
                                                             </c:if>
+
                                                         </div>
                                                         <div class="form-group">
                                                             <c:if test="${option.optionName == 4}">
                                                             <label>
                                                                     D.${option.optionContent}
                                                             </label>
-                                                            <a class="btn bg-red btn-xs">差(0分~6.0分)</a>
+                                                                <a class="btn bg-red btn-xs">差(0分~6.0分)</a>
                                                             </c:if>
+
                                                         </div>
                                                     </c:if>
                                                 </c:forEach>

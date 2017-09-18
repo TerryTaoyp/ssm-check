@@ -82,9 +82,10 @@
                                                 </c:if>
                                             </c:forEach>
                                         </td>
+
                                         <td>
-                                            <button class="btn bg-blue add" data-test="${testPlan.id}" data-user="${user.uid}">添加</button>
-                                            <button type="button" class="btn bg-red delete" data-test="${testPlan.id}" data-user="${user.uid}">移除</button>
+                                            <button class="btn bg-blue add" data-date="${testPlan.id}" data-test="${user.uid}" data-user="${user.uid}">添加</button>
+                                            <button type="button" class="btn bg-red delete" data-date="${testPlan.id}" data-test="${user.uid}" data-user="${user.uid}">移除</button>
                                         </td>
                                     </tr>
                                 </c:forEach>
