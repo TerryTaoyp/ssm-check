@@ -76,7 +76,7 @@
                                         <c:if test="${testPlan.isAvailable == 0}">
                                             <td>未开启</td>
                                             <td>
-                                                <a href="${website}/ability/user/${testPlan.id}" class="btn bg-red" disabled="true">考核列表</a>
+                                                <button class="btn bg-red" disabled="disabled">考核未开启</button>
                                             </td>
                                         </c:if>
                                     </tr>

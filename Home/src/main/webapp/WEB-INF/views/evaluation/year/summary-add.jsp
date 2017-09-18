@@ -48,25 +48,21 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <form action="${website}/summary/add" method="post">
-                        <%--<div class="form-group">--%>
-                            <%--<label>文章标题：</label>--%>
-                            <%--<input type="text" class="form-control require-text" placeholder="请输入...">--%>
-                        </div>
+                            <div class="form-group">
+                                <label>年度总结年份：</label>
+                                <select class="form-control require-option" name="year">
+                                    <option value="-1">请选择</option>
+                                    <option>2017</option>
+                                    <option>2018</option>
+                                </select>
+                            </div>
 
-                        <div class="form-group">
-                            <label>年度总结年份：</label>
-                            <select class="form-control require-option" name="year">
-                                <option value="-1">请选择</option>
-                                <option>2017</option>
-                                <option>2018</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>总结：</label>
-                            <textarea id="editor1" name="content" rows="10" cols="80" >
-                       请在这里输入个人总结...
-                </textarea>
+                            <div class="form-group">
+                                <label>总结：</label>
+                                <textarea id="editor1" name="content" rows="10" cols="80" >
+                                    请在这里输入个人总结...
+                                </textarea>
+                            </div>
                         </div>
 
                         <div class="box-footer">

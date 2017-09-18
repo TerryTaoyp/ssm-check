@@ -17,7 +17,7 @@
                 <i class="fa fa-bookmark-o fa-3x" style="color:#fff"></i>
             </div>
             <div class="pull-left info">
-                <p>管理员</p>
+                <p>${sessionScope.role}，您好</p>
                 <a href="#" id="nowTime"></a>
             </div>
         </div>
@@ -59,8 +59,8 @@
                     <a href="#">
                         <i class="fa fa-share"></i> <span>考核管理</span>
                         <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
                     </a>
 
                     <ul class="treeview-menu">

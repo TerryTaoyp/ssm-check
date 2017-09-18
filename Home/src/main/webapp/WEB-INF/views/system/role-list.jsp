@@ -84,9 +84,7 @@
     </div>
     <!-- /.content-wrapper -->
     <jsp:include page="../common/footer.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
 
-    <div class="control-sidebar-bg"></div>
         <div class="modal fade" id="modal-default">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -102,7 +100,7 @@
                             <input type="text" class="form-control a-require-text role" value="${role.name}" placeholder="请输入..." name="name">
                         </div>
                         <div>
-                            <label>权限备注信息</label>
+                            <label>权限备注信息：</label>
                             <textarea class="form-control" disabled="disabled">${power.detail}</textarea>
                         </div>
                         <!-- <div class="form-group">
@@ -127,7 +125,6 @@
         </div>
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
-<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <!-- select2 -->
 <script src="../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
 <!-- 验证模块 -->
