@@ -122,11 +122,11 @@
                     <input type="hidden" id="dataId">
                     <div class="form-group">
                         <label>考核计划名称：</label>
-                        <input type="text" class="form-control name a-require-text" placeholder="请输入..." name="testName">
+                        <input type="text" class="form-control name a-require-text" placeholder="请输入...">
                     </div>
                     <div class="form-group">
                         <label>考核计划所属年份：</label>
-                        <input type="text" class="form-control name a-require-text" placeholder="请输入..." name="year">
+                        <input type="text" class="form-control year a-require-text" placeholder="请输入...">
                     </div>
 
                     <div class="form-group">

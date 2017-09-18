@@ -71,6 +71,7 @@ public class TestPlanController extends AbstractController{
      * @return
      * @throws Exception
      */
+    @ResponseBody
     @RequestMapping(value = "/to/update",method = RequestMethod.GET)
     public JSONObject toUpdate(@RequestParam("id") int id, Model model)throws Exception{
         TestPlan testPlan = testPlanService.queryTestPlan(id);
@@ -89,6 +90,7 @@ public class TestPlanController extends AbstractController{
      * @return
      * @throws Exception
      */
+    @ResponseBody
     @RequestMapping(value = "/update",method = RequestMethod.GET)
     public JSONObject update(@RequestParam("testId") int testId,@RequestParam("testName") String testName,@RequestParam("testTypeId") int testTypeId,@RequestParam("startTime") String startTime,@RequestParam("year") int year)throws Exception{
         TestPlan testPlan = new TestPlan();

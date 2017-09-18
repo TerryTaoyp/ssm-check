@@ -146,6 +146,7 @@ public class TestPositionController extends AbstractController {
      * @return
      * @throws Exception
      */
+    @ResponseBody
     @RequestMapping(value = "/to/edit",method = RequestMethod.GET)
     public JSONObject toEdit(@RequestParam("positionId") int pid)throws Exception{
         AbilityPosition abilityPosition = abilityPositionService.queryById(pid);
@@ -168,6 +169,7 @@ public class TestPositionController extends AbstractController {
      * @return
      * @throws Exception
      */
+    @ResponseBody
     @RequestMapping(value = "/del",method = RequestMethod.GET)
     public JSONObject del(@RequestParam("positionId") int id)throws Exception{
 //        abilityPositionService.delPosition();

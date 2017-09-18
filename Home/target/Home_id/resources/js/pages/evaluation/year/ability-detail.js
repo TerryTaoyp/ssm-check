@@ -30,7 +30,7 @@ $(document).ready(function() {
 				$(el.J_tip).text('');
 				// 附加上点击此按钮的信息在数据库中的顺序
 				var 
-					path_url = _ajax.url.evaluation.year.ability_list.change,
+					path_url = _ajax.url.evaluation.year.ability_list.add,
 					id = parseInt($('#id').text()), // 本次测试的id
 					title = $('.add-title').val(), // 新增题目
 					option1 = $('.add-option1').val(), // 选项1
@@ -133,6 +133,47 @@ $(document).ready(function() {
 					$(el.J_tip).text('信息不全或问题比重大于100');
 				}
 			});
+			// ajax点击修改
+			$(el.J_change).click(function(ev) {
+				$('#add-list input[type="text"]').removeClass('a-require-text');
+				$('#add-list select').removeClass('a-require-option');
+				$('#update-list input[type="text"]').addClass('a-require-text');
+				$('#update-list select').addClass('a-require-option');
+				// 获取序列
+				var 
+					id = $(this).attr('data-num'),
+					path_url = _ajax.url.evaluation.plan_management.list.change;
+					 // 传值成功
+					$('#dataId').val(id);
+				$.ajax({
+					url: path_url,
+					type: 'get',
+					dataType: 'json',
+					data: {
+						id: id
+					},
+					success: function(data) {
+						// 添加默认值
+						
+						// 权重名称
+						$('.update-weight').val(data.data.option.weight);
+						// 问题类型
+						$('.update-weight').val(data.data.option.weight);
+						// 问题
+						$('.update-title').val(data.data.option.title);
+						// 选项
+						$('.update-option1').val(data.data.option.option1);
+						$('.update-option2').val(data.data.option.option2);
+						$('.update-option3').val(data.data.option.option3);
+						$('.update-option4').val(data.data.option.option4);
+						
+
+					},
+					error: function(data,errorMsg) {
+						console.log('error');
+					}
+				})
+			});
 			// ajax修改提交
 			$(el.J_ajax_submit2).click(function(ev) {
 				// 先清空提示信息
@@ -193,53 +234,14 @@ $(document).ready(function() {
 					$(el.J_tip).text('信息不全或问题比重大于100');
 				}
 			});
-			// ajax点击修改
-			$(el.J_change).click(function(ev) {
-				$('#add-list input[type="text"]').removeClass('a-require-text');
-				$('#add-list select').removeClass('a-require-option');
-				$('#update-list input[type="text"]').addClass('a-require-text');
-				$('#update-list select').addClass('a-require-option');
-				// 获取序列
-				var 
-					id = $(this).attr('data-num'),
-					path_url = _ajax.url.evaluation.plan_management.list.change;
-					 // 传值成功
-					$('#dataId').val(id);
-				$.ajax({
-					url: path_url,
-					type: 'get',
-					dataType: 'json',
-					data: {
-						id: id
-					},
-					success: function(data) {
-						// 添加默认值
-						
-						// 权重名称
-						$('.update-weight').val(data.data.option.weight);
-						// 问题类型
-						$('.update-weight').val(data.data.option.weight);
-						// 问题
-						$('.update-title').val(data.data.option.title);
-						// 选项
-						$('.update-option1').val(data.data.option.option1);
-						$('.update-option2').val(data.data.option.option2);
-						$('.update-option3').val(data.data.option.option3);
-						$('.update-option4').val(data.data.option.option4);
-						
-
-					},
-					error: function(data,errorMsg) {
-						console.log('error');
-					}
-				})
-			});
+			
 			// ajax删除
 			$(el.J_delete).click(function(ev) {
 				// 获取序列
 				var 
+					that = $(this),
 					id = $(this).attr('data-num'),
-					path_url = _ajax.url.system.role.list.del;
+					path_url = _ajax.url.evaluation.year.ability_list.del;
 				// 删除确认
 				if (confirm("确认要删除？")) {
 					$.ajax({
@@ -247,12 +249,10 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							id: id
+							positionId: 1
 						},
 						success: function(data) {
-							$('.table tr[data-id='+ id +']').remove();
-							// 修改数据数量信息
-							// 暂定
+							that.parents('li').remove();
 						},
 						error: function(data,errorMsg) {
 							console.log(errorMsg);

@@ -92,6 +92,8 @@
                     list:{
                         edit: site.website + 'testplan/edit', // 修改状态
                         del: site.website + 'testplan/del', // 删除
+                        update: site.website + 'testplan/to/update', // 点击修改
+                        submit: site.website + 'testplan/update', // 点击修改
                     },
                     // 详情页 分配
                     detail:{
@@ -118,7 +120,10 @@
                     },
                     // 能力指标列表
                     ability_list:{
-                        change: site.website + 'test/position/add'
+                        add: site.website + 'test/position/add', // 添加
+                        update: site.website + 'test/position/edit', // 点击修改
+                        submit: site.website + 'test/position/to/edit', // 点击修改按钮
+                        delete: site.website + 'test/position/del', // 删除本道题
                     },
                 }
             },

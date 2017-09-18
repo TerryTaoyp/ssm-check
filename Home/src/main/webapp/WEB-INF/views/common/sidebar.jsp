@@ -41,8 +41,8 @@
                         <a href="#">
                             <i class="fa fa-dashboard"></i> <span>系统管理</span>
                             <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="${website}/role/list"><i class="fa fa-circle-o"></i>角色管理</a></li>
@@ -72,8 +72,8 @@
                         <li class="treeview">
                             <a href="#"><i class="fa fa-circle-o"></i>年度考核管理
                                 <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
+                                  <i class="fa fa-angle-left pull-right"></i>
+                                </span>
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="${website}/performance/list"><i class="fa fa-circle-o"></i>绩效综合能力列表</a></li>
@@ -89,16 +89,16 @@
                     <a href="#">
                         <i class="fa fa-files-o"></i> <span>测评模块</span>
                         <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="${website}/check/month/list"><i class="fa fa-circle-o"></i>月/季度考核</a></li>
                         <li class="treeview">
                             <a href="#"><i class="fa fa-circle-o"></i>年度度考核
                                 <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
+                                  <i class="fa fa-angle-left pull-right"></i>
+                                </span>
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="${website}/check/year/ability/list"><i class="fa fa-circle-o"></i>能力指标评价</a></li>
@@ -113,8 +113,8 @@
                     <i class="fa fa-pie-chart"></i>
                     <span>成绩查询</span>
                     <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="${website}/query/month/result"><i class="fa fa-circle-o"></i>年度月度考核测评结果</a></li>
