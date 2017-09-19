@@ -47,13 +47,13 @@
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                <form role="form">
+                <form action="${website}/query/month/query" method="post">
                         <div class="form-group">
                             <label>所在部门：</label>
                             <select class="form-control" name="departmentId">
                                 <option value="-1" selected = "selected">请选择</option>
                                 <c:forEach items="${departmentList}" var="department">
-                                    <option selected = "" value="${department.id}">${department.name}</option>
+                                    <option value="${department.id}">${department.name}</option>
                                 </c:forEach>
                             </select>
                         </div>
@@ -63,7 +63,7 @@
                             <select class="form-control" name="roleId">
                                 <option value="-1" selected = "selected">请选择</option>
                                 <c:forEach items="${roleList}" var="role" >
-                                    <option selected = "" value="${role.id}">${role.name}</option>
+                                    <option value="${role.id}">${role.name}</option>
                                 </c:forEach>
                             </select>
                         </div>

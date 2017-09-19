@@ -2,6 +2,7 @@ package com.pandawork.home.mapper.query;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.home.common.dto.YearMonthExportDto;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,4 +16,15 @@ public interface YearMonthMapper {
      * @throws SSException
      */
     public List<YearMonthExportDto> listAll()throws SSException;
+
+    /**
+     * 根据条件查询
+     * @param did
+     * @param rid
+     * @param year
+     * @param username
+     * @return
+     * @throws SSException
+     */
+    public List<YearMonthExportDto> queryByConditions(@Param("did") int did,@Param("rid") int rid, @Param("year") int year,@Param("username") String username)throws SSException;
 }

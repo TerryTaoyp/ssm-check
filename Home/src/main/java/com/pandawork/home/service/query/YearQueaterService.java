@@ -15,4 +15,14 @@ public interface YearQueaterService {
  * @throws SSException
  */
 public List<YearQueaterExportDto> listAll()throws SSException;
+    /**
+     * 根据条件查询
+     * @param did
+     * @param rid
+     * @param year
+     * @param username
+     * @return
+     * @throws SSException
+     */
+    public List<YearQueaterExportDto> queryDtoByConditions(int did,int rid,int year,String username)throws SSException;
 }

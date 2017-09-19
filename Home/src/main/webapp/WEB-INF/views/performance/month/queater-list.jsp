@@ -43,7 +43,7 @@
         <section class="content">
             <!-- /.box-header -->
             <div class="box-body">
-                <form role="form">
+                <form action="${website}/query/quarter/query" method="post">
                     <div class="form-group">
                         <label>所在部门：</label>
                         <select class="form-control" name="departmentId">

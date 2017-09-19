@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -51,7 +52,7 @@ public class ResultController extends AbstractController {
 
 
     /**
-     * 报表展示页面
+     * 越大越报表展示页面
      * @return
      * @throws Exception
      */
@@ -66,14 +67,30 @@ public class ResultController extends AbstractController {
         model.addAttribute("list",list);
         return "performance/month/month-list";
     }
-
     /**
-     * 月工作计划展示
+     * 根据条件查询
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/queater/result",method = RequestMethod.GET)
-    public String monthList(Model model)throws Exception{
+    @RequestMapping(value = "/month/query",method = RequestMethod.POST)
+    public String monthQuery(@RequestParam(value = "did",required = false, defaultValue = "-1") int did,                                   @RequestParam(value = "rid",required = false, defaultValue = "-1") int rid,
+                             @RequestParam(value = "year",required = false, defaultValue = "-1") int year,                                 @RequestParam(value = "username",required = false, defaultValue = "") String username,Model model)throws Exception{
+        List<YearMonthExportDto> list = yearMonthService.queryByConditions(did, rid, year, username);
+        System.out.println(list+"哈啊哈哈"+did+rid+year+username);
+        List<Department> departmentList = departmentService.listAll();
+        List<Role> roleList = roleService.listAll();
+        model.addAttribute("departmentList",departmentList);
+        model.addAttribute("roleList",roleList);
+        model.addAttribute("list",list);
+        return "performance/month/month-list";
+    }
+    /**
+     * 季度工作计划展示
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/quarter/result",method = RequestMethod.GET)
+    public String quarterList(Model model)throws Exception{
         List<YearQueaterExportDto> list = yearQueaterService.listAll();
         List<Department> departmentList = departmentService.listAll();
         List<Role> roleList = roleService.listAll();
@@ -83,6 +100,22 @@ public class ResultController extends AbstractController {
         return "performance/month/queater-list";
     }
 
+    /**
+     * 根据条件查询
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/quarter/query",method = RequestMethod.POST)
+    public String quarterQuery(@RequestParam(value = "did",required = false, defaultValue = "-1") int did, @RequestParam(value = "rid",required = false, defaultValue = "-1") int rid,
+                               @RequestParam(value = "year",required = false, defaultValue = "-1") int year, @RequestParam(value = "username",required = false, defaultValue = "") String username,Model model)throws Exception{
+        List<YearQueaterExportDto> list = yearQueaterService.queryDtoByConditions(did, rid, year, username);
+        List<Department> departmentList = departmentService.listAll();
+        List<Role> roleList = roleService.listAll();
+        model.addAttribute("departmentList",departmentList);
+        model.addAttribute("roleList",roleList);
+        model.addAttribute("list",list);
+        return "performance/month/queater-list";
+    }
 
 
 }
