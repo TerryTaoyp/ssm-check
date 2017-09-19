@@ -45,7 +45,7 @@ $(document).ready(function() {
 				// 先清空提示信息
 				$(el.J_tip).text('');
 				var 
-					id = $(this).attr('data-num'), // 附加上点击此按钮的信息在数据库中的顺序
+					id = $('#dataId').val(), // 附加上点击此按钮的信息在数据库中的顺序
 					path_url = _ajax.url.system.allot.list.update,
 					department = $(el.J_department).val(), // 管辖部门名称
 					department_text = $(el.J_department).find('option:selected').text(); // 管辖部门名称
@@ -60,7 +60,6 @@ $(document).ready(function() {
 							did: department
 						},
 						success: function(data) {
-							// console.log(data.errorMsg[0].msg);
 							if (data.code) {
 								// 提示信息
 								alert('修改成功');

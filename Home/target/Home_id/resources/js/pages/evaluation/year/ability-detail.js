@@ -150,7 +150,7 @@ $(document).ready(function() {
 					type: 'get',
 					dataType: 'json',
 					data: {
-						positionId: 1
+						positionId: id
 					},
 					success: function(data) {
 						// 添加默认值

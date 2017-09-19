@@ -58,8 +58,8 @@
                                         <i class="fa bg-blue">${status.index+1}</i>
                                         <div class="timeline-item">
                                             <span class="time">
-                                                <button type="button" class="btn bg-olive change" style="margin-left: 10px;" data-toggle="modal" data-target="#update-list" data-num="positionId"> 修改 </button>
-                                                <button type="button" class="btn bg-red delete" data-num="${positionId}"> 删除 </button>
+                                                <button type="button" class="btn bg-olive change" style="margin-left: 10px;" data-toggle="modal" data-target="#update-list" data-num="${testPosition.id}"> 修改 </button>
+                                                <button type="button" class="btn bg-red delete" data-num="${testPosition.id}">${testPosition.id} 删除 </button>
                                             </span>
                                             <h3 class="timeline-header">
                                                 <a href="javascript:;">【 ${testPosition
@@ -132,7 +132,7 @@
     <!-- 新增 -->
     <div class="modal fade" id="add-list">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <form class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
@@ -141,19 +141,18 @@
                 <div class="modal-body">
                     <div class="form-group">
                       <label>计划名称：</label>
-                        <input type="text" class="form-control" value="${testPlan.testName}" disabled="disabled">
+                        <input type="text" class="form-control" value="${testPlan.testName}" disabled="disabled" name="">
                     </div>
-                    
 
                     <div class="form-group">
                           <div class="form-group">
                               <div class="col-xs-6">
                                   <label>问题类型：</label>
-                                  <input type="text" name="type" placeholder="请输入..." class="add-type form-control">
+                                  <input type="text" placeholder="请输入..." class="add-type form-control" name="type">
                               </div>
                               <div class="col-xs-6">
                                   <label>权重：</label>
-                                    <input type="text" placeholder="请输入..." class="add-weight form-control">
+                                    <input type="text" placeholder="请输入..." class="add-weight form-control" name="">
                               </div>
                           </div>
 
@@ -189,9 +188,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary J-ajax-submit1 J-ajax-submit">新增</button>
+                    <button type="submit" class="btn btn-primary J-ajax-submit">新增</button>
                 </div>
-            </div>
+            </form>
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
