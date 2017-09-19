@@ -19,12 +19,11 @@ public interface ExportService {
     public List<YearMonthExportDto> exportYearMonth()throws SSException;
 
     /**
-     * 导出年度月度考核的某一条信息
-     * @param id
+     * 多条件查询
      * @return
      * @throws SSException
      */
-    public YearMonthExportDto exportYearMonthById(int id)throws SSException;
+    public List<YearMonthExportDto> exportYearMonthByConditions(int did,int rid,int year,String username)throws SSException;
 
     /**
      * 导出所有用户年度季度考核成绩信息
@@ -33,11 +32,11 @@ public interface ExportService {
      */
     public List<YearQueaterExportDto> exportYearQueater()throws SSException;
 
+
     /**
-     * 导出年度季度考核的某一条信息
-     * @param id
+     * 多条件季度查询
      * @return
      * @throws SSException
      */
-    public YearQueaterExportDto exportYearQueaterById(int id)throws SSException;
+    public List<YearQueaterExportDto> exportYearQueaterByConditions(int did,int rid,int year,String username)throws SSException;
 }

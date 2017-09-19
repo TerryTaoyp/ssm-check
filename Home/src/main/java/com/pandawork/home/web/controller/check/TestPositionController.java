@@ -59,13 +59,13 @@ public class TestPositionController extends AbstractController {
      * @throws SSException
      */
     @ResponseBody
-    @RequestMapping(value = "/add",method = RequestMethod.GET)
-    public JSONObject addTestPosition(@RequestParam("id") int id, @RequestParam("targetType") String targetType,
-                                      @RequestParam("weight") int weight, @RequestParam("target") String target,
-                                      @RequestParam("optionName1") int optionName1, @RequestParam("content1") String content1,
-                                      @RequestParam("optionName2") int optionName2, @RequestParam("content2") String content2,
-                                      @RequestParam("optionName3") int optionName3, @RequestParam("content3") String content3,
-                                      @RequestParam("optionName4") int optionName4, @RequestParam("content4") String content4
+    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    public String addTestPosition(@RequestParam("id") int id, @RequestParam("targetType") String targetType,
+                                  @RequestParam("weight") int weight, @RequestParam("target") String target,
+                                  @RequestParam("optionName1") int optionName1, @RequestParam("content1") String content1,
+                                  @RequestParam("optionName2") int optionName2, @RequestParam("content2") String content2,
+                                  @RequestParam("optionName3") int optionName3, @RequestParam("content3") String content3,
+                                  @RequestParam("optionName4") int optionName4, @RequestParam("content4") String content4
                                       )throws SSException{
         AbilityPosition abilityPosition = new AbilityPosition();
         abilityPosition.setTargetId(target);
@@ -73,33 +73,32 @@ public class TestPositionController extends AbstractController {
         abilityPosition.setWeight(weight);
         abilityPosition.setTestId(id);
         abilityPositionService.addPosition(abilityPosition);
-        AbilityPosition abilityPosition1 = abilityPositionService.queryByCondition(abilityPosition);
-        System.out.println(abilityPosition1+"哈哈哈");
+
         AbilityOption abilityOption1 = new AbilityOption();
-        abilityOption1.setPositionId(abilityPosition1.getId());
+        abilityOption1.setPositionId(abilityPosition.getId());
         abilityOption1.setTestId(id);
         abilityOption1.setOptionName(optionName1);
         abilityOption1.setOptionContent(content1);
         abilityOptionService.addOption(abilityOption1);
         AbilityOption abilityOption2= new AbilityOption();
-        abilityOption2.setPositionId(abilityPosition1.getId());
+        abilityOption2.setPositionId(abilityPosition.getId());
         abilityOption2.setTestId(id);
         abilityOption2.setOptionName(optionName2);
         abilityOption2.setOptionContent(content2);
         abilityOptionService.addOption(abilityOption2);
         AbilityOption abilityOption3 = new AbilityOption();
-        abilityOption3.setPositionId(abilityPosition1.getId());
+        abilityOption3.setPositionId(abilityPosition.getId());
         abilityOption3.setTestId(id);
         abilityOption3.setOptionName(optionName3);
         abilityOption3.setOptionContent(content3);
         abilityOptionService.addOption(abilityOption3);
         AbilityOption abilityOption4 = new AbilityOption();
-        abilityOption4.setPositionId(abilityPosition1.getId());
+        abilityOption4.setPositionId(abilityPosition.getId());
         abilityOption4.setTestId(id);
         abilityOption4.setOptionName(optionName4);
         abilityOption4.setOptionContent(content4);
         abilityOptionService.addOption(abilityOption4);
-        return sendJsonObject(1);
+        return "redirect:/test/position/list/"+id;
     }
 
     /**
@@ -109,7 +108,7 @@ public class TestPositionController extends AbstractController {
      */
     @ResponseBody
     @RequestMapping(value = "/edit",method = RequestMethod.GET)
-    public JSONObject edit(@RequestParam("positionId") int pid, @RequestParam("targetType") String targetType,
+    public JSONObject edit(  @RequestParam("positionId") int pid, @RequestParam("targetType") String targetType,
                              @RequestParam("weight") int weight, @RequestParam("target") String target,
                              @RequestParam("optionName1") int optionName1, @RequestParam("content1") String content1,
                              @RequestParam("optionName2") int optionName2, @RequestParam("content2") String content2,

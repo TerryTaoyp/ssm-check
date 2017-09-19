@@ -8,13 +8,13 @@ import com.pandawork.home.common.util.ExcelUtil;
 import com.pandawork.home.service.query.ExportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.*;
+import java.util.List;
 
 /**
  * ExportController
@@ -49,21 +49,19 @@ public class ExportController extends AbstractController {
 
     /**
      * 导出年度月度绩效考核的某一条成绩
-     * @param id
+     * @param did
      * @param response
      * @param request
      */
-    @RequestMapping(value = "/month/{id}",method = RequestMethod.GET)
-    public void exportYearMonthById(@PathVariable("id") int id, HttpServletResponse response, HttpServletRequest request){
+    @RequestMapping(value = "/month/query",method = RequestMethod.POST)
+    public void exportYearMonthByConditions(@RequestParam(value = "did",required = false, defaultValue = "-1") int did, @RequestParam(value = "rid",required = false, defaultValue = "-1") int rid,
+                                            @RequestParam(value = "year",required = false, defaultValue = "-1") int year, @RequestParam(value = "username",required = false, defaultValue = "") String username, HttpServletResponse response, HttpServletRequest request){
         try {
-            YearMonthExportDto yearMonthExportDto = exportService.exportYearMonthById(id);
+            List<YearMonthExportDto> listMonth = exportService.exportYearMonthByConditions(did, rid, year, username);
 
-            List<YearMonthExportDto> list = new ArrayList<>();
-//            list.set(0, yearMonthExportDto);
-            list.add(0,yearMonthExportDto);
-            String filename = yearMonthExportDto.getUsername()+".xls";//设置下载时Excel的名称
+            String filename = "年度月度考核.xls";//设置下载时Excel的名称
             filename = ExcelUtil.encodeFilename(filename, request);//处理中文文件名
-            ExcelUtil.writeExcel(list, "recruit", filename, response);//调用Excel工具类生成Excel
+            ExcelUtil.writeExcel(listMonth, "recruit", filename, response);//调用Excel工具类生成Excel
         } catch (SSException e) {
             e.printStackTrace();
             LogClerk.errLog.error(e);
@@ -93,13 +91,14 @@ public class ExportController extends AbstractController {
      * @param request
      * @param response
      */
-    @RequestMapping(value = "/quarter/{id}",method = RequestMethod.GET)
-    public void exportYearQueaterById(@PathVariable("id") int id,HttpServletRequest request,HttpServletResponse response){
+    @RequestMapping(value = "/quarter/query",method = RequestMethod.POST)
+    public void exportYearQuarterByConditions(@RequestParam(value = "did",required = false, defaultValue = "-1") int                                               did, @RequestParam(value = "rid",required = false, defaultValue = "-1") int rid,
+                                              @RequestParam(value = "year",required = false, defaultValue = "-1") int year, @RequestParam(value = "username",required = false, defaultValue = "") String username,HttpServletRequest request,HttpServletResponse response){
         try {
-            YearQueaterExportDto yearQueaterExportDto = exportService.exportYearQueaterById(id);
+            List<YearQueaterExportDto> list = exportService.exportYearQueaterByConditions(did, rid, year, username);
             String filename = "年度季度考核.xls";//设置下载时Excel的名称
             filename = ExcelUtil.encodeFilename(filename, request);//处理中文文件名
-            ExcelUtil.writeExcel((List) yearQueaterExportDto, "recruit", filename, response);//调用Excel工具类生成Excel
+            ExcelUtil.writeExcel(list, "recruit", filename, response);//调用Excel工具类生成Excel
         } catch (SSException e) {
             e.printStackTrace();
             LogClerk.errLog.error(e);

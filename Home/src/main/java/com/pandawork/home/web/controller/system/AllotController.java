@@ -44,7 +44,7 @@ public class AllotController extends AbstractController {
             List<Allot> allotList  = allotService.listAll();
             List<User> userList = userService.listAll();
             List<Department> departmentList = departmentService.listAll();
-            List<User> userList1 = userService.queryByRole(7);
+            List<User> userList1 = userService.queryByRidAndIsDelete(7,1);
             model.addAttribute("allotList",allotList);
             model.addAttribute("userList",userList);
             model.addAttribute("departmentList",departmentList);

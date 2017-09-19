@@ -2,7 +2,6 @@ package com.pandawork.home.service.query.impl;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
-import com.pandawork.core.common.util.Assert;
 import com.pandawork.home.common.dto.YearMonthExportDto;
 import com.pandawork.home.common.dto.YearQueaterExportDto;
 import com.pandawork.home.common.exception.ChException;
@@ -33,17 +32,15 @@ public class ExportServiceImpl implements ExportService {
     }
 
     @Override
-    public YearMonthExportDto exportYearMonthById(int id) throws SSException {
+    public List<YearMonthExportDto> exportYearMonthByConditions(int did, int rid, int year, String username) throws SSException {
         try {
-            if (Assert.isNull(id)){
-                return null;
-            }
-            return exportMapper.exportYearMonthById(id);
+            return exportMapper.exportYearMonthByConditions(did, rid, year, username);
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.ExportFailed);
         }
     }
+
 
     @Override
     public List<YearQueaterExportDto> exportYearQueater() throws SSException {
@@ -56,16 +53,14 @@ public class ExportServiceImpl implements ExportService {
     }
 
     @Override
-    public YearQueaterExportDto exportYearQueaterById(int id) throws SSException {
+    public List<YearQueaterExportDto> exportYearQueaterByConditions(int did, int rid, int year, String username) throws SSException {
         try {
-            if (Assert.isNull(id)){
-                return null;
-            }
-            return exportMapper.exportYearQueaterById(id);
+            return exportMapper.exportYearQueaterByConditions(did, rid, year, username);
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.ExportFailed);
         }
-
     }
+
+
 }

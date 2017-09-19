@@ -38,7 +38,7 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="none" id="id">${id}</div>
+            <div class="none" id="#id">${id}</div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="box box-success">
@@ -54,12 +54,13 @@
                       </span>
                                 </li>
                                 <c:forEach items="${testPositionList}" var="testPosition" varStatus="status">
+                                    <div class="none" id="id">${testPosition.id}</div>
                                     <li>
                                         <i class="fa bg-blue">${status.index+1}</i>
                                         <div class="timeline-item">
                                             <span class="time">
                                                 <button type="button" class="btn bg-olive change" style="margin-left: 10px;" data-toggle="modal" data-target="#update-list" data-num="${testPosition.id}"> 修改 </button>
-                                                <button type="button" class="btn bg-red delete" data-num="${testPosition.id}">${testPosition.id} 删除 </button>
+                                                <button type="button" class="btn bg-red delete" data-num="${testPosition.id}"> 删除 </button>
                                             </span>
                                             <h3 class="timeline-header">
                                                 <a href="javascript:;">【 ${testPosition
@@ -132,7 +133,8 @@
     <!-- 新增 -->
     <div class="modal fade" id="add-list">
         <div class="modal-dialog">
-            <form class="modal-content">
+            <form class="modal-content" action="${website}/test/position/add" method="post">
+                <%--<div class="none" name="id">${testPosition.id}</div>--%>
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
@@ -141,48 +143,48 @@
                 <div class="modal-body">
                     <div class="form-group">
                       <label>计划名称：</label>
-                        <input type="text" class="form-control" value="${testPlan.testName}" disabled="disabled" name="">
+                        <input type="text" class="form-control" value="${testPlan.testName}" disabled="disabled" name="testName">
                     </div>
 
                     <div class="form-group">
                           <div class="form-group">
                               <div class="col-xs-6">
                                   <label>问题类型：</label>
-                                  <input type="text" placeholder="请输入..." class="add-type form-control" name="type">
+                                  <input type="text" placeholder="请输入..." class="add-type form-control" name="targetType">
                               </div>
                               <div class="col-xs-6">
                                   <label>权重：</label>
-                                    <input type="text" placeholder="请输入..." class="add-weight form-control" name="">
+                                    <input type="text" placeholder="请输入..." class="add-weight form-control" name="weight">
                               </div>
                           </div>
 
                           <label>
                               问题题目：
                           </label>
-                          <input type="text" name="target" class="form-control a-require-text add-title" placeholder="请输入...">
+                          <input type="text" name="target" class="form-control a-require-text add-title" placeholder="请输入..." >
 
                           <label>
                            选项A：<a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
                            </label>
-                          <input type="hidden" class="form-control" value="1">
-                          <input type="text" class="form-control add-option1" placeholder="请输入...">
+                          <input type="hidden" name="optionName1" class="form-control" value="1">
+                          <input type="text" class="form-control add-option1" name="content1" placeholder="请输入...">
 
                           <label>
                            选项B：<a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
                            </label>
-                            <input type="hidden" class="form-control" value="2">
-                            <input type="text" class="form-control add-option2" placeholder="请输入...">
+                            <input type="hidden" class="form-control" name="optionName2" value="2">
+                            <input type="text" class="form-control add-option2" name="content2" placeholder="请输入...">
                           <label>
                            选项C：<a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
                            </label>
-                            <input type="hidden" class="form-control" value="3">
-                            <input type="text" class="form-control add-option3" placeholder="请输入...">
+                            <input type="hidden" class="form-control" name="optionName3" value="3">
+                            <input type="text" class="form-control add-option3" name="content3" placeholder="请输入...">
 
                           <label>
                            选项D：<a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
                            </label>
-                            <input type="hidden" class="form-control" value="4">
-                            <input type="text" class="form-control add-option4" placeholder="请输入...">
+                            <input type="hidden" class="form-control" name="optionName4" value="4">
+                            <input type="text" class="form-control add-option4" name="content4" placeholder="请输入...">
                     </div>
                     <p class="text-red tip"></p>
                 </div>
