@@ -154,4 +154,13 @@ public interface UserService {
      * @throws SSException
      */
     public List<User> queryByRidAndIsDelete(int rid,int isDelete)throws SSException;
+
+    /**
+     * 根据部门ID和删除状态查询
+     * @param did
+     * @param isDelete
+     * @return
+     * @throws SSException
+     */
+    public List<User> queryByDidAndIsDelete(int did,int isDelete)throws SSException;
 }

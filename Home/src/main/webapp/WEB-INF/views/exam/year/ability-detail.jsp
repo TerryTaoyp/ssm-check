@@ -103,6 +103,13 @@
                                                     </c:if>
                                                 </c:forEach>
                                             </div>
+                                            <div class="timeline-footer">
+                                                <div class="form-group">
+                                                    <label>请输入分数：</label>
+                                                    <input type="text" class="form-control require-text score" placeholder="请填写分数..." name="role">
+                                                    <p class="text-red score-tip"></p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </li>
                                 </c:forEach>
@@ -267,8 +274,23 @@
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
+
 <script src="../../../../resources/js/pages/common/verify.js"></script>
 <script src="../../../../resources/js/pages/evaluation/year/ability-detail.js"></script>
 <!-- page script -->
+<script src="../../../../resources/js/plugins/iCheck/icheck.min.js"></script>
+
+
+<script src="../../../../resources/js/pages/exam/month/exam-detail.js"></script>
+<!-- page script -->
+<script>
+    $(function () {
+        //iCheck for checkbox and radio inputs
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',
+            radioClass   : 'iradio_minimal-blue'
+        })
+    })
+</script>
 </body>
 </html>

@@ -250,4 +250,17 @@ public class UserServiceImpl implements UserService {
             throw SSException.get(ChException.QueryUserByRidFailed);
         }
     }
+
+    @Override
+    public List<User> queryByDidAndIsDelete(int did, int isDelete) throws SSException {
+        try {
+            if (Assert.isNull(did)||Assert.isNull(isDelete)){
+                return null;
+            }
+            return userMapper.queryByDidAndIsDelete(did, isDelete);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryUserByDidFailed);
+        }
+    }
 }

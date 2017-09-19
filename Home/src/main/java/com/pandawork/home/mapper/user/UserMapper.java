@@ -155,4 +155,13 @@ public interface UserMapper {
      * @throws SSException
      */
     public List<User> queryByRidAndIsDelete(@Param("rid") int rid,@Param("isDelete") int isDelete)throws SSException;
+
+    /**
+     * 根据部门ID和删除状态查询
+     * @param did
+     * @param isDelete
+     * @return
+     * @throws SSException
+     */
+    public List<User> queryByDidAndIsDelete(@Param("did") int did,@Param("isDelete") int isDelete)throws SSException;
 }

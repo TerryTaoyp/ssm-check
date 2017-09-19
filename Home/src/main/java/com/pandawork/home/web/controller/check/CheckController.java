@@ -69,13 +69,8 @@ public class CheckController extends AbstractController {
             User user = userService.queryByUname((String) session.getAttribute("username"));
             Role role = roleService.queryById(user.getRid());
             Power power = powerService.queryById(role.getPid());
-            if (power.getPower()<=7){
-                List<TestPlan> testPlanList = testPlanService.listAll();
-                model.addAttribute("testPlanList",testPlanList);
-            }else if (power.getPower() == 8 || power.getPower()==9){
-                List<TestPlan> testPlanList = testPlanService.queryByDid(user.getDid());
-                model.addAttribute("testPlanList",testPlanList);
-            }
+            List<TestPlan> testPlanList = testPlanService.listAll();
+            model.addAttribute("testPlanList",testPlanList);
             List<TestType> testTypeList = testTypeService.listAll();
             model.addAttribute("testTypeList",testTypeList);
         }catch (SSException e){
@@ -101,10 +96,10 @@ public class CheckController extends AbstractController {
             List<Department> departmentList =departmentService.listAll();
             List<Role> roleList = roleService.listAll();
             if (power.getPower()<=7){
-                List<User> userList = userService.listAll();
+                List<User> userList = userService.queryByIsDelete(1);
                 model.addAttribute("userList",userList);
             }else if (power.getPower()==8 ||power.getPower()==9){
-                List<User> userList = userService.queryByDid(user.getDid());
+                List<User> userList = userService.queryByDidAndIsDelete(user.getDid(),1);
                 model.addAttribute("userList",userList);
             }
             TestPlan testPlan = testPlanService.queryTestPlan(id);
@@ -167,10 +162,10 @@ public class CheckController extends AbstractController {
         List<Department> departmentList =departmentService.listAll();
         List<Role> roleList = roleService.listAll();
         if (power.getPower()<=7){
-            List<User> userList = userService.listAll();
+            List<User> userList = userService.queryByIsDelete(1);
             model.addAttribute("userList",userList);
         }else if (power.getPower()==8 ||power.getPower()==9){
-            List<User> userList = userService.queryByDid(user.getDid());
+            List<User> userList = userService.queryByDidAndIsDelete(user.getDid(),1);
             model.addAttribute("userList",userList);
         }
         TestPlan testPlan = testPlanService.queryTestPlan(id);
@@ -228,7 +223,7 @@ public class CheckController extends AbstractController {
         model.addAttribute("workPlanList",workPlanList);
         model.addAttribute("id",id);
         model.addAttribute("uid",uid);
-        return "exam/year/exam-detail";
+        return "exam/year/evaluation-detail";
     }
 
     /**
@@ -243,13 +238,8 @@ public class CheckController extends AbstractController {
         User user = userService.queryByUname((String) session.getAttribute("username"));
         Role role = roleService.queryById(user.getRid());
         Power power = powerService.queryById(role.getPid());
-        if (power.getPower()<=2){
-            List<TestPlan> testPlanList = testPlanService.listAll();
-            model.addAttribute("testPlanList",testPlanList);
-        }else if (power.getPower() == 5){
-            List<TestPlan> testPlanList = testPlanService.queryByDid(user.getDid());
-            model.addAttribute("testPlanList",testPlanList);
-        }
+        List<TestPlan> testPlanList = testPlanService.listAll();
+        model.addAttribute("testPlanList",testPlanList);
         List<TestType> testTypeList = testTypeService.listAll();
         model.addAttribute("testTypeList",testTypeList);
         return "exam/year/evaluation-list";
