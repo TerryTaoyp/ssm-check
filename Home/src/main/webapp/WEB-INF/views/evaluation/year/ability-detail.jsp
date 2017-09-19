@@ -49,13 +49,13 @@
                             <ul class="timeline">
                                 <!-- timeline time label -->
                                 <li class="time-label">
-                      <span class="bg-green">
-                        考核开始
-                      </span>
+                                  <span class="bg-green">
+                                    考核开始
+                                  </span>
                                 </li>
                                 <c:forEach items="${testPositionList}" var="testPosition" varStatus="status">
                                     <div class="none" id="id">${testPosition.id}</div>
-                                    <li>
+                                    <li data-id="${testPosition.id}">
                                         <i class="fa bg-blue">${status.index+1}</i>
                                         <div class="timeline-item">
                                             <span class="time">
@@ -63,9 +63,13 @@
                                                 <button type="button" class="btn bg-red delete" data-num="${testPosition.id}"> 删除 </button>
                                             </span>
                                             <h3 class="timeline-header">
-                                                <a href="javascript:;">【 ${testPosition
-                                                .targetType} ${testPosition.weight}% 】</a>
-                                                ${testPosition.target}
+                                                <a href="javascript:;">【 
+                                                    <span class="type">
+                                                    ${testPosition.targetType}
+                                                    </span> 
+                                                    <span class="weigth">${testPosition.weight}</span> % 】
+                                                </a>
+                                                <span class="title">${testPosition.target}</span>
                                             </h3>
                                             <div class="timeline-body box-body">
                                                 <c:forEach items="${abilityOptionList}" var="option">
@@ -73,7 +77,8 @@
                                                         <div class="form-group">
                                                             <c:if test="${option.optionName == 1}">
                                                             <label>
-                                                                    A.${option.optionContent}
+                                                                    A.
+                                                                    <span class="option1">${option.optionContent}</span>
                                                             </label>
                                                             <a class="btn bg-olive btn-xs">优(9.0分~10分)</a>
                                                             </c:if>
@@ -81,7 +86,10 @@
                                                         <div class="form-group">
                                                             <c:if test="${option.optionName == 2}">
                                                             <label>
-                                                                    B.${option.optionContent}
+                                                                    B.
+                                                                    <span class="option2">
+                                                                    ${option.optionContent}
+                                                                    </span>
                                                             </label>
                                                             <a class="btn btn-primary  btn-xs">良(8.0分~$9.0分)</a>
                                                             </c:if>
@@ -89,7 +97,10 @@
                                                         <div class="form-group">
                                                             <c:if test="${option.optionName == 3}">
                                                             <label>
-                                                                    C.${option.optionContent}
+                                                                    C.
+                                                                    <span class="option3">
+                                                                    ${option.optionContent}
+                                                                    </span>
                                                             </label>
                                                             <a class="btn bg-orange btn-xs">中(6.0分~8.0分)</a>
                                                             </c:if>
@@ -97,7 +108,10 @@
                                                         <div class="form-group">
                                                             <c:if test="${option.optionName == 4}">
                                                             <label>
-                                                                    D.${option.optionContent}
+                                                                    D.
+                                                                    <span class="option4">
+                                                                    ${option.optionContent}
+                                                                    </span>
                                                             </label>
                                                             <a class="btn bg-red btn-xs">差(0分~6.0分)</a>
                                                             </c:if>
@@ -134,7 +148,7 @@
     <div class="modal fade" id="add-list">
         <div class="modal-dialog">
             <form class="modal-content" action="${website}/test/position/add" method="post">
-                <%--<div class="none" name="id">${testPosition.id}</div>--%>
+                <input type="hidden" name="id" value="${id}">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
@@ -233,25 +247,21 @@
                         <label>
                             选项A：<a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
                         </label>
-                        <input type="hidden" class="form-control update-option1" value="1">
                         <input type="text" class="form-control update-content1" placeholder="请输入...">
 
                         <label>
                             选项B：<a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
                         </label>
-                        <input type="hidden" class="form-control update-option2" value="2">
                         <input type="text" class="form-control update-content2" placeholder="请输入...">
                         <label>
                             选项C：<a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
                         </label>
-                        <input type="hidden" class="form-control" value="3">
-                        <input type="text" class="form-control update-content2" placeholder="请输入...">
+                        <input type="text" class="form-control update-content3" placeholder="请输入...">
 
                         <label>
                             选项D：<a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
                         </label>
-                        <input type="hidden" class="form-control" value="4">
-                        <input type="text" class="form-control" placeholder="请输入...">
+                        <input type="text" class="form-control update-content4" placeholder="请输入...">
                     </div>
                     <p class="text-red tip"></p>
                 </div>

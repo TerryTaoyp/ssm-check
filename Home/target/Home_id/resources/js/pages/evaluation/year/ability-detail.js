@@ -156,16 +156,16 @@ $(document).ready(function() {
 						// 添加默认值
 						
 						// 权重名称
-						$('.update-weight').val(data.data.option.weight);
+						$('.update-weight').val(data.data.abilityPosition.weight);
 						// 问题类型
-						$('.update-weight').val(data.data.option.weight);
+						$('.update-type').val(data.data.abilityPosition.targetTypeId);
 						// 问题
-						$('.update-title').val(data.data.option.title);
+						$('.update-title').val(data.data.abilityPosition.targetId);
 						// 选项
-						$('.update-option1').val(data.data.option.option1);
-						$('.update-option2').val(data.data.option.option2);
-						$('.update-option3').val(data.data.option.option3);
-						$('.update-option4').val(data.data.option.option4);
+						$('.update-content1').val(data.data.option1.optionContent);
+						$('.update-content2').val(data.data.option2.optionContent);
+						$('.update-content3').val(data.data.option3.optionContent);
+						$('.update-content4').val(data.data.option4.optionContent);
 						
 
 					},
@@ -179,13 +179,13 @@ $(document).ready(function() {
 				// 先清空提示信息
 				// 附加上点击此按钮的信息在数据库中的顺序
 				var 
-					path_url = _ajax.url.evaluation.year.ability_list.change,
+					path_url = _ajax.url.evaluation.year.ability_list.submit,
 					id = $('#dataId').val(), // 当前问题序号
 					title = $('.update-title').val(), // 新增题目
-					option1 = $('.update-option1').val(), // 选项1
-					option2 = $('.update-option2').val(), // 选项2
-					option3 = $('.update-option3').val(), // 选项3
-					option4 = $('.update-option4').val(), // 选项4
+					option1 = $('.update-content1').val(), // 选项1
+					option2 = $('.update-content2').val(), // 选项2
+					option3 = $('.update-content3').val(), // 选项3
+					option4 = $('.update-content4').val(), // 选项4
 					weight = $('.update-weight').val(), // 权重
 					type = $('.update-type').val(), // 类型的value
 					reg = /^([1-9]\d?|100)$/; // 1-100数字的正则
@@ -196,13 +196,18 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							title: title,
-							option1: option1,
-							option2: option2,
-							option3: option3,
-							option4: option4,
+							positionId: id,
+							targetType: type,
 							weight: weight,
-							type: type
+							target: title,
+							optionName1: 1,
+							optionName2: 2,
+							optionName3: 3,
+							optionName4: 4,
+							content1: option1,
+							content2: option2,
+							content3: option3,
+							content4: option4,
 						},
 						success: function(data) {
 							if (data.code) {
@@ -241,7 +246,7 @@ $(document).ready(function() {
 				var 
 					that = $(this),
 					id = $(this).attr('data-num'),
-					path_url = _ajax.url.evaluation.year.ability_list.del;
+					path_url = _ajax.url.evaluation.year.ability_list.delete;
 				// 删除确认
 				if (confirm("确认要删除？")) {
 					$.ajax({
@@ -249,7 +254,7 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							positionId: 1
+							positionId: id
 						},
 						success: function(data) {
 							that.parents('li').remove();

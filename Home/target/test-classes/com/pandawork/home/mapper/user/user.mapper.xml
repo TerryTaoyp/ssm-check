@@ -119,4 +119,8 @@
     <select id="queryById" resultMap="pw.User">
         SELECT * FROM t_user WHERE id = #{id}
     </select>
+
+    <select id="queryByRidAndIsDelete" resultMap="pw.User">
+        SELECT * FROM t_user WHERE rid = #{rid} AND is_delete = #{isDelete}
+    </select>
 </mapper>

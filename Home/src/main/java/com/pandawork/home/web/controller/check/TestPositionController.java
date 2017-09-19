@@ -58,7 +58,6 @@ public class TestPositionController extends AbstractController {
      * @return
      * @throws SSException
      */
-    @ResponseBody
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public String addTestPosition(@RequestParam("id") int id, @RequestParam("targetType") String targetType,
                                   @RequestParam("weight") int weight, @RequestParam("target") String target,
@@ -73,27 +72,27 @@ public class TestPositionController extends AbstractController {
         abilityPosition.setWeight(weight);
         abilityPosition.setTestId(id);
         abilityPositionService.addPosition(abilityPosition);
-
+        AbilityPosition abilityPosition1 = abilityPositionService.queryByCondition(abilityPosition);
         AbilityOption abilityOption1 = new AbilityOption();
-        abilityOption1.setPositionId(abilityPosition.getId());
+        abilityOption1.setPositionId(abilityPosition1.getId());
         abilityOption1.setTestId(id);
         abilityOption1.setOptionName(optionName1);
         abilityOption1.setOptionContent(content1);
         abilityOptionService.addOption(abilityOption1);
         AbilityOption abilityOption2= new AbilityOption();
-        abilityOption2.setPositionId(abilityPosition.getId());
+        abilityOption2.setPositionId(abilityPosition1.getId());
         abilityOption2.setTestId(id);
         abilityOption2.setOptionName(optionName2);
         abilityOption2.setOptionContent(content2);
         abilityOptionService.addOption(abilityOption2);
         AbilityOption abilityOption3 = new AbilityOption();
-        abilityOption3.setPositionId(abilityPosition.getId());
+        abilityOption3.setPositionId(abilityPosition1.getId());
         abilityOption3.setTestId(id);
         abilityOption3.setOptionName(optionName3);
         abilityOption3.setOptionContent(content3);
         abilityOptionService.addOption(abilityOption3);
         AbilityOption abilityOption4 = new AbilityOption();
-        abilityOption4.setPositionId(abilityPosition.getId());
+        abilityOption4.setPositionId(abilityPosition1.getId());
         abilityOption4.setTestId(id);
         abilityOption4.setOptionName(optionName4);
         abilityOption4.setOptionContent(content4);
@@ -122,23 +121,23 @@ public class TestPositionController extends AbstractController {
 
         AbilityOption abilityOption1 = abilityOptionService.queryByPidAndOption(pid,1);
         abilityOption1.setPositionId(pid);
-        abilityOption1.setOptionName(optionName1);
+        abilityOption1.setOptionName(1);
         abilityOption1.setOptionContent(content1);
         abilityOptionService.updateOption(abilityOption1);
         AbilityOption abilityOption2= abilityOptionService.queryByPidAndOption(pid,2);
-        abilityOption1.setPositionId(pid);
-        abilityOption1.setOptionName(optionName2);
-        abilityOption1.setOptionContent(content2);
+        abilityOption2.setPositionId(pid);
+        abilityOption2.setOptionName(2);
+        abilityOption2.setOptionContent(content2);
         abilityOptionService.updateOption(abilityOption2);
         AbilityOption abilityOption3 = abilityOptionService.queryByPidAndOption(pid,3);
-        abilityOption1.setPositionId(pid);
-        abilityOption1.setOptionName(optionName3);
-        abilityOption1.setOptionContent(content3);
+        abilityOption3.setPositionId(pid);
+        abilityOption3.setOptionName(3);
+        abilityOption3.setOptionContent(content3);
         abilityOptionService.updateOption(abilityOption3);
         AbilityOption abilityOption4 = abilityOptionService.queryByPidAndOption(pid,4);
-        abilityOption1.setPositionId(pid);
-        abilityOption1.setOptionName(optionName4);
-        abilityOption1.setOptionContent(content4);
+        abilityOption4.setPositionId(pid);
+        abilityOption4.setOptionName(4);
+        abilityOption4.setOptionContent(content4);
         abilityOptionService.updateOption(abilityOption4);
         return sendJsonObject(1);
     }
@@ -159,6 +158,7 @@ public class TestPositionController extends AbstractController {
         AbilityOption abilityOption4 = abilityOptionService.queryByPidAndOption(pid,4);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("testName",testPlan.getTestName());
+        jsonObject.put("abilityPosition",abilityPosition);
         jsonObject.put("option1",abilityOption1);
         jsonObject.put("option2",abilityOption2);
         jsonObject.put("option3",abilityOption3);

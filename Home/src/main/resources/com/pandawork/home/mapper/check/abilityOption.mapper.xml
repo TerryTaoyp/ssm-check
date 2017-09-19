@@ -33,6 +33,7 @@
         max_score = #{abilityOption.maxScore},
         min_score = #{abilityOption.minScore},
         option_content = #{abilityOption.optionContent}
+        WHERE id = #{abilityOption.id}
     </update>
 
     <select id="queryByPositionId" resultMap="pw.AbilityOption">
