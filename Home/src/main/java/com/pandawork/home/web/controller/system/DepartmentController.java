@@ -107,7 +107,7 @@ public class DepartmentController extends AbstractController {
     }
     @ResponseBody
     @RequestMapping(value = "/update",method = RequestMethod.GET)
-    public JSONObject update(@PathVariable("id") int id, @RequestParam("name") String name)throws Exception{
+    public JSONObject update(@RequestParam("id") int id, @RequestParam("name") String name)throws Exception{
         Department department = departmentService.queryById(id);
         department.setName(name);
         departmentService.updateDepartment(department);

@@ -41,17 +41,11 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="box box-success">
-                <div class="box-header with-border">
-                    <h3 class="box-title">考核分配</h3>
-                </div>
-                <!-- /.box-body -->
-            </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box">
+                    <div class="box box-success">
                         <div class="box-header">
-                            <h3 class="box-title">全部员工列表</h3>
+                            <h3 class="box-title">考核分配-全部员工列表</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -84,8 +78,8 @@
                                         </td>
 
                                         <td>
-                                            <button class="btn bg-blue add" data-date="${testPlan.id}" data-test="${user.uid}" data-user="${user.uid}">添加</button>
-                                            <button type="button" class="btn bg-red delete" data-date="${testPlan.id}" data-test="${user.uid}" data-user="${user.uid}">移除</button>
+                                            <button class="btn bg-blue add" data-test="${testPlan.id}" data-user="${user.uid}">添加</button>
+                                            <button type="button" class="btn bg-red delete" data-test="${testPlan.id}" data-user="${user.uid}">移除</button>
                                         </td>
                                     </tr>
                                 </c:forEach>

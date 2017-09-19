@@ -13,7 +13,7 @@
     </insert>
 
     <delete id="delById">
-        DELETE FROM t_join_test WHERE id = #{id}
+        DELETE FROM t_join_test WHERE test_id = #{tid} AND  uid = #{uid}
     </delete>
 
     <select id="queryById" resultMap="pw.JoinTest">

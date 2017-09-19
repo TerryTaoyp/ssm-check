@@ -62,8 +62,8 @@
                                                 <button type="button" class="btn bg-red delete" data-num="${positionId}"> 删除 </button>
                                             </span>
                                             <h3 class="timeline-header">
-                                                <a href="#">【${testPosition
-                                                .targetType}&nbsp;&nbsp;&nbsp;&nbsp;${testPosition.weight}%】</a>
+                                                <a href="javascript:;">【 ${testPosition
+                                                .targetType} ${testPosition.weight}% 】</a>
                                                 ${testPosition.target}
                                             </h3>
                                             <div class="timeline-body box-body">

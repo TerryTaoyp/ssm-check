@@ -18,11 +18,11 @@ public interface JoinTestService {
 
     /**
      * 根据ID移除考核分配
-     * @param id
+     * @param tid
      * @return
      * @throws SSException
      */
-    public boolean delById(int id)throws SSException;
+    public boolean delById(int tid,int uid)throws SSException;
 
     /**
      * 根据ID查找

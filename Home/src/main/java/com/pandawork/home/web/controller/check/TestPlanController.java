@@ -230,11 +230,8 @@ public class TestPlanController extends AbstractController{
      */
     @ResponseBody
     @RequestMapping(value = "/del/join",method = RequestMethod.GET)
-    public JSONObject notJoin(@RequestParam("id") int tid,@RequestParam("uid") int uid)throws Exception{
-        JoinTest joinTest = new JoinTest();
-        joinTest.setUid(uid);
-        joinTest.setTestId(tid);
-        joinTestService.addCheck(joinTest);
+    public JSONObject notJoin(@RequestParam("tid") int tid,@RequestParam("uid") int uid)throws Exception{
+        joinTestService.delById(tid,uid);
         return sendJsonObject(1);
     }
 

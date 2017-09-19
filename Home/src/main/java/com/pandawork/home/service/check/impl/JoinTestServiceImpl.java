@@ -38,12 +38,12 @@ public class JoinTestServiceImpl implements JoinTestService{
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {SSException.class,Exception.class, RuntimeException.class})
-    public boolean delById(int id) throws SSException {
+    public boolean delById(int tid,int uid) throws SSException {
         try {
-            if (Assert.isNull(id)){
+            if (Assert.isNull(tid)||Assert.isNull(uid)){
                 return false;
             }
-            return joinTestMapper.delById(id);
+            return joinTestMapper.delById(tid,uid);
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.DelCheckByIdFailed);

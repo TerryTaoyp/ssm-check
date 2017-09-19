@@ -124,6 +124,7 @@ public class RoleController extends AbstractController {
         Role role = roleService.queryById(id);
         role.setName(name);
         role.setPid(pid);
+        roleService.updateRole(role);
         if (role==null){
             return sendJsonObject(0);
         }else {

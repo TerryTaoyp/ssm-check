@@ -19,11 +19,11 @@ public interface JoinTestMapper {
 
     /**
      * 根据ID移除考核分配
-     * @param id
+     * @param tid
      * @return
      * @throws SSException
      */
-    public boolean delById(@Param("id") int id)throws SSException;
+    public boolean delById(@Param("tid") int tid,@Param("uid") int uid)throws SSException;
 
     /**
      * 根据ID查找
