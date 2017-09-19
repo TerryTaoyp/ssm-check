@@ -64,7 +64,7 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${userList1}" var="user" varStatus="status">
-                                    <tr data-id="${allot.id}">
+                                    <tr data-id="${user.id}">
                                         <td>${status.index+1}</td>
                                         <td>${user.realName}</td>
                                         <td>副总经理</td>

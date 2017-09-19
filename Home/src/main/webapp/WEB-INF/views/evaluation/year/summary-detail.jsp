@@ -56,7 +56,7 @@
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <a href="${website}/summary/list" class="btn bg-olive">返回列表</a>
-                            <a href="${website}/summary/toupdate/${summary.id}" class="btn bg-primary">修改</a>
+                            <a href="${website}/summary/toupdate/${summary.id}" class="btn btn-primary">修改</a>
                         </div>
                     </div>
                 </div>
