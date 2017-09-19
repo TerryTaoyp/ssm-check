@@ -72,7 +72,9 @@
                 allot:{
                     // 列表
                     list:{
-                        change: site.staticWebsite + 'mock/allot.json'
+                        del: site.website + 'allot/ajax/del', // 删除
+                        update: site.website + 'allot/ajax/update', // 点击修改
+                        submit: site.website + 'allot/update' // 修改提交
                     }
                 },
                 //账号管理

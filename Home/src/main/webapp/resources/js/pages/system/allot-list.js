@@ -14,18 +14,41 @@ $(document).ready(function() {
 
 		function init(){
 
-			// 点击修改计划时传一个次序给修改弹出框
+			// ajax点击修改
 			$(el.J_change).click(function(ev) {
-				var id = $(this).attr('data-num');
-				$('#dataId').val(id);// 传值成功
+				var path_url = _ajax.url.system.allot.list.update,
+					department = $(el.J_department).val(), // 管辖部门名称
+					// 附加上点击此按钮的信息在数据库中的顺序
+					id = $(this).attr('data-num');
+					$('#dataId').val(id);// 传值成功
+				// 如果符合条件无法提交
+					$.ajax({
+						url: path_url,
+						type: 'get',
+						dataType: 'json',
+						data: {
+							id: id,
+						},
+						success: function(data) {
+							// 把符合条件的选上!
+							var arr = data.data.allotList;
+							// select2初始化默认赋值
+							$('.department').select2('val',arr);
+						},
+						error: function(data,errorMsg) {
+							console.log('error');
+						}
+					})
 			});
-			// ajax修改
+			// ajax修改提交
 			$(el.J_ajax_submit).click(function(ev) {
 				// 先清空提示信息
 				$(el.J_tip).text('');
-				// 附加上点击此按钮的信息在数据库中的顺序
-				var path_url = _ajax.url.evaluation.plan_management.list.change,
-					department = $(el.J_department).val(); // 管辖部门名称
+				var 
+					id = $(this).attr('data-num'), // 附加上点击此按钮的信息在数据库中的顺序
+					path_url = _ajax.url.system.allot.list.update,
+					department = $(el.J_department).val(), // 管辖部门名称
+					department_text = $(el.J_department).find('option:selected').text(); // 管辖部门名称
 				// 如果符合条件无法提交
 				if (!(ajax_flag1 || ajax_flag2 || ajax_flag3)) {
 					$.ajax({
@@ -33,7 +56,8 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							department: department,
+							id: id,
+							did: department
 						},
 						success: function(data) {
 							// console.log(data.errorMsg[0].msg);
@@ -44,7 +68,7 @@ $(document).ready(function() {
 								$('button[data-dismiss="modal"]').click();
 								// 修改dom
 								var id = $('#dataId').val(); // 获取到当前次序
-								$('.table tr[data-id='+ id +'] > td.department-text').text(department);
+								$('.table tr[data-id='+ id +'] > td.department-text').text(department_text);
 							}
 							else{
 								$(el.J_tip).text(data.errorMsg[0].msg);
@@ -65,7 +89,7 @@ $(document).ready(function() {
 				// 获取序列
 				var 
 					id = $(this).attr('data-num'),
-					path_url = _ajax.url.evaluation.plan_management.list.change;
+					path_url = _ajax.url.system.allot.list.del;
 				// 删除确认
 				if (confirm("确认要删除？")) {
 					$.ajax({
@@ -77,8 +101,6 @@ $(document).ready(function() {
 						},
 						success: function(data) {
 							$('.table tr[data-id='+ id +']').remove();
-							// 修改数据数量信息
-							// 暂定
 						},
 						error: function(data,errorMsg) {
 							console.log('error');

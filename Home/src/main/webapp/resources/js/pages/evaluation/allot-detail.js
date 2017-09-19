@@ -12,6 +12,25 @@ $(document).ready(function() {
 		init();
 
 		function init(){
+			// 判断刚开始的状态
+			$('.status').each(function(i, o) {
+				if($(o).text().indexOf('已参与') != -1){ // 判断是否包含'已参与',若没返回-1
+					// 修改按钮状态
+					$(this).next().children('.add').attr('disabled','disabled');
+					$(this).next().children('.add').text('已添加');
+					// 删除恢复
+					$(this).next().children('.delete').removeAttr('disabled');
+					$(this).next().children('.delete').text('移除');
+				}
+				else{
+					// 修改按钮状态
+					$(this).next().children('.delete').attr('disabled','disabled');
+					$(this).next().children('.delete').text('已移除');
+					// 添加恢复
+					$(this).next().children('.add').removeAttr('disabled');
+					$(this).next().children('.add').text('添加');
+				}
+			});
 			// ajax添加
 			$(el.J_add).click(function(ev) {
 				// 获取序列

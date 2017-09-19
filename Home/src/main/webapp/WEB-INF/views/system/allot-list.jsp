@@ -64,7 +64,7 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${userList1}" var="user" varStatus="status">
-                                    <tr data-id="${status.index+1}">
+                                    <tr data-id="${allot.id}">
                                         <td>${status.index+1}</td>
                                         <td>${user.realName}</td>
                                         <td>副总经理</td>
@@ -74,8 +74,8 @@
                                             </c:if>
                                         </c:forEach>
                                         <td>
-                                            <a type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${status.index+1}" href="${website}/allot/ajax/update/${user.id}">修改管辖范围</a>
-                                            <a type="button" class="btn bg-red delete" data-num="${status.index+1}"  href="${website}/allot/ajax/del/${allot.id}">删除</a>
+                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${allot.id}">修改管辖范围</button>
+                                            <button type="button" class="btn bg-red delete" data-num="${allot.id}">删除</button>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -110,9 +110,8 @@
                     <div class="form-group">
                         <label>选择部门：</label>
                         <select class="form-control select2 a-require-options department" multiple="multiple" data-placeholder="请选择..." style="width: 100%;" name="did">
-                            <option selected="" value="-1">请选择</option>
                             <c:forEach items="${departmentList}" var="department">
-                                <option selected="" value="${department.id}">${department.name}</option>
+                                <option value="${department.id}">${department.name}</option>
                             </c:forEach>
                         </select>
                     </div>
