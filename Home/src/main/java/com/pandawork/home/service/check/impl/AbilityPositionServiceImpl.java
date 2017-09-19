@@ -125,4 +125,17 @@ public class AbilityPositionServiceImpl implements AbilityPositionService {
             throw SSException.get(ChException.DelPositionFailed);
         }
     }
+
+    @Override
+    public AbilityPosition queryByCondition(AbilityPosition abilityPosition) throws SSException {
+        try {
+            if (Assert.isNull(abilityPosition)){
+                return null;
+            }
+            return abilityPositionMapper.queryByCondition(abilityPosition);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryPositionByDidFailed);
+        }
+    }
 }

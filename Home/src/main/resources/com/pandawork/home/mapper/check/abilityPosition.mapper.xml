@@ -44,4 +44,10 @@
     <delete id="del">
         DELETE FROM t_ability_position WHERE id =#{id}
     </delete>
+
+    <select id="queryByCondition" resultMap="pw.AbilityPosition">
+        SELECT * FROM t_ability_position WHERE target_id = #{abilityPosition.targetId} AND
+         target_type_id = #{abilityPosition.targetTypeId} AND
+         weight = #{abilityPosition.weight}
+    </select>
 </mapper>

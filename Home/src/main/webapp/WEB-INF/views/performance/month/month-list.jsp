@@ -93,7 +93,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <%--<th>序号</th>--%>
+                                    <th>序号</th>
                                     <th>考核计划名称</th>
                                     <th>部门</th>
                                     <th>姓名</th>
@@ -119,7 +119,7 @@
                                 <tbody>
                                 <c:forEach items="${list}" var="list">
                                         <tr>
-                                            <%--<td>${status.index+1}</td>--%>
+                                            <td>${status.index+1}</td>
                                             <td>${list.year}年度成绩</td>
                                             <td>${list.department}</td>
                                             <td>${list.username}</td>

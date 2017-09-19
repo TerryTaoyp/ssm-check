@@ -70,4 +70,12 @@ public interface AbilityPositionService {
      */
     public boolean del(int id)throws SSException;
 
+    /**
+     * 根据 多条件查询ID
+     * @param abilityPosition
+     * @return
+     * @throws SSException
+     */
+    public AbilityPosition queryByCondition(AbilityPosition abilityPosition)throws SSException;
+
 }

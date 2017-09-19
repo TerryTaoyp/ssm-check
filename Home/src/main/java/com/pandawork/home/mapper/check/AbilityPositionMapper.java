@@ -69,4 +69,12 @@ public interface AbilityPositionMapper {
      * @throws SSException
      */
     public boolean del(@Param("id") int id)throws SSException;
+
+    /**
+     * 根据 多条件查询ID
+     * @param abilityPosition
+     * @return
+     * @throws SSException
+     */
+    public AbilityPosition queryByCondition(@Param("abilityPosition") AbilityPosition abilityPosition)throws SSException;
 }

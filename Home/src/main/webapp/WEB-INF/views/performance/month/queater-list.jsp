@@ -49,7 +49,7 @@
                         <select class="form-control" name="departmentId">
                             <option value="-1" selected = "selected">请选择</option>
                             <c:forEach items="${departmentList}" var="department">
-                                <option selected = "" value="${department.id}">${department.name}</option>
+                                <option value="${department.id}">${department.name}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -59,7 +59,7 @@
                         <select class="form-control" name="roleId">
                             <option value="-1" selected = "selected">请选择</option>
                             <c:forEach items="${roleList}" var="role" >
-                                <option selected = "" value="${role.id}">${role.name}</option>
+                                <option value="${role.id}">${role.name}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -90,7 +90,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <%--<th>序号</th>--%>
+                                    <th>序号</th>
                                     <th>考核计划名称</th>
                                     <th>部门</th>
                                     <th>姓名</th>
@@ -106,9 +106,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${list}" var="list">
+                                <c:forEach items="${list}" var="list" varStatus="status">
                                         <tr>
-                                            <%--<td>${status.index+1}</td>--%>
+                                            <td>${status.index+1}</td>
                                             <td>${list.year}年度成绩</td>
                                             <td>${list.department}</td>
                                             <td>${list.username}</td>
@@ -128,7 +128,7 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <%--<th>序号</th>--%>
+                                    <th>序号</th>
                                     <th>考核计划名称</th>
                                     <th>部门</th>
                                     <th>姓名</th>
