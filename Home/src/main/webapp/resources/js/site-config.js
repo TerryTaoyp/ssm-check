@@ -121,8 +121,8 @@
                     // 能力指标列表
                     ability_list:{
                         add: site.website + 'test/position/add', // 添加
-                        update: site.website + 'test/position/edit', // 点击修改
-                        submit: site.website + 'test/position/to/edit', // 点击修改按钮
+                        submit: site.website + 'test/position/edit', // 点击修改
+                        update: site.website + 'test/position/to/edit', // 点击修改按钮
                         delete: site.website + 'test/position/del', // 删除本道题
                     },
                 }

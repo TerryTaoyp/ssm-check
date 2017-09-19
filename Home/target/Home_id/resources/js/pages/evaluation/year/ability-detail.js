@@ -142,7 +142,7 @@ $(document).ready(function() {
 				// 获取序列
 				var 
 					id = $(this).attr('data-num'),
-					path_url = _ajax.url.evaluation.plan_management.list.change;
+					path_url = _ajax.url.evaluation.year.ability_list.update;
 					 // 传值成功
 					$('#dataId').val(id);
 				$.ajax({
@@ -150,7 +150,7 @@ $(document).ready(function() {
 					type: 'get',
 					dataType: 'json',
 					data: {
-						id: id
+						positionId: 1
 					},
 					success: function(data) {
 						// 添加默认值

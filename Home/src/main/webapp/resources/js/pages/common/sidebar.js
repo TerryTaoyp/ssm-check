@@ -14,7 +14,8 @@ $(document).ready(function() {
 			// this._hideTip();
 			//当前页所在导航栏展开
 			var pageUrl;
-			pageUrl = window.location.href;
+			// pageUrl = window.location.href; // 全部地址栏
+			pageUrl = window.location.pathname;
 			$('.sidebar-menu a').each(function(){
 				url=$(this).attr('href');
 				if(url==pageUrl){

@@ -58,8 +58,8 @@
                                         <i class="fa bg-blue">${status.index+1}</i>
                                         <div class="timeline-item">
                                             <span class="time">
-                                                <button type="button" class="btn bg-olive change" style="margin-left: 10px;" data-toggle="modal" data-target="#update-list"> 修改 </button>
-                                                <button type="button" class="btn bg-red delete"> 删除 </button>
+                                                <button type="button" class="btn bg-olive change" style="margin-left: 10px;" data-toggle="modal" data-target="#update-list" data-num="positionId"> 修改 </button>
+                                                <button type="button" class="btn bg-red delete" data-num="${positionId}"> 删除 </button>
                                             </span>
                                             <h3 class="timeline-header">
                                                 <a href="#">【${testPosition
