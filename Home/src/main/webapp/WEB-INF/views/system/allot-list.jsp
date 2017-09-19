@@ -68,14 +68,20 @@
                                         <td>${status.index+1}</td>
                                         <td>${user.realName}</td>
                                         <td>副总经理</td>
-                                        <c:forEach items="${departmentList}" var="department">
-                                            <c:if test="${department.id == user.did}">
-                                                <td class="department-text">${department.name}</td>
+                                        <td class="department-text">
+                                        <c:forEach items="${allotList}" var="allot">
+                                            <c:if test="${allot.uid == user.id}">
+                                                <c:forEach items="${departmentList}" var="department">
+                                                    <c:if test="${allot.did==department.id}">
+                                                        ${department.name}
+                                                    </c:if>
+                                                </c:forEach>
                                             </c:if>
                                         </c:forEach>
+                                        </td>
                                         <td>
-                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${allot.id}">修改管辖范围</button>
-                                            <button type="button" class="btn bg-red delete" data-num="${allot.id}">删除</button>
+                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${user.id}">修改管辖范围</button>
+                                            <button type="button" class="btn bg-red delete" data-num="${user.id}">删除</button>
                                         </td>
                                     </tr>
                                 </c:forEach>

@@ -40,23 +40,21 @@
         (SELECT ttp.test_type_id FROM t_test_plan ttp WHERE ttp.id = tjt.test_id)AS testType
         FROM t_join_test tjt
         <where>
-            <include refid="queryCondition"/>
+            <if test="1==1">
+                AND (SELECT ttp.test_type_id FROM t_test_plan ttp WHERE ttp.id = tjt.test_id) = 2
+            </if>
+            <if test="did > 0">
+                AND (SELECT tu.did FROM t_user tu WHERE tu.id = tjt.uid) = #{did}
+            </if>
+            <if test="rid > 0">
+                AND (SELECT tu.rid FROM t_user tu WHERE tu.id = tjt.uid) = #{rid}
+            </if>
+            <if test="year > 0">
+                AND (SELECT ttp.year FROM t_test_plan ttp WHERE ttp.id = tjt.test_id) = #{year}
+            </if>
+            <if test="username != '' and username != null">
+                AND (SELECT tu.username FROM t_user tu WHERE tu.id = tjt.uid) = #{username}
+            </if>
         </where>
     </select>
-
-    <sql id="queryCondition">
-        <if test="did >0">
-            AND (SELECT tu.did FROM t_user tu WHERE tu.id = tjt.uid) = #{did}
-        </if>
-        <if test="rid >0">
-            AND (SELECT tu.rid FROM t_user tu WHERE tu.id = tjt.uid) = #{rid}
-        </if>
-        <if test="year >0">
-            AND (SELECT ttp.year FROM t_test_plan ttp WHERE ttp.id = tjt.test_id) = #{year}
-        </if>
-        <if test="username != '' and username != null">
-            AND (SELECT tu.username FROM t_user tu WHERE tu.id = tjt.uid) = #{username}
-        </if>
-        AND (SELECT ttp.test_type_id FROM t_test_plan ttp WHERE ttp.id = tjt.test_id) = 1
-    </sql>
 </mapper>
