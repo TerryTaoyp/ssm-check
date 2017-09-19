@@ -53,7 +53,7 @@ public class ExportController extends AbstractController {
      * @param response
      * @param request
      */
-    @RequestMapping(value = "/month/query",method = RequestMethod.POST)
+    @RequestMapping(value = "/month/query",method = RequestMethod.GET)
     public void exportYearMonthByConditions(@RequestParam(value = "did",required = false, defaultValue = "-1") int did, @RequestParam(value = "rid",required = false, defaultValue = "-1") int rid,
                                             @RequestParam(value = "year",required = false, defaultValue = "-1") int year, @RequestParam(value = "username",required = false, defaultValue = "") String username, HttpServletResponse response, HttpServletRequest request){
         try {

@@ -117,7 +117,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${list}" var="list">
+                                <c:forEach items="${list}" var="list" varStatus="status">
                                         <tr>
                                             <td>${status.index+1}</td>
                                             <td>${list.year}年度成绩</td>
@@ -147,7 +147,7 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <%--<th>序号</th>--%>
+                                    <th>序号</th>
                                     <th>考核计划名称</th>
                                     <th>部门</th>
                                     <th>姓名</th>
@@ -169,7 +169,7 @@
                                     <th>综合得分</th>
                                     <th>
                                         <c:if test="${list.size() != 0}">
-                                            <a type="button" class="btn bg-green" href="${website}/export/month">全部导出</a>
+                                            <a type="button" class="btn bg-green" href="${website}/export/month/query">全部导出</a>
                                         </c:if>
                                     </th>
                                 </tr>

@@ -45,7 +45,7 @@
                 <div class="col-xs-12">
                     <div class="box box-primary">
                         <div class="box-header">
-                            <h3 class="box-title">我的考核计划列表</h3>
+                            <h3 class="box-title">${testPlan.testName}列表</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -53,13 +53,11 @@
                                 <thead>
                                 <tr>
                                     <th>序号</th>
-                                    <th>考核计划名称</th>
-                                    <th>被考核用户名</th>
                                     <th>所属部门</th>
+                                    <th>被考核用户名</th>
                                     <th>所属角色</th>
-                                    <th>考核开始时间</th>
-                                    <th>考核结束时间</th>
-                                    <th>开启状态</th>
+                                    <th>考核时间</th>
+                                    <%--<th>考核结束时间</th>--%>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -67,10 +65,8 @@
                                     <c:forEach items="${joinTestList}" var="joinTest" varStatus="status">
                                         <tr>
                                         <td>${status.index+1}</td>
-                                        <td>${testPlan.testName}</td>
                                         <c:forEach items="${userList}" var="user">
                                             <c:if test="${joinTest.uid == user.id}">
-                                                <td>${user.username}</td>
                                                 <td>
                                                 <c:forEach items="${departmentList}" var="department">
                                                     <c:if test="${user.did == department.id}">
@@ -78,6 +74,7 @@
                                                     </c:if>
                                                 </c:forEach>
                                                 </td>
+                                                <td>${user.username}</td>
                                                 <td>
                                                 <c:forEach items="${roleList}" var="role">
                                                     <c:if test="${user.rid == role.id}">
@@ -88,21 +85,10 @@
                                             </c:if>
                                         </c:forEach>
                                             <td>${testPlan.startTime}</td>
-                                            <td>${testPlan.finishTime}</td>
-                                    <c:if test="${testPlan.isAvailable == 1}">
-                                        <td>已开启</td>
                                         <td>
                                             <a href="${website}/check/year/performance/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核综合能力</a>
                                             <a href="${website}/check/year/summary/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核年度总结</a>
                                         </td>
-                                    </c:if>
-                                    <c:if test="${testPlan.isAvailable == 0}">
-                                        <td>未开启</td>
-                                        <td>
-                                            <a href="${website}/check/year/performance/${testPlan.id}" class="btn bg-green disabled">进入考核综合能力</a>
-                                            <a href="${website}/check/year/summary/${testPlan.id}" class="btn bg-green disabled">进入考核年度总结</a>
-                                        </td>
-                                    </c:if>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

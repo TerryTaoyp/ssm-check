@@ -54,9 +54,9 @@
                                 <thead>
                                 <tr>
                                     <th>序号</th>
-                                    <th>工作计划</th>
-                                    <th>开始时间</th>
-                                    <th>结束时间</th>
+                                    <th>工作计划内容</th>
+                                    <th>考核时间</th>
+                                    <%--<th>结束时间</th>--%>
                                     <th>权重</th>
                                     <th>预期工作成果</th>
                                     <th>工作完成情况</th>
@@ -68,9 +68,9 @@
                                 <c:forEach items="${workDetailList}" var="detail" varStatus="status">
                                     <tr>
                                         <td>${status.index+1}</td>
-                                        <td>${testPlan.testName}</td>
+                                        <td>${detail.planContent}</td>
                                         <td>${detail.startTime}</td>
-                                        <td>${detail.endTime}</td>
+                                        <%--<td>${detail.endTime}</td>--%>
                                         <td>${detail.weight}%</td>
                                         <td>${detail.expectResult}</td>
                                         <td>${detail.completion}</td>

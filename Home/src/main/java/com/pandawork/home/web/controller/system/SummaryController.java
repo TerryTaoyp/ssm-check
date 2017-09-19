@@ -70,10 +70,12 @@ public class SummaryController extends AbstractController {
      * @throws Exception
      */
     @RequestMapping(value = "/detail/{id}",method = RequestMethod.GET)
-    public String detail(@PathVariable("id") int id,Model model)throws Exception{
+    public String detail(@PathVariable("id") int id,Model model,HttpSession session)throws Exception{
         try {
+            String username = (String) session.getAttribute("username");
             Summary summary = summaryService.queryById(id);
             model.addAttribute("summary",summary);
+            model.addAttribute("username",username);
             return "evaluation/year/summary-detail";
         }catch (SSException e){
             LogClerk.errLog.error(e);
@@ -139,7 +141,7 @@ public class SummaryController extends AbstractController {
             Summary summary = summaryService.queryById(id);
             summary.setContent(content);
             summaryService.updateSummary(summary);
-            return "redirect:/summary/list";
+            return "redirect:/summary/detail/"+id;
         }catch (SSException e){
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());

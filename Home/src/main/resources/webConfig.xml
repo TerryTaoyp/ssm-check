@@ -59,18 +59,22 @@
     </bean> -->
 	<!-- pring mvc 上传文件处理配置 end -->
 	<!-- 拦截器配置部分 -->
-    <!--<mvc:interceptors>-->
-        <!--<mvc:interceptor>-->
-            <!--<mvc:mapping path="/**"/>-->
-            <!--<bean id="loginStuCheckIntercepter" class="com.tao.home.web.intercepter.LoginStuCheckIntercepter">-->
-                <!--<property name="allowUrls">-->
-                    <!--<list>-->
-                        <!--<value>/login</value>-->
-                        <!--<value>/logout</value>-->
-                    <!--</list>-->
-                <!--</property>-->
-            <!--</bean>-->
-        <!--</mvc:interceptor>-->
-    <!--</mvc:interceptors>-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+			<!--不拦截的连接-->
+            <bean id="handerInterceptor1" class="com.pandawork.home.web.intercepter.HanderInterceptor1">
+                <property name="allowUrls">
+                    <list>
+                        <value>/tologin</value>
+                        <value>/login</value>
+						<value>/toregister</value>
+						<value>/register</value>
+                        <value>/logout</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

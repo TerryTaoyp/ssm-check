@@ -29,7 +29,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                吴的个人总结详情
+                ${username}的个人总结详情
                 <small>栏目</small>
             </h1>
             <ol class="breadcrumb">

@@ -9,13 +9,11 @@ import com.pandawork.home.service.check.*;
 import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.user.UserService;
 import com.pandawork.home.web.controller.AbstractController;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -71,11 +69,30 @@ public class WorkPlanController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/month/update/{id}",method = RequestMethod.GET)
-    public String monthUpdate(@PathVariable("id") int id,Model model)throws Exception{
+    @ResponseBody
+    @RequestMapping(value = "/month/to/update",method = RequestMethod.GET)
+    public JSONObject monthUpdate(@RequestParam("id") int id, Model model)throws Exception{
         WorkDetail workDetail = workDetailService.queryById(id);
         model.addAttribute("workDetail",workDetail);
-        return "evaluation/month/plan-update";
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("workDetail",workDetail);
+        return sendJsonObject(jsonObject);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/month/update",method = RequestMethod.GET)
+    public JSONObject update(@RequestParam("wid") int wid, @RequestParam("startTime")String startTime,@RequestParam("startTime")String endTime,@RequestParam("weight")int weight,@RequestParam("planContent") String planContent,@RequestParam("excpetResult") String excpetResult,HttpSession session)throws Exception{
+        User user = userService.queryByUname((String) session.getAttribute("username"));
+        WorkDetail workDetail = new WorkDetail();
+        workDetail.setUid(user.getId());
+        workDetail.setWid(wid);
+        workDetail.setWeight(weight);
+        workDetail.setStartTime(startTime);
+        workDetail.setEndTime(endTime);
+        workDetail.setPlanContent(planContent);
+        workDetail.setExpectResult(excpetResult);
+        workDetailService.updateWorkDetail(workDetail);
+        return sendJsonObject(1);
     }
     /**
      * 获得月季度工作计划的详情
@@ -131,7 +148,7 @@ public class WorkPlanController extends AbstractController {
      * @throws Exception
      */
     @RequestMapping(value = "/month/add",method = RequestMethod.POST)
-    public String monthAdd(@RequestParam("wid") int wid, @RequestParam("startTime")String startTime,@RequestParam("endTime")String endTime,@RequestParam("weight")int weight,@RequestParam("planContent") String planContent,@RequestParam("excpetResult") String excpetResult, HttpSession session)throws Exception{
+    public String monthAdd(@RequestParam("wid") int wid, @RequestParam("startTime")String startTime,@RequestParam("startTime")String endTime,@RequestParam("weight")int weight,@RequestParam("planContent") String planContent,@RequestParam("excpetResult") String excpetResult, HttpSession session)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
         WorkDetail workDetail = new WorkDetail();
         workDetail.setUid(user.getId());
@@ -142,6 +159,9 @@ public class WorkPlanController extends AbstractController {
         workDetail.setPlanContent(planContent);
         workDetail.setExpectResult(excpetResult);
         workDetailService.addWorkDetail(workDetail);
-        return "redirect:/workplan/month/detail/1";
+        return "redirect:/workplan/month/detail/"+wid;
     }
+
+
+
 }
