@@ -69,13 +69,13 @@
                                             <c:if test="${testPlan.isAvailable == 1}">
                                                 <td>已开启</td>
                                                 <td>
-                                                    <a href="${website}/check/month/detail/list/${testPlan.id}" class="btn bg-green">进入考核</a>
+                                                    <a href="${website}/check/month/detail/list/${testPlan.id}" class="btn bg-green">进入查看考核详情</a>
                                                 </td>
                                             </c:if>
                                             <c:if test="${testPlan.isAvailable == 0}">
                                                 <td>未开启</td>
                                                 <td>
-                                                    <a disabled="true"  class="btn bg-red">进入考核</a>
+                                                    <button type="button" disabled="true" class="btn bg-red">考核未开启</button>
                                                 </td>
                                             </c:if>
 
@@ -100,26 +100,6 @@
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
 
     <div class="control-sidebar-bg"></div>
-    <div class="modal fade" id="modal-default">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">查看详情</h4>
-                </div>
-                <div class="modal-body">
-                    <p>One fine body&hellip;</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存修改</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>

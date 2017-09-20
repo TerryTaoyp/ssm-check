@@ -87,12 +87,14 @@
                                     <td>${workDetail.endTime}</td>
                                     <td>${workDetail.weight}</td>
                                     <td>${workDetail.expectResult}</td>
-                                    <td><input type="text" value="${workDetail.completion}"></td>
-                                    <td><input type="text" value="${workDetail.testScore}"/></td>
                                     <td>
-                                        <%--<button type="button" class="btn bg-green" data-toggle="modal" data-target="#modal-default">确定</button> --%>
-                                        <button type="button" class="btn bg-green">确定</button>
-                                        <button type="button" class="btn bg-red ">修改</button>
+                                        ${workDetail.completion}
+                                    </td>
+                                    <td>
+                                        ${workDetail.testScore}
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn bg-green change" data-toggle="modal" data-target="#modal-default" data-num="${workDetail.id}">打分</button>
                                     </td>
                                 </tr>
                                 </c:forEach>
@@ -115,23 +117,28 @@
     <div class="control-sidebar-bg"></div>
     <div class="modal fade" id="modal-default">
         <div class="modal-dialog">
-            <form class="modal-content">
+            <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">打分</h4>
                 </div>
                 <div class="modal-body">
+                    <input type="hidden" id="dataId">
                     <div class="form-group">
-                        <label>您的分数</label>
-                        <input type="text" class="form-control" placeholder="请输入0-100内数字..." required="required" name="role">
+                        <label>工作完成情况评价：</label>
+                        <input type="text" class="form-control result" placeholder="请输入您的意见...">
+                    </div>
+                    <div class="form-group">
+                        <label>您的分数：</label>
+                        <input type="text" class="form-control score" placeholder="请输入0-100内数字...">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <input type="submit" class="btn btn-primary" value="打分">
+                    <button type="button" class="btn btn-primary J-ajax-submit">打分</button>
                 </div>
-            </form>
+            </div>
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
@@ -139,7 +146,7 @@
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
-<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
+<script src="../../../../resources/js/pages/exam/month/exam-detail.js"></script>
 <!-- page script -->
 <script>
     $(function () {
