@@ -109,6 +109,7 @@
                     plan_list:{
                         update: site.website + 'workplan/month/to/update', // 点击修改
                         submit: site.website + 'workplan/month/update', // 点击提交
+                        del: site.website + 'workplan/month/del', // 删除
                     },
                 },
                 //年度考核管理

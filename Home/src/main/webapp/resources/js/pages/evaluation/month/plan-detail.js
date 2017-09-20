@@ -4,6 +4,7 @@ $(document).ready(function() {
 		el = {
 			J_tip: '.tip', //提示信息
 			J_change: '.change', // 修改按钮
+			J_delete: '.delete', // 删除按钮
 			J_ajax_submit: '.J-ajax-submit', // ajax提交按钮
 			J_time: '#reservation', // 时间
 			J_weight: '.weight', // 权重
@@ -22,9 +23,8 @@ $(document).ready(function() {
 				$(el.J_tip).text('');
 				var 
 					id = $(this).attr('data-num'),
-					wid = $(this).attr('data-plan'),
 					path_url = _ajax.url.evaluation.month.plan_list.update;
-					$('#dataId').val(wid);// 传值成功
+					$('#dataId').val(id);// 传值成功
 				// 如果符合条件无法提交
 					$.ajax({
 						url: path_url,
@@ -117,7 +117,7 @@ $(document).ready(function() {
 				// 获取序列
 				var 
 					id = $(this).attr('data-num'),
-					path_url = _ajax.url.evaluation.plan_management.list.change;
+					path_url = _ajax.url.evaluation.month.plan_list.del;
 				// 删除确认
 				if (confirm("确认要删除？")) {
 					$.ajax({
@@ -125,7 +125,7 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							delete: 'true'
+							id: id
 						},
 						success: function(data) {
 							$('.table tr[data-id='+ id +']').remove();

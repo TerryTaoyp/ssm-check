@@ -80,8 +80,8 @@
                                         <td>${detail.completion}</td>
                                         <td>${detail.testScore}</td>
                                         <td>
-                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#update-list" data-num="${detail.id}" data-plan="${detail.id}">修改计划</button>
-                                            <button type="button" class="btn bg-olive change" data-toggle="modal">
+                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#update-list" data-num="${detail.id}">修改计划</button>
+                                            <button type="button" class="btn bg-red delete" data-toggle="modal" data-num="${detail.id}">
                                                 删除
                                             </button>
                                         </td>
