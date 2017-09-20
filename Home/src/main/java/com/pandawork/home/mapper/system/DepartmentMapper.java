@@ -62,5 +62,12 @@ public interface DepartmentMapper {
      */
     public List<Department> listAll()throws SSException;
 
+    /**
+     * 查出所有的ID
+     * @return
+     * @throws SSException
+     */
+    public List<Integer> queryId()throws SSException;
+
 
 }

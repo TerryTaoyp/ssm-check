@@ -34,4 +34,8 @@
     <select id="listAll" resultMap="pw.Department">
         select * from t_department
     </select>
+
+    <select id="queryId" resultMap="pw.Department">
+        SELECT id FROM t_department
+    </select>
 </mapper>

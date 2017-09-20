@@ -174,6 +174,7 @@ public class CheckController extends AbstractController {
         model.addAttribute("joinTestList",joinTestList);
         model.addAttribute("roleList",roleList);
         model.addAttribute("departmentList",departmentList);
+//        model.addAttribute("id",id);
         return "exam/year/ability-user";
     }
 
@@ -187,8 +188,11 @@ public class CheckController extends AbstractController {
 
         List<AbilityPosition> abilityPositionList = abilityPositionService.queryByTestId(tid);
         List<AbilityOption> abilityOptionList = abilityOptionService.queryByTestId(tid);
+        TestPlan testPlan = testPlanService.queryTestPlan(tid);
+        model.addAttribute("testPlan",testPlan);
         model.addAttribute("abilityPositionList",abilityPositionList);
         model.addAttribute("abilityOptionList",abilityOptionList);
+        model.addAttribute("id",tid);//把考核计划的ID传到jsp页面
         return "exam/year/ability-detail";
     }
     /**

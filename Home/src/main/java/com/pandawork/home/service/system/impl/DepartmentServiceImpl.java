@@ -112,4 +112,9 @@ public class DepartmentServiceImpl implements DepartmentService {
            throw SSException.get(ChException.ListAllDepartmentFailed);
        }
     }
+
+    @Override
+    public List<Integer> queryId() throws SSException {
+        return departmentMapper.queryId();
+    }
 }

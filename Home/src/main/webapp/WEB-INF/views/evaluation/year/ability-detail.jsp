@@ -26,7 +26,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                吴的绩效综合能力详情
+                ${testPlan.testName}详情
                 <small>栏目</small>
             </h1>
             <ol class="breadcrumb">

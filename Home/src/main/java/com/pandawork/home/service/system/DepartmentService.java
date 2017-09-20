@@ -1,5 +1,6 @@
 package com.pandawork.home.service.system;
 
+import com.pandawork.core.common.exception.SSException;
 import com.pandawork.home.common.entity.system.Department;
 
 import java.util.List;
@@ -59,4 +60,11 @@ public interface DepartmentService {
      * @throws Exception
      */
     public List<Department> listAll()throws Exception;
+
+    /**
+     * 查出所有的ID
+     * @return
+     * @throws SSException
+     */
+    public List<Integer> queryId()throws SSException;
 }

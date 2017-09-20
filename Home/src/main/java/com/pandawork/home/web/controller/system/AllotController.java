@@ -105,10 +105,10 @@ public class AllotController extends AbstractController {
     @RequestMapping(value = "/ajax/update",method = RequestMethod.GET)
     public JSONObject update(@RequestParam("id") int id)throws Exception{
         List<Allot> allotList =  allotService.queryByUid(id);
-        List<Department> departmentList = departmentService.listAll();
+        List<Integer> dids = departmentService.queryId();
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("allotList",allotList);
-        jsonObject.put("departmentList",departmentList);
+        jsonObject.put("dids",dids);
         return sendJsonObject(jsonObject);
     }
 
