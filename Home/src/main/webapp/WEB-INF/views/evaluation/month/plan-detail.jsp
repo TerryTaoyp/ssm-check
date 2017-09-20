@@ -70,7 +70,7 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${workDetailList}" var="detail" varStatus="status">
-                                    <tr data-id="${workPlan.id}">
+                                    <tr data-id="${detail.id}">
                                         <td>${status.index+1}</td>
                                         <td class="content-text">${detail.planContent}</td>
                                         <td class="time-text">${detail.startTime}</td>
@@ -80,7 +80,10 @@
                                         <td>${detail.completion}</td>
                                         <td>${detail.testScore}</td>
                                         <td>
-                                            <btuuon type="button" class="btn bg-olive change" data-toggle="modal" data-target="#update-list" data-num="${detail.id}" data-plan="${workPlan.id}">修改计划</button>
+                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#update-list" data-num="${detail.id}" data-plan="${detail.id}">修改计划</button>
+                                            <button type="button" class="btn bg-olive change" data-toggle="modal">
+                                                删除
+                                            </button>
                                         </td>
                                     </tr>
                                 </c:forEach>

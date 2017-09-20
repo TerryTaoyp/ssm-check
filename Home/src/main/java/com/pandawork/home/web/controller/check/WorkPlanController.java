@@ -81,17 +81,29 @@ public class WorkPlanController extends AbstractController {
 
     @ResponseBody
     @RequestMapping(value = "/month/update",method = RequestMethod.GET)
-    public JSONObject update(@RequestParam("id") int wid, @RequestParam("startTime")String startTime,@RequestParam("startTime")String endTime,@RequestParam("weight")int weight,@RequestParam("planContent") String planContent,@RequestParam("excpetResult") String excpetResult,HttpSession session)throws Exception{
+    public JSONObject update(@RequestParam("id") int id, @RequestParam("startTime")String startTime,@RequestParam("startTime")String endTime,@RequestParam("weight")int weight,@RequestParam("planContent") String planContent,@RequestParam("excpetResult") String excpetResult,HttpSession session)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
-        WorkDetail workDetail = new WorkDetail();
+        WorkDetail workDetail = workDetailService.queryById(id);
         workDetail.setUid(user.getId());
-        workDetail.setWid(wid);
         workDetail.setWeight(weight);
         workDetail.setStartTime(startTime);
         workDetail.setEndTime(endTime);
         workDetail.setPlanContent(planContent);
         workDetail.setExpectResult(excpetResult);
         workDetailService.updateWorkDetail(workDetail);
+        return sendJsonObject(1);
+    }
+
+    /**
+     * 删除计划
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping(value = "/month/del",method = RequestMethod.GET)
+    public JSONObject del(@RequestParam("id") int id)throws Exception{
+        workDetailService.delWorkDetail(id);
         return sendJsonObject(1);
     }
     /**
