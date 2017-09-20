@@ -13,12 +13,11 @@ import com.pandawork.home.service.system.PowerService;
 import com.pandawork.home.service.system.RoleService;
 import com.pandawork.home.service.user.UserService;
 import com.pandawork.home.web.controller.AbstractController;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -129,6 +128,7 @@ public class CheckController extends AbstractController {
         List<WorkDetail> workDetailList = workDetailService.queryByUidAndWid(user.getId(),workPlan.getId());
         List<User> userList = userService.listAll();
         List<TestPlan> testPlanList = testPlanService.listAll();
+        model.addAttribute("id",id);
         model.addAttribute("testPlanList",testPlanList);
         model.addAttribute("userList",userList);
         model.addAttribute("workPlan",workPlan);
@@ -306,4 +306,34 @@ public class CheckController extends AbstractController {
         }
         return "exam/year/evaluation-user";
     }
+
+    /**
+     * 月度打分
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping(value = "/month/mark",method = RequestMethod.GET)
+    public JSONObject marking(@RequestParam("id") int id, @RequestParam("completion") String completion, @RequestParam("testScore") double testScore,HttpSession session)throws Exception{
+        WorkDetail workDetail = workDetailService.queryById(id);
+        workDetail.setCompletion(completion);
+        workDetail.setTestScore(testScore);
+        workDetail.setIsJoin(1);
+        workDetailService.marking(workDetail);
+        WorkPlan workPlan = workPlanService.queryById(workDetail.getWid());
+        TestPlan testPlan = testPlanService.queryTestPlan(workPlan.getTestId());
+        if (testPlan.getTestTypeId()==1){
+            double quarterScore = workPlan.getQueaterScore()+testScore*(workDetail.getWeight()/100);
+            workPlan.setQueaterScore(quarterScore);
+        }else if (testPlan.getTestTypeId()==2){
+            double monthScore = workPlan.getMonthScore()+testScore*(workDetail.getWeight()/100);
+            workPlan.setMonthScore(monthScore);
+        }
+        User user = (User) session.getAttribute("username");
+        workPlan.setCheckId(user.getId());
+        workPlanService.updateWorkPlan(workPlan);
+        return sendJsonObject(1);
+    }
+
+
 }

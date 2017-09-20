@@ -56,4 +56,11 @@ public interface WorkDetailService {
      * @throws SSException
      */
     public List<WorkDetail> queryByUidAndWid(int uid, int wid)throws SSException;
+    /**
+     * 打分
+     * @param workDetail
+     * @return
+     * @throws SSException
+     */
+    public WorkDetail marking(WorkDetail workDetail)throws SSException;
 }

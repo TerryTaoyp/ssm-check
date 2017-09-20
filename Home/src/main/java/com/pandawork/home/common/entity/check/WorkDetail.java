@@ -41,6 +41,17 @@ public class WorkDetail {
     //被考核用户的ID
     @Column(name = "uid")
     private Integer uid;
+    //是否参与过此次考核，参与过为1，否则为零
+    @Column(name = "is_join")
+    private Integer isJoin;
+
+    public Integer getIsJoin() {
+        return isJoin;
+    }
+
+    public void setIsJoin(Integer isJoin) {
+        this.isJoin = isJoin;
+    }
 
     public Integer getUid() {
         return uid;

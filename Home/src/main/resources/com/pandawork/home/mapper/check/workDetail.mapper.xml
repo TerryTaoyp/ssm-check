@@ -22,6 +22,13 @@
         WHERE id = #{workDetail.id}
     </update>
 
+    <update id="marking">
+        UPDATE t_work_detail SET
+        completion = #{workDetail.completion},
+        test_score = #{workDetail.testScore},
+        is_join = #{workDetail.isJoin}
+        WHERE id = #{workDetail.id}
+    </update>
     <select id="queryByWId" resultMap="pw.WorkDetail">
         SELECT * FROM t_work_detail WHERE wid = #{wid}
     </select>

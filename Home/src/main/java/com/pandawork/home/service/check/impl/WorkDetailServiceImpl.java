@@ -102,4 +102,17 @@ public class WorkDetailServiceImpl implements WorkDetailService {
             throw SSException.get(ChException.QueryWorkDetailByWidFailed);
         }
     }
+
+    @Override
+    public WorkDetail marking(WorkDetail workDetail) throws SSException {
+        try {
+            if (Assert.isNull(workDetail)){
+                return null;
+            }
+            return workDetailMapper.marking(workDetail);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.UpdateWorkDetailFailed);
+        }
+    }
 }

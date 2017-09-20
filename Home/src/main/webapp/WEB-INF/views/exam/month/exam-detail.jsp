@@ -62,8 +62,7 @@
                                     <th>序号</th>
                                     <th>被考核者姓名</th>
                                     <th>工作计划内容</th>
-                                    <th>开始时间</th>
-                                    <th>结束时间</th>
+                                    <th>考核时间</th>
                                     <th>权重</th>
                                     <th>预期工作成果</th>
                                     <th>工作完成情况</th>
@@ -84,8 +83,8 @@
                                     </td>
                                     <td>${workDetail.planContent}</td>
                                     <td>${workDetail.startTime}</td>
-                                    <td>${workDetail.endTime}</td>
-                                    <td>${workDetail.weight}</td>
+                                    <%--<td>${workDetail.endTime}</td>--%>
+                                    <td>${workDetail.weight}%</td>
                                     <td>${workDetail.expectResult}</td>
                                     <td>
                                         ${workDetail.completion}
@@ -94,7 +93,12 @@
                                         ${workDetail.testScore}
                                     </td>
                                     <td>
-                                        <button type="button" class="btn bg-green change" data-toggle="modal" data-target="#modal-default" data-num="${workDetail.id}">打分</button>
+                                        <c:if test="${workDetail.isJoin==0}">
+                                            <button type="button" class="btn bg-green change" data-toggle="modal" data-target="#modal-default" data-num="${workDetail.id}">打分</button>
+                                        </c:if>
+                                        <c:if test="${workDetail.isJoin==1}">
+                                            <button type="button" class="btn bg-red change" data-toggle="modal" data-target="#modal-default">已打分</button>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 </c:forEach>
@@ -107,6 +111,7 @@
                 <!-- /.col -->
             </div>
             <!-- /.row -->
+            <a href="${website}/check/month/detail/list/${id}" class="btn bg-green">返回列表</a>
         </section>
         <!-- /.content -->
     </div>
