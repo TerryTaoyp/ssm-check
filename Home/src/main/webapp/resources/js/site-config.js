@@ -101,6 +101,7 @@
                     detail:{
                         add: site.website + 'testplan/join', //添加
                         del: site.website + 'testplan/del/join', //移除
+                        addAll: site.website + 'testplan/add/all', // 添加全部
                     }
                 },
                 //月/季度考核管理
@@ -129,17 +130,13 @@
             },
             //测评模块
             exam:{
-               //考核计划
-               plan_management:{
-                    // 列表
-                    list:{
-                        change: site.staticWebsite + 'mock/plan_management.json'
-                    },
-                    // 添加
-                    add:{
-                        // 暂无
+                // 月度
+                month:{
+                    // 详情页
+                    detail:{
+                        submit: site.website + '', // 打分
                     }
-                }
+                },
             },
             //成绩查询
             performance:{

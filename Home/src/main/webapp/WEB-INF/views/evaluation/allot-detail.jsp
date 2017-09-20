@@ -95,7 +95,7 @@
                                     <th>是否参与本次考核</th>
                                     <th>
                                         操作
-                                        <button type="button" class="btn bg-blue">全部添加</button>
+                                        <button type="button" class="btn bg-blue add-all" data-test="${testPlan.id}">全部添加</button>
                                     </th>
                                 </tr>
                                 </tfoot>

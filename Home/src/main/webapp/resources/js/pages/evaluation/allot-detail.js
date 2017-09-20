@@ -68,7 +68,6 @@ $(document).ready(function() {
 				var
                     id = $(this).attr('data-test'),
                     uid = $(this).attr('data-user'),
-                    // tid = $(this).attr('data-data'),
 					path_url = _ajax.url.evaluation.plan_management.detail.del;
 				// 删除确认
 					$.ajax({
@@ -97,23 +96,26 @@ $(document).ready(function() {
 			// ajax全部添加
 			$(el.J_add_all).click(function(ev) {
 				var 
-					message = $('.table tbody tr'), // 每条信息
-					idArr = new Array;
-					path_url = _ajax.url.evaluation.plan_management.list.change;
+					id = $(this).attr('data-test'), // 本次测试的id
+					people = $('.add'), // 判断要添加的人员
+					uid = new Array;  // 要传的数组
+					path_url = _ajax.url.evaluation.plan_management.detail.addAll;
 				// 把所有id加入到idArr中
-				for (var i = 0; i < message.length; i++) {
-					idArr.push($(message[i]).attr('data-id')); // 把每条数据的ad加入进去
+				for (var i = 0; i < people.length; i++) {
+					if (!($(people[i]).prop('disabled'))) {
+						uid.push($(people[i]).attr('data-user')); // 把这条数据的ad加入进去
+					}
 				}
 				$.ajax({
 					url: path_url,
 					type: 'get',
 					dataType: 'json',
 					data: {
-						add_all: 'true',
-						id: idArr
+						tid: id,
+						uid: uid
 					},
 					success: function(data) {
-						$('.table .status-text').text('参与');
+						$('.table .status').text('已参与');
 						// 修改按钮状态
 						$('.add').attr('disabled','disabled');
 						$('.add').text('已添加');

@@ -241,6 +241,7 @@ public class TestPlanController extends AbstractController{
      * @return
      * @throws Exception
      */
+    @ResponseBody
     @RequestMapping(value = "/add/all",method = RequestMethod.GET)
     public JSONObject addAll(@RequestParam("tid") int tid,@RequestParam("uid[]") List<Integer> uid)throws Exception{
         for (int i:uid){
