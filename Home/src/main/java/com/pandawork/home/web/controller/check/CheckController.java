@@ -121,12 +121,13 @@ public class CheckController extends AbstractController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/month/detail/{id}",method = RequestMethod.GET)
-    public String monthDetail(@PathVariable("id") int id,Model model,HttpSession session)throws Exception{
+    @RequestMapping(value = "/month/detail/{id}&{uid}",method = RequestMethod.GET)
+    public String monthDetail(@PathVariable("id") int id,@PathVariable("uid") int uid,Model model,HttpSession session)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
         WorkPlan workPlan = workPlanService.queryByTestId(id);
-        List<WorkDetail> workDetailList = workDetailService.queryByUidAndWid(user.getId(),workPlan.getId());
+        List<WorkDetail> workDetailList = workDetailService.queryByUidAndWid(uid,workPlan.getId());
         List<User> userList = userService.listAll();
+//        AllotDto allotDto = allotService.queryByUid(uid);
         List<TestPlan> testPlanList = testPlanService.listAll();
         model.addAttribute("id",id);
         model.addAttribute("testPlanList",testPlanList);

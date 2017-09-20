@@ -76,7 +76,7 @@
                                     <td>${status.index+1}</td>
                                     <td>
                                     <c:forEach items="${userList}" var="user">
-                                        <c:if test="${user.id == workPlan.beCheckId}">
+                                        <c:if test="${user.id == workDetail.uid}">
                                             ${user.username}
                                         </c:if>
                                     </c:forEach>

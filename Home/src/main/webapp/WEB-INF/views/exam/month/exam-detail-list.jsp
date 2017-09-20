@@ -86,8 +86,9 @@
                                         </c:forEach>
                                         <td>${testPlan.startTime}</td>
                                         <%--<td>${testPlan.finishTime}</td>--%>
+
                                         <td>
-                                            <a href="${website}/check/month/detail/${testPlan.id}" class="btn bg-green">进入考核</a>
+                                            <a href="${website}/check/month/detail/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核</a>
                                             <c:if test="${joinTest.isJoin==1}">
                                                 <button type="button" class="btn bg-red disabled">已经参与过此次考核</button>
                                             </c:if>
