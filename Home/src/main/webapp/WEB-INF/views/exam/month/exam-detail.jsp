@@ -72,7 +72,7 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${workDetailList}" var="workDetail" varStatus="status">
-                                <tr>
+                                <tr data-id="${workDetail.id}">
                                     <td>${status.index+1}</td>
                                     <td>
                                     <c:forEach items="${userList}" var="user">
@@ -86,10 +86,10 @@
                                     <%--<td>${workDetail.endTime}</td>--%>
                                     <td>${workDetail.weight}%</td>
                                     <td>${workDetail.expectResult}</td>
-                                    <td>
+                                    <td class="result-text">
                                         ${workDetail.completion}
                                     </td>
-                                    <td>
+                                    <td class="score-text">
                                         ${workDetail.testScore}
                                     </td>
                                     <td>
@@ -97,7 +97,7 @@
                                             <button type="button" class="btn bg-green change" data-toggle="modal" data-target="#modal-default" data-num="${workDetail.id}">打分</button>
                                         </c:if>
                                         <c:if test="${workDetail.isJoin==1}">
-                                            <button type="button" class="btn bg-red change" data-toggle="modal" data-target="#modal-default">已打分</button>
+                                            <button type="button" class="btn bg-red" disabled="disabled">已打分</button>
                                         </c:if>
                                     </td>
                                 </tr>
@@ -132,12 +132,13 @@
                     <input type="hidden" id="dataId">
                     <div class="form-group">
                         <label>工作完成情况评价：</label>
-                        <input type="text" class="form-control result" placeholder="请输入您的意见...">
+                        <input type="text" class="form-control result a-require-text" placeholder="请输入您的意见...">
                     </div>
                     <div class="form-group">
                         <label>您的分数：</label>
-                        <input type="text" class="form-control score" placeholder="请输入0-100内数字...">
+                        <input type="text" class="form-control score a-require-text" placeholder="请输入0-100内数字...">
                     </div>
+                    <p class="text-red tip"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
@@ -151,6 +152,7 @@
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
+<script src="../../../../resources/js/pages/common/verify.js"></script>
 <script src="../../../../resources/js/pages/exam/month/exam-detail.js"></script>
 <!-- page script -->
 <script>

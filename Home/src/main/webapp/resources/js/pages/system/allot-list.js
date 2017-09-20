@@ -31,7 +31,7 @@ $(document).ready(function() {
 						},
 						success: function(data) {
 							// 把符合条件的选上!
-							var arr = data.data.allotList;
+							var arr = data.data.did;
 							// select2初始化默认赋值
 							$('.department').select2('val',arr);
 						},

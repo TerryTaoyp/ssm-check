@@ -15,6 +15,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -105,11 +107,16 @@ public class AllotController extends AbstractController {
     @RequestMapping(value = "/ajax/update",method = RequestMethod.GET)
     public JSONObject update(@RequestParam("id") int id)throws Exception{
         List<Allot> allotList =  allotService.queryByUid(id);
-        List<Integer> dids = departmentService.queryId();
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("allotList",allotList);
-        jsonObject.put("dids",dids);
-        return sendJsonObject(jsonObject);
+
+        int i = 0;
+        for (Allot allot:allotList){
+            int did[] = new int[allotList.size()];
+            did[i] = allot.getDid();
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("did",did);
+            return sendJsonObject(jsonObject);
+        }
+       return sendJsonObject(0);
     }
 
     /**

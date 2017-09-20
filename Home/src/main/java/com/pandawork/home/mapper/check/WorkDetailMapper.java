@@ -63,5 +63,5 @@ public interface WorkDetailMapper {
      * @return
      * @throws SSException
      */
-    public WorkDetail marking(@Param("workDetail") WorkDetail workDetail)throws SSException;
+    public void marking(@Param("workDetail") WorkDetail workDetail)throws SSException;
 }

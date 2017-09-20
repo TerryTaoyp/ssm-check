@@ -104,12 +104,12 @@ public class WorkDetailServiceImpl implements WorkDetailService {
     }
 
     @Override
-    public WorkDetail marking(WorkDetail workDetail) throws SSException {
+    public void marking(WorkDetail workDetail) throws SSException {
         try {
             if (Assert.isNull(workDetail)){
-                return null;
+                return;
             }
-            return workDetailMapper.marking(workDetail);
+            workDetailMapper.marking(workDetail);
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.UpdateWorkDetailFailed);

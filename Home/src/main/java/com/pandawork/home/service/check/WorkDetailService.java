@@ -62,5 +62,5 @@ public interface WorkDetailService {
      * @return
      * @throws SSException
      */
-    public WorkDetail marking(WorkDetail workDetail)throws SSException;
+    public void marking(WorkDetail workDetail)throws SSException;
 }

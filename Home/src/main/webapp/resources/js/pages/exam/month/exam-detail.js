@@ -24,7 +24,9 @@ $(document).ready(function() {
 				// 先清空提示信息
 				$(el.J_tip).text('');
 				// 附加上点击此按钮的信息在数据库中的顺序
-				var path_url = _ajax.url.evaluation.plan_management.list.change,
+				var 
+					id = $('#dataId').val(),
+					path_url = _ajax.url.exam.month.detail.submit,
 					result = $(el.J_result).val(), // 工作完成情况
 					score = $(el.J_score).val(), // 分数
 					reg = /^([1-9]\d?|100)$/; // 1-100数字的正则
@@ -35,7 +37,9 @@ $(document).ready(function() {
 						type: 'get',
 						dataType: 'json',
 						data: {
-							score: score
+							id: id,
+							completion: result,
+							testScore: score
 						},
 						success: function(data) {
 							// console.log(data.errorMsg[0].msg);
@@ -44,9 +48,9 @@ $(document).ready(function() {
 								alert('修改成功');
 								// 隐藏填写表单
 								$('button[data-dismiss="modal"]').click();
-								// 修改dom
+								// 修改dom 分数和结果
 								$('.table tr[data-id='+ id +'] > td.score-text').text(score);
-								// 改变按钮属性
+								$('.table tr[data-id='+ id +'] > td.result-text').text(result);
 							}
 							else{
 								$(el.J_tip).text(data.errorMsg[0].msg);
@@ -59,7 +63,7 @@ $(document).ready(function() {
 				}
 				else{
 					$("body").animate({scrollTop:0}, 500);
-					$(el.J_tip).text('请输入数字从0-100内的数字');
+					$(el.J_tip).text('请输入0-100内的分数');
 				}
 			});
 		}

@@ -134,7 +134,7 @@
                 month:{
                     // 详情页
                     detail:{
-                        submit: site.website + '', // 打分
+                        submit: site.website + 'check//month/mark', // 打分
                     }
                 },
             },

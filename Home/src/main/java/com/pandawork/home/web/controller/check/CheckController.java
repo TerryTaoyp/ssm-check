@@ -333,7 +333,7 @@ public class CheckController extends AbstractController {
             double monthScore = workPlan.getMonthScore()+testScore*(workDetail.getWeight()/100);
             workPlan.setMonthScore(monthScore);
         }
-        User user = (User) session.getAttribute("username");
+        User user = userService.queryByUname((String) session.getAttribute("username"));
         workPlan.setCheckId(user.getId());
         workPlanService.updateWorkPlan(workPlan);
         return sendJsonObject(1);
