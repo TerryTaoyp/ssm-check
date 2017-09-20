@@ -70,7 +70,7 @@
 
                         <div class="form-group">
                             <label>所占权重：</label>
-                            <input type="text" class="form-control require-text"  name="weight">
+                            <input type="text" class="form-control require-text weight"  name="weight" placeholder="请输入1-100内的整数">
                         </div>
 
                         <div class="form-group">
@@ -85,6 +85,7 @@
                         </div>
 
                         <div class="box-footer">
+                            <p class="tip text-red"></p>
                             <input type="submit" class="btn btn-primary J-submit" value="提交">
                         </div>
                     </form>
@@ -111,6 +112,7 @@
 <script src="../../../../resources/js/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <script src="../../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
 <script src="../../../../resources/js/pages/common/verify.js"></script>
+<script src="../../../../resources/js/pages/evaluation/month/plan-add.js"></script>
 <!-- page script -->
 <script>
     $(function () {

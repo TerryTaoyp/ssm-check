@@ -7,7 +7,10 @@ var
 	ajax_arr3 = new Array, // 多选下拉框ajax提交时判断是否可以提交的数组
 	ajax_flag1,
 	ajax_flag2,
-	ajax_flag3;
+	ajax_flag3,
+	flag1,
+	flag2,
+	flag3;
 // 入口函数
 $(document).ready(function() {
 	// 变量声明
@@ -33,9 +36,7 @@ $(document).ready(function() {
 
 	// 验证函数 (私有函数_)
 	function _verify() {
-		var flag1, // 文本框
-			flag2, // 下拉框
-			flag3, // 多选下拉框
+		var 
 			arr1 = new Array, // 必填文本框的数组
 			arr2 = new Array, // 必填下拉框的数组
 			arr3 = new Array; // 必填多选下拉框的数组
