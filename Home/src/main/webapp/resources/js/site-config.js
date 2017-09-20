@@ -95,7 +95,7 @@
                         edit: site.website + 'testplan/edit', // 修改状态
                         del: site.website + 'testplan/del', // 删除
                         update: site.website + 'testplan/to/update', // 点击修改
-                        submit: site.website + 'testplan/update', // 点击修改
+                        submit: site.website + 'testplan/update', // 点击提交
                     },
                     // 详情页 分配
                     detail:{
@@ -107,11 +107,8 @@
                 month:{
                     // 工作计划列表
                     plan_list:{
-                        change: site.staticWebsite + 'mock/plan_list.json'
-                    },
-                    // 绩效考核列表
-                    evaluation_list:{
-                        change: site.staticWebsite + 'mock/evaluation_list.json'
+                        update: site.website + 'workplan/month/to/update', // 点击修改
+                        submit: site.website + 'workplan/month/update', // 点击提交
                     },
                 },
                 //年度考核管理

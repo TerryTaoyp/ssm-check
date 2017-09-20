@@ -162,8 +162,6 @@
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
-<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-<script src="../../../../resources/js/pages/evaluation/month/plan-list.js"></script>
 <!-- page script -->
 <script>
     $(function () {

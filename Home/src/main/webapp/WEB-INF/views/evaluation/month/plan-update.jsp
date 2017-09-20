@@ -84,8 +84,8 @@
                         <div class="form-group">
                             <label>工作内容：</label>
                             <textarea id="editor1" name="editor1" rows="10" cols="80">
-                         请在这里输入工作计划...
-                  </textarea>
+                                     请在这里输入工作计划...
+                              </textarea>
                         </div>
 
                         <div class="box-footer">

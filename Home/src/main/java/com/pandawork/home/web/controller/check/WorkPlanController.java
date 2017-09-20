@@ -81,7 +81,7 @@ public class WorkPlanController extends AbstractController {
 
     @ResponseBody
     @RequestMapping(value = "/month/update",method = RequestMethod.GET)
-    public JSONObject update(@RequestParam("wid") int wid, @RequestParam("startTime")String startTime,@RequestParam("startTime")String endTime,@RequestParam("weight")int weight,@RequestParam("planContent") String planContent,@RequestParam("excpetResult") String excpetResult,HttpSession session)throws Exception{
+    public JSONObject update(@RequestParam("id") int wid, @RequestParam("startTime")String startTime,@RequestParam("startTime")String endTime,@RequestParam("weight")int weight,@RequestParam("planContent") String planContent,@RequestParam("excpetResult") String excpetResult,HttpSession session)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
         WorkDetail workDetail = new WorkDetail();
         workDetail.setUid(user.getId());
