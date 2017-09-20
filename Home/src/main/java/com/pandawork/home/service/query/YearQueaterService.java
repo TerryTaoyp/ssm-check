@@ -25,4 +25,20 @@ public List<YearQueaterExportDto> listAll()throws SSException;
      * @throws SSException
      */
     public List<YearQueaterExportDto> queryDtoByConditions(int did,int rid,int year,String username)throws SSException;
+
+    /**
+     * 根据用户ID查找
+     * @param uid
+     * @return
+     * @throws SSException
+     */
+    public List<YearQueaterExportDto> queryByUid(int uid)throws SSException;
+
+    /**
+     * 根据部门DI查找
+     * @param did
+     * @return
+     * @throws SSException
+     */
+    public List<YearQueaterExportDto> queryByDid(int did)throws SSException;
 }

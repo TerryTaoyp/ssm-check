@@ -51,11 +51,12 @@ public interface JoinTestMapper {
 
     /**
      * 根据用户ID和测试的ID查找
-     * @param joinTest
+     * @param uid
+     * @param tid
      * @return
      * @throws SSException
      */
-    public JoinTest queryByUidAndTid(@Param("joinTest") JoinTest joinTest)throws SSException;
+    public JoinTest queryByUidAndTid(@Param("uid") int uid,@Param("tid") int tid)throws SSException;
 
     /**
      * 列出所有

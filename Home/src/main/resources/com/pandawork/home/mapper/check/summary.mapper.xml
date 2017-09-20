@@ -23,7 +23,8 @@
 
     <update id="updateScore">
         UPDATE t_summary SET check_id = #{summary.checkId},
-        summary_score = #{summary.summaryScore}
+        summary_score = #{summary.summaryScore},
+        is_join = #{summary.isJoin}
         WHERE id = #{summary.id}
     </update>
 

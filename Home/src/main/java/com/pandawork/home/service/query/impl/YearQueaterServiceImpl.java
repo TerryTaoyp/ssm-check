@@ -2,6 +2,7 @@ package com.pandawork.home.service.query.impl;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
+import com.pandawork.core.common.util.Assert;
 import com.pandawork.home.common.dto.YearQueaterExportDto;
 import com.pandawork.home.common.exception.ChException;
 import com.pandawork.home.mapper.query.YearQueaterMapper;
@@ -31,6 +32,32 @@ public class YearQueaterServiceImpl implements YearQueaterService {
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw  SSException.get(ChException.ExportFailed);
+        }
+    }
+
+    @Override
+    public List<YearQueaterExportDto> queryByUid(int uid) throws SSException {
+        try {
+            if (Assert.isNull(uid)){
+                return null;
+            }
+            return yearQueaterMapper.queryByUid(uid);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.ExportFailed);
+        }
+    }
+
+    @Override
+    public List<YearQueaterExportDto> queryByDid(int did) throws SSException {
+        try {
+            if (Assert.isNull(did)){
+                return null;
+            }
+            return yearQueaterMapper.queryByDid(did);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.ExportFailed);
         }
     }
 }

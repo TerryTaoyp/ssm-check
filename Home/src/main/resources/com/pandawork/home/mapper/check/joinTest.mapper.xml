@@ -29,8 +29,9 @@
     </select>
 
     <select id="queryByUidAndTid" resultMap="pw.JoinTest">
-        SELECT * FROM t_join_test WHERE uid = #{joinTest.uid} AND test_id = #{joinTest.testId}
+        SELECT * FROM t_join_test WHERE uid = #{uid} AND test_id = #{tid}
     </select>
+
 
     <select id="listAll" resultMap="pw.JoinTest">
         SELECT * FROM t_join_test

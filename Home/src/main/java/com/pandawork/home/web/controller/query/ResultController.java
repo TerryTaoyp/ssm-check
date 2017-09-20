@@ -58,8 +58,8 @@ public class ResultController extends AbstractController {
      */
     @RequestMapping(value = "/month/result",method = RequestMethod.GET)
     public String queryResult(Model model, HttpSession session)throws Exception{
+        int power = (int) session.getAttribute("power");
         List<YearMonthExportDto> list = yearMonthService.listAll();
-
         List<Department> departmentList = departmentService.listAll();
         List<Role> roleList = roleService.listAll();
         model.addAttribute("departmentList",departmentList);
@@ -76,7 +76,6 @@ public class ResultController extends AbstractController {
     public String monthQuery(@RequestParam(value = "did",required = false, defaultValue = "-1") int did,                                   @RequestParam(value = "rid",required = false, defaultValue = "-1") int rid,
                              @RequestParam(value = "year",required = false, defaultValue = "-1") int year,                                 @RequestParam(value = "username",required = false, defaultValue = "") String username,Model model)throws Exception{
         List<YearMonthExportDto> list = yearMonthService.queryByConditions(did, rid, year, username);
-        System.out.println(list+"哈啊哈哈"+did+rid+year+username);
         List<Department> departmentList = departmentService.listAll();
         List<Role> roleList = roleService.listAll();
         model.addAttribute("departmentList",departmentList);

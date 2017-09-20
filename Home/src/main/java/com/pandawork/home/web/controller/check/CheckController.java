@@ -130,6 +130,7 @@ public class CheckController extends AbstractController {
 //        AllotDto allotDto = allotService.queryByUid(uid);
         List<TestPlan> testPlanList = testPlanService.listAll();
         model.addAttribute("id",id);
+        model.addAttribute("uid",uid);//用户ID
         model.addAttribute("testPlanList",testPlanList);
         model.addAttribute("userList",userList);
         model.addAttribute("workPlan",workPlan);
@@ -319,7 +320,7 @@ public class CheckController extends AbstractController {
      */
     @ResponseBody
     @RequestMapping(value = "/month/mark",method = RequestMethod.GET)
-    public JSONObject marking(@RequestParam("id") int id, @RequestParam("completion") String completion, @RequestParam("testScore") double testScore,HttpSession session)throws Exception{
+    public JSONObject marking(@RequestParam("id") int id,@RequestParam("uid") int uid,@RequestParam("completion") String completion, @RequestParam("testScore") double testScore,HttpSession session)throws Exception{
         WorkDetail workDetail = workDetailService.queryById(id);
         workDetail.setCompletion(completion);
         workDetail.setTestScore(testScore);
@@ -333,6 +334,17 @@ public class CheckController extends AbstractController {
         }else if (testPlan.getTestTypeId()==2){
             double monthScore = workPlan.getMonthScore()+testScore*(workDetail.getWeight()/100);
             workPlan.setMonthScore(monthScore);
+        }
+        //判断此次考核是否参加过
+        List<WorkDetail> workDetails = workDetailService.queryByUidAndWid(uid,id);
+        int sum = 0;
+        for (WorkDetail workDetail1:workDetails){
+            sum+=workDetail1.getIsJoin();
+        }
+        if (sum == workDetails.size()){
+            JoinTest joinTest = joinTestService.queryByUidAndTid(uid,testPlan.getId());
+            joinTest.setIsJoin(1);
+            joinTestService.isJoin(joinTest);
         }
         User user = userService.queryByUname((String) session.getAttribute("username"));
         workPlan.setCheckId(user.getId());

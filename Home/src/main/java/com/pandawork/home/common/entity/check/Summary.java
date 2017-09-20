@@ -32,9 +32,21 @@ public class Summary {
     //被考核用户的部门ID
     @Column(name = "did")
     private Integer did;
+    //是否参与考核，1为已参与，0为未参与
+    @Column(name = "is_join")
+    private Integer isJoin;
 //    //被考核用户的角色ID
 //    @Column(name = "rid")
 //    private Integer rid;
+
+
+    public Integer getIsJoin() {
+        return isJoin;
+    }
+
+    public void setIsJoin(Integer isJoin) {
+        this.isJoin = isJoin;
+    }
 
     public Integer getId() {
         return id;

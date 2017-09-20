@@ -27,4 +27,20 @@ public interface YearMonthService {
      * @throws SSException
      */
     public List<YearMonthExportDto> queryByConditions(int did,int rid,int year,String username)throws SSException;
+
+    /**
+     * 根据用户ID查找
+     * @param uid
+     * @return
+     * @throws SSException
+     */
+    public List<YearMonthExportDto> queryByUid(int uid)throws SSException;
+
+    /**
+     * 根据部门ID查找
+     * @param did
+     * @return
+     * @throws SSException
+     */
+    public List<YearMonthExportDto> queryByDid(int did)throws SSException;
 }

@@ -28,7 +28,8 @@
         UPDATE t_ability_result SET
         check_id = #{abilityResult.checkId},
         total_score = #{abilityResult.totalScore},
-        finish_time = #{abilityResult.finishTime}
+        finish_time = #{abilityResult.finishTime},
+        is_join = #{abilityResult.isJoin}
         WHERE id = #{abilityResult.id}
     </update>
 

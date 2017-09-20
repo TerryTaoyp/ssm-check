@@ -73,6 +73,7 @@
                                 <tbody>
                                 <c:forEach items="${workDetailList}" var="workDetail" varStatus="status">
                                 <tr data-id="${workDetail.id}">
+                                    <input type="none" name="uid" value="${uid}"/>
                                     <td>${status.index+1}</td>
                                     <td>
                                     <c:forEach items="${userList}" var="user">

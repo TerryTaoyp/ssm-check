@@ -50,11 +50,12 @@ public interface JoinTestService {
 
     /**
      * 根据用户ID和测试的ID查找
-     * @param joinTest
+     * @param uid
+     * @param tid
      * @return
      * @throws SSException
      */
-    public JoinTest queryByUidAndTid(JoinTest joinTest)throws SSException;
+    public JoinTest queryByUidAndTid(int uid ,int tid)throws SSException;
 
     /**
      * 列出 所有
@@ -69,4 +70,6 @@ public interface JoinTestService {
      * @throws SSException
      */
     public void isJoin(JoinTest joinTest)throws SSException;
+
+
 }

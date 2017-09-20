@@ -90,12 +90,12 @@ public class JoinTestServiceImpl implements JoinTestService{
     }
 
     @Override
-    public JoinTest queryByUidAndTid(JoinTest joinTest) throws SSException {
+    public JoinTest queryByUidAndTid(int uid,int tid) throws SSException {
         try {
-            if (Assert.isNull(joinTest)){
+            if (Assert.isNull(uid)||Assert.isNull(tid)){
                 return null;
             }
-            return joinTestMapper.queryByUidAndTid(joinTest);
+            return joinTestMapper.queryByUidAndTid(uid, tid);
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.QueryJoinTestByUidAndTid);

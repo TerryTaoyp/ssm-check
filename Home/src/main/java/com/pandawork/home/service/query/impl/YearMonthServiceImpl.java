@@ -2,6 +2,7 @@ package com.pandawork.home.service.query.impl;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
+import com.pandawork.core.common.util.Assert;
 import com.pandawork.home.common.dto.YearMonthExportDto;
 import com.pandawork.home.common.exception.ChException;
 import com.pandawork.home.mapper.query.YearMonthMapper;
@@ -29,6 +30,32 @@ public class YearMonthServiceImpl implements YearMonthService {
     public List<YearMonthExportDto> queryByConditions(int did, int rid, int year, String username) throws SSException {
         try {
             return yearMonthMapper.queryByConditions(did, rid, year, username);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.ExportFailed);
+        }
+    }
+
+    @Override
+    public List<YearMonthExportDto> queryByUid(int uid) throws SSException {
+        try {
+            if (Assert.isNull(uid)){
+                return null;
+            }
+            return yearMonthMapper.queryByUid(uid);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.ExportFailed);
+        }
+    }
+
+    @Override
+    public List<YearMonthExportDto> queryByDid(int did) throws SSException {
+        try {
+            if (Assert.isNull(did)){
+                return null;
+            }
+            return yearMonthMapper.queryByDid(did);
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.ExportFailed);

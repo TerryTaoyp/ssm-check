@@ -41,6 +41,17 @@ public class AbilityResult {
     //此次的考核计划ID
     @Column(name = "test_id")
     private Integer testId;
+    //是否参与此次考核，已参与为1，未参与为0
+    @Column(name = "is_join")
+    private Integer isJoin;
+
+    public Integer getIsJoin() {
+        return isJoin;
+    }
+
+    public void setIsJoin(Integer isJoin) {
+        this.isJoin = isJoin;
+    }
 
     public Integer getTestId() {
         return testId;
