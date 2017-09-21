@@ -14,6 +14,7 @@
     <title>年度考核-能力指标详情</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../../../../resources/js/plugins/iCheck/all.css">
     <jsp:include page="../../common/link.jsp"/>
 </head>
 <body class="hold-transition skin-black sidebar-mini">
@@ -69,6 +70,7 @@
                                                             <div class="form-group">
                                                                 <c:if test="${option.optionName == 1}">
                                                                     <label>
+                                                                        <input type="radio" name="r1" class="minimal answer" data-order="1">
                                                                         A.${option.optionContent}
                                                                     </label>
                                                                     <a class="btn bg-olive btn-xs">优(9.0分~10.0分)</a>
@@ -78,6 +80,7 @@
                                                             <div class="form-group">
                                                                 <c:if test="${option.optionName == 2}">
                                                                     <label>
+                                                                        <input type="radio" name="r1" class="minimal answer" data-order="1">
                                                                         B.${option.optionContent}
                                                                     </label>
                                                                     <a class="btn btn-primary btn-xs">良(8.0分~9.0分)</a>
@@ -86,6 +89,7 @@
                                                             <div class="form-group">
                                                                 <c:if test="${option.optionName == 3}">
                                                                     <label>
+                                                                        <input type="radio" name="r1" class="minimal answer" data-order="1">
                                                                         C.${option.optionContent}
                                                                     </label>
                                                                     <a class="btn bg-orange btn-xs">中(6.0分~8.0分)</a>
@@ -95,6 +99,7 @@
                                                             <div class="form-group">
                                                                 <c:if test="${option.optionName == 4}">
                                                                     <label>
+                                                                        <input type="radio" name="r1" class="minimal answer" data-order="1">
                                                                         D.${option.optionContent}
                                                                     </label>
                                                                     <a class="btn bg-red btn-xs">差(0分~6.0分)</a>
