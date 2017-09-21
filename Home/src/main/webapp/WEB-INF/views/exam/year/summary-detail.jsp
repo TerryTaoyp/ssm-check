@@ -13,16 +13,13 @@
     <title>年度考核-个人总结</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
     <jsp:include page="../../common/link.jsp"/>
 
 </head>
 <body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
     <jsp:include page="../../common/header.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
     <jsp:include page="../../common/sidebar.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/sidebar.html" -->
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -56,7 +53,8 @@
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <a href="${website}/check/year/user/${id}" class="btn bg-green">返回列表</a>
-                            <button type="button" class="btn bg-primary" data-toggle="modal" data-target="#modal-default">打分</button>
+                            <button type="button" class="btn btn-primary mark" data-toggle="modal" data-target="#modal-default">打分</button>
+                            您所打的分数：<span class="score-text"></span>
                         </div>
                     </div>
                 </div>
@@ -74,7 +72,8 @@
                     <h4 class="modal-title">打分</h4>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" id="dataId" value="">
+                    <input type="hidden" id="dataId" value="${summary.beCheckId}">
+                    <input type="hidden" value="${summary.year}" class="year">
                     <div class="form-group">
                         <label>您的分数</label>
                         <input type="text" class="form-control score a-require-text" placeholder="请输入0-100内数字..." name="role">
@@ -91,10 +90,8 @@
         <!-- /.modal-dialog -->
     </div>
     <jsp:include page="../../common/footer.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
 </div>
 <jsp:include page="../../common/script.jsp"/>
-<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <script src="../../../../resources/js/pages/common/verify.js"></script>
 <script src="../../../../resources/js/pages/exam/year/summary-detail.js"></script>
 </body>

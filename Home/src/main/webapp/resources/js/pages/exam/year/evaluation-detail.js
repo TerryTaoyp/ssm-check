@@ -18,7 +18,7 @@ $(document).ready(function() {
 				$(el.J_tip).text('');
 				// 附加上点击此按钮的信息在数据库中的顺序
 				var 
-					path_url = _ajax.url.exam.year.summary.submit,
+					path_url = _ajax.url.exam.year.year.submit,
 					score = $(el.J_score).val(),
 					year = $('.year').val(), // 年份
 					id = $("#dataId").val(), // 此文章的id
@@ -40,7 +40,7 @@ $(document).ready(function() {
 								alert('修改成功');
 								// 隐藏填写表单
 								$('button[data-dismiss="modal"]').click();
-								// 按钮不能再点
+								// 不能再使用
 								$('.mark').attr('disabled','disabled');
 								$('.mark').text('已打分');
 								$('.score-text').text(score); // 显示分数

@@ -134,9 +134,18 @@
                 month:{
                     // 详情页
                     detail:{
-                        submit: site.website + 'check//month/mark', // 打分
+                        submit: site.website + 'check/month/mark', // 打分
                     }
                 },
+                // 年度
+                year:{
+                    summary:{
+                        submit: site.website + 'check/summary/mark', // 个人总结打分
+                    },
+                    year:{
+                        submit: site.website + 'check/year/mark', // 年度绩效打分
+                    }
+                }
             },
             //成绩查询
             performance:{

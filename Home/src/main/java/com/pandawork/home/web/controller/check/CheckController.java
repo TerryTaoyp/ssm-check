@@ -213,7 +213,7 @@ public class CheckController extends AbstractController {
         List<WorkPlan> workPlanList = workPlanService.queryByUidAndYear(uid,workPlan.getYear());
         Summary summary = summaryService.queryByUidAndYear(uid,workPlan.getYear());
         List<TestType> testTypeList = testTypeService.listAll();
-        int sumScore = 0;
+        double sumScore = 0;
         if (testPlan.getTestTypeId()==1){
             for (WorkPlan workPlan1 : workPlanList){
                 sumScore+=workPlan1.getQueaterScore();
@@ -223,7 +223,8 @@ public class CheckController extends AbstractController {
             for (WorkPlan workPlan1 : workPlanList){
                 sumScore+=workPlan1.getMonthScore();
             }
-            model.addAttribute("score",sumScore/workPlanList.size());
+            int size = workPlanList.size();
+            model.addAttribute("score",sumScore/size);
         }
         model.addAttribute("testTypeList",testTypeList);
         model.addAttribute("summary",summary);
@@ -263,8 +264,8 @@ public class CheckController extends AbstractController {
     public String yearSummary1(@PathVariable("id") int id,@PathVariable("uid") int uid,Model model,HttpSession session)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
         TestPlan testPlan = testPlanService.queryTestPlan(id);
-        WorkPlan workPlan = workPlanService.queryByTestId(testPlan.getId());
-        Summary summary = summaryService.queryByUidAndYear(uid,workPlan.getYear());
+//        WorkPlan workPlan = workPlanService.queryByTidAndUid(testPlan.getId(),uid);
+        Summary summary = summaryService.queryByUidAndYear(uid,testPlan.getYear());
         model.addAttribute("summary",summary);
         model.addAttribute("id",id);
         model.addAttribute("uid",uid);
@@ -361,7 +362,7 @@ public class CheckController extends AbstractController {
      */
     @ResponseBody
     @RequestMapping(value = "/year/mark",method = RequestMethod.GET)
-    public JSONObject yearMarking(@RequestParam("id") int uid,@RequestParam("year") int year,@RequestParam("yearScore") Double yearScore,@RequestParam("suggestScore") Double suggestScore)throws Exception{
+    public JSONObject yearMarking(@RequestParam("beCheckId") int uid,@RequestParam("year") int year,@RequestParam("yearScore") Double yearScore,@RequestParam("suggestScore") Double suggestScore)throws Exception{
         if (Assert.isNull(uid)){
             return sendJsonObject(0);
         }
@@ -373,13 +374,13 @@ public class CheckController extends AbstractController {
     }
 
     /**
-     * 能力指标打分
+     * 个人总结打分
      * @return
      * @throws Exception
      */
     @ResponseBody
-    @RequestMapping(value = "/ability/mark",method = RequestMethod.GET)
-    public JSONObject abilityMarking(@RequestParam("uid") int uid,@RequestParam("year") int year,@RequestParam("summaryScore") Double summaryScore)throws Exception{
+    @RequestMapping(value = "/summary/mark",method = RequestMethod.GET)
+    public JSONObject abilityMarking(@RequestParam("beCheckId") int uid,@RequestParam("year") int year,@RequestParam("summaryScore") Double summaryScore)throws Exception{
 
         Summary summary = summaryService.queryByUidAndYear(uid,year);
         summary.setSummaryScore(summaryScore);

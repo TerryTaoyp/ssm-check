@@ -133,7 +133,7 @@
                             </div>
                             <div class="box-footer">
                                 <p class="text-red tip"></p>
-                                <a href="${website}/check/year/ability/user/${id}" class="btn btn-primary">返回列表</a>
+                                <a href="${website}/check/year/ability/user/${id}" class="btn bg-olive">返回列表</a>
                                 <input type="submit" class="btn btn-primary J-submit" value="提交">
                             </div>
                         </div>

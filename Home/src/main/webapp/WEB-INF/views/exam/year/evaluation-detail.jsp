@@ -15,14 +15,11 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <jsp:include page="../../common/link.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 </head>
 <body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
     <jsp:include page="../../common/header.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
     <jsp:include page="../../common/sidebar.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/sidebar.html" -->
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -139,9 +136,9 @@
                                         </c:forEach>
                                         <td>${score}</td>
                                         <td>${summary.summaryScore}</td>
-                                        <td></td>
+                                        <td class="score-text"></td>
                                         <td>
-                                            <a href="${website}/check" class="btn bg-green">打分</a>
+                                            <button type="button" class="btn bg-green mark" data-toggle="modal" data-target="#modal-default">打分</button>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -186,9 +183,9 @@
                                             </td>
                                             <td>${score}</td>
                                             <td>${summary.summaryScore}</td>
-                                            <td></td>
+                                            <td class="score-text"></td>
                                             <td>
-                                                <a href="../../../view/exam/year/exam-detail.html" class="btn bg-green">打分</a>
+                                                <button type="button" class="btn bg-green mark" data-toggle="modal" data-target="#modal-default">打分</button>
                                             </td>
                                         </c:forEach>
                                     </tr>
@@ -203,13 +200,12 @@
                 <!-- /.col -->
             </div>
             <!-- /.row -->
-            <a href="${website}/check/year/user/${id}" class="btn bg-green">返回列表</a>
+            <a href="${website}/check/year/user/${id}" class="btn bg-blue">返回列表</a>
         </section>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <jsp:include page="../../common/footer.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
 
     <div class="control-sidebar-bg"></div>
     <div class="modal fade" id="modal-default">
@@ -218,14 +214,20 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">查看详情</h4>
+                    <h4 class="modal-title">打分</h4>
                 </div>
                 <div class="modal-body">
-                    <p>One fine body&hellip;</p>
+                    <input type="hidden" id="dataId" value="${workPlan.beCheckId}">
+                    <input type="hidden" value="${workPlan.year}" class="year">
+                    <div class="form-group">
+                        <label>您的分数</label>
+                        <input type="text" class="form-control score a-require-text" placeholder="请输入0-100内数字..." name="role">
+                    </div>
+                    <p class="text-red tip"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存修改</button>
+                    <button type="submit" class="btn btn-primary J-ajax-submit">打分</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -235,10 +237,8 @@
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
-<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-
-<!-- CKeditor -->
-<script src="../../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
+<script src="../../../../resources/js/pages/common/verify.js"></script>
+<script src="../../../../resources/js/pages/exam/year/evaluation-detail.js"></script>
 <!-- page script -->
 <script>
     $(function () {
