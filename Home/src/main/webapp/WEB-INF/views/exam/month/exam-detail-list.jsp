@@ -107,6 +107,7 @@
                 </div>
                 <!-- /.col -->
             </div>
+            <a href="${website}/check/month/list" class="btn bg-blue">返回列表</a>
             <!-- /.row -->
         </section>
         <!-- /.content -->

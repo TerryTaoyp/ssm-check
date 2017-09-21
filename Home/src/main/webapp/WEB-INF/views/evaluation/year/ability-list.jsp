@@ -78,7 +78,7 @@
                                         <c:if test="${testPlan.isAvailable == 0}">
                                             <td>未开启</td>
                                             <td>
-                                                <a disabled="disabled"  class="btn bg-blue">查看详情</a>
+                                                <a disabled="disabled"  class="btn bg-red">暂未开放</a>
                                             </td>
                                         </c:if>
 
@@ -102,33 +102,11 @@
     </div>
     <!-- /.content-wrapper -->
     <jsp:include page="../../common/footer.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
 
     <div class="control-sidebar-bg"></div>
-    <div class="modal fade" id="modal-default">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">修改计划</h4>
-                </div>
-                <div class="modal-body">
-                    <p>One fine body&hellip;</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存修改</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
-<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <!-- page script -->
 <script src="../../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
 <script>

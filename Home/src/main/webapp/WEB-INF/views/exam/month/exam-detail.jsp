@@ -112,7 +112,7 @@
                 <!-- /.col -->
             </div>
             <!-- /.row -->
-            <a href="${website}/check/month/detail/list/${id}" class="btn bg-green">返回列表</a>
+            <a href="${website}/check/month/detail/list/${id}" class="btn bg-blue">返回列表</a>
         </section>
         <!-- /.content -->
     </div>
