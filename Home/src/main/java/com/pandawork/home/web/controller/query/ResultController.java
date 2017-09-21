@@ -4,6 +4,7 @@ import com.pandawork.home.common.dto.YearMonthExportDto;
 import com.pandawork.home.common.dto.YearQueaterExportDto;
 import com.pandawork.home.common.entity.system.Department;
 import com.pandawork.home.common.entity.system.Role;
+import com.pandawork.home.common.entity.user.User;
 import com.pandawork.home.service.check.*;
 import com.pandawork.home.service.query.YearMonthService;
 import com.pandawork.home.service.query.YearQueaterService;
@@ -52,21 +53,32 @@ public class ResultController extends AbstractController {
 
 
     /**
-     * 越大越报表展示页面
+     * 月度工作计划报表展示页面
      * @return
      * @throws Exception
      */
     @RequestMapping(value = "/month/result",method = RequestMethod.GET)
     public String queryResult(Model model, HttpSession session)throws Exception{
         int power = (int) session.getAttribute("power");
-        List<YearMonthExportDto> list = yearMonthService.listAll();
+        User user = userService.queryByUname((String) session.getAttribute("username"));
+        System.out.println(power+"哈哈哈");
+        if (power<=6){
+            List<YearMonthExportDto> list = yearMonthService.listAll();
+            model.addAttribute("list",list);
+        }else if (power==7||power==8){
+            List<YearMonthExportDto> list = yearMonthService.queryByDid(user.getDid());
+            model.addAttribute("list",list);
+        }else if (power==9){
+            List<YearMonthExportDto> list = yearMonthService.queryByUid(user.getId());
+            model.addAttribute("list",list);
+        }
         List<Department> departmentList = departmentService.listAll();
         List<Role> roleList = roleService.listAll();
         model.addAttribute("departmentList",departmentList);
         model.addAttribute("roleList",roleList);
-        model.addAttribute("list",list);
         return "performance/month/month-list";
     }
+
     /**
      * 根据条件查询
      * @return
@@ -83,19 +95,31 @@ public class ResultController extends AbstractController {
         model.addAttribute("list",list);
         return "performance/month/month-list";
     }
+
     /**
      * 季度工作计划展示
      * @return
      * @throws Exception
      */
     @RequestMapping(value = "/quarter/result",method = RequestMethod.GET)
-    public String quarterList(Model model)throws Exception{
-        List<YearQueaterExportDto> list = yearQueaterService.listAll();
+    public String quarterList(Model model,HttpSession session)throws Exception{
+        int power = (int) session.getAttribute("power");
+        User user = userService.queryByUname((String) session.getAttribute("username"));
+        System.out.println(power+"哈哈哈");
+        if (power<=6){
+            List<YearQueaterExportDto> list = yearQueaterService.listAll();
+            model.addAttribute("list",list);
+        }else if (power==7||power==8){
+            List<YearQueaterExportDto> list = yearQueaterService.queryByDid(user.getDid());
+            model.addAttribute("list",list);
+        }else if (power==9){
+            List<YearQueaterExportDto> list = yearQueaterService.queryByUid(user.getId());
+            model.addAttribute("list",list);
+        }
         List<Department> departmentList = departmentService.listAll();
         List<Role> roleList = roleService.listAll();
         model.addAttribute("departmentList",departmentList);
         model.addAttribute("roleList",roleList);
-        model.addAttribute("list",list);
         return "performance/month/queater-list";
     }
 
@@ -115,6 +139,5 @@ public class ResultController extends AbstractController {
         model.addAttribute("list",list);
         return "performance/month/queater-list";
     }
-
 
 }

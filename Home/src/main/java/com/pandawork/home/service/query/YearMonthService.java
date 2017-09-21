@@ -43,4 +43,12 @@ public interface YearMonthService {
      * @throws SSException
      */
     public List<YearMonthExportDto> queryByDid(int did)throws SSException;
+
+    /**
+     * 副总经理查询所管辖的人
+     * @param dids
+     * @return
+     * @throws SSException
+     */
+    public List<YearMonthExportDto> queryByAllot(List<Integer> dids)throws SSException;
 }

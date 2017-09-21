@@ -2,6 +2,7 @@ package com.pandawork.home.web.controller.check;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
+import com.pandawork.core.common.util.Assert;
 import com.pandawork.home.common.entity.check.*;
 import com.pandawork.home.common.entity.system.Department;
 import com.pandawork.home.common.entity.system.Power;
@@ -217,12 +218,12 @@ public class CheckController extends AbstractController {
             for (WorkPlan workPlan1 : workPlanList){
                 sumScore+=workPlan1.getQueaterScore();
             }
-            model.addAttribute("score",sumScore/4);
+            model.addAttribute("score",sumScore/workPlanList.size());
         }else if (testPlan.getTestTypeId()==2){
             for (WorkPlan workPlan1 : workPlanList){
                 sumScore+=workPlan1.getMonthScore();
             }
-            model.addAttribute("score",sumScore/12);
+            model.addAttribute("score",sumScore/workPlanList.size());
         }
         model.addAttribute("testTypeList",testTypeList);
         model.addAttribute("summary",summary);
@@ -352,5 +353,41 @@ public class CheckController extends AbstractController {
         return sendJsonObject(1);
     }
 
+    /**
+     * 年度绩效打分
+     * @param uid
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping(value = "/year/mark",method = RequestMethod.GET)
+    public JSONObject yearMarking(@RequestParam("id") int uid,@RequestParam("year") int year,@RequestParam("yearScore") Double yearScore,@RequestParam("suggestScore") Double suggestScore)throws Exception{
+        if (Assert.isNull(uid)){
+            return sendJsonObject(0);
+        }
+        Performance performance = performanceService.queryByUidAndYear(uid, year);
+        performance.setYearScore(yearScore);
+        performance.setSuggestScore(suggestScore);
+        performanceService.updateYearScore(performance);
+        return sendJsonObject(1);
+    }
 
+    /**
+     * 能力指标打分
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping(value = "/ability/mark",method = RequestMethod.GET)
+    public JSONObject abilityMarking(@RequestParam("uid") int uid,@RequestParam("year") int year,@RequestParam("summaryScore") Double summaryScore)throws Exception{
+
+        Summary summary = summaryService.queryByUidAndYear(uid,year);
+        summary.setSummaryScore(summaryScore);
+        summary.setIsJoin(1);
+        summaryService.updateScore(summary);
+        Performance performance = performanceService.queryByUidAndYear(uid,year);
+        performance.setSummaryScore(summaryScore);
+        performanceService.updateSummaryScore(performance);
+        return sendJsonObject(1);
+    }
 }

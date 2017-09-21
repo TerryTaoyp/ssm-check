@@ -41,47 +41,50 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="box box-default">
-              <div class="box-header with-border">
-                <h3 class="box-title">测评结果导出</h3>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                <form action="${website}/query/month/query" method="post">
-                        <div class="form-group">
-                            <label>所在部门：</label>
-                            <select class="form-control" name="departmentId">
-                                <option value="-1" selected = "selected">请选择</option>
-                                <c:forEach items="${departmentList}" var="department">
-                                    <option value="${department.id}">${department.name}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
+            <c:if test="${sessionScope.power<=6}">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">测评结果导出</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <form action="${website}/query/month/query" method="post">
+                            <div class="form-group">
+                                <label>所在部门：</label>
+                                <select class="form-control" name="departmentId">
+                                    <option value="-1" selected = "selected">请选择</option>
+                                    <c:forEach items="${departmentList}" var="department">
+                                        <option value="${department.id}">${department.name}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
 
-                        <div class="form-group">
-                            <label>职位：</label>
-                            <select class="form-control" name="roleId">
-                                <option value="-1" selected = "selected">请选择</option>
-                                <c:forEach items="${roleList}" var="role" >
-                                    <option value="${role.id}">${role.name}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>年份：</label>
-                            <input type="text" name="year" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>姓名：</label>
-                            <input type="text" name="username" class="form-control">
-                        </div>
-                        <div class="box-footer">
-                            <input type="submit" class="btn btn-primary" value="查询">
-                        </div>
-                </form>
-              </div>
-              <!-- /.box-body -->
-            </div>
+                            <div class="form-group">
+                                <label>职位：</label>
+                                <select class="form-control" name="roleId">
+                                    <option value="-1" selected = "selected">请选择</option>
+                                    <c:forEach items="${roleList}" var="role" >
+                                        <option value="${role.id}">${role.name}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>年份：</label>
+                                <input type="text" name="year" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>姓名：</label>
+                                <input type="text" name="username" class="form-control">
+                            </div>
+                            <div class="box-footer">
+                                <input type="submit" class="btn btn-primary" value="查询">
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </c:if>
+
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box box-default">

@@ -23,7 +23,9 @@
     </update>
 
     <update id="updateYearScore">
-        UPDATE t_performance SET year_score = #{performance.yearScore}
+        UPDATE t_performance SET
+        year_score = #{performance.yearScore},
+        suggest_score = #{suggestScore}
         WHERE id = #{performance.id}
     </update>
 

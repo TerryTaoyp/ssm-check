@@ -70,6 +70,7 @@ public class LoginController extends AbstractController {
                     session.setAttribute("role",role.getName());
                     session.setAttribute("power",power.getPower());
                     session.setAttribute("username",user.getUsername());
+                    session.setMaxInactiveInterval(30*60);//设置session的有效时间
                     return "index";
                 }else {
                     model.addAttribute("error","审核未通过或者管理员还没有进行审核");

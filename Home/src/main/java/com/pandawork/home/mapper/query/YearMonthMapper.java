@@ -43,4 +43,12 @@ public interface YearMonthMapper {
      * @throws SSException
      */
     public List<YearMonthExportDto> queryByDid(@Param("did") int did)throws SSException;
+
+    /**
+     * 副总经理查询所管辖的人
+     * @param dids
+     * @return
+     * @throws SSException
+     */
+    public List<YearMonthExportDto> queryByAllot(@Param("dids") List<Integer> dids)throws SSException;
 }

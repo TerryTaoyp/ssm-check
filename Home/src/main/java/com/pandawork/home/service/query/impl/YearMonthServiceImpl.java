@@ -61,4 +61,19 @@ public class YearMonthServiceImpl implements YearMonthService {
             throw SSException.get(ChException.ExportFailed);
         }
     }
+
+    @Override
+    public List<YearMonthExportDto> queryByAllot(List<Integer> dids) throws SSException {
+
+        try {
+            if (Assert.isEmpty(dids)){
+                return null;
+            }
+            return yearMonthMapper.queryByAllot(dids);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.ExportFailed);
+        }
+
+    }
 }
