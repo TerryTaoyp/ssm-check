@@ -218,7 +218,7 @@
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="dataId" value="${workPlan.beCheckId}">
-                    <input type="hidden" value="${workPlan.year}" class="year">
+                    <input type="hidden" class="year" value="${workPlan.year}">
                     <div class="form-group">
                         <label>您的分数</label>
                         <input type="text" class="form-control score a-require-text" placeholder="请输入0-100内数字..." name="role">
