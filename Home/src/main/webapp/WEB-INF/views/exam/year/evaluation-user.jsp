@@ -87,7 +87,7 @@
                                             <td>${testPlan.startTime}</td>
                                         <td>
                                             <a href="${website}/check/year/performance/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核综合能力</a>
-                                            <a href="${website}/check/year/summary/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核年度总结</a>
+                                            <a href="${website}/check/year/summary/${testPlan.id}&${joinTest.uid}" class="btn bg-blue">进入考核年度总结</a>
                                         </td>
                                         </tr>
                                     </c:forEach>
@@ -100,39 +100,16 @@
                 </div>
                 <!-- /.col -->
             </div>
+            <a href="${website}/check/year/summary/list" class="btn bg-blue">返回列表</a>
             <!-- /.row -->
         </section>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <jsp:include page="../../common/footer.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
-
-    <div class="control-sidebar-bg"></div>
-    <div class="modal fade" id="modal-default">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">查看详情</h4>
-                </div>
-                <div class="modal-body">
-                    <p>One fine body&hellip;</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存修改</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
-<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 
 <!-- CKeditor -->
 <script src="../../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
