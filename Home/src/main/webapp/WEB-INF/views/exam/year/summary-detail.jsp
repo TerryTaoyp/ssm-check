@@ -54,7 +54,7 @@
                         <div class="box-footer">
                             <a href="${website}/check/year/user/${id}" class="btn bg-green">返回列表</a>
                             <button type="button" class="btn btn-primary mark" data-toggle="modal" data-target="#modal-default">打分</button>
-                            您所打的分数：<span class="score-text"></span>
+                            您所打的分数：<span class="score-text">${summary.summaryScore}</span>
                         </div>
                     </div>
                 </div>
