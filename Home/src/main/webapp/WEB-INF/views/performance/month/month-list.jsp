@@ -15,14 +15,11 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <jsp:include page="../../common/link.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
 </head>
 <body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
     <jsp:include page="../../common/header.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/header.html" -->
     <jsp:include page="../../common/sidebar.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/sidebar.html" -->
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -78,6 +75,7 @@
                             </div>
                             <div class="box-footer">
                                 <input type="submit" class="btn btn-primary" value="查询">
+                                <a href="#" class="btn bg-green export-all">全部导出</a>
                             </div>
                         </form>
                     </div>
@@ -116,7 +114,6 @@
                                     <th>总结得分</th>
                                     <th>能力指标得分</th>
                                     <th>综合得分</th>
-                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -142,9 +139,6 @@
                                             <td>${list.summaryScore}</td>
                                             <td>${list.abilityScore}</td>
                                             <td>${list.yearScore}</td>
-                                            <td>
-                                                <%--<a type="button" class="btn bg-green" href="${website}/export/month/${list.id}">打印此报表</a>--%>
-                                            </td>
                                         </tr>
                                 </c:forEach>
                                 </tbody>
@@ -170,11 +164,6 @@
                                     <th>总结得分</th>
                                     <th>能力指标得分</th>
                                     <th>综合得分</th>
-                                    <th>
-                                        <c:if test="${list.size() != 0}">
-                                            <a type="button" class="btn bg-green" href="${website}/export/month/query">全部导出</a>
-                                        </c:if>
-                                    </th>
                                 </tr>
                                 </tfoot>
                             </table>
@@ -191,35 +180,10 @@
     </div>
     <!-- /.content-wrapper -->
     <jsp:include page="../../common/footer.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
 
-    <div class="control-sidebar-bg"></div>
-    <div class="modal fade" id="modal-default">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">查看详情</h4>
-                </div>
-                <div class="modal-body">
-                    <p>One fine body&hellip;</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存修改</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
-<!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
-<!-- CKeditor -->
-<script src="../../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
 <!-- page script -->
 <script>
     $(function () {
