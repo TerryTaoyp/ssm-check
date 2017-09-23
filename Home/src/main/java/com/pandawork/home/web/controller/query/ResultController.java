@@ -85,8 +85,12 @@ public class ResultController extends AbstractController {
      * @throws Exception
      */
     @RequestMapping(value = "/month/query",method = RequestMethod.POST)
-    public String monthQuery(@RequestParam(value = "did",required = false, defaultValue = "-1") int did,                                   @RequestParam(value = "rid",required = false, defaultValue = "-1") int rid,
-                             @RequestParam(value = "year",required = false, defaultValue = "-1") int year,                                 @RequestParam(value = "username",required = false, defaultValue = "") String username,Model model)throws Exception{
+    public String monthQuery(@RequestParam(value = "departmentId",required = false, defaultValue = "-1") int did,                                  @RequestParam(value = "roleId",required = false, defaultValue = "-1") int rid,
+                             @RequestParam(value = "year",required = false, defaultValue = "-1") int year,                                         @RequestParam(value = "username",required = false, defaultValue = "") String username,Model model,HttpSession session)throws Exception{
+        session.setAttribute("queryMonthDid",did);
+        session.setAttribute("queryMonthRid",rid);
+        session.setAttribute("queryMonthYear",year);
+        session.setAttribute("queryMonthUName",username);
         List<YearMonthExportDto> list = yearMonthService.queryByConditions(did, rid, year, username);
         List<Department> departmentList = departmentService.listAll();
         List<Role> roleList = roleService.listAll();
@@ -129,8 +133,12 @@ public class ResultController extends AbstractController {
      * @throws Exception
      */
     @RequestMapping(value = "/quarter/query",method = RequestMethod.POST)
-    public String quarterQuery(@RequestParam(value = "did",required = false, defaultValue = "-1") int did, @RequestParam(value = "rid",required = false, defaultValue = "-1") int rid,
-                               @RequestParam(value = "year",required = false, defaultValue = "-1") int year, @RequestParam(value = "username",required = false, defaultValue = "") String username,Model model)throws Exception{
+    public String quarterQuery(@RequestParam(value = "departmentId",required = false, defaultValue = "-1") int did, @RequestParam(value = "roleId",required = false, defaultValue = "-1") int rid,
+                               @RequestParam(value = "year",required = false, defaultValue = "-1") int year, @RequestParam(value = "username",required = false, defaultValue = "") String username,Model model,HttpSession session)throws Exception{
+        session.setAttribute("queryQuarterDid",did);
+        session.setAttribute("queryQuarterRid",rid);
+        session.setAttribute("queryQuarterYear",year);
+        session.setAttribute("queryQuarterUName",username);
         List<YearQueaterExportDto> list = yearQueaterService.queryDtoByConditions(did, rid, year, username);
         List<Department> departmentList = departmentService.listAll();
         List<Role> roleList = roleService.listAll();

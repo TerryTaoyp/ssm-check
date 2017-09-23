@@ -26,6 +26,22 @@ public interface ExportMapper {
     public List<YearMonthExportDto> exportYearMonthByConditions(@Param("did") int did, @Param("rid") int rid,@Param("year") int year,@Param("username") String username)throws SSException;
 
     /**
+     * 根据部门ID查询年度月度考核
+     * @param did
+     * @return
+     * @throws SSException
+     */
+    public List<YearMonthExportDto> queryMonthByDid(@Param("did") int did)throws SSException;
+
+    /**
+     * 根据用户ID查询年度月度考核
+     * @param uid
+     * @return
+     * @throws SSException
+     */
+    public List<YearMonthExportDto> queryMonthByUid(@Param("uid") int uid)throws SSException;
+
+    /**
      * 导出所有用户年度季度考核成绩信息
      * @return
      * @throws SSException
@@ -38,4 +54,20 @@ public interface ExportMapper {
      * @throws SSException
      */
     public List<YearQueaterExportDto> exportYearQueaterByConditions(@Param("did") int did,@Param("rid") int rid,@Param("year") int year,@Param("username") String username)throws SSException;
+
+    /**
+     * 根据用户ID查找年度季度查询
+     * @param did
+     * @return
+     * @throws SSException
+     */
+    public List<YearQueaterExportDto> queryQuarterByDid(@Param("did") int did)throws SSException;
+
+    /**
+     * 根据用户ID查找 年度季度成绩
+     * @param uid
+     * @return
+     * @throws SSException
+     */
+    public List<YearQueaterExportDto> queryQuarterByUid(@Param("uid") int uid)throws SSException;
 }

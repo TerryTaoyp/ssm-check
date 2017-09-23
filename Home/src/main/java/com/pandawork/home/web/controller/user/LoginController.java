@@ -66,11 +66,13 @@ public class LoginController extends AbstractController {
                     Department department = departmentService.queryById(user.getDid());
                     Role role = roleService.queryById(user.getRid());
                     Power power = powerService.queryById(role.getPid());
+                    session.setMaxInactiveInterval(30*60);//设置session的有效时间
                     session.setAttribute("department",department.getName());
                     session.setAttribute("role",role.getName());
                     session.setAttribute("power",power.getPower());
                     session.setAttribute("username",user.getUsername());
-                    session.setMaxInactiveInterval(30*60);//设置session的有效时间
+                    session.setAttribute("uid",user.getId());
+                    session.setAttribute("did",user.getDid());
                     return "index";
                 }else {
                     model.addAttribute("error","审核未通过或者管理员还没有进行审核");

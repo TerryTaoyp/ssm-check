@@ -8,12 +8,13 @@ import com.pandawork.home.common.util.ExcelUtil;
 import com.pandawork.home.service.query.ExportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -49,15 +50,60 @@ public class ExportController extends AbstractController {
 
     /**
      * 导出年度月度绩效考核的某一条成绩
-     * @param did
+     * @param
      * @param response
      * @param request
      */
     @RequestMapping(value = "/month/query",method = RequestMethod.GET)
-    public void exportYearMonthByConditions(@RequestParam(value = "did",required = false, defaultValue = "-1") int did, @RequestParam(value = "rid",required = false, defaultValue = "-1") int rid,
-                                            @RequestParam(value = "year",required = false, defaultValue = "-1") int year, @RequestParam(value = "username",required = false, defaultValue = "") String username, HttpServletResponse response, HttpServletRequest request){
+    public void exportYearMonthByConditions( HttpServletResponse response, HttpServletRequest request, HttpSession session){
         try {
+            int did = (int) session.getAttribute("queryMonthDid");
+            int rid = (int) session.getAttribute("queryMonthRid");
+            int year = (int) session.getAttribute("queryMonthYear");
+            String username = (String) session.getAttribute("queryMonthUName");
             List<YearMonthExportDto> listMonth = exportService.exportYearMonthByConditions(did, rid, year, username);
+
+            String filename = "年度月度考核.xls";//设置下载时Excel的名称
+            filename = ExcelUtil.encodeFilename(filename, request);//处理中文文件名
+            ExcelUtil.writeExcel(listMonth, "recruit", filename, response);//调用Excel工具类生成Excel
+        } catch (SSException e) {
+            e.printStackTrace();
+            LogClerk.errLog.error(e);
+        }
+    }
+
+    /**
+     * 根据部门ID查询年度月度考核
+     * @param did
+     * @param response
+     * @param request
+     * @throws Exception
+     */
+    @RequestMapping(value = "/month/query/did/{did}")
+    public void exportYearMonthByDid(@PathVariable("did") int did,HttpServletResponse response, HttpServletRequest request)throws Exception{
+        try {
+            List<YearMonthExportDto> listMonth = exportService.queryMonthByDid(did);
+
+            String filename = "年度月度考核.xls";//设置下载时Excel的名称
+            filename = ExcelUtil.encodeFilename(filename, request);//处理中文文件名
+            ExcelUtil.writeExcel(listMonth, "recruit", filename, response);//调用Excel工具类生成Excel
+        } catch (SSException e) {
+            e.printStackTrace();
+            LogClerk.errLog.error(e);
+        }
+    }
+
+    /**
+     * 根据部门ID查询年度月度考核
+     * @param uid
+     * @param response
+     * @param request
+     * @throws Exception
+     */
+    @RequestMapping(value = "/month/query/uid/{uid}")
+    public void exportYearMonthByUid(@PathVariable("uid") int uid,HttpServletResponse response, HttpServletRequest request)throws Exception{
+        try {
+            List<YearMonthExportDto> listMonth = exportService.queryMonthByUid(uid);
 
             String filename = "年度月度考核.xls";//设置下载时Excel的名称
             filename = ExcelUtil.encodeFilename(filename, request);//处理中文文件名
@@ -92,10 +138,54 @@ public class ExportController extends AbstractController {
      * @param response
      */
     @RequestMapping(value = "/quarter/query",method = RequestMethod.POST)
-    public void exportYearQuarterByConditions(@RequestParam(value = "did",required = false, defaultValue = "-1") int                                               did, @RequestParam(value = "rid",required = false, defaultValue = "-1") int rid,
-                                              @RequestParam(value = "year",required = false, defaultValue = "-1") int year, @RequestParam(value = "username",required = false, defaultValue = "") String username,HttpServletRequest request,HttpServletResponse response){
+    public void exportYearQuarterByConditions(HttpServletRequest request,HttpServletResponse response,HttpSession session){
         try {
+            int did = (int) session.getAttribute("queryQuarterDid");
+            int rid = (int) session.getAttribute("queryQuarterRid");
+            int year = (int) session.getAttribute("queryQuarterYear");
+            String username = (String) session.getAttribute("queryQuarterUName");
             List<YearQueaterExportDto> list = exportService.exportYearQueaterByConditions(did, rid, year, username);
+            String filename = "年度季度考核.xls";//设置下载时Excel的名称
+            filename = ExcelUtil.encodeFilename(filename, request);//处理中文文件名
+            ExcelUtil.writeExcel(list, "recruit", filename, response);//调用Excel工具类生成Excel
+        } catch (SSException e) {
+            e.printStackTrace();
+            LogClerk.errLog.error(e);
+        }
+    }
+
+    /**
+     * 根据部门ID查询年度季度考核
+     * @param did
+     * @param response
+     * @param request
+     * @throws Exception
+     */
+    @RequestMapping(value = "/quarter/query/did/{did}")
+    public void exportYearQuarterByDid(@PathVariable("did") int did,HttpServletResponse response, HttpServletRequest request)throws Exception{
+        try {
+            List<YearQueaterExportDto> list = exportService.queryQuarterByDid(did);
+            String filename = "年度季度考核.xls";//设置下载时Excel的名称
+            filename = ExcelUtil.encodeFilename(filename, request);//处理中文文件名
+            ExcelUtil.writeExcel(list, "recruit", filename, response);//调用Excel工具类生成Excel
+        } catch (SSException e) {
+            e.printStackTrace();
+            LogClerk.errLog.error(e);
+        }
+    }
+
+    /**
+     * 根据部门ID查询年度季度考核
+     * @param uid
+     * @param response
+     * @param request
+     * @throws Exception
+     */
+    @RequestMapping(value = "/quarter/query/uid/{uid}")
+    public void exportYearQuarterByUid(@PathVariable("uid") int uid,HttpServletResponse response, HttpServletRequest request)throws Exception{
+        try {
+            List<YearQueaterExportDto> list = exportService.queryQuarterByUid(uid);
+
             String filename = "年度季度考核.xls";//设置下载时Excel的名称
             filename = ExcelUtil.encodeFilename(filename, request);//处理中文文件名
             ExcelUtil.writeExcel(list, "recruit", filename, response);//调用Excel工具类生成Excel

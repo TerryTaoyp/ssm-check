@@ -48,8 +48,9 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">测评结果导出</h3>
                     </div>
-                    <form action="${website}/query/quarter/query" method="post">
-                        <div class="box-body">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <form action="${website}/query/month/query" method="post">
                             <div class="form-group">
                                 <label>所在部门：</label>
                                 <select class="form-control" name="departmentId">
@@ -77,14 +78,31 @@
                                 <label>姓名：</label>
                                 <input type="text" name="username" class="form-control">
                             </div>
-
-                        </div>
-                        <div class="box-footer">
-                            <input type="submit" class="btn btn-primary" value="查询">
-                            <a href="#" class="btn bg-green export-all">全部导出</a>
-                        </div>
-                        <!-- /.box-body -->
-                    </form>
+                            <div class="box-footer">
+                                <input type="submit" class="btn btn-primary" value="查询">
+                                    <%--<a href="#" class="btn bg-green export-all">全部导出</a>--%>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.power<=6}">
+                <div class="box-footer">
+                        <%--<input type="submit" class="btn btn-primary" value="查询">--%>
+                    <a href="${website}/export/quarter/query" class="btn bg-green export-all">全部导出</a>
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.power==7||sessionScope.power ==8}">
+                <div class="box-footer">
+                        <%--<input type="submit" class="btn btn-primary" value="查询">--%>
+                    <a href="${website}/export/quarter/query/did/${sessionScope.did}" class="btn bg-green export-all">全部导出</a>
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.power==9}">
+                <div class="box-footer">
+                        <%--<input type="submit" class="btn btn-primary" value="查询">--%>
+                    <a href="${website}/export/quarter/query/uid/${sessionScope.uid}" class="btn bg-green export-all">全部导出</a>
                 </div>
             </c:if>
 

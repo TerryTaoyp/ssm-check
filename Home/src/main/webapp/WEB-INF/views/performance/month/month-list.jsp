@@ -75,11 +75,29 @@
                             </div>
                             <div class="box-footer">
                                 <input type="submit" class="btn btn-primary" value="查询">
-                                <a href="#" class="btn bg-green export-all">全部导出</a>
+                                <%--<a href="#" class="btn bg-green export-all">全部导出</a>--%>
                             </div>
                         </form>
                     </div>
                     <!-- /.box-body -->
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.power<=6}">
+                <div class="box-footer">
+                        <%--<input type="submit" class="btn btn-primary" value="查询">--%>
+                    <a href="${website}/export/month/query" class="btn bg-green export-all">全部导出</a>
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.power==7||sessionScope.power ==8}">
+                <div class="box-footer">
+                        <%--<input type="submit" class="btn btn-primary" value="查询">--%>
+                    <a href="${website}/export/month/query/did/${sessionScope.did}" class="btn bg-green export-all">全部导出</a>
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.power==9}">
+                <div class="box-footer">
+                        <%--<input type="submit" class="btn btn-primary" value="查询">--%>
+                    <a href="${website}/export/month/query/uid/${sessionScope.uid}" class="btn bg-green export-all">全部导出</a>
                 </div>
             </c:if>
 

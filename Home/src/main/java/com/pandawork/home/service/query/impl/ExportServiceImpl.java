@@ -2,6 +2,7 @@ package com.pandawork.home.service.query.impl;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
+import com.pandawork.core.common.util.Assert;
 import com.pandawork.home.common.dto.YearMonthExportDto;
 import com.pandawork.home.common.dto.YearQueaterExportDto;
 import com.pandawork.home.common.exception.ChException;
@@ -41,6 +42,32 @@ public class ExportServiceImpl implements ExportService {
         }
     }
 
+    @Override
+    public List<YearMonthExportDto> queryMonthByDid(int did) throws SSException {
+        try {
+            if (Assert.isNull(did)){
+                return null;
+            }
+            return exportMapper.queryMonthByDid(did);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.ExportFailed);
+        }
+    }
+
+    @Override
+    public List<YearMonthExportDto> queryMonthByUid(int uid) throws SSException {
+        try {
+            if (Assert.isNull(uid)){
+                return null;
+            }
+            return exportMapper.queryMonthByUid(uid);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.ExportFailed);
+        }
+    }
+
 
     @Override
     public List<YearQueaterExportDto> exportYearQueater() throws SSException {
@@ -56,6 +83,32 @@ public class ExportServiceImpl implements ExportService {
     public List<YearQueaterExportDto> exportYearQueaterByConditions(int did, int rid, int year, String username) throws SSException {
         try {
             return exportMapper.exportYearQueaterByConditions(did, rid, year, username);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.ExportFailed);
+        }
+    }
+
+    @Override
+    public List<YearQueaterExportDto> queryQuarterByDid(int did) throws SSException {
+       try {
+           if (Assert.isNull(did)){
+               return null;
+           }
+           return exportMapper.queryQuarterByDid(did);
+       }catch (Exception e){
+           LogClerk.errLog.error(e);
+           throw SSException.get(ChException.ExportFailed);
+       }
+    }
+
+    @Override
+    public List<YearQueaterExportDto> queryQuarterByUid(int uid) throws SSException {
+        try {
+            if (Assert.isNull(uid)){
+                return null;
+            }
+            return exportMapper.queryQuarterByUid(uid);
         }catch (Exception e){
             LogClerk.errLog.error(e);
             throw SSException.get(ChException.ExportFailed);
