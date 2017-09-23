@@ -51,9 +51,9 @@
                                 <ul class="timeline">
                                     <!-- timeline time label -->
                                     <li class="time-label">
-                      <span class="bg-green">
-                        考核开始
-                      </span>
+                                        <span class="bg-green">
+                                            考核开始
+                                        </span>
                                     </li>
                                     <c:forEach items="${abilityPositionList}" var="abilityPosition" varStatus="status">
                                         <li>
@@ -61,7 +61,8 @@
                                             <div class="timeline-item">
                                                 <h3 class="timeline-header">
                                                     <a href="#">【${abilityPosition
-                                                            .targetTypeId}${abilityPosition.weight}】</a>
+                                                            .targetTypeId}
+                                                            <span class="weight">${abilityPosition.weight}</span>%】</a>
                                                         ${abilityPosition.targetId}
                                                 </h3>
                                                 <div class="timeline-body box-body">
@@ -112,7 +113,7 @@
                                                 <div class="timeline-footer">
                                                     <div class="form-group">
                                                         <label>请输入分数：</label>
-                                                        <input type="text" class="form-control require-text score" placeholder="请填写分数..." name="role">
+                                                        <input type="text" class="form-control require-text score" placeholder="请填写分数...">
                                                         <p class="text-red score-tip"></p>
                                                     </div>
                                                 </div>
@@ -132,6 +133,7 @@
                                 </ul>
                             </div>
                             <div class="box-footer">
+                                <input type="hidden" name="total" class="total" value="">
                                 <p class="text-red tip"></p>
                                 <a href="${website}/check/year/ability/user/${id}" class="btn bg-olive">返回列表</a>
                                 <input type="submit" class="btn btn-primary J-submit" value="提交">
@@ -156,7 +158,7 @@
 <script src="../../../../resources/js/plugins/iCheck/icheck.min.js"></script>
 
 
-<script src="../../../../resources/js/pages/exam/month/exam-detail.js"></script>
+<script src="../../../../resources/js/pages/exam/year/exam-detail.js"></script>
 <!-- page script -->
 <script>
     $(function () {
