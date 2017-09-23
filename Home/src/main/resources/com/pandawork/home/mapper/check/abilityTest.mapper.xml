@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pandawork.home.mapper.check.AbilityTestMapper">
+
+    <insert id="addAbilityTest">
+        INSERT INTO t_ability_test(
+        test_id,be_check_id,check_id,score
+        )VALUES (
+        abilityTest.testId,
+        abilityTest.beCheckId,
+        abilityTest.checkId,
+        abilityTest.score
+        )
+    </insert>
+
+    <select id="queryByTestIdAndUid" resultMap="pw.AbilityTest">
+        SELECT * FROM t_ability_test WHERE test_id = #{testId} AND be_check_id = #{beCheckId}
+    </select>
+
+</mapper>

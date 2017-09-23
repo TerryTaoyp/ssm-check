@@ -1,0 +1,29 @@
+package com.pandawork.home.mapper.check;
+
+import com.pandawork.core.common.exception.SSException;
+import com.pandawork.home.common.entity.check.AbilityTest;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+/**
+ * Created by Taoyongpan on 2017/9/23.
+ */
+public interface AbilityTestMapper {
+
+    /**
+     * 新增能力指标
+     * @param abilityTest
+     * @throws SSException
+     */
+    public void addAbilityTest(@Param("abilityTest") AbilityTest abilityTest)throws SSException;
+
+    /**
+     * 根据考核用户的ID和考核计划的ID查找
+     * @param testId
+     * @param beCheckId
+     * @return
+     * @throws SSException
+     */
+    public List<AbilityTest> queryByTestIdAndUid(@Param("testId") int testId, @Param("beCheckId") int beCheckId)throws SSException;
+}

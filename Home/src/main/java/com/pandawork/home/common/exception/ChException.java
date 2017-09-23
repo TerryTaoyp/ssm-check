@@ -135,7 +135,10 @@ public enum  ChException implements IBizExceptionMes{
 
 
 
-    ExportFailed("导出错误",1700)
+    ExportFailed("导出错误",1700),
+
+    AddAbilityTest("添加能力指标打分",1801),
+    QueryAbilityTestByTidAndUid("根据考核计划ID和能力指标打分查找",1802)
 
     ;
     private String mes;

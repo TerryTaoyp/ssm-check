@@ -55,6 +55,8 @@ public class CheckController extends AbstractController {
     AbilityPositionService abilityPositionService;
     @Autowired
     AbilityOptionService abilityOptionService;
+    @Autowired
+    AbilityTestService abilityTestService;
 
     /**
      * 获取月份的工作计划
@@ -198,6 +200,16 @@ public class CheckController extends AbstractController {
         model.addAttribute("id",tid);//把考核计划的ID传到jsp页面
         return "exam/year/ability-detail";
     }
+
+    /**
+     * 能力指标打分
+     * @return
+     * @throws SSException
+     */
+//    @RequestMapping(value = "/year/ability/check",method = RequestMethod.POST)
+//    public String abilityCheck()throws SSException{
+//
+//    }
     /**
      * 综合绩效列表
      * @param session
