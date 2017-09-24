@@ -62,45 +62,32 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${joinTestList}" var="joinTest" varStatus="status">
-                                        <tr>
-                                        <td>${status.index+1}</td>
-                                        <c:forEach items="${userList}" var="user">
+                                    <c:forEach items="${joinTestList}" var="joinTest">
+                                        <c:forEach items="${userList}" var="user"  varStatus="status">
                                             <c:if test="${joinTest.uid == user.id}">
-
-                                                <td>
-                                                <c:forEach items="${departmentList}" var="department">
-                                                    <c:if test="${user.did == department.id}">
-                                                        ${department.name}
-                                                    </c:if>
-                                                </c:forEach>
-                                                </td>
+                                                <tr>
+                                                <td>${status.index+1}</td>
+                                                <td>${user.department}</td>
                                                 <td>${user.username}</td>
-                                                <td>
-                                                <c:forEach items="${roleList}" var="role">
-                                                    <c:if test="${user.rid == role.id}">
-                                                        ${role.name}
-                                                    </c:if>
-                                                </c:forEach>
-                                                </td>
-                                            </c:if>
-                                        </c:forEach>
+                                                <td>${user.role}</td>
                                             <td>${testPlan.startTime}</td>
-                                    <c:if test="${abilityTest.isJoin == 1}">
-                                        <td>未参与考核</td>
-                                        <td>
-                                            <a href="${website}/check/year/ability/detail/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核</a>
-
-                                        </td>
-                                    </c:if>
-                                    <c:if test="${abilityTest.isJoin == 0}">
-                                        <td>${abilityTest.score}</td>
-                                        <td>
-                                            <a href="${website}/check/year/performance/${testPlan.id}" class="btn bg-green disabled">进入考核</a>
-
-                                        </td>
-                                    </c:if>
-                                        </tr>
+                                            <c:forEach items="${abilityTestList}" var="abilityTest">
+                                                <c:if test="${abilityTest.isJoin == 0 and abilityTest.beCheckId == user.id}">
+                                                    <td>未参与考核</td>
+                                                    <td>
+                                                        <a href="${website}/check/year/ability/detail/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核</a>
+                                                    </td>
+                                                </c:if>
+                                                <c:if test="${abilityTest.isJoin == 1 and abilityTest.beCheckId==user.id}">
+                                                    <td>${abilityTest.score}</td>
+                                                    <td>
+                                                        <a href="#" class="btn bg-red disabled">已经考核</a>
+                                                    </td>
+                                                </c:if>
+                                            </c:forEach>
+                                            </c:if>
+                                            </tr>
+                                        </c:forEach>
                                     </c:forEach>
                                 </tbody>
                             </table>

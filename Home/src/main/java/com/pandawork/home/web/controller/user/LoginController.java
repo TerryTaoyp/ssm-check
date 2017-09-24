@@ -62,7 +62,7 @@ public class LoginController extends AbstractController {
         User user = userService.queryByUname(username);
         session.setAttribute("username1",username);
         if (!Assert.isNull(user)){
-            if (user.getPassword().equals(password)&&user.getIsDelete()==1){
+            if (user.getPassword().equals(Md5Util.EncoderByMd5(password))&&user.getIsDelete()==1){
                 if (user.getStatus()==1){
                     Department department = departmentService.queryById(user.getDid());
                     Role role = roleService.queryById(user.getRid());

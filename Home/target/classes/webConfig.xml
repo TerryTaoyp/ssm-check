@@ -67,7 +67,6 @@
                 <property name="allowUrls">
                     <list>
                         <value>/tologin</value>
-                        <value>/login</value>
 						<value>/toregister</value>
 						<value>/register</value>
                         <value>/logout</value>

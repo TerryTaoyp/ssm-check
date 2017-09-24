@@ -13,10 +13,11 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -126,8 +127,9 @@ public class AllotController extends AbstractController {
      * @return
      * @throws Exception
      */
+    @ResponseBody
     @RequestMapping(value = "/update",method = RequestMethod.GET)
-    public String update(@RequestParam("id") int id,@RequestParam("did[]") List<Integer>dids)throws Exception{
+    public JSONObject update(@RequestParam("id") int id,@RequestParam("did[]") List<Integer>dids)throws Exception{
         List<Allot> list = allotService.queryByUid(id);
         for (Allot i:list){
             allotService.delAllot(i.getId());
@@ -136,8 +138,9 @@ public class AllotController extends AbstractController {
             Allot allot = new Allot();
             allot.setUid(id);
             allot.setDid(i);
+//            System.out.println(allot+"i");
             allotService.addAllot(allot);
         }
-        return "redirect:/allot/list";
+        return sendJsonObject(1);
     }
 }

@@ -35,4 +35,28 @@ public interface AbilityTestMapper {
      * @throws SSException
      */
     public AbilityTest queryByTidAndUid(@Param("tid") int tid,@Param("uid") int uid)throws SSException;
+
+    /**
+     * 打分
+     * @param abilityTest
+     * @throws SSException
+     */
+    public void updateScore(@Param("abilityTest") AbilityTest abilityTest)throws SSException;
+
+    /**
+     * 根据考核计划ID和被考核用户ID删除
+     * @param testId
+     * @param beCheckId
+     * @return
+     * @throws SSException
+     */
+    public boolean delByTidAndUid(@Param("testId") int testId,@Param("beCheckId") int beCheckId)throws SSException;
+
+    /**
+     * 根据考核计划ID查询
+     * @param tid
+     * @return
+     * @throws SSException
+     */
+    public List<AbilityTest> queryByTid(@Param("tid") int tid)throws SSException;
 }

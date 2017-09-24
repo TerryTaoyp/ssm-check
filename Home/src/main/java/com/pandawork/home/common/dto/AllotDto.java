@@ -5,7 +5,7 @@ package com.pandawork.home.common.dto;
  */
 public class AllotDto {
     //用户ID
-    private Integer uid;
+    private Integer id;
     //用户名字
     private String username;
     //真实姓名
@@ -17,12 +17,12 @@ public class AllotDto {
     //权限等级
     private Integer power;
 
-    public Integer getUid() {
-        return uid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUsername() {

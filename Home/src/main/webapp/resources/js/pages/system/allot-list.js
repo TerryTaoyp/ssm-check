@@ -46,7 +46,7 @@ $(document).ready(function() {
 				$(el.J_tip).text('');
 				var 
 					id = $('#dataId').val(), // 附加上点击此按钮的信息在数据库中的顺序
-					path_url = _ajax.url.system.allot.list.update,
+					path_url = _ajax.url.system.allot.list.submit,
 					department = $(el.J_department).val(), // 管辖部门名称
 					department_text = $(el.J_department).find('option:selected').text(); // 管辖部门名称
 				// 如果符合条件无法提交

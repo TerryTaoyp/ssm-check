@@ -3,14 +3,12 @@ package com.pandawork.home.web.controller.check;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.home.common.dto.AllotDto;
+import com.pandawork.home.common.entity.check.AbilityTest;
 import com.pandawork.home.common.entity.check.JoinTest;
 import com.pandawork.home.common.entity.check.TestPlan;
 import com.pandawork.home.common.entity.check.TestType;
 import com.pandawork.home.common.entity.user.User;
-import com.pandawork.home.service.check.JoinTestService;
-import com.pandawork.home.service.check.TestPlanService;
-import com.pandawork.home.service.check.TestTypeService;
-import com.pandawork.home.service.check.WorkPlanService;
+import com.pandawork.home.service.check.*;
 import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.system.RoleService;
 import com.pandawork.home.service.user.UserService;
@@ -44,6 +42,8 @@ public class TestPlanController extends AbstractController{
     RoleService roleService;
     @Autowired
     JoinTestService joinTestService;
+    @Autowired
+    AbilityTestService abilityTestService;
 
     /**
      * 获取考核计划列表
@@ -219,6 +219,14 @@ public class TestPlanController extends AbstractController{
         joinTest.setUid(uid);
         joinTest.setTestId(tid);
         joinTestService.addCheck(joinTest);
+        TestPlan testPlan = testPlanService.queryTestPlan(tid);
+        if (testPlan.getTestTypeId()==3){
+            AbilityTest abilityTest = new AbilityTest();
+            abilityTest.setTestId(tid);
+            abilityTest.setBeCheckId(uid);
+            abilityTestService.addAbilityTest(abilityTest);
+        }
+
         return sendJsonObject(1);
     }
 
@@ -232,6 +240,10 @@ public class TestPlanController extends AbstractController{
     @RequestMapping(value = "/del/join",method = RequestMethod.GET)
     public JSONObject notJoin(@RequestParam("tid") int tid,@RequestParam("uid") int uid)throws Exception{
         joinTestService.delById(tid,uid);
+        TestPlan testPlan = testPlanService.queryTestPlan(tid);
+        if (testPlan.getTestTypeId()==3){
+            abilityTestService.delByTidAndUid(tid, uid);
+        }
         return sendJsonObject(1);
     }
 
@@ -249,6 +261,13 @@ public class TestPlanController extends AbstractController{
             joinTest.setTestId(tid);
             joinTest.setUid(i);
             joinTestService.addCheck(joinTest);
+            TestPlan testPlan = testPlanService.queryTestPlan(tid);
+            if (testPlan.getTestTypeId()==3){
+                AbilityTest abilityTest = new AbilityTest();
+                abilityTest.setTestId(tid);
+                abilityTest.setBeCheckId(i);
+                abilityTestService.addAbilityTest(abilityTest);
+            }
         }
         return sendJsonObject(1);
     }

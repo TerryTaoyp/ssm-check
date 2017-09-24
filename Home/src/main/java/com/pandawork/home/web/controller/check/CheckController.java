@@ -101,28 +101,11 @@ public class CheckController extends AbstractController {
             List<JoinTest> joinTestList = joinTestService.queryByTid(id);
             List<Department> departmentList =departmentService.listAll();
             List<Role> roleList = roleService.listAll();
-            if (power.getPower()<=2){
+            if (power.getPower()<=7){
                 List<User> userList = userService.queryByIsDelete(1);
                 model.addAttribute("userList",userList);
-            }else if (power.getPower()==9){
-                List<AllotDto> userList = abilityAllotService.generalCheck(user.getDid());
-                model.addAttribute("userList",userList);
-            }else if (power.getPower()==8){
-                List<AllotDto> userList = abilityAllotService.deputyCheck(user.getDid());
-                model.addAttribute("userList",userList);
-            }else if (power.getPower()==7){
-                List<AllotDto> userList = abilityAllotService.dManagerCheck(user.getDid());
-                model.addAttribute("userList",userList);
-            }else if (power.getPower()==6){
-                List<Allot> allotList = allotService.queryByUid(user.getId());
-                List<User> userList = null;
-                for (Allot allot:allotList){
-                    List<User> userList1 = userService.queryByDid(allot.getDid());
-                    userList.addAll(userList1);
-                }
-                model.addAttribute("userList",userList);
-            }else if (power.getPower()==5){
-                List<AllotDto> userList = abilityAllotService.topManagerCheck();
+            }else if (power.getPower()==8 ||power.getPower()==9){
+                List<User> userList = userService.queryByDidAndIsDelete(user.getDid(),1);
                 model.addAttribute("userList",userList);
             }
             TestPlan testPlan = testPlanService.queryTestPlan(id);
@@ -179,6 +162,14 @@ public class CheckController extends AbstractController {
         return "exam/year/ability-list";
     }
 
+    /**
+     * 跳转到能力指标考核用户列表页面
+     * @param id
+     * @param session
+     * @param model
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/year/ability/user/{id}",method = RequestMethod.GET)
     public String user(@PathVariable("id") int id,HttpSession session,Model model)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
@@ -187,23 +178,41 @@ public class CheckController extends AbstractController {
         List<JoinTest> joinTestList = joinTestService.queryByTid(id);
         List<Department> departmentList =departmentService.listAll();
         List<Role> roleList = roleService.listAll();
-        if (power.getPower()<=7){
+
+        if (power.getPower()<=2){
             List<User> userList = userService.queryByIsDelete(1);
             model.addAttribute("userList",userList);
-        }else if (power.getPower()==8 ||power.getPower()==9){
-            List<User> userList = userService.queryByDidAndIsDelete(user.getDid(),1);
+        }else if (power.getPower()==9){
+            List<AllotDto> userList = abilityAllotService.generalCheck(user.getDid());
+            model.addAttribute("userList",userList);
+        }else if (power.getPower()==8){
+            List<AllotDto> userList = abilityAllotService.deputyCheck(user.getDid());
+            model.addAttribute("userList",userList);
+        }else if (power.getPower()==7){
+            List<AllotDto> userList = abilityAllotService.dManagerCheck(user.getDid());
+            model.addAttribute("userList",userList);
+        }else if (power.getPower()==6){
+            List<Allot> allotList = allotService.queryByUid(user.getId());
+            List<User> userList = null;
+            for (Allot allot:allotList){
+                List<User> userList1 = userService.queryByDid(allot.getDid());
+                userList.addAll(userList1);
+            }
+            model.addAttribute("userList",userList);
+        }else if (power.getPower()==5){
+            List<AllotDto> userList = abilityAllotService.topManagerCheck();
             model.addAttribute("userList",userList);
         }
         TestPlan testPlan = testPlanService.queryTestPlan(id);
-
-        AbilityTest abilityTest = abilityTestService.queryByTidAndUid(id,user.getId());
-        model.addAttribute("abilityTest",abilityTest);
+        //
+        List<AbilityTest> abilityTestList = abilityTestService.queryByTid(id);
+        model.addAttribute("abilityTestList",abilityTestList);
         model.addAttribute("testPlan",testPlan);
         model.addAttribute("power",power);
         model.addAttribute("joinTestList",joinTestList);
         model.addAttribute("roleList",roleList);
         model.addAttribute("departmentList",departmentList);
-//        model.addAttribute("id",id);
+        model.addAttribute("id",id);
         return "exam/year/ability-user";
     }
 
@@ -244,59 +253,57 @@ public class CheckController extends AbstractController {
         Power power2 = powerService.queryById(role2.getPid());
 
         AbilityTest abilityTest = new AbilityTest();
-        abilityTest.setBeCheckId(beCheckId);
         abilityTest.getCheckId(user1.getId());
-        abilityTest.setTestId(testId);
         //被考核用户为一般员工
         if (power2.getPower()==9){
             if (power1.getPower()==9){
                 abilityTest.setScore(score*0.3);
-                abilityTestService.addAbilityTest(abilityTest);
+                abilityTestService.updateScore(abilityTest);
             }else if (power1.getPower()==8){
                 abilityTest.setScore(score*0.5);
-                abilityTestService.addAbilityTest(abilityTest);
+                abilityTestService.updateScore(abilityTest);
             }else if (power1.getPower()==7){
                 abilityTest.setScore(score*0.2);
-                abilityTestService.addAbilityTest(abilityTest);
+                abilityTestService.updateScore(abilityTest);
             }
         }
         //被考核用户为部门副经理
         else if (power2.getPower()==8){
             if (power1.getPower()==9){
                 abilityTest.setScore(score*0.3);
-                abilityTestService.addAbilityTest(abilityTest);
+                abilityTestService.updateScore(abilityTest);
             }else if (power1.getPower()==7){
                 abilityTest.setScore(score*0.5);
-                abilityTestService.addAbilityTest(abilityTest);
+                abilityTestService.updateScore(abilityTest);
             }else if (power1.getPower()==6){
                 abilityTest.setScore(score*0.2);
-                abilityTestService.addAbilityTest(abilityTest);
+                abilityTestService.updateScore(abilityTest);
             }
         }
         //被考核用户身份为部门经理
         else if (power2.getPower()==7){
             if (power1.getPower()==8){
                 abilityTest.setScore(score*0.3);
-                abilityTestService.addAbilityTest(abilityTest);
+                abilityTestService.updateScore(abilityTest);
             }else if (power1.getPower()==6){
                 abilityTest.setScore(score*0.5);
-                abilityTestService.addAbilityTest(abilityTest);
+                abilityTestService.updateScore(abilityTest);
             }else if (power1.getPower()==5){
                 abilityTest.setScore(score*0.2);
-                abilityTestService.addAbilityTest(abilityTest);
+                abilityTestService.updateScore(abilityTest);
             }
         }
         //被考核用户为公司副总经理
         else if (power2.getPower()==6){
             if (power1.getPower()==7){
                 abilityTest.setScore(score*0.3);
-                abilityTestService.addAbilityTest(abilityTest);
+                abilityTestService.updateScore(abilityTest);
             }else if (power1.getPower()==5){
                 abilityTest.setScore(score*0.5);
-                abilityTestService.addAbilityTest(abilityTest);
+                abilityTestService.updateScore(abilityTest);
             }else if (power1.getPower()==8){
                 abilityTest.setScore(score*0.2);
-                abilityTestService.addAbilityTest(abilityTest);
+                abilityTestService.updateScore(abilityTest);
             }
         }
         double totalScore = 0;

@@ -62,4 +62,43 @@ public class AbilityTestServiceImpl implements AbilityTestService {
             throw SSException.get(ChException.QueryAbilityTestByTidAndUid);
         }
     }
+
+    @Override
+    public void updateScore(AbilityTest abilityTest) throws SSException {
+        try {
+            if (Assert.isNull(abilityTest)){
+                return;
+            }
+            abilityTestMapper.updateScore(abilityTest);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.AddAbilityTest);
+        }
+    }
+
+    @Override
+    public boolean delByTidAndUid(int testId, int beCheckId) throws SSException {
+        try {
+            if (Assert.isNull(testId)||Assert.isNull(beCheckId)){
+                return false;
+            }
+            return abilityTestMapper.delByTidAndUid(testId, beCheckId);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.AddAbilityTest);
+        }
+    }
+
+    @Override
+    public List<AbilityTest> queryByTid(int tid) throws SSException {
+        try {
+            if (Assert.isNull(tid)){
+                return null;
+            }
+            return abilityTestMapper.queryByTid(tid);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryAbilityTestByTidAndUid);
+        }
+    }
 }

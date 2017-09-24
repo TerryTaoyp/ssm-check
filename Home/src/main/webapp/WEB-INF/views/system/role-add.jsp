@@ -59,7 +59,7 @@
                             <label>选择权限：</label>
                             <select class="form-control select2 require-options" multiple="multiple" data-placeholder="请选择..." style="width: 100%;" name="pid">
                                 <c:forEach items="${powerList}" var="power">
-                                    <option value="${power.id}">${power.power}</option>
+                                    <option value="${power.id}">${power.power}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${power.detail}</option>
                                 </c:forEach>
                             </select>
                         </div>

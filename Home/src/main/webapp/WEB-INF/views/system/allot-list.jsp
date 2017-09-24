@@ -73,7 +73,7 @@
                                             <c:if test="${allot.uid == user.id}">
                                                 <c:forEach items="${departmentList}" var="department">
                                                     <c:if test="${allot.did==department.id}">
-                                                        ${department.name}
+                                                        ${department.name}&nbsp;&nbsp;&nbsp;&nbsp;
                                                     </c:if>
                                                 </c:forEach>
                                             </c:if>

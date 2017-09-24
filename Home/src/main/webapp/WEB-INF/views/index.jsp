@@ -21,7 +21,7 @@
 
     <div class="content-wrapper">
         <section class="content">
-            <h2 class="text-center">这是首页</h2>
+            <h2 class="text-center"></h2>
         </section>
     </div>
     <jsp:include page="common/footer.jsp"/>
