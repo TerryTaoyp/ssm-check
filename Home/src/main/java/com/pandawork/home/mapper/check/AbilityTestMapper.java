@@ -26,4 +26,13 @@ public interface AbilityTestMapper {
      * @throws SSException
      */
     public List<AbilityTest> queryByTestIdAndUid(@Param("testId") int testId, @Param("beCheckId") int beCheckId)throws SSException;
+
+    /**
+     * 根据考核计划ID和考核者的ID查询
+     * @param tid
+     * @param uid
+     * @return
+     * @throws SSException
+     */
+    public AbilityTest queryByTidAndUid(@Param("tid") int tid,@Param("uid") int uid)throws SSException;
 }

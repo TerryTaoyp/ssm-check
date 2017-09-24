@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pandawork.home.mapper.check.AbilityAllotMapper">
+
+    <select id="generalCheck" resultType="AllotDto">
+        SELECT
+        tu.id AS uid,
+        tu.username AS username,
+        tu.real_name AS realName,
+        (SELECT td.name FROM t_department td WHERE td.id = tu.did) AS department,
+        (SELECT tr.name FROM  t_role tr WHERE tr.id = tu.rid)AS role,
+        AS power,
+        FROM t_user tu
+        WHERE tu.is_delete = 1 AND (SELECT tp.power FROM t_power tp WHERE (SELECT tr.pid FROM  t_role tr WHERE tr.id = tu.rid)=tp.id) = (9 OR 8) AND tu.did = #{did}
+    </select>
+
+    <select id="deputyCheck" resultType="AllotDto">
+        SELECT
+        tu.id AS uid,
+        tu.username AS username,
+        tu.real_name AS realName,
+        (SELECT td.name FROM t_department td WHERE td.id = tu.did) AS department,
+        (SELECT tr.name FROM  t_role tr WHERE tr.id = tu.rid)AS role,
+        AS power,
+        FROM t_user tu
+        WHERE tu.is_delete = 1 AND (SELECT tp.power FROM t_power tp WHERE (SELECT tr.pid FROM  t_role tr WHERE tr.id = tu.rid)=tp.id) = (9 OR 7) AND tu.did = #{did}
+    </select>
+
+    <select id="dManagerCheck" resultType="AllotDto">
+        SELECT
+        tu.id AS uid,
+        tu.username AS username,
+        tu.real_name AS realName,
+        (SELECT td.name FROM t_department td WHERE td.id = tu.did) AS department,
+        (SELECT tr.name FROM  t_role tr WHERE tr.id = tu.rid)AS role,
+        AS power,
+        FROM t_user tu
+        WHERE tu.is_delete = 1 AND (SELECT tp.power FROM t_power tp WHERE (SELECT tr.pid FROM  t_role tr WHERE tr.id = tu.rid)=tp.id) = (9 OR 8) AND tu.did = #{did}
+    </select>
+
+    <select id="topManagerCheck" resultType="AllotDto">
+        SELECT
+        tu.id AS uid,
+        tu.username AS username,
+        tu.real_name AS realName,
+        (SELECT td.name FROM t_department td WHERE td.id = tu.did) AS department,
+        (SELECT tr.name FROM  t_role tr WHERE tr.id = tu.rid)AS role,
+        AS power,
+        FROM t_user tu
+        WHERE tu.is_delete = 1 AND (SELECT tp.power FROM t_power tp WHERE (SELECT tr.pid FROM  t_role tr WHERE tr.id = tu.rid)=tp.id) = (5 OR 6)
+    </select>
+
+</mapper>

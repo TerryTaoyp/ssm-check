@@ -10,12 +10,17 @@
         abilityTest.testId,
         abilityTest.beCheckId,
         abilityTest.checkId,
-        abilityTest.score
+        abilityTest.score,
+        abilityTest.isJoin
         )
     </insert>
 
     <select id="queryByTestIdAndUid" resultMap="pw.AbilityTest">
         SELECT * FROM t_ability_test WHERE test_id = #{testId} AND be_check_id = #{beCheckId}
+    </select>
+
+    <select id="queryByTidAndUid" resultMap="pw.AbilityTest">
+        SELECT * FROM t_ability_test WHERE test_id = #{tid} AND check_id = #{uid}
     </select>
 
 </mapper>

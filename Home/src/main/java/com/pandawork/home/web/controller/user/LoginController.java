@@ -57,9 +57,10 @@ public class LoginController extends AbstractController {
      * 登录验证
      * @return
      */
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(HttpServletRequest request, HttpServletResponse response, @RequestParam("username") String username, @RequestParam("password") String password, HttpSession session,Model model) throws Exception {
         User user = userService.queryByUname(username);
+        session.setAttribute("username1",username);
         if (!Assert.isNull(user)){
             if (user.getPassword().equals(password)&&user.getIsDelete()==1){
                 if (user.getStatus()==1){

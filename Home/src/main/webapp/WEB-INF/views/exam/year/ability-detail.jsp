@@ -76,7 +76,6 @@
                                                                     </label>
                                                                     <a class="btn bg-olive btn-xs">优(9.0分~10.0分)</a>
                                                                 </c:if>
-
                                                             </div>
                                                             <div class="form-group">
                                                                 <c:if test="${option.optionName == 2}">

@@ -236,5 +236,10 @@ public class AbstractController extends Base {
      */
     @Autowired
     protected static AbilityTestService abilityTestService;
+    /**
+     * 能力指标考核分配
+     */
+    @Autowired
+    protected static AbilityAllotService abilityAllotService;
 
 }

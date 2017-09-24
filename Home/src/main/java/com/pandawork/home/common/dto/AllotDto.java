@@ -14,7 +14,8 @@ public class AllotDto {
     private String department;
     //角色名字
     private String role;
-
+    //权限等级
+    private Integer power;
 
     public Integer getUid() {
         return uid;
@@ -54,5 +55,13 @@ public class AllotDto {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Integer getPower() {
+        return power;
+    }
+
+    public void setPower(Integer power) {
+        this.power = power;
     }
 }

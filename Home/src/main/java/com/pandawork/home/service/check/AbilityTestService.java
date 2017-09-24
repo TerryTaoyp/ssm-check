@@ -25,4 +25,13 @@ public interface AbilityTestService {
      * @throws SSException
      */
     public List<AbilityTest> queryByTestIdAndUid(int testId, int beCheckId)throws SSException;
+
+    /**
+     * 根据考核计划ID和考核者的ID查询
+     * @param tid
+     * @param uid
+     * @return
+     * @throws SSException
+     */
+    public AbilityTest queryByTidAndUid(int tid,int uid)throws SSException;
 }

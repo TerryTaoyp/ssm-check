@@ -31,6 +31,9 @@ public class AbilityTest {
     //此次考核得分
     @Column(name = "score")
     private Double score;
+    //是否参与此次考核
+    @Column(name = "is_join")
+    private Integer isJoin;
 
     public Integer getId() {
         return id;
@@ -56,7 +59,7 @@ public class AbilityTest {
         this.beCheckId = beCheckId;
     }
 
-    public Integer getCheckId() {
+    public Integer getCheckId(Integer id) {
         return checkId;
     }
 
@@ -70,5 +73,13 @@ public class AbilityTest {
 
     public void setScore(Double score) {
         this.score = score;
+    }
+    
+    public Integer getIsJoin() {
+        return isJoin;
+    }
+
+    public void setIsJoin(Integer isJoin) {
+        this.isJoin = isJoin;
     }
 }

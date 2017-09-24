@@ -57,6 +57,7 @@
                                     <th>被考核用户名</th>
                                     <th>所属角色</th>
                                     <th>考核时间</th>
+                                    <th>考核得分</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -85,13 +86,15 @@
                                             </c:if>
                                         </c:forEach>
                                             <td>${testPlan.startTime}</td>
-                                    <c:if test="${testPlan.isAvailable == 1}">
+                                    <c:if test="${abilityTest.isJoin == 1}">
+                                        <td>未参与考核</td>
                                         <td>
                                             <a href="${website}/check/year/ability/detail/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核</a>
 
                                         </td>
                                     </c:if>
-                                    <c:if test="${testPlan.isAvailable == 0}">
+                                    <c:if test="${abilityTest.isJoin == 0}">
+                                        <td>${abilityTest.score}</td>
                                         <td>
                                             <a href="${website}/check/year/performance/${testPlan.id}" class="btn bg-green disabled">进入考核</a>
 

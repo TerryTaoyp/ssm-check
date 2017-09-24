@@ -49,4 +49,17 @@ public class AbilityTestServiceImpl implements AbilityTestService {
             throw SSException.get(ChException.QueryAbilityTestByTidAndUid);
         }
     }
+
+    @Override
+    public AbilityTest queryByTidAndUid(int tid, int uid) throws SSException {
+        try {
+            if (Assert.isNull(tid)||Assert.isNull(uid)){
+                return null;
+            }
+            return abilityTestMapper.queryByTidAndUid(tid,uid);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryAbilityTestByTidAndUid);
+        }
+    }
 }

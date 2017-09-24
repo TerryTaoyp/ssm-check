@@ -138,7 +138,14 @@ public enum  ChException implements IBizExceptionMes{
     ExportFailed("导出错误",1700),
 
     AddAbilityTest("添加能力指标打分",1801),
-    QueryAbilityTestByTidAndUid("根据考核计划ID和能力指标打分查找",1802)
+    QueryAbilityTestByTidAndUid("根据考核计划ID和能力指标打分查找",1802),
+
+
+
+    GeneralCheckFailed("能力指标考核一般员工查询考核范围失败",1901),
+    DeputyCheckFailed("能力指标考核部门副经理查询考核范围失败",1902),
+    DManagerCheckFailed("能力指标考核部门经理查询考核范围失败",1903),
+    TopManagerCheckFailed("能力指标考核总经理查询考核范围失败",1904)
 
     ;
     private String mes;

@@ -3,7 +3,9 @@ package com.pandawork.home.web.controller.check;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.core.common.util.Assert;
+import com.pandawork.home.common.dto.AllotDto;
 import com.pandawork.home.common.entity.check.*;
+import com.pandawork.home.common.entity.system.Allot;
 import com.pandawork.home.common.entity.system.Department;
 import com.pandawork.home.common.entity.system.Power;
 import com.pandawork.home.common.entity.system.Role;
@@ -57,6 +59,8 @@ public class CheckController extends AbstractController {
     AbilityOptionService abilityOptionService;
     @Autowired
     AbilityTestService abilityTestService;
+    @Autowired
+    AbilityAllotService abilityAllotService;
 
     /**
      * 获取月份的工作计划
@@ -97,11 +101,28 @@ public class CheckController extends AbstractController {
             List<JoinTest> joinTestList = joinTestService.queryByTid(id);
             List<Department> departmentList =departmentService.listAll();
             List<Role> roleList = roleService.listAll();
-            if (power.getPower()<=7){
+            if (power.getPower()<=2){
                 List<User> userList = userService.queryByIsDelete(1);
                 model.addAttribute("userList",userList);
-            }else if (power.getPower()==8 ||power.getPower()==9){
-                List<User> userList = userService.queryByDidAndIsDelete(user.getDid(),1);
+            }else if (power.getPower()==9){
+                List<AllotDto> userList = abilityAllotService.generalCheck(user.getDid());
+                model.addAttribute("userList",userList);
+            }else if (power.getPower()==8){
+                List<AllotDto> userList = abilityAllotService.deputyCheck(user.getDid());
+                model.addAttribute("userList",userList);
+            }else if (power.getPower()==7){
+                List<AllotDto> userList = abilityAllotService.dManagerCheck(user.getDid());
+                model.addAttribute("userList",userList);
+            }else if (power.getPower()==6){
+                List<Allot> allotList = allotService.queryByUid(user.getId());
+                List<User> userList = null;
+                for (Allot allot:allotList){
+                    List<User> userList1 = userService.queryByDid(allot.getDid());
+                    userList.addAll(userList1);
+                }
+                model.addAttribute("userList",userList);
+            }else if (power.getPower()==5){
+                List<AllotDto> userList = abilityAllotService.topManagerCheck();
                 model.addAttribute("userList",userList);
             }
             TestPlan testPlan = testPlanService.queryTestPlan(id);
@@ -174,6 +195,9 @@ public class CheckController extends AbstractController {
             model.addAttribute("userList",userList);
         }
         TestPlan testPlan = testPlanService.queryTestPlan(id);
+
+        AbilityTest abilityTest = abilityTestService.queryByTidAndUid(id,user.getId());
+        model.addAttribute("abilityTest",abilityTest);
         model.addAttribute("testPlan",testPlan);
         model.addAttribute("power",power);
         model.addAttribute("joinTestList",joinTestList);
@@ -194,6 +218,7 @@ public class CheckController extends AbstractController {
         List<AbilityPosition> abilityPositionList = abilityPositionService.queryByTestId(tid);
         List<AbilityOption> abilityOptionList = abilityOptionService.queryByTestId(tid);
         TestPlan testPlan = testPlanService.queryTestPlan(tid);
+
         model.addAttribute("testPlan",testPlan);
         model.addAttribute("abilityPositionList",abilityPositionList);
         model.addAttribute("abilityOptionList",abilityOptionList);
@@ -206,10 +231,91 @@ public class CheckController extends AbstractController {
      * @return
      * @throws SSException
      */
-//    @RequestMapping(value = "/year/ability/check",method = RequestMethod.POST)
-//    public String abilityCheck()throws SSException{
-//
-//    }
+    @RequestMapping(value = "/year/ability/check",method = RequestMethod.POST)
+    public String abilityCheck(@RequestParam("score") Double score,@RequestParam("beCheckId") int beCheckId,HttpSession session,@RequestParam("testId") int testId,@RequestParam("year") int year) throws Exception {
+        //考核者的信息
+        User user1 = userService.queryByUname((String) session.getAttribute("username"));
+        Role role1  = roleService.queryById(user1.getRid());
+        Power power1 = powerService.queryById(role1.getPid());
+
+        //被考核用户的信息
+        User user2 = userService.queryById(beCheckId);
+        Role role2 = roleService.queryById(user2.getRid());
+        Power power2 = powerService.queryById(role2.getPid());
+
+        AbilityTest abilityTest = new AbilityTest();
+        abilityTest.setBeCheckId(beCheckId);
+        abilityTest.getCheckId(user1.getId());
+        abilityTest.setTestId(testId);
+        //被考核用户为一般员工
+        if (power2.getPower()==9){
+            if (power1.getPower()==9){
+                abilityTest.setScore(score*0.3);
+                abilityTestService.addAbilityTest(abilityTest);
+            }else if (power1.getPower()==8){
+                abilityTest.setScore(score*0.5);
+                abilityTestService.addAbilityTest(abilityTest);
+            }else if (power1.getPower()==7){
+                abilityTest.setScore(score*0.2);
+                abilityTestService.addAbilityTest(abilityTest);
+            }
+        }
+        //被考核用户为部门副经理
+        else if (power2.getPower()==8){
+            if (power1.getPower()==9){
+                abilityTest.setScore(score*0.3);
+                abilityTestService.addAbilityTest(abilityTest);
+            }else if (power1.getPower()==7){
+                abilityTest.setScore(score*0.5);
+                abilityTestService.addAbilityTest(abilityTest);
+            }else if (power1.getPower()==6){
+                abilityTest.setScore(score*0.2);
+                abilityTestService.addAbilityTest(abilityTest);
+            }
+        }
+        //被考核用户身份为部门经理
+        else if (power2.getPower()==7){
+            if (power1.getPower()==8){
+                abilityTest.setScore(score*0.3);
+                abilityTestService.addAbilityTest(abilityTest);
+            }else if (power1.getPower()==6){
+                abilityTest.setScore(score*0.5);
+                abilityTestService.addAbilityTest(abilityTest);
+            }else if (power1.getPower()==5){
+                abilityTest.setScore(score*0.2);
+                abilityTestService.addAbilityTest(abilityTest);
+            }
+        }
+        //被考核用户为公司副总经理
+        else if (power2.getPower()==6){
+            if (power1.getPower()==7){
+                abilityTest.setScore(score*0.3);
+                abilityTestService.addAbilityTest(abilityTest);
+            }else if (power1.getPower()==5){
+                abilityTest.setScore(score*0.5);
+                abilityTestService.addAbilityTest(abilityTest);
+            }else if (power1.getPower()==8){
+                abilityTest.setScore(score*0.2);
+                abilityTestService.addAbilityTest(abilityTest);
+            }
+        }
+        double totalScore = 0;
+        //查出所有本用户的被打分
+        List<AbilityTest> abilityTestList = abilityTestService.queryByTestIdAndUid(testId,beCheckId);
+        for (AbilityTest abilityTest1:abilityTestList){
+            totalScore+=abilityTest1.getScore();
+        }
+        AbilityResult abilityResult = new AbilityResult();
+        abilityResult.setBeCheckId(beCheckId);
+        abilityResult.setCheckId(user1.getId());
+        abilityResult.setTestId(testId);
+        abilityResult.setFinishTime("");
+        abilityResult.setTotalScore(totalScore);
+        abilityResult.setYear(year);
+        abilityResultService.addResult(abilityResult);
+
+        return "exam/year/ability-user";
+    }
     /**
      * 综合绩效列表
      * @param session

@@ -1,5 +1,8 @@
 package com.pandawork.home.web.intercepter;
 
+import com.pandawork.core.common.util.Assert;
+import com.pandawork.home.service.user.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -11,6 +14,8 @@ import javax.servlet.http.HttpSession;
  * Created by Taoyongpan on 2017/9/19.
  */
 public class HanderInterceptor1 implements HandlerInterceptor {
+    @Autowired
+    UserService userService;
 
     private String[] allowUrls;//还没发现可以直接配置不拦截的资源，所以在代码里面来排除
     private String[] allowUrls1;//还没发现可以直接配置不拦截的资源，所以在代码里面来排除
@@ -35,20 +40,24 @@ public class HanderInterceptor1 implements HandlerInterceptor {
                              Object o) throws Exception {
         String requestUrl = request.getRequestURI().replace(request.getContextPath(), "");
 //        System.out.println(requestUrl);
+
         if (null != allowUrls && allowUrls.length >= 1) {
-            for (String url : allowUrls) {
-                if (requestUrl.contains(url)) {
+            for (String url1 : allowUrls) {
+                if (requestUrl.contains(url1)) {
                     return true;
                 }
             }
         }
         HttpSession session = request.getSession();
-        String username = (String) session.getAttribute("username");
-        int power = (int) session.getAttribute("power");
-        if (username!=null){
-           return true;
-        }else {
-            return false;
+        String username = request.getParameter("username");
+        String username1 = (String) session.getAttribute("username1");
+        String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/tologin";
+
+//        int power = (int) session.getAttribute("power");
+        if (Assert.isNull(userService.queryByUname(username))&&Assert.isNull(userService.queryByUname(username1))) {
+           response.sendRedirect(url);
+           return false;
         }
+        return true;
     }
 }
