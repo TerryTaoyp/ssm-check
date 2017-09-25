@@ -83,7 +83,7 @@
                             <label>预期工作成果：</label>
                             <input type="text" class="form-control require-text"  name="excpetResult">
                         </div>
-
+                        <input type="hidden" name="tid"  value="${testPlan.id}"/>
                         <div class="box-footer">
                             <p class="tip text-red"></p>
                             <input type="submit" class="btn btn-primary J-submit" value="提交">

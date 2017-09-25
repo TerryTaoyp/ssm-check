@@ -489,12 +489,16 @@ public class CheckController extends AbstractController {
         workDetailService.marking(workDetail);
         WorkPlan workPlan = workPlanService.queryById(workDetail.getWid());
         TestPlan testPlan = testPlanService.queryTestPlan(workPlan.getTestId());
-        if (testPlan.getTestTypeId()==1){
+        if (testPlan.getTestTypeId()==5){
             double quarterScore = workPlan.getQueaterScore()+testScore*(workDetail.getWeight()/100);
             workPlan.setQueaterScore(quarterScore);
-        }else if (testPlan.getTestTypeId()==2){
+            workPlan.setMonthScore(-1.0);
+            workPlanService.updateWorkPlan(workPlan);
+        }else if (testPlan.getTestTypeId()==6){
             double monthScore = workPlan.getMonthScore()+testScore*(workDetail.getWeight()/100);
             workPlan.setMonthScore(monthScore);
+            workPlan.setQueaterScore(-1.0);
+            workPlanService.updateWorkPlan(workPlan);
         }
 
         //判断此次考核是否参加过

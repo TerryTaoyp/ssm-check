@@ -161,7 +161,7 @@ public class WorkPlanController extends AbstractController {
      * @throws Exception
      */
     @RequestMapping(value = "/month/add",method = RequestMethod.POST)
-    public String monthAdd(@RequestParam("wid") int wid, @RequestParam("startTime")String startTime,@RequestParam("startTime")String endTime,@RequestParam("weight")int weight,@RequestParam("planContent") String planContent,@RequestParam("excpetResult") String excpetResult, HttpSession session)throws Exception{
+    public String monthAdd(@RequestParam("tid") int tid,@RequestParam("wid") int wid, @RequestParam("startTime")String startTime,@RequestParam("startTime")String endTime,@RequestParam("weight")int weight,@RequestParam("planContent") String planContent,@RequestParam("excpetResult") String excpetResult, HttpSession session)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
         WorkDetail workDetail = new WorkDetail();
         workDetail.setUid(user.getId());
@@ -172,7 +172,7 @@ public class WorkPlanController extends AbstractController {
         workDetail.setPlanContent(planContent);
         workDetail.setExpectResult(excpetResult);
         workDetailService.addWorkDetail(workDetail);
-        return "redirect:/workplan/month/detail/"+wid;
+        return "redirect:/workplan/month/detail/"+tid;
     }
 
 
