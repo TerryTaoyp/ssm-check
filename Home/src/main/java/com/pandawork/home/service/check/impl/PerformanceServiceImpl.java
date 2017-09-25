@@ -169,4 +169,18 @@ public class PerformanceServiceImpl implements PerformanceService {
             throw SSException.get(ChException.QueryPerformanceByDid);
         }
     }
+
+    @Override
+    public List<Performance> queryByYear(int year) throws SSException {
+        try {
+            if (Assert.isNull(year)){
+                return null;
+            }
+            return performanceMapper.queryByYear(year);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryPerformanceByYAM);
+        }
+
+    }
 }

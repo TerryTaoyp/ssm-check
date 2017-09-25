@@ -19,7 +19,8 @@
     <update id="updateYearScore">
         UPDATE t_performance SET
         year_score = #{performance.yearScore},
-        suggest_score = #{performance.suggestScore}
+        suggest_score = #{performance.suggestScore},
+        is_join = 1
         WHERE id = #{performance.id}
     </update>
 
@@ -59,5 +60,8 @@
         SELECT * FROM t_performance WHERE be_check_id = #{beCheckId} AND year = #{year}
     </select>
 
+    <select id="queryByYear" resultMap="pw.Performance">
+        SELECT * FROM t_performance WHERE year = #{year}
+    </select>
 
 </mapper>

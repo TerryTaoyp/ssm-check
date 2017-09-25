@@ -360,8 +360,6 @@ public class CheckController extends AbstractController {
             int size = workPlanList.size();
             model.addAttribute("score",sumScore/size);
         }
-
-
         model.addAttribute("testTypeList",testTypeList);
         model.addAttribute("summary",summary);
         model.addAttribute("workPlanList",workPlanList);
@@ -430,6 +428,14 @@ public class CheckController extends AbstractController {
         return "exam/year/summary-detail";
     }
 
+    /**
+     * 年度绩效考核被考核用户列表页面
+     * @param session
+     * @param model
+     * @param id
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/year/user/{id}",method = RequestMethod.GET)
     public String yearUser(HttpSession session,Model model,@PathVariable("id") int id)throws Exception{
         try {
@@ -448,6 +454,12 @@ public class CheckController extends AbstractController {
                 model.addAttribute("userList",userList);
             }
             TestPlan testPlan = testPlanService.queryTestPlan(id);
+
+            //显示是否参与考核
+            List<Performance> performanceList = performanceService.queryByYear(testPlan.getYear());
+            List<Summary> summaryList = summaryService.queryByYear(testPlan.getYear());
+            model.addAttribute("performanceList",performanceList);
+            model.addAttribute("summaryList",summaryList);
 
             model.addAttribute("testPlan",testPlan);
             model.addAttribute("power",power);

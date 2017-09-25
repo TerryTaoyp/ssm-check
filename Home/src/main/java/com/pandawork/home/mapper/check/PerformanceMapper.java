@@ -103,5 +103,12 @@ public interface PerformanceMapper {
      */
     public Performance queryByUidAndYear(@Param("beCheckId") int beCheckId,@Param("year") int year)throws SSException;
 
+    /**
+     * 根据年份查找
+     * @param year
+     * @return
+     * @throws SSException
+     */
+    public List<Performance> queryByYear(@Param("year") int year)throws SSException;
 
 }

@@ -52,7 +52,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>序号</th>
+                                    <%--<th>序号</th>--%>
                                     <th>考核计划名称</th>
                                     <th>考核时间</th>
                                     <th>开启状态</th>
@@ -63,7 +63,7 @@
                                 <c:forEach items="${testPlanList}" var="testPlan" varStatus="status">
                                     <c:if test="${testPlan.testTypeId == 1 || testPlan.testTypeId == 2}">
                                         <tr>
-                                            <td>${status.index+1}</td>
+                                            <%--<td>${status.index+1}</td>--%>
                                             <td>${testPlan.testName}</td>
                                             <td>${testPlan.startTime}</td>
                                             <c:if test="${testPlan.isAvailable == 1}">

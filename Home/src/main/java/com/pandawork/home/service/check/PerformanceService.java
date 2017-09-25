@@ -104,4 +104,11 @@ public interface PerformanceService {
     public Performance queryByUidAndYear(int beCheckId,int year)throws SSException;
 
 
+    /**
+     * 根据年份查找
+     * @param year
+     * @return
+     * @throws SSException
+     */
+    public List<Performance> queryByYear(int year)throws SSException;
 }
