@@ -49,7 +49,7 @@ public class PerformanceController extends AbstractController {
         try{
             User user = userService.queryByUname((String) session.getAttribute("username"));
             TestPlan testPlan = testPlanService.queryTestPlan(id);
-            List<WorkPlan> workPlanList = workPlanService.queryByYear(testPlan.getYear());
+            List<WorkPlan> workPlanList = workPlanService.queryByUidAndYear(user.getId(),testPlan.getYear());
             Performance performance = performanceService.queryByUidAndYear(user.getId(),testPlan.getYear());
             int sumScore = 0;
             if (testPlan.getTestTypeId()==1){
@@ -84,12 +84,10 @@ public class PerformanceController extends AbstractController {
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String list(Model model, HttpSession session)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
-        if (null != user.getId()){
-            List<JoinTest> joinTestList = joinTestService.queryByUid(user.getId());
-            List<TestPlan> testPlanList = testPlanService.queryByUid(user.getId());
-            model.addAttribute("joinTestList",joinTestList);
-            model.addAttribute("testPlanList",testPlanList);
-        }
+        List<JoinTest> joinTestList = joinTestService.queryByUid(user.getId());
+        List<TestPlan> testPlanList = testPlanService.listAll();
+        model.addAttribute("joinTestList",joinTestList);
+        model.addAttribute("testPlanList",testPlanList);
         return "evaluation/year/synthetical-list";
     }
 

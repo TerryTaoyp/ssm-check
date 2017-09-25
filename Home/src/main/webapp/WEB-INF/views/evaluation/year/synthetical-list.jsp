@@ -50,7 +50,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>序号</th>
+                                    <%--<th>序号</th>--%>
                                     <th>考核名称</th>
                                     <th>考核时间</th>
                                     <th>考核状态</th>
@@ -58,26 +58,32 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${testPlanList}" var="testPlan" varStatus="status">
-                                    <c:if test="${testPlan.testTypeId ==1 ||testPlan.testTypeId==2}">
-                                        <tr>
-                                            <td>${status.index+1}</td>
-                                            <td>${testPlan.testName}</td>
-                                            <td>${testPlan.startTime}</td>
-                                            <c:if test="${testPlan.isAvailable == 1}">
-                                                <td>已开启</td>
+                                <c:forEach items="${testPlanList}" var="testPlan">
+                                    <c:forEach items="${joinTestList}" var="jointest" varStatus="status">
+                                        <c:if test="${jointest.testId==testPlan.id}">
+                                            <c:if test="${testPlan.testTypeId ==1 ||testPlan.testTypeId==2}">
+                                                <tr>
+                                                    <%--<td>${status.index+1}</td>--%>
+                                                    <td>${testPlan.testName}</td>
+                                                    <td>${testPlan.startTime}</td>
+                                                    <c:if test="${testPlan.isAvailable == 1}">
+                                                        <td>已开启</td>
+                                                        <td>
+                                                            <a href="${website}/performance/detail/${testPlan.id}" class="btn bg-blue">查看详情</a>
+                                                        </td>
+                                                    </c:if>
+                                                    <c:if test="${testPlan.isAvailable == 0}">
+                                                        <td>未开启</td>
+                                                        <td>
+                                                            <a href="#" class="btn bg-red" disabled="true">查看详情</a>
+                                                        </td>
+                                                    </c:if>
+                                                </tr>
                                             </c:if>
-                                            <c:if test="${testPlan.isAvailable == 0}">
-                                                <td>未开启</td>
-                                            </c:if>
-                                            <td>
-                                                <a href="${website}/performance/detail/${testPlan.id}" class="btn bg-blue">查看详情</a>
-                                            </td>
-                                        </tr>
-                                    </c:if>
+                                        </c:if>
+                                    </c:forEach>
                                 </c:forEach>
                                 </tbody>
-
                             </table>
                         </div>
                         <!-- /.box-body -->

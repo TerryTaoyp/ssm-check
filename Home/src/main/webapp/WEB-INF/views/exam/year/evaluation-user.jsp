@@ -52,7 +52,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>序号</th>
+                                    <%--<th>序号</th>--%>
                                     <th>所属部门</th>
                                     <th>被考核用户名</th>
                                     <th>所属角色</th>
@@ -63,10 +63,10 @@
                                 </thead>
                                 <tbody>
                                     <c:forEach items="${joinTestList}" var="joinTest" varStatus="status">
-                                        <tr>
-                                        <td>${status.index+1}</td>
                                         <c:forEach items="${userList}" var="user">
                                             <c:if test="${joinTest.uid == user.id}">
+                                                <tr>
+                                                <%--<td>${status.index+1}</td>--%>
                                                 <td>
                                                 <c:forEach items="${departmentList}" var="department">
                                                     <c:if test="${user.did == department.id}">
@@ -82,14 +82,14 @@
                                                     </c:if>
                                                 </c:forEach>
                                                 </td>
+                                                <td>${testPlan.startTime}</td>
+                                                <td>
+                                                    <a href="${website}/check/year/performance/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核综合能力</a>
+                                                    <a href="${website}/check/year/summary/${testPlan.id}&${joinTest.uid}" class="btn bg-blue">进入考核年度总结</a>
+                                                </td>
+                                                </tr>
                                             </c:if>
                                         </c:forEach>
-                                            <td>${testPlan.startTime}</td>
-                                        <td>
-                                            <a href="${website}/check/year/performance/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核综合能力</a>
-                                            <a href="${website}/check/year/summary/${testPlan.id}&${joinTest.uid}" class="btn bg-blue">进入考核年度总结</a>
-                                        </td>
-                                        </tr>
                                     </c:forEach>
                                 </tbody>
                             </table>

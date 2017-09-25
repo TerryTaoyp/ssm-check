@@ -134,9 +134,9 @@
                                                 </c:if>
                                             </td>
                                         </c:forEach>
-                                        <td>${score}</td>
-                                        <td>${summary.summaryScore}</td>
-                                        <td class="score-text"></td>
+                                        <td class="suggestScore">${score}</td>
+                                        <td>${performance2.summaryScore}</td>
+                                        <td class="score-text">${performance2.yearScore}</td>
                                         <td>
                                             <button type="button" class="btn bg-green mark" data-toggle="modal" data-target="#modal-default">打分</button>
                                         </td>
@@ -181,9 +181,9 @@
                                                     ${workPlan.queaterScore}
                                                 </c:if>
                                             </td>
-                                            <td>${score}</td>
-                                            <td>${summary.summaryScore}</td>
-                                            <td class="score-text"></td>
+                                            <td class="suggestScore">${score}</td>
+                                            <td>${performance2.summaryScore}</td>
+                                            <td class="score-text">${performance2.yearScore}</td>
                                             <td>
                                                 <button type="button" class="btn bg-green mark" data-toggle="modal" data-target="#modal-default">打分</button>
                                             </td>
@@ -217,8 +217,8 @@
                     <h4 class="modal-title">打分</h4>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" id="dataId" value="${workPlan.beCheckId}">
-                    <input type="hidden" class="year" value="${workPlan.year}">
+                    <input type="hidden" id="dataId" value="${performance2.beCheckId}">
+                    <input type="hidden" class="year" value="${performance2.year}">
                     <div class="form-group">
                         <label>您的分数</label>
                         <input type="text" class="form-control score a-require-text" placeholder="请输入0-100内数字..." name="role">

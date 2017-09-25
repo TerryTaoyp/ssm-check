@@ -5,16 +5,10 @@
     <insert id="addPerformance">
         INSERT INTO t_performance(
           be_check_id,
-          year,
-          queater,
-          month,
-          suggest_score
+          year
         )VALUES (
         #{performance.beCheckId},
-        #{performance.year},
-        #{performance.queater},
-        #{performance.month},
-        #{performance.suggestScore}
+        #{performance.year}
         )
     </insert>
 
@@ -25,7 +19,7 @@
     <update id="updateYearScore">
         UPDATE t_performance SET
         year_score = #{performance.yearScore},
-        suggest_score = #{suggestScore}
+        suggest_score = #{performance.suggestScore}
         WHERE id = #{performance.id}
     </update>
 

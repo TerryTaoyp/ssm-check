@@ -334,9 +334,18 @@ public class CheckController extends AbstractController {
     public String yearPerformance(@PathVariable("id") int id,@PathVariable("uid") int uid,HttpSession session,Model model)throws Exception{
         TestPlan testPlan = testPlanService.queryTestPlan(id);
         model.addAttribute("testPlan",testPlan);
-        WorkPlan workPlan = workPlanService.queryByTestId(id);
-        List<WorkPlan> workPlanList = workPlanService.queryByUidAndYear(uid,workPlan.getYear());
-        Summary summary = summaryService.queryByUidAndYear(uid,workPlan.getYear());
+        Performance performance = performanceService.queryByUidAndYear(uid,testPlan.getYear());
+        if (Assert.isNull(performance)){
+            Performance performance1 = new Performance();
+            performance1.setBeCheckId(uid);
+            performance1.setYear(testPlan.getYear());
+            performanceService.addPerformance(performance1);
+        }
+        Performance performance2 = performanceService.queryByUidAndYear(uid,testPlan.getYear());
+        model.addAttribute("performance2",performance2);
+
+        List<WorkPlan> workPlanList = workPlanService.queryByUidAndYear(uid,testPlan.getYear());
+        Summary summary = summaryService.queryByUidAndYear(uid,testPlan.getYear());
         List<TestType> testTypeList = testTypeService.listAll();
         double sumScore = 0;
         if (testPlan.getTestTypeId()==1){
@@ -351,6 +360,8 @@ public class CheckController extends AbstractController {
             int size = workPlanList.size();
             model.addAttribute("score",sumScore/size);
         }
+
+
         model.addAttribute("testTypeList",testTypeList);
         model.addAttribute("summary",summary);
         model.addAttribute("workPlanList",workPlanList);
@@ -389,8 +400,17 @@ public class CheckController extends AbstractController {
     public String yearSummary1(@PathVariable("id") int id,@PathVariable("uid") int uid,Model model,HttpSession session)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
         TestPlan testPlan = testPlanService.queryTestPlan(id);
-//        WorkPlan workPlan = workPlanService.queryByTidAndUid(testPlan.getId(),uid);
+//        WorkPlan workPlan = workPlanService.queryByTidAndUid(id,uid);
         Summary summary = summaryService.queryByUidAndYear(uid,testPlan.getYear());
+//        model.addAttribute("workPlan",workPlan);
+        Performance performance = performanceService.queryByUidAndYear(uid,testPlan.getYear());
+        System.out.println(performance+"哈哈哈");
+        if (Assert.isNull(performance)){
+            Performance performance1 = new Performance();
+            performance1.setBeCheckId(uid);
+            performance1.setYear(testPlan.getYear());
+            performanceService.addPerformance(performance);
+        }
         model.addAttribute("summary",summary);
         model.addAttribute("id",id);
         model.addAttribute("uid",uid);
@@ -421,12 +441,14 @@ public class CheckController extends AbstractController {
             List<Role> roleList = roleService.listAll();
             if (power.getPower()<=2){
                 List<User> userList = userService.listAll();
+                List<AllotDto> allotDtoList = testPlanService.listAllUser();
                 model.addAttribute("userList",userList);
-            }else if (power.getPower()==5){
+            }else if (power.getPower()==6||power.getPower()==7){
                 List<User> userList = userService.queryByDid(user.getDid());
                 model.addAttribute("userList",userList);
             }
             TestPlan testPlan = testPlanService.queryTestPlan(id);
+
             model.addAttribute("testPlan",testPlan);
             model.addAttribute("power",power);
             model.addAttribute("joinTestList",joinTestList);
@@ -507,7 +529,6 @@ public class CheckController extends AbstractController {
     @ResponseBody
     @RequestMapping(value = "/summary/mark",method = RequestMethod.GET)
     public JSONObject abilityMarking(@RequestParam("beCheckId") int uid,@RequestParam("year") int year,@RequestParam("summaryScore") Double summaryScore)throws Exception{
-
         Summary summary = summaryService.queryByUidAndYear(uid,year);
         summary.setSummaryScore(summaryScore);
         summary.setIsJoin(1);

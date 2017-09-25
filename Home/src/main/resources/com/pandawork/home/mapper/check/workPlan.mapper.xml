@@ -44,7 +44,7 @@
     </select>
 
     <select id="queryByUidAndYear" resultMap="pw.WorkPlan">
-        SELECT * FROM t_work_plan WHERE be_check_id = #{beCheckId} AND year = #{year}
+        SELECT * FROM t_work_plan WHERE `be_check_id` = #{beCheckId} AND `year` = #{year}
     </select>
 
     <select id="queryByYear" resultMap="pw.WorkPlan">

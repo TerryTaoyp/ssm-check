@@ -4,6 +4,7 @@ $(document).ready(function() {
 		el = {
 			J_tip: '.tip', //提示信息
 			J_ajax_submit: '.J-ajax-submit', // ajax提交按钮
+            J_suggest_score: '.suggestScore', // 建议分数
 			J_score: '.score', // 打分分数
 		};
 
@@ -20,8 +21,9 @@ $(document).ready(function() {
 				var 
 					path_url = _ajax.url.exam.year.year.submit,
 					score = $(el.J_score).val(),
+					suggestScore = $(el.J_suggest_score).text(),
 					year = $('.year').val(), // 年份
-					id = $("#dataId").val(), // 此文章的id
+					id = $("#dataId").val(), // 被考核用户的id
 					reg = /^([1-9]\d?|100)$/; // 1-100数字的正则
 				// 如果符合条件无法提交
 				if (!(ajax_flag1 || ajax_flag2 || ajax_flag3) && reg.test(score)) {
@@ -32,7 +34,8 @@ $(document).ready(function() {
 						data: {
 							beCheckId: id,
 							year: year,
-							summaryScore: score
+                            yearScore: score,
+                            suggestScore: suggestScore
 						},
 						success: function(data) {
 							if (data.code) {
