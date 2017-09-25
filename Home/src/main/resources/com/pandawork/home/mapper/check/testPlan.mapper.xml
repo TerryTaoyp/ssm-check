@@ -11,7 +11,9 @@
         finish_time,
         test_name,
         did,
-        year
+        year,
+        month,
+        queater
         )VALUES (
         #{testPlan.uid},
         #{testPlan.testTypeId},
@@ -19,7 +21,9 @@
         #{testPlan.finishTime},
         #{testPlan.testName},
         #{testPlan.did},
-        #{testPlan.year}
+        #{testPlan.year},
+        #{testPlan.month},
+        #{testPlan.queater}
         )
     </insert>
 
@@ -71,7 +75,7 @@
     
     <select id="listAllUser" resultType="AllotDto">
         SELECT
-        tu.id AS uid,
+        tu.id AS id,
         tu.username AS username,
         tu.real_name AS realName,
         (SELECT td.name FROM t_department td WHERE td.id = tu.did) AS department,

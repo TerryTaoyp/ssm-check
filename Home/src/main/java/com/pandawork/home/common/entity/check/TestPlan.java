@@ -37,6 +37,10 @@ public class TestPlan {
     private Integer did;
     //此次考核所属的年份
     private Integer year;
+    //当前月份
+    private Integer month;
+    //当前季度
+    private Integer queater;
 
     public Integer getYear() {
         return year;
@@ -108,5 +112,21 @@ public class TestPlan {
 
     public void setDid(Integer did) {
         this.did = did;
+    }
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
+
+    public Integer getQueater() {
+        return queater;
+    }
+
+    public void setQueater(Integer queater) {
+        this.queater = queater;
     }
 }

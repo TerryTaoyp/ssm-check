@@ -71,15 +71,15 @@
                                         <td>${user.role}</td>
                                         <td class="status">
                                             <c:forEach items="${joinTestList}" var="joinTest" varStatus="status">
-                                                <c:if test="${joinTest.uid == user.uid}">
+                                                <c:if test="${joinTest.uid == user.id}">
                                                     已参与
                                                 </c:if>
                                             </c:forEach>
                                         </td>
 
                                         <td>
-                                            <button class="btn bg-blue add" data-test="${testPlan.id}" data-user="${user.uid}">添加</button>
-                                            <button type="button" class="btn bg-red delete" data-test="${testPlan.id}" data-user="${user.uid}">移除</button>
+                                            <button class="btn bg-blue add" data-test="${testPlan.id}" data-user="${user.id}">添加</button>
+                                            <button type="button" class="btn bg-red delete" data-test="${testPlan.id}" data-user="${user.id}">移除</button>
                                         </td>
                                     </tr>
                                 </c:forEach>

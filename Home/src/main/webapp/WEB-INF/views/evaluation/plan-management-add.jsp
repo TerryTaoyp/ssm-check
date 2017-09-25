@@ -66,7 +66,34 @@
                                 </c:forEach>
                             </select>
                         </div>
-
+                        <div class="form-group">
+                            <label>考核月份</label>
+                            <select class="form-control require-option" name="month">
+                                <option value="-1">请选择</option>
+                                <option value="1">一月</option>
+                                <option value="2">二月</option>
+                                <option value="3">三月</option>
+                                <option value="4">四月</option>
+                                <option value="5">五月</option>
+                                <option value="6">六月</option>
+                                <option value="7">七月</option>
+                                <option value="8">八月</option>
+                                <option value="9">九月</option>
+                                <option value="10">十月</option>
+                                <option value="11">十一月</option>
+                                <option value="12">十二月</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>考核季度</label>
+                            <select class="form-control require-option" name="queater">
+                                <option value="-1">请选择</option>
+                                <option value="1">第一季度</option>
+                                <option value="2">第二季度</option>
+                                <option value="3">第三季度</option>
+                                <option value="4">第四季度</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                           <label>选择时间:</label>
                           <div class="input-group">

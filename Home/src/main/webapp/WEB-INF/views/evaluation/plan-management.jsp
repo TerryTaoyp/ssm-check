@@ -131,7 +131,7 @@
 
                     <div class="form-group">
                         <label>考核性质：</label>
-                        <select class="form-control nature a-require-option" name="testTypeId">
+                        <select class="form-control nature a-require-option" name="testTypeId" disabled="true">
                             <option value="-1">请选择</option>
                             <c:forEach items="${testTypeList}" var="testType" varStatus="status">
                                 <option selected = "" value="${testType.id}">${testType.name}</option>

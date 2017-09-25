@@ -95,7 +95,7 @@
                     <ul class="treeview-menu">
                         <li><a href="${website}/check/month/list"><i class="fa fa-circle-o"></i>月/季度考核</a></li>
                         <li class="treeview">
-                            <a href="#"><i class="fa fa-circle-o"></i>年度度考核
+                            <a href="#"><i class="fa fa-circle-o"></i>年度考核
                                 <span class="pull-right-container">
                                   <i class="fa fa-angle-left pull-right"></i>
                                 </span>

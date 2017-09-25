@@ -3,10 +3,7 @@ package com.pandawork.home.web.controller.check;
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.home.common.dto.AllotDto;
-import com.pandawork.home.common.entity.check.AbilityTest;
-import com.pandawork.home.common.entity.check.JoinTest;
-import com.pandawork.home.common.entity.check.TestPlan;
-import com.pandawork.home.common.entity.check.TestType;
+import com.pandawork.home.common.entity.check.*;
 import com.pandawork.home.common.entity.user.User;
 import com.pandawork.home.service.check.*;
 import com.pandawork.home.service.system.DepartmentService;
@@ -166,7 +163,7 @@ public class TestPlanController extends AbstractController{
      * @throws Exception
      */
     @RequestMapping(value = "/add",method = RequestMethod.POST)
-    public String add(@RequestParam("testName") String testName, @RequestParam("testTypeId") int testTypeId, @RequestParam("startTime") String startTime, @RequestParam("startTime") String finishTime,@RequestParam("year") int year, HttpSession session)throws Exception{
+    public String add(@RequestParam("testName") String testName, @RequestParam("testTypeId") int testTypeId, @RequestParam("startTime") String startTime, @RequestParam("startTime") String finishTime,@RequestParam("year") int year,@RequestParam("month") int month,@RequestParam("queater") int queater, HttpSession session)throws Exception{
         try{
             User  user = userService.queryByUname((String) session.getAttribute("username"));
             TestPlan testPlan = new TestPlan();
@@ -177,6 +174,8 @@ public class TestPlanController extends AbstractController{
             testPlan.setFinishTime(finishTime);
             testPlan.setDid(user.getDid());
             testPlan.setYear(year);
+            testPlan.setMonth(month);
+            testPlan.setQueater(queater);
             testPlanService.addTestPlan(testPlan);
             return "redirect:/testplan/list";
         }catch (SSException e){
@@ -220,6 +219,13 @@ public class TestPlanController extends AbstractController{
         joinTest.setTestId(tid);
         joinTestService.addCheck(joinTest);
         TestPlan testPlan = testPlanService.queryTestPlan(tid);
+        if (testPlan.getTestTypeId()==6){
+            WorkPlan workPlan = new WorkPlan();
+            workPlan.setBeCheckId(uid);
+            workPlan.setTestId(tid);
+            workPlan.setYear(testPlan.getYear());
+//            workPlan.setMonth(testPlan);
+        }
         if (testPlan.getTestTypeId()==3){
             AbilityTest abilityTest = new AbilityTest();
             abilityTest.setTestId(tid);
