@@ -59,16 +59,16 @@
 
                         <div class="form-group">
                             <label>考核性质</label>
-                            <select class="form-control require-option" name="testTypeId">
+                            <select class="form-control require-option type" name="testTypeId">
                                 <option value="-1">请选择</option>
                                 <c:forEach items="${testTypeList}" var="testType">
                                     <option value="${testType.id}">${testType.name}</option>
                                 </c:forEach>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group month none">
                             <label>考核月份</label>
-                            <select class="form-control require-option" name="month">
+                            <select class="form-control month-option" name="">
                                 <option value="-1">请选择</option>
                                 <option value="1">一月</option>
                                 <option value="2">二月</option>
@@ -84,9 +84,9 @@
                                 <option value="12">十二月</option>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group quarter none">
                             <label>考核季度</label>
-                            <select class="form-control require-option" name="queater">
+                            <select class="form-control quarter-option" name="">
                                 <option value="-1">请选择</option>
                                 <option value="1">第一季度</option>
                                 <option value="2">第二季度</option>
@@ -124,6 +124,7 @@
 <!-- select2 -->
 <script src="../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
 <script src="../../../resources/js/pages/common/verify.js"></script>
+<script src="../../../resources/js/pages/evaluation/plan-management-add.js"></script>
 <!-- page script -->
 <script>
     function init() {
