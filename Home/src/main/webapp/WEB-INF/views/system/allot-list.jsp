@@ -81,7 +81,7 @@
                                         </td>
                                         <td>
                                             <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${user.id}">修改管辖范围</button>
-                                            <button type="button" class="btn bg-red delete" data-num="${user.id}">删除</button>
+                                            <%--<button type="button" class="btn bg-red delete" data-num="${user.id}">删除</button>--%>
                                         </td>
                                     </tr>
                                 </c:forEach>

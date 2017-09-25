@@ -17,7 +17,7 @@
                 <i class="fa fa-bookmark-o fa-3x" style="color:#fff"></i>
             </div>
             <div class="pull-left info">
-                <p>${sessionScope.role}，您好</p>
+                <p>${sessionScope.username}，您好</p>
                 <a href="#" id="nowTime"></a>
             </div>
         </div>
