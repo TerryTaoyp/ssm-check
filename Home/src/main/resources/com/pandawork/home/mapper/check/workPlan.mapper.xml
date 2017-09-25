@@ -5,16 +5,16 @@
     <insert id="addWorkPlan">
         INSERT INTO t_work_plan(
         be_check_id,
-        check_id,
         year,
         month,
-        queater
+        queater,
+        test_id
         )VALUES (
         #{workPlan.beCheckId},
-        #{workPlan.checkId},
         #{workPlan.year},
         #{workPlan.month},
-        #{workPlan.queater}
+        #{workPlan.queater},
+        #{workPlan.testId}
         )
     </insert>
 
@@ -50,4 +50,8 @@
     <select id="queryByYear" resultMap="pw.WorkPlan">
         SELECT * FROM t_work_plan WHERE year = #{year}
     </select>
+
+    <delete id="delWorkPlan">
+        DELETE FROM t_work_plan WHERE be_check_id = #{beCheckId} AND test_id = #{testId}
+    </delete>
 </mapper>

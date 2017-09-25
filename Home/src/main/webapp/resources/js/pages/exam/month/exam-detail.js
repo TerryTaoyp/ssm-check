@@ -34,7 +34,7 @@ $(document).ready(function() {
 				if (!(ajax_flag1 || ajax_flag2 || ajax_flag3) && reg.test(score)) {
 					$.ajax({
 						url: path_url,
-						type: 'get',
+						type: 'post',
 						dataType: 'json',
 						data: {
 							id: id,

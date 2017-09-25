@@ -98,7 +98,7 @@
                                             <button type="button" class="btn bg-green change" data-toggle="modal" data-target="#modal-default" data-num="${workDetail.id}">打分</button>
                                         </c:if>
                                         <c:if test="${workDetail.isJoin==1}">
-                                            <button type="button" class="btn bg-red" disabled="disabled">已打分</button>
+                                            <button type="button" class="btn bg-red" disabled="true">已打分</button>
                                         </c:if>
                                     </td>
                                 </tr>

@@ -74,4 +74,13 @@ public interface WorkPlanService {
      * @throws SSException
      */
     public List<WorkPlan> queryByYear(int year)throws SSException;
+
+    /**
+     * 根据被考核用户ID和考核计划ID
+     * @param beCheckId
+     * @param testId
+     * @return
+     * @throws SSException
+     */
+    public boolean delWorkPlan(int beCheckId,int testId)throws SSException;
 }

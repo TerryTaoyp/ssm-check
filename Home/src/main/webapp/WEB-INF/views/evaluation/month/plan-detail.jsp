@@ -121,7 +121,7 @@
                     <input type="hidden" id="dataId">
                     <div class="form-group">
                       <label>计划名称：</label>
-                        <input type="text" class="form-control" value="计划1" disabled="disabled">
+                        <input type="text" class="form-control" value="${testPlan.testName}" disabled="disabled">
                     </div>
 
                     <div class="form-group">

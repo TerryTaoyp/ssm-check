@@ -219,12 +219,14 @@ public class TestPlanController extends AbstractController{
         joinTest.setTestId(tid);
         joinTestService.addCheck(joinTest);
         TestPlan testPlan = testPlanService.queryTestPlan(tid);
-        if (testPlan.getTestTypeId()==6){
+        if (testPlan.getTestTypeId()>=5){
             WorkPlan workPlan = new WorkPlan();
             workPlan.setBeCheckId(uid);
             workPlan.setTestId(tid);
             workPlan.setYear(testPlan.getYear());
-//            workPlan.setMonth(testPlan);
+            workPlan.setMonth(testPlan.getMonth());
+            workPlan.setQueater(testPlan.getQueater());
+            workPlanService.addWorkPlan(workPlan);
         }
         if (testPlan.getTestTypeId()==3){
             AbilityTest abilityTest = new AbilityTest();
@@ -247,6 +249,9 @@ public class TestPlanController extends AbstractController{
     public JSONObject notJoin(@RequestParam("tid") int tid,@RequestParam("uid") int uid)throws Exception{
         joinTestService.delById(tid,uid);
         TestPlan testPlan = testPlanService.queryTestPlan(tid);
+        if (testPlan.getTestTypeId()>=5){
+            workPlanService.delWorkPlan(uid,tid);
+        }
         if (testPlan.getTestTypeId()==3){
             abilityTestService.delByTidAndUid(tid, uid);
         }
@@ -268,6 +273,15 @@ public class TestPlanController extends AbstractController{
             joinTest.setUid(i);
             joinTestService.addCheck(joinTest);
             TestPlan testPlan = testPlanService.queryTestPlan(tid);
+            if (testPlan.getTestTypeId()>=5){
+                WorkPlan workPlan = new WorkPlan();
+                workPlan.setBeCheckId(i);
+                workPlan.setTestId(tid);
+                workPlan.setYear(testPlan.getYear());
+                workPlan.setMonth(testPlan.getMonth());
+                workPlan.setQueater(testPlan.getQueater());
+                workPlanService.addWorkPlan(workPlan);
+            }
             if (testPlan.getTestTypeId()==3){
                 AbilityTest abilityTest = new AbilityTest();
                 abilityTest.setTestId(tid);

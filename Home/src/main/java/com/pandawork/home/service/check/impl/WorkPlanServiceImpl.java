@@ -132,4 +132,17 @@ public class WorkPlanServiceImpl implements WorkPlanService {
             throw SSException.get(ChException.QueryWorkPlanByUidFailed);
         }
     }
+
+    @Override
+    public boolean delWorkPlan(int beCheckId, int testId) throws SSException {
+        try {
+            if (Assert.isNull(beCheckId)||Assert.isNull(testId)){
+                return false;
+            }
+            return workPlanMapper.delWorkPlan(beCheckId, testId);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.AddWorkPlanFailed);
+        }
+    }
 }

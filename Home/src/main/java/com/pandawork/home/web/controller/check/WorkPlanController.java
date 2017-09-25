@@ -2,6 +2,7 @@ package com.pandawork.home.web.controller.check;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
+import com.pandawork.core.common.util.Assert;
 import com.pandawork.home.common.entity.check.*;
 import com.pandawork.home.common.entity.system.Department;
 import com.pandawork.home.common.entity.user.User;
@@ -117,8 +118,8 @@ public class WorkPlanController extends AbstractController {
     public String monthDetail(Model model,HttpSession session,@PathVariable("id") int id)throws Exception{
         try {
             User user = userService.queryByUname((String) session.getAttribute("username"));
-            WorkPlan workPlan1 = workPlanService.queryByTestId(id);
-            if (workPlan1==null){
+            WorkPlan workPlan1 = workPlanService.queryByTidAndUid(user.getId(),id);//此处的用户ID和考核计划ID写反了
+            if (Assert.isNull(workPlan1)){
                 model.addAttribute("workDetailList",null);
                 model.addAttribute("testPlan",null);
             }else {

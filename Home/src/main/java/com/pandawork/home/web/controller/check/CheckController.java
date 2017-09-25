@@ -131,7 +131,7 @@ public class CheckController extends AbstractController {
     @RequestMapping(value = "/month/detail/{id}&{uid}",method = RequestMethod.GET)
     public String monthDetail(@PathVariable("id") int id,@PathVariable("uid") int uid,Model model,HttpSession session)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
-        WorkPlan workPlan = workPlanService.queryByTestId(id);
+        WorkPlan workPlan = workPlanService.queryByTidAndUid(uid,id);
         List<WorkDetail> workDetailList = workDetailService.queryByUidAndWid(uid,workPlan.getId());
         List<User> userList = userService.listAll();
 //        AllotDto allotDto = allotService.queryByUid(uid);
@@ -446,8 +446,8 @@ public class CheckController extends AbstractController {
      * @throws Exception
      */
     @ResponseBody
-    @RequestMapping(value = "/month/mark",method = RequestMethod.GET)
-    public JSONObject marking(@RequestParam("id") int id,@RequestParam("uid") int uid,@RequestParam("completion") String completion, @RequestParam("testScore") double testScore,HttpSession session)throws Exception{
+    @RequestMapping(value = "/month/mark",method = RequestMethod.POST)
+    public JSONObject marking(@RequestParam("id") int id,@RequestParam("completion") String completion, @RequestParam("testScore") double testScore,HttpSession session)throws Exception{
         WorkDetail workDetail = workDetailService.queryById(id);
         workDetail.setCompletion(completion);
         workDetail.setTestScore(testScore);
@@ -462,14 +462,15 @@ public class CheckController extends AbstractController {
             double monthScore = workPlan.getMonthScore()+testScore*(workDetail.getWeight()/100);
             workPlan.setMonthScore(monthScore);
         }
+
         //判断此次考核是否参加过
-        List<WorkDetail> workDetails = workDetailService.queryByUidAndWid(uid,id);
+        List<WorkDetail> workDetails = workDetailService.queryByUidAndWid(workDetail.getUid(),id);
         int sum = 0;
         for (WorkDetail workDetail1:workDetails){
             sum+=workDetail1.getIsJoin();
         }
         if (sum == workDetails.size()){
-            JoinTest joinTest = joinTestService.queryByUidAndTid(uid,testPlan.getId());
+            JoinTest joinTest = joinTestService.queryByUidAndTid(workDetail.getUid(),testPlan.getId());
             joinTest.setIsJoin(1);
             joinTestService.isJoin(joinTest);
         }
