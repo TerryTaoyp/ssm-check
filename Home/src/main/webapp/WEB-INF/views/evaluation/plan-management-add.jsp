@@ -68,7 +68,7 @@
                         </div>
                         <div class="form-group month none">
                             <label>考核月份</label>
-                            <select class="form-control month-option" name="">
+                            <select class="form-control month-option" name="month">
                                 <option value="-1">请选择</option>
                                 <option value="1">一月</option>
                                 <option value="2">二月</option>
@@ -86,7 +86,7 @@
                         </div>
                         <div class="form-group quarter none">
                             <label>考核季度</label>
-                            <select class="form-control quarter-option" name="">
+                            <select class="form-control quarter-option" name="quarter">
                                 <option value="-1">请选择</option>
                                 <option value="1">第一季度</option>
                                 <option value="2">第二季度</option>

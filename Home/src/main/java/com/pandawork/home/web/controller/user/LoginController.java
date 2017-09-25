@@ -116,7 +116,7 @@ public class LoginController extends AbstractController {
     public String register(@RequestParam("username") String username,@RequestParam("realName") String realName,@RequestParam("did") int did,@RequestParam("password") String password,@RequestParam("phone") String phone,Model model) throws SSException, UnsupportedEncodingException, NoSuchAlgorithmException {
         if (userService.queryByUname(username)!=null){
             model.addAttribute("error","账户名已经存在！");
-            return "redirect:/register";
+            return "register";
         }else {
             User user = new User();
             user.setUsername(username);

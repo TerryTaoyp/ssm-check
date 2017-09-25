@@ -83,7 +83,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">注册</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat J-submit">注册</button>
                 </div>
                 <!-- /.col -->
             </div>

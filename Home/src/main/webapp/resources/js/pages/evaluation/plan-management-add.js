@@ -24,20 +24,18 @@ $(document).ready(function() {
 						$(el.J_quarter_option).addClass('require-option');
 						$(el.J_month).addClass('none');
 						$(el.J_month_option).removeClass('require-option');
-						$(el.J_quarter_option).attr('name', 'quarter');
-						$(el.J_month_option).attr('name', '');
 						break;
 					case "6":
 						$(el.J_quarter).addClass('none');
 						$(el.J_quarter_option).removeClass('require-option');
 						$(el.J_month).removeClass('none');
 						$(el.J_month_option).addClass('require-option');
-						$(el.J_quarter_option).attr('name', '');
-						$(el.J_month_option).attr('name', 'month');
 						break;	
 					default:
 						$(el.J_month).addClass('none');
 						$(el.J_quarter).addClass('none');
+                        $(el.J_month_option).removeClass('require-option');
+                        $(el.J_quarter_option).removeClass('require-option');
 						break;
 				}
 			});
