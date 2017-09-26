@@ -1,47 +1,42 @@
 package com.pandawork.home.common.util;
 
 
-import com.pandawork.core.common.log.LogClerk;
-import com.pandawork.core.common.sytem.SystemInstance;
-
-import java.io.UnsupportedEncodingException;
-
 /**
  * 常量
  */
-public class WebConstants {
+public final class WebConstants {
 
-    static  {
-        // 读取属性文件中的值，设置初值
-        SystemInstance systemInstance = SystemInstance.getIntance();
-        String temp = "";
-        staticWebsite = (String) systemInstance.getProperty("staticWebsite");
-        uploadWebsite = (String) systemInstance.getProperty("uploadWebsite");
-        wechatWebsite = (String) systemInstance.getProperty("wechatWebsite");
-
-
-        temp = (String) systemInstance.getProperty("webTitle");
-        try {
-            webTitle = new String(temp.getBytes("ISO-8859-1"), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            LogClerk.errLog.error(e.getMessage());
-            webTitle = "";
-        }
-        temp = (String) systemInstance.getProperty("webName");
-        try {
-            webName = new String(temp.getBytes("ISO-8859-1"), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            LogClerk.errLog.error(e.getMessage());
-            webName = "";
-        }
-        temp = (String) systemInstance.getProperty("webFullName");
-        try {
-            webFullName = new String(temp.getBytes("ISO-8859-1"), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            LogClerk.errLog.error(e.getMessage());
-            webFullName = "";
-        }
-    }
+//    static  {
+//        // 读取属性文件中的值，设置初值
+//        SystemInstance systemInstance = SystemInstance.getIntance();
+//        String temp = "";
+//        staticWebsite = (String) systemInstance.getProperty("staticWebsite");
+//        uploadWebsite = (String) systemInstance.getProperty("uploadWebsite");
+//        wechatWebsite = (String) systemInstance.getProperty("wechatWebsite");
+//
+//
+//        temp = (String) systemInstance.getProperty("webTitle");
+//        try {
+//            webTitle = new String(temp.getBytes("ISO-8859-1"), "UTF-8");
+//        } catch (UnsupportedEncodingException e) {
+//            LogClerk.errLog.error(e.getMessage());
+//            webTitle = "";
+//        }
+//        temp = (String) systemInstance.getProperty("webName");
+//        try {
+//            webName = new String(temp.getBytes("ISO-8859-1"), "UTF-8");
+//        } catch (UnsupportedEncodingException e) {
+//            LogClerk.errLog.error(e.getMessage());
+//            webName = "";
+//        }
+//        temp = (String) systemInstance.getProperty("webFullName");
+//        try {
+//            webFullName = new String(temp.getBytes("ISO-8859-1"), "UTF-8");
+//        } catch (UnsupportedEncodingException e) {
+//            LogClerk.errLog.error(e.getMessage());
+//            webFullName = "";
+//        }
+//    }
 
     //第一平台
 
@@ -56,12 +51,11 @@ public class WebConstants {
 
     public static String webFullName;
 
-    public final static String staticWebsite;
 
-    // 文件上传服务器地址
-    public static final String uploadWebsite;
-
-    public static final String wechatWebsite;
+//    // 文件上传服务器地址
+//    public static final String uploadWebsite;
+//
+//    public static final String wechatWebsite;
 
     // 用户ID
     public static final String WebUserId = "web_user_id";
@@ -77,4 +71,17 @@ public class WebConstants {
     public static final String FILE_SEPARATOR = "/";
 
     public static final String ID_CARD_PIC_FOLDER = "/idCardPic/";
+
+
+//    //线上地址
+    public final static String website = "http://ityard.xin/Home_id/";
+//    public final static String staticWebsite = "http://ityard.xin/target/Home_id/resources/js/";
+
+
+    //本地地址
+//    public final static String website = "http://localhost:8080/";
+    public final static String staticWebsite = "http://localhost:8080/resources/js/";
+
+
+
 }

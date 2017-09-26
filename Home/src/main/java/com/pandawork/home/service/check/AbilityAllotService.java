@@ -40,4 +40,12 @@ public interface AbilityAllotService {
      * @throws SSException
      */
     public List<AllotDto> topManagerCheck()throws SSException;
+
+    /**
+     * 副总经理查询  用户ID
+     * @param dids
+     * @return
+     * @throws SSException
+     */
+    public List<AllotDto> deputyManagerCheck(List<Integer> dids)throws SSException;
 }

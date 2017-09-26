@@ -54,4 +54,12 @@ public interface AllotMapper {
      */
     public int countAll()throws SSException;
 
+    /**
+     * 根据用户ID查找所管辖的部门
+     * @param uid
+     * @return
+     * @throws SSException
+     */
+    public List<Integer> queryDidByUid(@Param("uid") int uid)throws SSException;
+
 }

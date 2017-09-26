@@ -101,4 +101,12 @@ public interface TestPlanMapper {
      * @throws SSException
      */
     public boolean del(@Param("id") int id)throws SSException;
+
+    /**
+     * 根据部门ID查找
+     * @param did
+     * @return
+     * @throws SSException
+     */
+    public List<AllotDto> queryAllotDaoByDid(@Param("did") int did)throws SSException;
 }

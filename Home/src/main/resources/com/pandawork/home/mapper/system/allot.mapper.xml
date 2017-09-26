@@ -28,6 +28,10 @@
         SELECT * FROM t_allot
     </select>
 
+    <select id="queryDidByUid"  parameterType="java.lang.Integer"  resultType="java.util.List">
+      SELECT did FROM t_allot WHERE uid = #{uid}
+    </select>
+
     <select id="countAll" resultType="int">
         SELECT COUNT(1) FROM t_allot
     </select>

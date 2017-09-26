@@ -67,4 +67,19 @@ public class AbilityAllotServiceImpl implements AbilityAllotService {
             throw SSException.get(ChException.DManagerCheckFailed);
         }
     }
+
+    @Override
+    public List<AllotDto> deputyManagerCheck(List<Integer> dids) throws SSException {
+        try {
+            if (Assert.isNull(dids)){
+                return null;
+            }
+            System.out.println(dids);
+            return abilityAllotMapper.deputyManagerCheck(dids);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.DManagerCheckFailed);
+        }
+
+    }
 }

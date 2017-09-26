@@ -99,4 +99,12 @@ public interface TestPlanService {
      * @throws SSException
      */
     public boolean del(int id)throws SSException;
+
+    /**
+     * 根据部门ID查找
+     * @param did
+     * @return
+     * @throws SSException
+     */
+    public List<AllotDto> queryAllotDaoByDid(int did)throws SSException;
 }

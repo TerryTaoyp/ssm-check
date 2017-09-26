@@ -165,4 +165,17 @@ public class TestPlanServiceImpl implements TestPlanService {
         }
         return testPlanMapper.del(id);
     }
+
+    @Override
+    public List<AllotDto> queryAllotDaoByDid(int did) throws SSException {
+        try {
+            if (Assert.isNull(did)){
+                return null;
+            }
+            return testPlanMapper.queryAllotDaoByDid(did);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryAllotByUidFailed);
+        }
+    }
 }

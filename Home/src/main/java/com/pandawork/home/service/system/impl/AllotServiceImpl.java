@@ -97,4 +97,17 @@ public class AllotServiceImpl implements AllotService {
         }
     }
 
+    @Override
+    public List<Integer> queryDidByUid(int uid) throws SSException {
+        try {
+            if (Assert.isNull(uid)){
+                return null;
+            }
+            return allotMapper.queryDidByUid(uid);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryAllotByUidFailed);
+        }
+    }
+
 }

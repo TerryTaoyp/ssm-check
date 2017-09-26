@@ -11,6 +11,7 @@ import com.pandawork.home.common.entity.system.Power;
 import com.pandawork.home.common.entity.system.Role;
 import com.pandawork.home.common.entity.user.User;
 import com.pandawork.home.service.check.*;
+import com.pandawork.home.service.system.AllotService;
 import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.system.PowerService;
 import com.pandawork.home.service.system.RoleService;
@@ -23,6 +24,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -61,6 +63,8 @@ public class CheckController extends AbstractController {
     AbilityTestService abilityTestService;
     @Autowired
     AbilityAllotService abilityAllotService;
+    @Autowired
+    AllotService allotService;
 
     /**
      * 获取月份的工作计划
@@ -180,7 +184,7 @@ public class CheckController extends AbstractController {
         List<Role> roleList = roleService.listAll();
 
         if (power.getPower()<=2){
-            List<User> userList = userService.queryByIsDelete(1);
+            List<AllotDto> userList = testPlanService.listAllUser();
             model.addAttribute("userList",userList);
         }else if (power.getPower()==9){
             List<AllotDto> userList = abilityAllotService.generalCheck(user.getDid());
@@ -193,11 +197,12 @@ public class CheckController extends AbstractController {
             model.addAttribute("userList",userList);
         }else if (power.getPower()==6){
             List<Allot> allotList = allotService.queryByUid(user.getId());
-            List<User> userList = null;
-            for (Allot allot:allotList){
-                List<User> userList1 = userService.queryByDid(allot.getDid());
-                userList.addAll(userList1);
+            List<Integer> dids = new ArrayList<>();
+            for (Allot allot :allotList){
+                dids.add(allot.getDid());
             }
+            List<AllotDto> userList = abilityAllotService.deputyManagerCheck(dids);
+
             model.addAttribute("userList",userList);
         }else if (power.getPower()==5){
             List<AllotDto> userList = abilityAllotService.topManagerCheck();
