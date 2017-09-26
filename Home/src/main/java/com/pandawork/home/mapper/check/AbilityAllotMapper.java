@@ -56,4 +56,35 @@ public interface AbilityAllotMapper {
      * @throws SSException
      */
     public AllotDto queryByUid(@Param("uid") int uid)throws SSException;
+
+    /**
+     * 部门副总经理年度绩效考核
+     * @param did
+     * @return
+     * @throws SSException
+     */
+    public List<AllotDto> queryGeneralByDid(@Param("did") int did)throws SSException;
+
+    /**
+     * 部门经理年度绩效考核
+     * @param did
+     * @return
+     * @throws SSException
+     */
+    public List<AllotDto> queryDeputyByDid(@Param("did") int did)throws SSException;
+
+    /**
+     * 副总经理年度绩效考核
+     * @param dids
+     * @return
+     * @throws SSException
+     */
+    public List<AllotDto> queryManageByDid(@Param("dids") List<Integer> dids)throws SSException;
+
+    /**
+     * 总经理考核
+     * @return
+     * @throws SSException
+     */
+    public List<AllotDto> queryDeputyManagerCheck()throws SSException;
 }

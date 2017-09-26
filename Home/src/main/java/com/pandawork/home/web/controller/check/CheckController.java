@@ -109,13 +109,28 @@ public class CheckController extends AbstractController {
             List<JoinTest> joinTestList = joinTestService.queryByTid(id);
             List<Department> departmentList =departmentService.listAll();
             List<Role> roleList = roleService.listAll();
-            if (power.getPower()<=7){
-                List<User> userList = userService.queryByIsDelete(1);
+            if (power.getPower()<=2){
+                List<AllotDto> userList = testPlanService.listAllUser();
                 model.addAttribute("userList",userList);
-            }else if (power.getPower()==8 ||power.getPower()==9){
-                List<User> userList = userService.queryByDidAndIsDelete(user.getDid(),1);
+            }else if (power.getPower()==8){
+                List<AllotDto> userList = abilityAllotService.queryGeneralByDid(user.getDid());
+                model.addAttribute("userList",userList);
+            }else if (power.getPower()==7){
+                List<AllotDto> userList = abilityAllotService.queryDeputyByDid(user.getDid());
+                model.addAttribute("userList",userList);
+            }else if (power.getPower()==6){
+                List<Allot> allotList = allotService.queryByUid(user.getId());
+                List<Integer> dids = new ArrayList<>();
+                for (Allot allot :allotList){
+                    dids.add(allot.getDid());
+                }
+                List<AllotDto> userList = abilityAllotService.queryManageByDid(dids);
                 model.addAttribute("userList",userList);
             }
+//            else if (power.getPower()==5){
+//                List<AllotDto> userList = abilityAllotService.topManagerCheck();
+//                model.addAttribute("userList",userList);
+//            }
             TestPlan testPlan = testPlanService.queryTestPlan(id);
             model.addAttribute("testPlan",testPlan);
             model.addAttribute("power",power);

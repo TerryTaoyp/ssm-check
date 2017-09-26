@@ -95,4 +95,48 @@ public class AbilityAllotServiceImpl implements AbilityAllotService {
             throw SSException.get(ChException.ExportFailed);
         }
     }
+
+    @Override
+    public List<AllotDto> queryGeneralByDid(int did) throws SSException {
+        try {
+            if (Assert.isNull(did)){
+                return null;
+            }
+            return abilityAllotMapper.queryGeneralByDid(did);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryAbilityTestByTidAndUid);
+        }
+    }
+
+    @Override
+    public List<AllotDto> queryDeputyByDid(int did) throws SSException {
+        try {
+            if (Assert.isNull(did)){
+                return null;
+            }
+            return abilityAllotMapper.queryDeputyByDid(did);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryAbilityTestByTidAndUid);
+        }
+    }
+
+    @Override
+    public List<AllotDto> queryManageByDid(List<Integer> dids) throws SSException {
+        try {
+            if (Assert.isNull(dids)){
+                return null;
+            }
+            return abilityAllotMapper.queryManageByDid(dids);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryAbilityTestByTidAndUid);
+        }
+    }
+
+    @Override
+    public List<AllotDto> queryDeputyManagerCheck() throws SSException {
+        return abilityAllotMapper.queryDeputyManagerCheck();
+    }
 }

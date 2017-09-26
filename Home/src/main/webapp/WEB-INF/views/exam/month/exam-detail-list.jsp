@@ -51,7 +51,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>序号</th>
+                                    <%--<th>序号</th>--%>
                                     <th>所属部门</th>
                                     <th>被考核用户名</th>
                                     <th>所属角色</th>
@@ -62,41 +62,34 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${joinTestList}" var="joinTest" varStatus="status">
-                                    <tr>
-                                        <td>${status.index+1}</td>
+
+                                        <%--<td>${status.index+1}</td>--%>
                                         <c:forEach items="${userList}" var="user">
                                             <c:if test="${joinTest.uid == user.id}">
+                                                <tr>
+                                                <td>
+                                               ${user.department}
+                                                </td>
+                                                <td>${user.realName}</td>
+                                                <td>
+                                                ${user.role}
+                                                </td>
+                                                <td>${testPlan.startTime}</td>
+                                                <%--<td>${testPlan.finishTime}</td>--%>
 
                                                 <td>
-                                                <c:forEach items="${departmentList}" var="department">
-                                                    <c:if test="${user.did == department.id}">
-                                                        ${department.name}
+                                                    <a href="${website}/check/month/detail/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核</a>
+                                                    <c:if test="${joinTest.isJoin==1}">
+                                                        <button type="button" class="btn bg-red disabled">已经参与过此次考核</button>
                                                     </c:if>
-                                                </c:forEach>
-                                                </td>
-                                                <td>${user.username}</td>
-                                                <td>
-                                                <c:forEach items="${roleList}" var="role">
-                                                    <c:if test="${user.rid == role.id}">
-                                                        ${role.name}
+                                                    <c:if test="${joinTest.isJoin==0}">
+                                                        <button type="button" class="btn bg-green disabled">未参与过此次考核</button>
                                                     </c:if>
-                                                </c:forEach>
                                                 </td>
+                                                </tr>
                                             </c:if>
                                         </c:forEach>
-                                        <td>${testPlan.startTime}</td>
-                                        <%--<td>${testPlan.finishTime}</td>--%>
 
-                                        <td>
-                                            <a href="${website}/check/month/detail/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核</a>
-                                            <c:if test="${joinTest.isJoin==1}">
-                                                <button type="button" class="btn bg-red disabled">已经参与过此次考核</button>
-                                            </c:if>
-                                            <c:if test="${joinTest.isJoin==0}">
-                                                <button type="button" class="btn bg-green disabled">未参与过此次考核</button>
-                                            </c:if>
-                                        </td>
-                                    </tr>
                                 </c:forEach>
                                 </tbody>
                             </table>
