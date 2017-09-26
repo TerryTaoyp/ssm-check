@@ -36,4 +36,8 @@
         SELECT COUNT(1) FROM t_allot
     </select>
 
+    <select id="queryByDid" resultMap="pw.Allot">
+        SELECT * FROM t_allot WHERE did = #{did}
+    </select>
+
 </mapper>

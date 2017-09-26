@@ -48,4 +48,12 @@ public interface AbilityAllotMapper {
      * @throws SSException
      */
     public List<AllotDto> deputyManagerCheck(@Param("dids") List<Integer> dids)throws SSException;
+
+    /**
+     * 根据用户Id查找
+     * @param uid
+     * @return
+     * @throws SSException
+     */
+    public AllotDto queryByUid(@Param("uid") int uid)throws SSException;
 }

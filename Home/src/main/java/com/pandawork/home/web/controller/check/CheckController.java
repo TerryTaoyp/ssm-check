@@ -190,10 +190,22 @@ public class CheckController extends AbstractController {
             List<AllotDto> userList = abilityAllotService.generalCheck(user.getDid());
             model.addAttribute("userList",userList);
         }else if (power.getPower()==8){
+            //直系副总经理
+            Allot allot = allotService.queryByDid(user.getDid());
+            AllotDto allotDto =abilityAllotService.queryByUid(allot.getUid());
+            model.addAttribute("allotDao",allotDto);
+
             List<AllotDto> userList = abilityAllotService.deputyCheck(user.getDid());
+            userList.add(allotDto);
             model.addAttribute("userList",userList);
         }else if (power.getPower()==7){
+            //直系副总经理
+            Allot allot = allotService.queryByDid(user.getDid());
+            AllotDto allotDto =abilityAllotService.queryByUid(allot.getUid());
+            model.addAttribute("allotDao",allotDto);
+
             List<AllotDto> userList = abilityAllotService.dManagerCheck(user.getDid());
+            userList.add(allotDto);
             model.addAttribute("userList",userList);
         }else if (power.getPower()==6){
             List<Allot> allotList = allotService.queryByUid(user.getId());

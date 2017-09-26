@@ -62,4 +62,12 @@ public interface AllotMapper {
      */
     public List<Integer> queryDidByUid(@Param("uid") int uid)throws SSException;
 
+    /**
+     * 根据部门ID查询
+     * @param did
+     * @return
+     * @throws SSException
+     */
+    public Allot queryByDid(@Param("did") int did)throws SSException;
+
 }

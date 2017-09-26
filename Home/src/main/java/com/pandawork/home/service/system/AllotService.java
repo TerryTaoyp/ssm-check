@@ -61,4 +61,12 @@ public interface AllotService {
      * @throws SSException
      */
     public List<Integer> queryDidByUid(int uid)throws SSException;
+
+    /**
+     * 根据部门ID查询
+     * @param did
+     * @return
+     * @throws SSException
+     */
+    public Allot queryByDid(int did)throws SSException;
 }

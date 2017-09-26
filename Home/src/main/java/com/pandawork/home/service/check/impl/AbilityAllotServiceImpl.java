@@ -82,4 +82,17 @@ public class AbilityAllotServiceImpl implements AbilityAllotService {
         }
 
     }
+
+    @Override
+    public AllotDto queryByUid(int uid) throws SSException {
+        try {
+            if (Assert.isNull(uid)){
+                return null;
+            }
+            return abilityAllotMapper.queryByUid(uid);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.ExportFailed);
+        }
+    }
 }
