@@ -531,7 +531,6 @@ public class CheckController extends AbstractController {
         Summary summary = summaryService.queryByUidAndYear(uid,testPlan.getYear());
 //        model.addAttribute("workPlan",workPlan);
         Performance performance = performanceService.queryByUidAndYear(uid,testPlan.getYear());
-        System.out.println(performance+"哈哈哈");
         if (Assert.isNull(performance)){
             Performance performance1 = new Performance();
             performance1.setBeCheckId(uid);
@@ -575,11 +574,39 @@ public class CheckController extends AbstractController {
             List<Department> departmentList =departmentService.listAll();
             List<Role> roleList = roleService.listAll();
             if (power.getPower()<=2){
-                List<User> userList = userService.listAll();
-                List<AllotDto> allotDtoList = testPlanService.listAllUser();
+                List<AllotDto> userList = testPlanService.listAllUser();
                 model.addAttribute("userList",userList);
-            }else if (power.getPower()==6||power.getPower()==7){
-                List<User> userList = userService.queryByDid(user.getDid());
+            }else if (power.getPower()==9){
+                List<AllotDto> userList = abilityAllotService.generalCheck(user.getDid());
+                model.addAttribute("userList",userList);
+            }else if (power.getPower()==8){
+                //直系副总经理
+                Allot allot = allotService.queryByDid(user.getDid());
+                AllotDto allotDto =abilityAllotService.queryByUid(allot.getUid());
+                model.addAttribute("allotDao",allotDto);
+
+                List<AllotDto> userList = abilityAllotService.deputyCheck(user.getDid());
+                userList.add(allotDto);
+                model.addAttribute("userList",userList);
+            }else if (power.getPower()==7){
+                //直系副总经理
+                Allot allot = allotService.queryByDid(user.getDid());
+                AllotDto allotDto =abilityAllotService.queryByUid(allot.getUid());
+                model.addAttribute("allotDao",allotDto);
+
+                List<AllotDto> userList = abilityAllotService.dManagerCheck(user.getDid());
+                userList.add(allotDto);
+                model.addAttribute("userList",userList);
+            }else if (power.getPower()==6){
+                List<Allot> allotList = allotService.queryByUid(user.getId());
+                List<Integer> dids = new ArrayList<>();
+                for (Allot allot :allotList){
+                    dids.add(allot.getDid());
+                }
+                List<AllotDto> userList = abilityAllotService.queryManageByDid(dids);
+                model.addAttribute("userList",userList);
+            }else if (power.getPower()==5){
+                List<AllotDto> userList = abilityAllotService.queryDeputyManagerCheck();
                 model.addAttribute("userList",userList);
             }
             TestPlan testPlan = testPlanService.queryTestPlan(id);

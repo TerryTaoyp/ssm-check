@@ -149,7 +149,6 @@
         WHERE tu.is_delete = 1 AND
         ((SELECT tp.power FROM t_power tp WHERE
         (tp.id = (SELECT tr.pid FROM  t_role tr WHERE tr.id = tu.rid))) = 5)
-
     </select>
 
 </mapper>
