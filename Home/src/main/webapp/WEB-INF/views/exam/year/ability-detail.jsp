@@ -42,7 +42,7 @@
             <div class="none" id="id">${id}</div>
             <div class="row">
                 <div class="col-md-12">
-                    <form>
+                    <form action="${website}/check/year/ability/check" method="post">
                         <div class="box box-success">
                             <div class="box-header">
                                 <h3 class="box-title">绩效综合能力题目预览</h3>
@@ -71,7 +71,7 @@
                                                             <div class="form-group">
                                                                 <c:if test="${option.optionName == 1}">
                                                                     <label>
-                                                                        <input type="radio" name="r1" class="minimal answer" data-order="1">
+                                                                        <input type="radio" name="${status.index+1}" class="minimal answer" data-order="1">
                                                                         A.${option.optionContent}
                                                                     </label>
                                                                     <a class="btn bg-olive btn-xs">优(9.0分~10.0分)</a>
@@ -80,7 +80,7 @@
                                                             <div class="form-group">
                                                                 <c:if test="${option.optionName == 2}">
                                                                     <label>
-                                                                        <input type="radio" name="r1" class="minimal answer" data-order="1">
+                                                                        <input type="radio" name="${status.index+1}" class="minimal answer" data-order="1">
                                                                         B.${option.optionContent}
                                                                     </label>
                                                                     <a class="btn btn-primary btn-xs">良(8.0分~9.0分)</a>
@@ -89,7 +89,7 @@
                                                             <div class="form-group">
                                                                 <c:if test="${option.optionName == 3}">
                                                                     <label>
-                                                                        <input type="radio" name="r1" class="minimal answer" data-order="1">
+                                                                        <input type="radio" name="${status.index+1}" class="minimal answer" data-order="1">
                                                                         C.${option.optionContent}
                                                                     </label>
                                                                     <a class="btn bg-orange btn-xs">中(6.0分~8.0分)</a>
@@ -99,7 +99,7 @@
                                                             <div class="form-group">
                                                                 <c:if test="${option.optionName == 4}">
                                                                     <label>
-                                                                        <input type="radio" name="r1" class="minimal answer" data-order="1">
+                                                                        <input type="radio" name="${status.index+1}" class="minimal answer" data-order="1">
                                                                         D.${option.optionContent}
                                                                     </label>
                                                                     <a class="btn bg-red btn-xs">差(0分~6.0分)</a>
@@ -132,7 +132,10 @@
                                 </ul>
                             </div>
                             <div class="box-footer">
-                                <input type="hidden" name="total" class="total" value="">
+                                <input type="hidden" name="score" class="total" value="">
+                                <input type="hidden" name="beCheckId" value="${uid}">
+                                <input type="hidden" name="testId" value="${testPlan.id}">
+                                <input type="hidden" name="year" value="${testPlan.year}">
                                 <p class="text-red tip"></p>
                                 <a href="${website}/check/year/ability/user/${id}" class="btn bg-olive">返回列表</a>
                                 <input type="submit" class="btn btn-primary J-submit" value="提交">

@@ -95,4 +95,17 @@ public class AbilityResultServiceImpl implements AbilityResultService {
             throw SSException.get(ChException.ListAllResultFailed);
         }
     }
+
+    @Override
+    public AbilityResult queryByTidAndUid(int testId, int uid) throws SSException {
+        try {
+            if (Assert.isNull(testId)||Assert.isNull(uid)){
+                return null;
+            }
+            return abilityResultMapper.queryByTidAndUid(testId, uid);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.QueryDepartmentByIdFailed);
+        }
+    }
 }

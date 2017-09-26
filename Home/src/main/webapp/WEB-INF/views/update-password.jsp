@@ -47,23 +47,25 @@
             </div>
             <p class="login-box-msg">请在下面输入新密码</p>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="新密码" name="newPassword">
+                <input type="password" class="form-control require-text psw1" placeholder="新密码" name="newPassword">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="重复新密码">
+                <input type="password" class="form-control require-text psw2" placeholder="重复新密码">
                 <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                <p class="psw-tip text-red"></p>
+                <p class="tip text-red"></p>
             </div>
             <div class="row">
                 <div class="col-xs-8">
                 </div>
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">修改</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat J-submit">修改</button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
-        <h3>${msg}</h3>
+        <p class="text-red">${msg}</p>
         <a href="${website}/tologin" class="text-center">已经有账号?这里登录!</a>
     </div>
     <!-- /.form-box -->
@@ -74,6 +76,8 @@
 <script src="../../resources/js/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="../../resources/js/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../resources/js/pages/common/verify.js"></script>
+<script src="../../resources/js/pages/update-password.js"></script>
 </body>
 </html>
 

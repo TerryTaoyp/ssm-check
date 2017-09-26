@@ -59,7 +59,7 @@ public class AbilityTest {
         this.beCheckId = beCheckId;
     }
 
-    public Integer getCheckId(Integer id) {
+    public Integer getCheckId() {
         return checkId;
     }
 
@@ -82,4 +82,6 @@ public class AbilityTest {
     public void setIsJoin(Integer isJoin) {
         this.isJoin = isJoin;
     }
+
+
 }

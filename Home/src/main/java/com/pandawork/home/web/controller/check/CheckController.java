@@ -65,6 +65,10 @@ public class CheckController extends AbstractController {
     AbilityAllotService abilityAllotService;
     @Autowired
     AllotService allotService;
+    @Autowired
+    AbilityResultService abilityResultService;
+    @Autowired
+    AbilityTestIsJoinService abilityTestIsJoinService;
 
     /**
      * 获取月份的工作计划
@@ -222,6 +226,8 @@ public class CheckController extends AbstractController {
         }
         TestPlan testPlan = testPlanService.queryTestPlan(id);
         //
+        List<AbilityTestIsJoin> abilityTestIsJoins = abilityTestIsJoinService.queryByTid(testPlan.getId());
+        model.addAttribute("abilityTestIsJoins",abilityTestIsJoins);
         List<AbilityTest> abilityTestList = abilityTestService.queryByTid(id);
         model.addAttribute("abilityTestList",abilityTestList);
         model.addAttribute("testPlan",testPlan);
@@ -249,6 +255,7 @@ public class CheckController extends AbstractController {
         model.addAttribute("abilityPositionList",abilityPositionList);
         model.addAttribute("abilityOptionList",abilityOptionList);
         model.addAttribute("id",tid);//把考核计划的ID传到jsp页面
+        model.addAttribute("uid",uid);//把当前用户的ID传递到前端 jsp页面
         return "exam/year/ability-detail";
     }
 
@@ -258,7 +265,9 @@ public class CheckController extends AbstractController {
      * @throws SSException
      */
     @RequestMapping(value = "/year/ability/check",method = RequestMethod.POST)
-    public String abilityCheck(@RequestParam("score") Double score,@RequestParam("beCheckId") int beCheckId,HttpSession session,@RequestParam("testId") int testId,@RequestParam("year") int year) throws Exception {
+    public String abilityCheck(@RequestParam("score") Double score,@RequestParam("beCheckId") int beCheckId,HttpSession session,@RequestParam("testId") int testId,@RequestParam("year") int year,Model model) throws Exception {
+
+        System.out.println(score);
         //考核者的信息
         User user1 = userService.queryByUname((String) session.getAttribute("username"));
         Role role1  = roleService.queryById(user1.getRid());
@@ -268,78 +277,166 @@ public class CheckController extends AbstractController {
         User user2 = userService.queryById(beCheckId);
         Role role2 = roleService.queryById(user2.getRid());
         Power power2 = powerService.queryById(role2.getPid());
+        AbilityTest abilityTest = abilityTestService.queryByTidAndUid(testId,beCheckId);
+        if (Assert.isNull(abilityTest.getCheckId())||abilityTest.getCheckId()==user1.getId()){
+            abilityTest.setCheckId(user1.getId());
+            //被考核用户为一般员工
+            if (power2.getPower()==9){
+                if (power1.getPower()==9){
+                    abilityTest.setScore(score*0.3);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==8){
+                    abilityTest.setScore(score*0.5);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==7){
+                    abilityTest.setScore(score*0.2);
+                    abilityTestService.updateScore(abilityTest);
+                }
+            }
+            //被考核用户为部门副经理
+            else if (power2.getPower()==8){
+                if (power1.getPower()==9){
+                    abilityTest.setScore(score*0.3);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==7){
+                    abilityTest.setScore(score*0.5);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==6){
+                    abilityTest.setScore(score*0.2);
+                    abilityTestService.updateScore(abilityTest);
+                }
+            }
+            //被考核用户身份为部门经理
+            else if (power2.getPower()==7){
+                if (power1.getPower()==8){
+                    abilityTest.setScore(score*0.3);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==6){
+                    abilityTest.setScore(score*0.5);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==5){
+                    abilityTest.setScore(score*0.2);
+                    abilityTestService.updateScore(abilityTest);
+                }
+            }
+            //被考核用户为公司副总经理
+            else if (power2.getPower()==6){
+                if (power1.getPower()==7){
+                    abilityTest.setScore(score*0.3);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==5){
+                    abilityTest.setScore(score*0.5);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==8){
+                    abilityTest.setScore(score*0.2);
+                    abilityTestService.updateScore(abilityTest);
+                }
+            }
+        }else{
+            abilityTest.setCheckId(user1.getId());
+            //被考核用户为一般员工
+            if (power2.getPower()==9){
+                if (power1.getPower()==9){
+                    abilityTest.setScore(abilityTest.getScore()+score*0.3);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==8){
+                    abilityTest.setScore(abilityTest.getScore()+score*0.5);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==7){
+                    abilityTest.setScore(abilityTest.getScore()+score*0.2);
+                    abilityTestService.updateScore(abilityTest);
+                }
+            }
+            //被考核用户为部门副经理
+            else if (power2.getPower()==8){
+                if (power1.getPower()==9){
+                    abilityTest.setScore(abilityTest.getScore()+score*0.3);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==7){
+                    abilityTest.setScore(abilityTest.getScore()+score*0.5);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==6){
+                    abilityTest.setScore(abilityTest.getScore()+score*0.2);
+                    abilityTestService.updateScore(abilityTest);
+                }
+            }
+            //被考核用户身份为部门经理
+            else if (power2.getPower()==7){
+                if (power1.getPower()==8){
+                    abilityTest.setScore(abilityTest.getScore()+score*0.3);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==6){
+                    abilityTest.setScore(abilityTest.getScore()+score*0.5);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==5){
+                    abilityTest.setScore(abilityTest.getScore()+score*0.2);
+                    abilityTestService.updateScore(abilityTest);
+                }
+            }
+            //被考核用户为公司副总经理
+            else if (power2.getPower()==6){
+                if (power1.getPower()==7){
+                    abilityTest.setScore(abilityTest.getScore()+score*0.3);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==5){
+                    abilityTest.setScore(abilityTest.getScore()+score*0.5);
+                    abilityTestService.updateScore(abilityTest);
+                }else if (power1.getPower()==8){
+                    abilityTest.setScore(abilityTest.getScore()+score*0.2);
+                    abilityTestService.updateScore(abilityTest);
+                }
+            }
+        }
 
-        AbilityTest abilityTest = new AbilityTest();
-        abilityTest.getCheckId(user1.getId());
-        //被考核用户为一般员工
-        if (power2.getPower()==9){
-            if (power1.getPower()==9){
-                abilityTest.setScore(score*0.3);
-                abilityTestService.updateScore(abilityTest);
-            }else if (power1.getPower()==8){
-                abilityTest.setScore(score*0.5);
-                abilityTestService.updateScore(abilityTest);
-            }else if (power1.getPower()==7){
-                abilityTest.setScore(score*0.2);
-                abilityTestService.updateScore(abilityTest);
-            }
+
+
+        //判断是否参与考核
+        AbilityTestIsJoin abilityTestIsJoin = abilityTestIsJoinService.queryByTidAndUid(testId,user2.getId(),user1.getId());
+        if (Assert.isNull(abilityTestIsJoin)){
+            AbilityTestIsJoin abilityTestIsJoin1 = new AbilityTestIsJoin();
+            abilityTestIsJoin1.getTatId(abilityTest.getId());
+            abilityTestIsJoin1.setBeCheckId(user2.getId());
+            abilityTestIsJoin1.setCheckId(user1.getId());
+            abilityTestIsJoin1.setTestId(testId);
+            abilityTestIsJoin1.setIsJoin(1);
+            abilityTestIsJoinService.addAbilityIsJoin(abilityTestIsJoin1);
+            List<AbilityTestIsJoin> abilityTestIsJoins = abilityTestIsJoinService.queryByTid(testId);
+            model.addAttribute("abilityTestIsJoins",abilityTestIsJoins);
         }
-        //被考核用户为部门副经理
-        else if (power2.getPower()==8){
-            if (power1.getPower()==9){
-                abilityTest.setScore(score*0.3);
-                abilityTestService.updateScore(abilityTest);
-            }else if (power1.getPower()==7){
-                abilityTest.setScore(score*0.5);
-                abilityTestService.updateScore(abilityTest);
-            }else if (power1.getPower()==6){
-                abilityTest.setScore(score*0.2);
-                abilityTestService.updateScore(abilityTest);
-            }
-        }
-        //被考核用户身份为部门经理
-        else if (power2.getPower()==7){
-            if (power1.getPower()==8){
-                abilityTest.setScore(score*0.3);
-                abilityTestService.updateScore(abilityTest);
-            }else if (power1.getPower()==6){
-                abilityTest.setScore(score*0.5);
-                abilityTestService.updateScore(abilityTest);
-            }else if (power1.getPower()==5){
-                abilityTest.setScore(score*0.2);
-                abilityTestService.updateScore(abilityTest);
-            }
-        }
-        //被考核用户为公司副总经理
-        else if (power2.getPower()==6){
-            if (power1.getPower()==7){
-                abilityTest.setScore(score*0.3);
-                abilityTestService.updateScore(abilityTest);
-            }else if (power1.getPower()==5){
-                abilityTest.setScore(score*0.5);
-                abilityTestService.updateScore(abilityTest);
-            }else if (power1.getPower()==8){
-                abilityTest.setScore(score*0.2);
-                abilityTestService.updateScore(abilityTest);
-            }
-        }
-        double totalScore = 0;
+
+        double totalScore = 0.0;
         //查出所有本用户的被打分
         List<AbilityTest> abilityTestList = abilityTestService.queryByTestIdAndUid(testId,beCheckId);
         for (AbilityTest abilityTest1:abilityTestList){
-            totalScore+=abilityTest1.getScore();
-        }
-        AbilityResult abilityResult = new AbilityResult();
-        abilityResult.setBeCheckId(beCheckId);
-        abilityResult.setCheckId(user1.getId());
-        abilityResult.setTestId(testId);
-        abilityResult.setFinishTime("");
-        abilityResult.setTotalScore(totalScore);
-        abilityResult.setYear(year);
-        abilityResultService.addResult(abilityResult);
+            if (!Assert.isNull(abilityTest1.getScore())){
+                totalScore = totalScore + abilityTest1.getScore();
 
-        return "exam/year/ability-user";
+            }
+        }
+        AbilityTest abilityTest1 = abilityTestService.queryByTidAndUid(testId,beCheckId);
+
+        //能及指标最终结果
+        AbilityResult abilityResult1 = abilityResultService.queryByTidAndUid(testId,user2.getId());
+        if (Assert.isNull(abilityResult1)){
+            AbilityResult abilityResult = new AbilityResult();
+            abilityResult.setBeCheckId(beCheckId);
+            abilityResult.setCheckId(user1.getId());
+            abilityResult.setTestId(testId);
+            abilityResult.setFinishTime("");
+
+
+            abilityResult.setTotalScore(abilityTest1.getScore());
+            abilityResult.setYear(year);
+            abilityResultService.addResult(abilityResult);
+        }else {
+            abilityResult1.setTotalScore(abilityTest1.getScore());
+            abilityResult1.setIsJoin(1);
+            abilityResultService.updateResult(abilityResult1);
+        }
+
+        return "redirect:/check/year/ability/user/"+testId;
     }
+
     /**
      * 综合绩效列表
      * @param session
@@ -530,6 +627,10 @@ public class CheckController extends AbstractController {
         if (sum == workDetails.size()){
             JoinTest joinTest = joinTestService.queryByUidAndTid(workDetail.getUid(),testPlan.getId());
             joinTest.setIsJoin(1);
+            joinTestService.isJoin(joinTest);
+        }else {
+            JoinTest joinTest = joinTestService.queryByUidAndTid(workDetail.getUid(),testPlan.getId());
+            joinTest.setIsJoin(0);
             joinTestService.isJoin(joinTest);
         }
         User user = userService.queryByUname((String) session.getAttribute("username"));

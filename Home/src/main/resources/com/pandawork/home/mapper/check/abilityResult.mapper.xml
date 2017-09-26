@@ -26,9 +26,7 @@
 
     <update id="updateResult">
         UPDATE t_ability_result SET
-        check_id = #{abilityResult.checkId},
         total_score = #{abilityResult.totalScore},
-        finish_time = #{abilityResult.finishTime},
         is_join = #{abilityResult.isJoin}
         WHERE id = #{abilityResult.id}
     </update>
@@ -47,6 +45,10 @@
 
     <select id="listAll" resultMap="pw.AbilityResult">
         SELECT * FROM t_ability_result
+    </select>
+
+    <select id="queryByTidAndUid" resultMap="pw.AbilityResult">
+        SELECT * FROM t_ability_result WHERE test_id = #{testId} AND be_check_id = #{uid}
     </select>
 
 </mapper>

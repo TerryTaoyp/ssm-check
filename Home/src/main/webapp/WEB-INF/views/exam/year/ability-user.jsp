@@ -57,7 +57,7 @@
                                     <th>被考核用户名</th>
                                     <th>所属角色</th>
                                     <th>考核时间</th>
-                                    <th>考核得分</th>
+                                    <th>考核状态</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -71,20 +71,24 @@
                                                 <td>${user.username}</td>
                                                 <td>${user.role}</td>
                                             <td>${testPlan.startTime}</td>
-                                            <c:forEach items="${abilityTestList}" var="abilityTest">
-                                                <c:if test="${abilityTest.isJoin == 0 and abilityTest.beCheckId == user.id}">
-                                                    <td>未参与考核</td>
+
                                                     <td>
+                                                    <c:forEach items="${abilityTestIsJoins}" var="abilityTest">
+                                                    <c:if test="${abilityTest.isJoin == 1 and abilityTest.beCheckId == user.id and abilityTest.checkId==sessionScope.uid}">
+                                                        已参与
+                                                    </c:if>
+                                                    </c:forEach>
+                                                    </td>
+                                                    <td>
+                                                    <%--<c:forEach items="${abilityTestIsJoins}" var="abilityTest">--%>
+                                                    <%--<c:when test="${abilityTest.isJoin == 1 and abilityTest.beCheckId == user.id}">--%>
+                                                        <%--<button type="button" class="btn bg-red" disabled="disabled">已经考核</button>--%>
+                                                    <%--</c:when>--%>
+                                                    <%--<c:otherwise>--%>
                                                         <a href="${website}/check/year/ability/detail/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核</a>
+                                                    <%--</c:otherwise>--%>
+                                                    <%--</c:forEach>--%>
                                                     </td>
-                                                </c:if>
-                                                <c:if test="${abilityTest.isJoin == 1 and abilityTest.beCheckId==user.id}">
-                                                    <td>${abilityTest.score}</td>
-                                                    <td>
-                                                        <a href="#" class="btn bg-red disabled">已经考核</a>
-                                                    </td>
-                                                </c:if>
-                                            </c:forEach>
                                             </c:if>
                                             </tr>
                                         </c:forEach>

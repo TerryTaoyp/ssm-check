@@ -24,11 +24,11 @@
     </delete>
 
     <select id="queryByTestIdAndUid" resultMap="pw.AbilityTest">
-        SELECT * FROM t_ability_test WHERE test_id = #{testId} AND be_check_id = #{beCheckId}
+        SELECT * FROM t_ability_test WHERE test_id = #{testId} AND check_id = #{CheckId}
     </select>
 
     <select id="queryByTidAndUid" resultMap="pw.AbilityTest">
-        SELECT * FROM t_ability_test WHERE test_id = #{tid} AND check_id = #{uid}
+        SELECT * FROM t_ability_test WHERE test_id = #{tid} AND be_check_id = #{uid}
     </select>
 
     <select id="queryByTid" resultMap="pw.AbilityTest">

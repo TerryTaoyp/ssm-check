@@ -54,5 +54,7 @@ public interface AbilityResultMapper {
      */
     public List<AbilityResult> listAll()throws SSException;
 
+    public AbilityResult queryByTidAndUid(@Param("testId") int testId,@Param("uid") int uid)throws SSException;
+
 
 }

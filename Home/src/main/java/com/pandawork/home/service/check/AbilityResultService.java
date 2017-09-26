@@ -54,4 +54,7 @@ public interface AbilityResultService {
      */
     public List<AbilityResult> listAll()throws SSException;
 
+    public AbilityResult queryByTidAndUid(int testId,int uid)throws SSException;
+
+
 }

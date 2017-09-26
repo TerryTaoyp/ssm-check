@@ -74,6 +74,7 @@ public class LoginController extends AbstractController {
                     session.setAttribute("username",user.getUsername());
                     session.setAttribute("uid",user.getId());
                     session.setAttribute("did",user.getDid());
+//                    session.setAttribute("id");
                     return "index";
                 }else {
                     model.addAttribute("error","审核未通过或者管理员还没有进行审核");
@@ -149,10 +150,10 @@ public class LoginController extends AbstractController {
      * @throws SSException
      */
     @RequestMapping(value = "/upwd",method = RequestMethod.POST)
-    public String updatePassword(Model model,HttpSession session,@RequestParam("password") String password,@RequestParam("newPassword") String newPassword)throws SSException{
+    public String updatePassword(Model model,HttpSession session,@RequestParam("password") String password,@RequestParam("newPassword") String newPassword) throws SSException, UnsupportedEncodingException, NoSuchAlgorithmException {
         User user = userService.queryByUname((String) session.getAttribute("username"));
-        if (user.getPassword().equals(password)){
-            user.setPassword(newPassword);
+        if (user.getPassword().equals(Md5Util.EncoderByMd5(password))){
+            user.setPassword(Md5Util.EncoderByMd5(newPassword));
             userService.updatePassword(user);
             session.invalidate();
             return "login";

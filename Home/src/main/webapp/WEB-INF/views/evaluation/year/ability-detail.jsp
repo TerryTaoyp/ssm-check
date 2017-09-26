@@ -168,7 +168,7 @@
                               </div>
                               <div class="col-xs-6">
                                   <label>权重：</label>
-                                    <input type="text" placeholder="请输入..." class="add-weight form-control" name="weight">
+                                    <input type="text" placeholder="请输入1-100的数字" class="add-weight form-control" name="weight">
                               </div>
                           </div>
 
@@ -224,7 +224,7 @@
                     <input type="hidden" id="dataId">
                     <div class="form-group">
                       <label>计划名称：</label>
-                        <input type="text" class="form-control" value="计划1" disabled="disabled">
+                        <input type="text" class="form-control" value="${testPlan.testName}" disabled="disabled">
                     </div>
 
                     <div class="form-group">
@@ -235,7 +235,7 @@
                             </div>
                             <div class="col-xs-6">
                                 <label>权重：</label>
-                                <input type="text" placeholder="请输入..." class="update-weight form-control">
+                                <input type="text" placeholder="请输入1-100的数字" class="update-weight form-control">
                             </div>
                         </div>
 
