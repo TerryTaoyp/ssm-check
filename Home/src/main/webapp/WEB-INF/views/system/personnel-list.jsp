@@ -48,6 +48,10 @@
                         <div class="box-header">
                             <h3 class="box-title">人员管理列表</h3>
                         </div>
+                        <div class="box-footer">
+                            <%--<input type="submit" class="btn btn-primary" value="查询">--%>
+                            <a href="${website}/export/user" class="btn bg-green export-all">全部导出</a>
+                        </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table id="example1" class="table table-bordered table-striped">

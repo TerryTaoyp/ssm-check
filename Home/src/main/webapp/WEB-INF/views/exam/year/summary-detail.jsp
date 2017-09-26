@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -53,7 +54,13 @@
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <a href="${website}/check/year/user/${id}" class="btn bg-green">返回列表</a>
-                            <button type="button" class="btn btn-primary mark" data-toggle="modal" data-target="#modal-default">打分</button>
+                            <c:if test="${summary.isJoin==1}">
+                                <button type="button" class="btn  bg-red" data-toggle="modal" disabled="true">已打分</button>
+                            </c:if>
+                            <c:if test="${summary.isJoin==0}">
+                                <button type="button" class="btn btn-primary mark" data-toggle="modal" data-target="#modal-default">打分</button>
+                            </c:if>
+
                             您所打的分数：<span class="score-text">${summary.summaryScore}</span>
                         </div>
                     </div>

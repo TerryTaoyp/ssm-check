@@ -93,7 +93,9 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="${website}/check/month/list"><i class="fa fa-circle-o"></i>月/季度考核</a></li>
+                        <c:if test="${sessionScope.power<=8}">
+                            <li><a href="${website}/check/month/list"><i class="fa fa-circle-o"></i>月/季度考核</a></li>
+                        </c:if>
                         <li class="treeview">
                             <a href="#"><i class="fa fa-circle-o"></i>年度考核
                                 <span class="pull-right-container">
@@ -102,7 +104,9 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="${website}/check/year/ability/list"><i class="fa fa-circle-o"></i>能力指标评价</a></li>
-                                <li><a href="${website}/check/year/summary/list"><i class="fa fa-circle-o"></i>年度绩效评价</a></li>
+                                <c:if test="${sessionScope.power<=8}">
+                                    <li><a href="${website}/check/year/summary/list"><i class="fa fa-circle-o"></i>年度绩效评价</a></li>
+                                </c:if>
                             </ul>
                         </li>
                     </ul>

@@ -2,9 +2,11 @@ package com.pandawork.home.web.controller;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
+import com.pandawork.home.common.dto.AllotDto;
 import com.pandawork.home.common.dto.YearMonthExportDto;
 import com.pandawork.home.common.dto.YearQueaterExportDto;
 import com.pandawork.home.common.util.ExcelUtil;
+import com.pandawork.home.service.check.TestPlanService;
 import com.pandawork.home.service.query.ExportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +32,25 @@ public class ExportController extends AbstractController {
 
     @Autowired
     ExportService exportService;
+    @Autowired
+    TestPlanService testPlanService;
+    /**
+     * 导出年度月度绩效考核的成绩
+     * @throws SSException
+     */
+    @RequestMapping(value = "/user",method = RequestMethod.GET)
+    public void exportAllUser(HttpServletRequest request, HttpServletResponse response)throws SSException{
+        try {
+            List<AllotDto> list = testPlanService.listAllUser();
+
+            String filename = "公司成员信息.xls";//设置下载时Excel的名称
+            filename = ExcelUtil.encodeFilename(filename, request);//处理中文文件名
+            ExcelUtil.writeExcel(list, "recruit", filename, response);//调用Excel工具类生成Excel
+        }catch (SSException e){
+            e.printStackTrace();
+            LogClerk.errLog.error(e);
+        }
+    }
     /**
      * 导出年度月度绩效考核的成绩
      * @throws SSException
