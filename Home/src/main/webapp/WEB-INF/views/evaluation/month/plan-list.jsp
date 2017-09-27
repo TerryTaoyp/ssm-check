@@ -86,7 +86,7 @@
                                                         <c:if test="${testPlan.isAvailable ==0}">
                                                             <td>未开启</td>
                                                             <td>
-                                                                <a href="#" class="btn bg-red" disabled="true">查看详情</a>
+                                                                <a href="#" class="btn bg-red" disabled="disabled">暂未开启</a>
                                                             </td>
                                                         </c:if>
                                                     </tr>

@@ -4,12 +4,15 @@ $(document).ready(function() {
 		el = {
 			J_tip: '.tip', //提示信息
 			J_change: '.change', // 修改按钮
+			J_refer: '.refer', // 工作完成情况按钮
 			J_delete: '.delete', // 删除按钮
 			J_ajax_submit: '.J-ajax-submit', // ajax提交按钮
+			J_ajax_submit: '.J-ajax-submit2', // 工作完成情况提交
 			J_time: '#reservation', // 时间
 			J_weight: '.weight', // 权重
 			J_content: '#editor1', // 工作内容
 			J_expect_result: '.expect-result', // 预期成果
+			J_performance_result: '.performance-result', // 工作完成情况
 			J_weight_error: '.weight-error', // 权重错误提示信息
 		};
 
@@ -159,6 +162,71 @@ $(document).ready(function() {
 						}
 					})
 				}
+			});
+
+			// 点击完成按钮
+			$(el.J_refer).click(function(ev) {
+				// 先清空提示信息
+				var 
+					id = $(this).attr('data-num'),
+					path_url = _ajax.url.evaluation.month.plan_list.refer;
+					$('#dataId2').val(id);// 传值成功
+				// 如果符合条件无法提交
+					$.ajax({
+						url: path_url,
+						type: 'get',
+						dataType: 'json',
+						data: {
+							id: id
+						},
+						success: function(data) {
+							if (data.code) {
+								// 修改dom
+								// 预期工作完成结果
+								$(el.J_performance_result).val(data.data.workDetail.expectResult);
+							}
+							else{
+								$(el.J_tip).text(data.errorMsg[0].msg);
+							}
+						},
+						error: function(data,errorMsg) {
+							console.log('error');
+						}
+					})
+			});
+			// ajax提交工作完成结果
+			$(el.J_ajax_submit).click(function(ev) {
+				// 先清空提示信息
+				$(el.J_tip).text('');
+				var 
+					id = $('#dataId2').val(), // 获取顺序
+					path_url = _ajax.url.evaluation.month.plan_list.submit2,
+					performance = $(el.J_performance_result).val(); // 获取工作完成结果
+				// 如果符合条件无法提交
+					$.ajax({
+						url: path_url,
+						type: 'get',
+						dataType: 'json',
+						data: {
+							id: id,
+							performance: performance,
+						},
+						success: function(data) {
+							// console.log(data.errorMsg[0].msg);
+							if (data.code) {
+								// 提示信息
+								alert('修改成功');
+								// 隐藏填写表单
+								$('button[data-dismiss="modal"]').click();
+								// 修改dom
+								// 工作完成情况
+								$('.table tr[data-id='+ id +'] > td.performance-text').text(performance);
+							}
+						},
+						error: function(data,errorMsg) {
+							console.log('error');
+						}
+					})
 			});
 		}
 });

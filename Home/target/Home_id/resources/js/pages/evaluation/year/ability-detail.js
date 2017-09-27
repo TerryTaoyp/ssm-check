@@ -136,7 +136,7 @@ $(document).ready(function() {
 								// 问题类型
 								$('.timeline li[data-id='+id+'] .type').text(type);
 								// 权重
-								$('.timeline li[data-id='+id+'] .weight').text(weight + "%");
+								$('.timeline li[data-id='+id+'] .weight').text(weight);
 								// 问题
 								$('.timeline li[data-id='+id+'] .title').text(title);
 								// 选项

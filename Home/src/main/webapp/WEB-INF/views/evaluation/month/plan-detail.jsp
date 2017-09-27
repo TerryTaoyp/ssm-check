@@ -64,6 +64,7 @@
                                     <th>权重</th>
                                     <th>预期工作成果</th>
                                     <th>工作完成情况</th>
+                                    <th>领导评价</th>
                                     <th>考核得分</th>
                                     <th>操作</th>
                                 </tr>
@@ -77,10 +78,12 @@
                                         <%--<td>${detail.endTime}</td>--%>
                                         <td class="weight-text">${detail.weight}%</td>
                                         <td class="result-text">${detail.expectResult}</td>
+                                        <td class="performance-text"></td>
                                         <td>${detail.completion}</td>
                                         <td>${detail.testScore}</td>
                                         <td>
                                             <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#update-list" data-num="${detail.id}">修改计划</button>
+                                            <button type="button" class="btn bg-blue refer" data-toggle="modal" data-target="#performance" data-num="${detail.id}">填写工作完成情况</button>
                                             <button type="button" class="btn bg-red delete" data-toggle="modal" data-num="${detail.id}">
                                                 删除
                                             </button>
@@ -155,6 +158,37 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
                     <button type="button" class="btn btn-primary J-ajax-submit">修改</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- 填写完成情况 -->
+    <div class="modal fade" id="performance">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">填写工作完成情况</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="dataId2">
+                    <div class="form-group">
+                      <label>计划名称：</label>
+                        <input type="text" class="form-control" value="${testPlan.testName}" disabled="disabled">
+                    </div>
+
+                    <div class="form-group">
+                        <label>工作完成情况：</label>
+                        <input type="text" class="form-control performance-result">
+                    </div>
+                    <p class="text-red tip"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary J-ajax-submit2">修改</button>
                 </div>
             </div>
             <!-- /.modal-content -->

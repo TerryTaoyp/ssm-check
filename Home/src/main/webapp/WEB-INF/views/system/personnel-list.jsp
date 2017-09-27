@@ -77,8 +77,7 @@
                                             <td class="position-text">${user.role}</td>
                                             <td class="phone-text">${user.phone}</td>
                                             <td>
-                                               不能操作
-
+                                               <button type="button" class="btn bg-red" disabled="disabled">无法操作</button>
                                             </td>
                                         </c:if>
                                         <c:if test="${user.power>1}">

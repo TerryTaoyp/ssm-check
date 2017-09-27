@@ -66,6 +66,7 @@
                                     <th>权重</th>
                                     <th>预期工作成果</th>
                                     <th>工作完成情况</th>
+                                    <th>领导评价</th>
                                     <th>考核得分</th>
                                     <th>操作</th>
                                 </tr>
@@ -87,6 +88,7 @@
                                     <%--<td>${workDetail.endTime}</td>--%>
                                     <td>${workDetail.weight}%</td>
                                     <td>${workDetail.expectResult}</td>
+                                    <td></td>
                                     <td class="result-text">
                                         ${workDetail.completion}
                                     </td>
