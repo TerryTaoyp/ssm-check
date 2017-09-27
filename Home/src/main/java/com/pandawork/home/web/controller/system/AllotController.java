@@ -110,14 +110,15 @@ public class AllotController extends AbstractController {
         List<Allot> allotList =  allotService.queryByUid(id);
 
         int i = 0;
+        int did[] = new int[allotList.size()];
         for (Allot allot:allotList){
-            int did[] = new int[allotList.size()];
             did[i] = allot.getDid();
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("did",did);
-            return sendJsonObject(jsonObject);
+            i++;
         }
-       return sendJsonObject(0);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("did",did);
+        return sendJsonObject(jsonObject);
+//       return sendJsonObject(0);
     }
 
     /**

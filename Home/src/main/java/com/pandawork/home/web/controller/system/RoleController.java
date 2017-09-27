@@ -106,9 +106,10 @@ public class RoleController extends AbstractController {
     @RequestMapping(value = "/ajax/update",method = RequestMethod.POST)
     public JSONObject update(@RequestParam("id") int id)throws Exception{
         Role role = roleService.queryById(id);
-        List<Power> powerList = powerService.listAll();
+        Power power = powerService.queryById(role.getPid());
+//        List<Power> powerList = powerService.listAll();
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("powerList",powerList);
+        jsonObject.put("power",power.getPower());
         jsonObject.put("role",role);
         return sendJsonObject(jsonObject);
     }

@@ -32,9 +32,13 @@ public class WorkDetail {
     //该条工作计划所占的权重
     @Column(name = "weight")
     private Integer weight;
-    //工作计划完成说明
+    //工作计划完成总结，由测评人员给出
     @Column(name = "completion")
     private String completion;
+
+    //工作完成情况说明，月末由被考核用户给出
+    @Column(name = "work_completion")
+    private String workCompletion;
     //该条 工作计划得分
     @Column(name = "test_score")
     private Double testScore;
@@ -131,5 +135,13 @@ public class WorkDetail {
 
     public void setTestScore(Double testScore) {
         this.testScore = testScore;
+    }
+
+    public String getWorkCompletion() {
+        return workCompletion;
+    }
+
+    public void setWorkCompletion(String workCompletion) {
+        this.workCompletion = workCompletion;
     }
 }

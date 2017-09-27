@@ -115,4 +115,17 @@ public class WorkDetailServiceImpl implements WorkDetailService {
             throw SSException.get(ChException.UpdateWorkDetailFailed);
         }
     }
+
+    @Override
+    public void addWorkCompletion(WorkDetail workDetail) throws SSException {
+        try {
+            if (Assert.isNull(workDetail)){
+                return;
+            }
+            workDetailMapper.addWorkCompletion(workDetail);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.AddWorkDetailFailed);
+        }
+    }
 }

@@ -175,6 +175,20 @@ public class WorkPlanController extends AbstractController {
         return "redirect:/workplan/month/detail/"+tid;
     }
 
+    /**
+     * 被考核用户新增月末的考核计划说明
+     * @param workCompletion
+     * @return
+     */
+    @RequestMapping(value = "/work/com",method = RequestMethod.POST)
+    public String addWorkCompletion(@RequestParam("id") int id,@RequestParam("tid") int tid,@RequestParam("workCompletion") String workCompletion) throws SSException {
+
+        WorkDetail workDetail = workDetailService.queryById(id);
+        workDetail.setWorkCompletion(workCompletion);
+        workDetailService.addWorkCompletion(workDetail);
+
+        return "redirect:/workplan/month/detail/"+tid;
+    }
 
 
 }

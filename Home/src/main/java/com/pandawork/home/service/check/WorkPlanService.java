@@ -83,4 +83,5 @@ public interface WorkPlanService {
      * @throws SSException
      */
     public boolean delWorkPlan(int beCheckId,int testId)throws SSException;
+
 }

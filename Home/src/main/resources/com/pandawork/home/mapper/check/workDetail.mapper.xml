@@ -22,6 +22,11 @@
         WHERE id = #{workDetail.id}
     </update>
 
+    <update id="addWorkCompletion">
+      UPDATE t_work_detail SET work_completion = #{workDetail.workCompletion}
+        WHERE id = #{workDetail.id}
+    </update>
+
     <update id="marking">
         UPDATE t_work_detail SET
         completion = #{workDetail.completion},

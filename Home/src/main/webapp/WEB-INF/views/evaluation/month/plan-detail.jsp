@@ -177,12 +177,13 @@
                     <input type="hidden" id="dataId2">
                     <div class="form-group">
                       <label>计划名称：</label>
+                        <input type="hidden" value="${testPlan.id}" name="tid">
                         <input type="text" class="form-control" value="${testPlan.testName}" disabled="disabled">
                     </div>
 
                     <div class="form-group">
                         <label>工作完成情况：</label>
-                        <input type="text" class="form-control performance-result">
+                        <input type="text" class="form-control performance-result" name="workCompletion">
                     </div>
                     <p class="text-red tip"></p>
                 </div>

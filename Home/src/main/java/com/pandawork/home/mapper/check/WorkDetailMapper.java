@@ -64,4 +64,10 @@ public interface WorkDetailMapper {
      * @throws SSException
      */
     public void marking(@Param("workDetail") WorkDetail workDetail)throws SSException;
+    /**
+     * 被考核 人员月末新增自己的工作完成情况
+     * @param workDetail
+     * @throws SSException
+     */
+    public void addWorkCompletion(@Param("workDetail") WorkDetail workDetail)throws SSException;
 }

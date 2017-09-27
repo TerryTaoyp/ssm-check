@@ -100,17 +100,11 @@
                         </div>
                         <div>
                             <label>权限备注信息：</label>
-                            <textarea class="form-control" disabled="disabled"></textarea>
+                            <%--<c:forEach items="${powerList}" var="power">--%>
+                                 <textarea class="form-control" disabled="disabled" name="detail"></textarea>
+                            <%--</c:forEach>--%>
+
                         </div>
-                        <!-- <div class="form-group">
-                            <label>选择权限：</label>
-                            <select class="form-control select2 a-require-options jurisdiction" multiple="multiple" data-placeholder="请选择..." style="width: 100%;" name="pid">
-                                <option selected="" value="-1">请选择</option>
-                                <c:forEach items="${powerList}" var="power">
-                                    <option selected="" value="${power.id}">${power.power}</option>
-                                </c:forEach>
-                            </select>
-                        </div> -->
                         <p class="text-red tip"></p>
                     </div>
                     <div class="modal-footer">
