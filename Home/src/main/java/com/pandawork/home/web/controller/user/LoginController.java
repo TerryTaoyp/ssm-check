@@ -126,7 +126,7 @@ public class LoginController extends AbstractController {
             user.setPassword(Md5Util.EncoderByMd5(password));
             user.setPhone(phone);
             user.setRid(10);//默认注册人员为一般员工
-            user.setStatus(0);
+            user.setStatus(0);//默认为未审核状态
             userService.addUser(user);
             return "login";
         }

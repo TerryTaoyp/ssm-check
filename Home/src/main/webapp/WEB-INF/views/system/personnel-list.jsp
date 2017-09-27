@@ -69,24 +69,33 @@
                                 <tbody>
                                 <c:forEach items="${userList}" var="user" varStatus="status">
                                     <tr data-id="${user.id}">
-                                        <td>${status.index+1}</td>
-                                        <td class="username-text">${user.username}</td>
-                                        <td class="realname-text">${user.realName}</td>
-                                        <c:forEach items="${departmentList}" var="department">
-                                            <c:if test="${department.id == user.did}">
-                                                <td class="department-text">${department.name}</td>
-                                            </c:if>
-                                        </c:forEach>
-                                        <c:forEach items="${roleList}" var="role">
-                                            <c:if test="${user.rid == role.id}">
-                                                <td class="position-text">${role.name}</td>
-                                            </c:if>
-                                        </c:forEach>
-                                        <td class="phone-text">${user.phone}</td>
-                                        <td>
-                                            <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${user.id}">修改</button>
-                                            <button type="button" class="btn bg-red delete" data-num="${user.id}">删除</button>
-                                        </td>
+                                        <c:if test="${user.power==1}">
+                                            <td>${status.index+1}</td>
+                                            <td class="username-text">${user.username}</td>
+                                            <td class="realname-text">${user.realName}</td>
+                                            <td class="department-text">${user.department}</td>
+                                            <td class="position-text">${user.role}</td>
+                                            <td class="phone-text">${user.phone}</td>
+                                            <td>
+                                               不能操作
+
+                                            </td>
+                                        </c:if>
+                                        <c:if test="${user.power>1}">
+                                            <td>${status.index+1}</td>
+                                            <td class="username-text">${user.username}</td>
+                                            <td class="realname-text">${user.realName}</td>
+                                            <td class="department-text">${user.department}</td>
+                                            <td class="position-text">${user.role}</td>
+                                            <td class="phone-text">${user.phone}</td>
+                                            <td>
+                                                <c:if test="${sessionScope.power>=1 and user.power >=1}">
+                                                    <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${user.id}">修改</button>
+                                                    <button type="button" class="btn bg-red delete" data-num="${user.id}">删除</button>
+                                                </c:if>
+
+                                            </td>
+                                        </c:if>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -139,7 +148,10 @@
                         <select class="form-control a-require-option position" name="rid">
                             <option value="-1">请选择</option>
                             <c:forEach items="${roleList}" var="role">
-                                <option value="${role.id}" selected="">${role.name}</option>
+                                <c:if test="${role.id !=1}">
+                                    <option value="${role.id}" selected="" >${role.name}</option>
+                                </c:if>
+                                <%--<option value="${role.id}" selected="">${role.name}</option>--%>
                             </c:forEach>
 
                         </select>

@@ -2,9 +2,11 @@ package com.pandawork.home.web.controller.system;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
+import com.pandawork.home.common.dto.AllotDto;
 import com.pandawork.home.common.entity.system.Department;
 import com.pandawork.home.common.entity.system.Role;
 import com.pandawork.home.common.entity.user.User;
+import com.pandawork.home.service.check.TestPlanService;
 import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.system.RoleService;
 import com.pandawork.home.service.user.UserService;
@@ -30,6 +32,8 @@ public class PersonController extends AbstractController {
     RoleService roleService;
     @Autowired
     DepartmentService departmentService;
+    @Autowired
+    TestPlanService testPlanService;
 
     /**
      * 获取用户列表
@@ -39,7 +43,7 @@ public class PersonController extends AbstractController {
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String toPerson(Model model)throws Exception{
         try{
-            List<User> userList = userService.queryByIsDelete(1);
+            List<AllotDto> userList = testPlanService.listAllUser();
             List<Role> roleList = roleService.listAll();
             List<Department> departmentList = departmentService.listAll();
             model.addAttribute("userList",userList);
@@ -82,7 +86,7 @@ public class PersonController extends AbstractController {
     @RequestMapping(value = "/account/list",method = RequestMethod.GET)
     public String toAccount(Model model)throws Exception{
         try{
-            List<User> userList = userService.queryByIsDelete(1);
+            List<AllotDto> userList = testPlanService.listAllUser();
             List<Role> roleList = roleService.listAll();
             List<Department> departmentList = departmentService.listAll();
             model.addAttribute("userList",userList);

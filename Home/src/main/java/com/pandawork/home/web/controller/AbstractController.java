@@ -4,6 +4,8 @@ import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.framework.web.spring.controller.Base;
 import com.pandawork.home.service.check.*;
 import com.pandawork.home.service.query.ExportService;
+import com.pandawork.home.service.query.YearMonthService;
+import com.pandawork.home.service.query.YearQueaterService;
 import com.pandawork.home.service.system.AllotService;
 import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.system.PowerService;
@@ -241,5 +243,22 @@ public class AbstractController extends Base {
      */
     @Autowired
     protected static AbilityAllotService abilityAllotService;
+    /**
+     * 能力指标参与表格
+     */
+    @Autowired
+    protected static AbilityTestIsJoinService abilityTestIsJoinService;
+
+    /**
+     * 年度月度考核成绩查询
+     */
+    @Autowired
+    protected static YearMonthService yearMonthService;
+
+    /**
+     * 年度季度考核成绩查询
+     */
+    @Autowired
+    protected static YearQueaterService yearQueaterService;
 
 }

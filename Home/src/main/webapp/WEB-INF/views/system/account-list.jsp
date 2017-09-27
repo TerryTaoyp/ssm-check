@@ -62,40 +62,60 @@
                                 <tbody>
                                     <c:forEach items="${userList}" var="user" varStatus="status">
                                         <tr data-id="${user.id}">
-                                        <td>${status.index+1}</td>
-                                        <td>${user.realName}</td>
-                                        <td>${user.phone}</td>
+                                        <c:if test="${user.power == 1}">
+                                            <td>${status.index+1}</td>
+                                            <td>${user.realName}</td>
+                                            <td>${user.phone}</td>
                                             <td>
-                                                <c:forEach items="${departmentList}" var="department">
-                                                    <c:if test="${department.id == user.did}">
-                                                        ${department.name}
-                                                    </c:if>
-                                                </c:forEach>
+                                                    ${user.department}
                                             </td>
                                             <td>
-                                                <c:forEach items="${roleList}" var="role">
-                                                    <c:if test="${user.rid == role.id}">
-                                                     ${role.name}
-                                                </c:if>
-                                                </c:forEach>
+                                                    ${user.role}
                                             </td>
                                             <td class="status">
-                                                <c:if test="${user.status == 1}">
-                                                    审核通过
-                                                </c:if>
-                                                <c:if test="${user.status == 0}">
-                                                    未审核
-                                                </c:if>
-                                                <c:if test="${user.status == 2}">
-                                                    审核不通过
-                                                </c:if>
+                                                    <c:if test="${user.status == 1}">
+                                                        审核通过
+                                                    </c:if>
+                                                    <c:if test="${user.status == 0}">
+                                                        未审核
+                                                    </c:if>
+                                                    <c:if test="${user.status == 2}">
+                                                        审核不通过
+                                                    </c:if>
                                             </td>
 
-                                        <td>
-                                            <button type="button" class="btn bg-olive pass" data-num="${user.id}">审核通过</button>
-                                            <button type="button" class="btn bg-red refuse" data-num="${user.id}">审核不通过</button>
-                                        </td>
-                                </tr>
+                                            <td>
+                                                不能操作
+                                            </td>
+                                        </c:if>
+                                            <c:if test="${user.power >1}">
+                                                <td>${status.index+1}</td>
+                                                <td>${user.realName}</td>
+                                                <td>${user.phone}</td>
+                                                <td>
+                                                        ${user.department}
+                                                </td>
+                                                <td>
+                                                        ${user.role}
+                                                </td>
+                                                <td class="status">
+                                                    <c:if test="${user.status == 1}">
+                                                        审核通过
+                                                    </c:if>
+                                                    <c:if test="${user.status == 0}">
+                                                        未审核
+                                                    </c:if>
+                                                    <c:if test="${user.status == 2}">
+                                                        审核不通过
+                                                    </c:if>
+                                                </td>
+
+                                                <td>
+                                                    <button type="button" class="btn bg-olive pass" data-num="${user.id}">审核通过</button>
+                                                    <button type="button" class="btn bg-red refuse" data-num="${user.id}">审核不通过</button>
+                                                </td>
+                                            </c:if>
+                                        </tr>
                                     </c:forEach>
 
                                 </tbody>
