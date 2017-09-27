@@ -68,19 +68,11 @@
                                                 <tr>
                                                 <%--<td>${status.index+1}</td>--%>
                                                 <td>
-                                                <c:forEach items="${departmentList}" var="department">
-                                                    <c:if test="${user.did == department.id}">
-                                                        ${department.name}
-                                                    </c:if>
-                                                </c:forEach>
+                                                    ${user.department}
                                                 </td>
-                                                <td>${user.username}</td>
+                                                <td>${user.realName}</td>
                                                 <td>
-                                                <c:forEach items="${roleList}" var="role">
-                                                    <c:if test="${user.rid == role.id}">
-                                                        ${role.name}
-                                                    </c:if>
-                                                </c:forEach>
+                                                ${user.role}
                                                 </td>
                                                 <td>${testPlan.startTime}</td>
                                                 <td>
