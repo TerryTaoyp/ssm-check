@@ -80,7 +80,7 @@
                                                             <div class="form-group">
                                                                 <c:if test="${option.optionName == 2}">
                                                                     <label>
-                                                                        <input type="radio" name="${status.index+1}" class="minimal answer" data-order="1">
+                                                                        <input type="radio" name="${status.index+1}" class="minimal answer" data-order="2">
                                                                         B.${option.optionContent}
                                                                     </label>
                                                                     <a class="btn btn-primary btn-xs">良(8.0分~9.0分)</a>
@@ -89,7 +89,7 @@
                                                             <div class="form-group">
                                                                 <c:if test="${option.optionName == 3}">
                                                                     <label>
-                                                                        <input type="radio" name="${status.index+1}" class="minimal answer" data-order="1">
+                                                                        <input type="radio" name="${status.index+1}" class="minimal answer" data-order="3">
                                                                         C.${option.optionContent}
                                                                     </label>
                                                                     <a class="btn bg-orange btn-xs">中(6.0分~8.0分)</a>
@@ -99,7 +99,7 @@
                                                             <div class="form-group">
                                                                 <c:if test="${option.optionName == 4}">
                                                                     <label>
-                                                                        <input type="radio" name="${status.index+1}" class="minimal answer" data-order="1">
+                                                                        <input type="radio" name="${status.index+1}" class="minimal answer" data-order="4">
                                                                         D.${option.optionContent}
                                                                     </label>
                                                                     <a class="btn bg-red btn-xs">差(0分~6.0分)</a>

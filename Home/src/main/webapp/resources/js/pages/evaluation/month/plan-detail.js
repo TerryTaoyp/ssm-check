@@ -10,12 +10,32 @@ $(document).ready(function() {
 			J_weight: '.weight', // 权重
 			J_content: '#editor1', // 工作内容
 			J_expect_result: '.expect-result', // 预期成果
+			J_weight_error: '.weight-error', // 权重错误提示信息
 		};
 
 		// 入口函数
 		init();
 
 		function init(){
+			// 判断权重
+			function testWeight() {
+				// 判断权重
+				var testArr = new Array, // 这个数组代表为填写的题都是哪些
+					total = 0; // 总分默认为0
+				// 遍历一个一个的题目
+				$('.weight-text').each(function(index, o) {
+					// 算总权重
+					total += parseInt($(o).text());	
+				});
+				// 选择显示错误信息
+				if (total > 100) {
+					$(el.J_weight_error).removeClass('none');
+				}
+				else{
+					$(el.J_weight_error).addClass('none');
+				}
+			}
+			testWeight();
 
 			// 点击修改计划时传一个次序给修改弹出框
 			$(el.J_change).click(function(ev) {
@@ -94,9 +114,11 @@ $(document).ready(function() {
 								// 考核时间
 								$('.table tr[data-id='+ id +'] > td.time-text').text(time);
 								// 权重
-								$('.table tr[data-id='+ id +'] > td.weight-text').text(weight);
+								$('.table tr[data-id='+ id +'] > td.weight-text').text(weight + "%");
 								// 预期成果
 								$('.table tr[data-id='+ id +'] > td.result-text').text(result);
+								// 验证权重
+								testWeight();
 							}
 							else{
 								$(el.J_tip).text(data.errorMsg[0].msg);

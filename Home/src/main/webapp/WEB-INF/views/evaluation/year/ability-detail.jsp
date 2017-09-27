@@ -67,7 +67,7 @@
                                                     <span class="type">
                                                     ${testPosition.targetType}
                                                     </span> 
-                                                    <span class="weigth">${testPosition.weight}</span> % 】
+                                                    <span class="weight">${testPosition.weight}</span> % 】
                                                 </a>
                                                 <span class="title">${testPosition.target}</span>
                                             </h3>
@@ -134,6 +134,7 @@
                                 </li>
                             </ul>
                         </div>
+                        <p class="weight-error text-red none">总权重大于100%，请重新设置题目权重，否则测评结果将不准确</p>
                         <div class="box-footer">
                             <a href="${website}/ability/list" class="btn btn-primary">返回列表</a>
                             <button type="button" class="btn bg-olive add" data-toggle="modal" data-target="#add-list">增添题目</button>
@@ -164,11 +165,11 @@
                           <div class="form-group">
                               <div class="col-xs-6">
                                   <label>问题类型：</label>
-                                  <input type="text" placeholder="请输入..." class="add-type form-control" name="targetType">
+                                  <input type="text" placeholder="请输入..." class="add-type form-control require-text" name="targetType">
                               </div>
                               <div class="col-xs-6">
                                   <label>权重：</label>
-                                    <input type="text" placeholder="请输入1-100的数字" class="add-weight form-control" name="weight">
+                                    <input type="text" placeholder="请输入1-100的数字" class="add-weight form-control require-text" name="weight">
                               </div>
                           </div>
 
@@ -181,30 +182,30 @@
                            选项A：<a class="btn bg-olive btn-xs">优秀(10.0~10.0分)</a>
                            </label>
                           <input type="hidden" name="optionName1" class="form-control" value="1">
-                          <input type="text" class="form-control add-option1" name="content1" placeholder="请输入...">
+                          <input type="text" class="form-control add-option1 require-text" name="content1" placeholder="请输入...">
 
                           <label>
                            选项B：<a class="btn btn-primary btn-xs">良好(8.0~9.0分)</a>
                            </label>
                             <input type="hidden" class="form-control" name="optionName2" value="2">
-                            <input type="text" class="form-control add-option2" name="content2" placeholder="请输入...">
+                            <input type="text" class="form-control add-option2 require-text" name="content2" placeholder="请输入...">
                           <label>
                            选项C：<a class="btn bg-orange btn-xs">一般(6.0~7.0分)</a>
                            </label>
                             <input type="hidden" class="form-control" name="optionName3" value="3">
-                            <input type="text" class="form-control add-option3" name="content3" placeholder="请输入...">
+                            <input type="text" class="form-control add-option3 require-text" name="content3" placeholder="请输入...">
 
                           <label>
                            选项D：<a class="btn bg-red btn-xs">不及格(0.0~5.0分)</a>
                            </label>
                             <input type="hidden" class="form-control" name="optionName4" value="4">
-                            <input type="text" class="form-control add-option4" name="content4" placeholder="请输入...">
+                            <input type="text" class="form-control add-option4 require-text" name="content4" placeholder="请输入...">
                     </div>
                     <p class="text-red tip"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="submit" class="btn btn-primary J-ajax-submit">新增</button>
+                    <button type="submit" class="btn btn-primary J-submit">新增</button>
                 </div>
             </form>
             <!-- /.modal-content -->

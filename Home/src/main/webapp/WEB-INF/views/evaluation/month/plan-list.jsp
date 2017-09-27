@@ -111,55 +111,6 @@
     <jsp:include page="../../common/footer.jsp"/>
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
 
-    <div class="control-sidebar-bg"></div>
-    <div class="modal fade" id="modal-default">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">修改职位</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>所属考核计划：</label>
-                        <select class="form-control">
-                            <option>8月考核</option>
-                            <option>7月考核</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>所属部门：</label>
-                        <select class="form-control">
-                            <option>产品部</option>
-                            <option>技术部</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>发布人：</label>
-                        <input type="text" class="form-control" placeholder="请输入..." required="required" name="role">
-                    </div>
-
-                    <div class="form-group">
-                        <label>备注信息：</label>
-                        <textarea class="form-control" rows="3" placeholder="请输入..."></textarea>
-                    </div>
-
-                    <div class="box-footer">
-                        <input type="submit" class="btn btn-primary" value="提交">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存修改</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>

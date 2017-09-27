@@ -3,142 +3,59 @@ $(document).ready(function() {
 	var
 		el = {
 			J_tip: '.tip', //提示信息
-			J_ajax_submit1: '.J-ajax-submit1', // 新增ajax提交按钮
+			J_submit: '.J-submit', // 新增ajax提交按钮
 			J_ajax_submit2: '.J-ajax-submit2', // 修改ajax提交按钮
 			J_change: '.change', // 修改按钮
 			J_add: '.add', // 新增按钮
 			J_delete: '.delete', // 删除按钮
 			J_role: '.role',// 角色名称
 			J_jurisdiction: '.jurisdiction', // 所选权限
+			J_weight_error: '.weight-error', // 权重错误提示信息
 		};
 
 		// 入口函数
 		init();
 
 		function init(){
-
+			// 验证权重
+			function testWeight() {
+				// 判断权重
+				var testArr = new Array, // 这个数组代表为填写的题都是哪些
+					total = 0; // 总分默认为0
+				// 遍历一个一个的题目
+				$('.timeline-item').each(function(index, o) {
+					var length = $(o).find('.timeline-body > .form-group input[type="radio"]:checked').length;
+					// 算总分
+					total += parseInt($(o).find('.weight').text());	
+				});
+				console.log(total);
+				// 选择显示错误信息
+				if (total > 100) {
+					$(el.J_weight_error).removeClass('none');
+				}
+				else{
+					$(el.J_weight_error).addClass('none');
+				}
+			}
+			testWeight();
 			// ajax新增
 			$(el.J_add).click(function(ev) {
 				$('#add-list input[type="text"]').addClass('a-require-text');
 				$('#add-list select').addClass('a-require-option');
 				$('#update-list input[type="text"]').removeClass('a-require-text');
 				$('#update-list select').removeClass('a-require-option');
-			});
-			// ajax新增提交
-			$(el.J_ajax_submit1).click(function(ev) {
-				// 先清空提示信息
+				// 清空提示信息
 				$(el.J_tip).text('');
-				// 附加上点击此按钮的信息在数据库中的顺序
-				var 
-					path_url = _ajax.url.evaluation.year.ability_list.add,
-					id = parseInt($('#id').text()), // 本次测试的id
-					title = $('.add-title').val(), // 新增题目
-					option1 = $('.add-option1').val(), // 选项1
-					option2 = $('.add-option2').val(), // 选项2
-					option3 = $('.add-option3').val(), // 选项3
-					option4 = $('.add-option4').val(), // 选项4
-					weight = $('.add-weight').val(), // 权重
-					reg = /^([1-9]\d?|100)$/, // 1-100数字的正则
-					type = $('.add-type').val(); // 类型的value
-					console.log(id);
-				// 如果符合条件无法提交
-				if (!(ajax_flag1 || ajax_flag2 || ajax_flag3) && reg.test(weight)) {
-					$.ajax({
-						url: path_url,
-						type: 'get',
-						dataType: 'json',
-						data: {
-							id: id,
-							targetType: type,
-							weight: weight,
-							target: title,
-							optionName1: 1,
-							optionName2: 2,
-							optionName3: 3,
-							optionName4: 4,
-							content1: option1,
-							content2: option2,
-							content3: option3,
-							content4: option4,
-						},
-						success: function(data) {
-							var 
-								// 要插入的位置
-								index = $('.timeline li').length - 3,
-								// 序号
-								index2 = index + 1;
-								html = 
-									'<li>' +
-									  '<i class="fa bg-blue">'+ index2 +'</i>'+
-									  '<div class="timeline-item">'+
-									    '<span class="time">'+
-									      '<button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#update-list"> 修改 </button>'+
-									      '<button type="button" class="btn bg-red delete" style="margin-left: 10px;"> 删除 </button>'+
-									    '</span>'+
-
-									    '<h3 class="timeline-header">'+
-									      '<a href="#">【'+ type + weight +'%】</a>'+ 
-									      title +
-									    '</h3>'+
-
-									    '<div class="timeline-body box-body">'+
-									      '<div class="form-group">'+
-									        '<label>'+
-									          'A.' + option1 +
-									        '</label>'+
-									        '<a class="btn bg-olive btn-xs">优秀(9~10分)</a>'+
-									      '</div>'+
-									      '<div class="form-group">'+
-									        '<label>'+
-									          'B.' + option2 +
-									        '</label>'+
-									        '<a class="btn btn-primary btn-xs">良好(7~8分)</a>'+
-									      '</div>'+
-									      '<div class="form-group">'+
-									        '<label>'+
-									          'C.' + option3 +
-									        '</label>'+
-									        '<a class="btn bg-orange btn-xs">一般(5~6分)</a>'+
-									      '</div>'+
-									      '<div class="form-group">'+
-									        '<label>'+
-									          'D.' + option4 +
-									        '</label>'+
-									        '<a class="btn bg-red btn-xs">不及格(0~4分)</a>'+
-									      '</div>'+
-									    '</div>'+
-									  '</div>'+
-									'</li>';
-							console.log(index);
-							if (data.code) {
-								// 提示信息
-								alert('添加成功');
-								// 隐藏填写表单
-								$('button[data-dismiss="modal"]').click();
-								// 修改dom
-								$('.timeline li').eq(index).after(html);
-								
-							}
-							else{
-								// $(el.J_tip).text(data.errorMsg[0].msg);
-							}
-						},
-						error: function(data,errorMsg) {
-							console.log('error');
-						}
-					})
-				}
-				else{
-					$("body").animate({scrollTop:0}, 500);
-					$(el.J_tip).text('信息不全或问题比重大于100');
-				}
 			});
-			// ajax点击修改
+
+			// 点击修改
 			$(el.J_change).click(function(ev) {
 				$('#add-list input[type="text"]').removeClass('a-require-text');
 				$('#add-list select').removeClass('a-require-option');
 				$('#update-list input[type="text"]').addClass('a-require-text');
 				$('#update-list select').addClass('a-require-option');
+				// 清空提示信息
+				$(el.J_tip).text('');
 				// 获取序列
 				var 
 					id = $(this).attr('data-num'),
@@ -174,9 +91,9 @@ $(document).ready(function() {
 					}
 				})
 			});
+
 			// ajax修改提交
 			$(el.J_ajax_submit2).click(function(ev) {
-				// 先清空提示信息
 				// 附加上点击此按钮的信息在数据库中的顺序
 				var 
 					path_url = _ajax.url.evaluation.year.ability_list.submit,
@@ -219,7 +136,7 @@ $(document).ready(function() {
 								// 问题类型
 								$('.timeline li[data-id='+id+'] .type').text(type);
 								// 权重
-								$('.timeline li[data-id='+id+'] .weight').text(weight);
+								$('.timeline li[data-id='+id+'] .weight').text(weight + "%");
 								// 问题
 								$('.timeline li[data-id='+id+'] .title').text(title);
 								// 选项
@@ -227,6 +144,8 @@ $(document).ready(function() {
 								$('.timeline li[data-id='+id+'] .option2').text(option2);
 								$('.timeline li[data-id='+id+'] .option3').text(option3);
 								$('.timeline li[data-id='+id+'] .option4').text(option4);
+								// 验证权重
+								testWeight(); 
 							}
 						},
 						error: function(data,errorMsg) {
@@ -236,7 +155,7 @@ $(document).ready(function() {
 				}
 				else{
 					$("body").animate({scrollTop:0}, 500);
-					$(el.J_tip).text('信息不全或问题比重大于100');
+					$(el.J_tip).text('信息不全或问题总比重大于100%');
 				}
 			});
 			
@@ -263,6 +182,26 @@ $(document).ready(function() {
 							console.log(errorMsg);
 						}
 					})
+				}
+			});
+
+			// 提交题目权重判断
+			$(el.J_submit).click(function(ev) {
+				// 判断权重
+				var testArr = new Array, // 这个数组代表为填写的题都是哪些
+					total = 0; // 总分默认为0
+				// 遍历一个一个的题目
+				$('.timeline-item').each(function(index, o) {
+					var length = $(o).find('.timeline-body > .form-group input[type="radio"]:checked').length;
+					// 算总分
+					total += parseInt($(o).find('.weight').text());	
+				});
+				// 选择显示错误信息
+				if (total > 100) {
+					$(el.J_weight_error).removeClass('none');
+				}
+				else{
+					$(el.J_weight_error).addClass('none');
 				}
 			});
 		}

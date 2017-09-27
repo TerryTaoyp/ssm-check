@@ -97,6 +97,7 @@
                 </div>
                 <!-- /.col -->
             </div>
+            <p class="weight-error text-red none">总权重大于100%，请重新设置题目权重，否则测评结果将不准确</p>
             <a href="${website}/workplan/month/list" class="btn bg-olive">返回列表</a>
             <a href="${website}/workplan/month/to/add/${workPlan1.id}" class="btn bg-blue">添加计划</a>
             <!-- /.row -->
