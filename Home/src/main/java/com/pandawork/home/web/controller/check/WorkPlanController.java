@@ -181,13 +181,16 @@ public class WorkPlanController extends AbstractController {
      * @return
      */
     @RequestMapping(value = "/work/com",method = RequestMethod.POST)
-    public String addWorkCompletion(@RequestParam("id") int id,@RequestParam("tid") int tid,@RequestParam("workCompletion") String workCompletion) throws SSException {
+    @ResponseBody
+    //id 是当前这一条工作计划的ID
+    //tid 是考核计划ID
+    public JSONObject addWorkCompletion(@RequestParam("id") int id,@RequestParam("tid") int tid,@RequestParam("workCompletion") String workCompletion) throws SSException {
 
         WorkDetail workDetail = workDetailService.queryById(id);
         workDetail.setWorkCompletion(workCompletion);
         workDetailService.addWorkCompletion(workDetail);
 
-        return "redirect:/workplan/month/detail/"+tid;
+        return sendJsonObject(1);
     }
 
 
