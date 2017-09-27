@@ -4,7 +4,7 @@
         //这是前端本地需要配置的，用来看自己写的页面
         website:'http://localhost:8080/', //站点地址
         //静态资源地址
-        staticWebsite: 'http://localhost:8080/resources/js/'
+        staticWebsite: 'http://localhost:8080/resources/'
     }
     // 页面内容
     _ajax = {

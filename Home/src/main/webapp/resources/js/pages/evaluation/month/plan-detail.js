@@ -7,7 +7,7 @@ $(document).ready(function() {
 			J_refer: '.refer', // 工作完成情况按钮
 			J_delete: '.delete', // 删除按钮
 			J_ajax_submit: '.J-ajax-submit', // ajax提交按钮
-			J_ajax_submit: '.J-ajax-submit2', // 工作完成情况提交
+			J_ajax_submit2: '.J-ajax-submit2', // 工作完成情况提交
 			J_time: '#reservation', // 时间
 			J_weight: '.weight', // 权重
 			J_content: '#editor1', // 工作内容
@@ -183,7 +183,7 @@ $(document).ready(function() {
 							if (data.code) {
 								// 修改dom
 								// 预期工作完成结果
-								$(el.J_performance_result).val(data.data.workDetail.expectResult);
+								$(el.J_performance_result).val('');
 							}
 							else{
 								$(el.J_tip).text(data.errorMsg[0].msg);
@@ -195,9 +195,7 @@ $(document).ready(function() {
 					})
 			});
 			// ajax提交工作完成结果
-			$(el.J_ajax_submit).click(function(ev) {
-				// 先清空提示信息
-				$(el.J_tip).text('');
+			$(el.J_ajax_submit2).click(function(ev) {
 				var 
 					id = $('#dataId2').val(), // 获取顺序
 					path_url = _ajax.url.evaluation.month.plan_list.submit2,
