@@ -12,5 +12,8 @@
     </div>
     <strong>版权: &copy; 2014-2016
         <a href="javascript:;">长春xx有限公司内部专用</a>
+        |
+        技术支持：
+        <a href="javascript:;">东北师范大学信息科学与技术学院</a>
     </strong>
 </footer>
