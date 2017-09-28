@@ -169,45 +169,27 @@ $(document).ready(function() {
 				// 先清空提示信息
 				var 
 					id = $(this).attr('data-num'),
-					path_url = _ajax.url.evaluation.month.plan_list.refer;
-					$('#dataId2').val(id);// 传值成功
-				// 如果符合条件无法提交
-					$.ajax({
-						url: path_url,
-						type: 'get',
-						dataType: 'json',
-						data: {
-							id: id
-						},
-						success: function(data) {
-							if (data.code) {
-								// 修改dom
-								// 预期工作完成结果
-								$(el.J_performance_result).val('');
-							}
-							else{
-								$(el.J_tip).text(data.errorMsg[0].msg);
-							}
-						},
-						error: function(data,errorMsg) {
-							console.log('error');
-						}
-					})
+					text = $('.table tr[data-id='+ id +'] > td.performance-text').text();
+				// 赋默认值
+				$('#dataId2').val(id);
+				$(el.J_performance_result).val(text);
 			});
 			// ajax提交工作完成结果
 			$(el.J_ajax_submit2).click(function(ev) {
 				var 
-					id = $('#dataId2').val(), // 获取顺序
+					id = $('#dataId2').val(), // 获取顺序 这一条工作计划的id
 					path_url = _ajax.url.evaluation.month.plan_list.submit2,
+					tid = $('.tid').val(), // 考核计划的id
 					performance = $(el.J_performance_result).val(); // 获取工作完成结果
 				// 如果符合条件无法提交
 					$.ajax({
 						url: path_url,
-						type: 'get',
+						type: 'post',
 						dataType: 'json',
 						data: {
 							id: id,
-							performance: performance,
+							tid: tid,
+							workCompletion: performance,
 						},
 						success: function(data) {
 							// console.log(data.errorMsg[0].msg);

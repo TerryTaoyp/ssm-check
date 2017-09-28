@@ -75,7 +75,6 @@
                                         <td>${status.index+1}</td>
                                         <td class="content-text">${detail.planContent}</td>
                                         <td class="time-text">${detail.startTime}</td>
-                                        <%--<td>${detail.endTime}</td>--%>
                                         <td class="weight-text">${detail.weight}%</td>
                                         <td class="result-text">${detail.expectResult}</td>
                                         <td class="performance-text"></td>
@@ -177,7 +176,7 @@
                     <input type="hidden" id="dataId2">
                     <div class="form-group">
                       <label>计划名称：</label>
-                        <input type="hidden" value="${testPlan.id}" name="tid">
+                        <input type="hidden" value="${testPlan.id}" class="tid">
                         <input type="text" class="form-control" value="${testPlan.testName}" disabled="disabled">
                     </div>
 

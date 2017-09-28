@@ -7,7 +7,7 @@ $(document).ready(function() {
 			J_change: '.change', // 修改按钮
 			J_delete: '.delete', // 删除按钮
 			J_role: '.role',// 角色名称
-			J_jurisdiction: '.jurisdiction', // 所选权限
+			J_remark: '.remark', // 备注
 		};
 
 		// 入口函数
@@ -76,23 +76,10 @@ $(document).ready(function() {
 					},
 					success: function(data) {
 						// 添加默认值
-						// 多选
-						var length = data.data.powerList.length, // 获取已有权限长度
-							length2 = $('.jurisdiction option').length; // 当前存在长度
-							// 预先选中属性
-							for (var i = 0;i<length;i++) {
-								var arr1 = data.data.powerList[i].detail;
-								for(var j=0;j<length2;j++){
-									var arr2 = $('.jurisdiction option').eq(j).text();
-									if (arr1 == arr2) {
-										$('.jurisdiction option').eq(j).prop('selected',true);
-									}
-								}
-							}
 						// 角色名称
 						$(el.J_role).val(data.data.role.name);
-						
-
+						// 备注
+						$(el.J_remark).val();
 					},
 					error: function(data,errorMsg) {
 						console.log('error');

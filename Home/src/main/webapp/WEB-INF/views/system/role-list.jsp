@@ -100,10 +100,7 @@
                         </div>
                         <div>
                             <label>权限备注信息：</label>
-                            <%--<c:forEach items="${powerList}" var="power">--%>
-                                 <textarea class="form-control" disabled="disabled" name="detail"></textarea>
-                            <%--</c:forEach>--%>
-
+                            <textarea class="form-control remark" disabled="disabled" name="detail"></textarea>
                         </div>
                         <p class="text-red tip"></p>
                     </div>

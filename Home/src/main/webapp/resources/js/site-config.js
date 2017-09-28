@@ -111,8 +111,7 @@
                         update: site.website + 'workplan/month/to/update', // 点击修改
                         submit: site.website + 'workplan/month/update', // 点击提交
                         del: site.website + 'workplan/month/del', // 删除
-                        submit2: site.staticWebsite + 'mock/plan_management.json', // 工作完成结果提交
-                        refer: site.staticWebsite + 'mock/plan_management.json', // 点击工作完成结果按钮
+                        submit2: site.website + 'workplan/work/com', // 工作完成结果提交
                     },
                 },
                 //年度考核管理
