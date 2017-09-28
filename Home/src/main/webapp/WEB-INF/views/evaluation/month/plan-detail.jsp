@@ -77,7 +77,7 @@
                                         <td class="time-text">${detail.startTime}</td>
                                         <td class="weight-text">${detail.weight}%</td>
                                         <td class="result-text">${detail.expectResult}</td>
-                                        <td class="performance-text"></td>
+                                        <td class="performance-text">${detail.workCompletion}</td>
                                         <td>${detail.completion}</td>
                                         <td>${detail.testScore}</td>
                                         <td>
