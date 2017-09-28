@@ -109,7 +109,7 @@ public class RoleController extends AbstractController {
         Power power = powerService.queryById(role.getPid());
 //        List<Power> powerList = powerService.listAll();
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("power",power.getPower());
+        jsonObject.put("power",power.getDetail());
         jsonObject.put("role",role);
         return sendJsonObject(jsonObject);
     }

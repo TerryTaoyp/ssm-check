@@ -64,18 +64,7 @@ $(document).ready(function() {
 				// 获取序列
 				var 
 					id = $(this).attr('data-num'),
-					path_url = _ajax.url.system.role.list.update,
-					power = {
-						"1": "超级管理员，拥有 整个系统的所有权限",
-						"2": "可以执行除了除了超级管理员或者增删管理员的所有操作",
-						"3": "可以对除了系统管理模块之外的模块进行所有的操作",
-						"4": "可以对所有的考核结果进行查询和导出",
-						"5": "可以对所有的考核结果进行查询和导出，并对副总经理进行考核",
-						"6": "可以对自己管辖的部门进行考核，可以查看所有的成绩",
-						"7": "可以对本部门，和副总经理进行考核，和查询本部门的所有成绩",
-						"8": "可以对本部门和本部门经理进行考核，查询本部门的所有成绩",
-						"9": "自己参与考核，和参与上一级领导的考核，可以查看自己的成绩",
-					}
+					path_url = _ajax.url.system.role.list.update;
 					 // 传值成功
 					$('#dataId').val(id);
 				$.ajax({
@@ -90,7 +79,7 @@ $(document).ready(function() {
 						// 角色名称
 						$(el.J_role).val(data.data.role.name);
 						// 备注
-						$(el.J_remark).val(power[data.data.role.pid]);
+						$(el.J_remark).val(data.data.power);
 					},
 					error: function(data,errorMsg) {
 						console.log('error');
