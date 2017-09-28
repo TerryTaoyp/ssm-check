@@ -88,7 +88,7 @@
                                     <%--<td>${workDetail.endTime}</td>--%>
                                     <td>${workDetail.weight}%</td>
                                     <td>${workDetail.expectResult}</td>
-                                    <td></td>
+                                    <td>${workDetail.workCompletion}</td>
                                     <td class="result-text">
                                         ${workDetail.completion}
                                     </td>
