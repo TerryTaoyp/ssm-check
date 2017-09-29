@@ -73,7 +73,7 @@ public final class WebConstants {
     public static final String ID_CARD_PIC_FOLDER = "/idCardPic/";
 
 
-//    //线上地址
+    //线上地址
     public final static String website = "http://ityard.xin/Home_id/";
 //    public final static String staticWebsite = "http://ityard.xin/target/Home_id/resources/js/";
 

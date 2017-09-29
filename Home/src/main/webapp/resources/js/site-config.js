@@ -1,8 +1,13 @@
 (function(){
 
     var site = {
+        // //这是前端本地需要配置的，用来看自己写的页面
+        // website:'http://localhost:8080/', //站点地址
+        // //静态资源地址
+        // staticWebsite: 'http://localhost:8080/resources/'
+
         //这是前端本地需要配置的，用来看自己写的页面
-        website:'http://localhost:8080/', //站点地址
+        website:'http://39.108.137.243/', //站点地址
         //静态资源地址
         staticWebsite: 'http://localhost:8080/resources/'
     }
