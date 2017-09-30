@@ -125,6 +125,19 @@
                     <li><a href="${website}/query/quarter/result"><i class="fa fa-circle-o"></i>年度季度考核测评结果</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>用户手册下载</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="${website}/query/month/result"><i class="fa fa-circle-o"></i>超级管理员</a></li>
+                    <li><a href="${website}/query/quarter/result"><i class="fa fa-circle-o"></i>普通用户</a></li>
+                </ul>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

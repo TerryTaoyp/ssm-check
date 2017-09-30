@@ -70,6 +70,10 @@
 						<value>/toregister</value>
 						<value>/register</value>
                         <value>/logout</value>
+						<value>/resources/js/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2</value>
+						<value>/resources/js/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff</value>
+						<value>/resources/js/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf</value>
+						<value>resources/js/plugins/iCheck/square/blue.png</value>
                     </list>
                 </property>
             </bean>
