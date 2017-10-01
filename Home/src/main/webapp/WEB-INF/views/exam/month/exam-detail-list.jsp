@@ -136,7 +136,7 @@
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 
 <!-- CKeditor -->
-<script src="../../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
+<script src="${staticWebsite}/bower_components/ckeditor/ckeditor.js"></script>
 <!-- page script -->
 <script>
     $(function () {

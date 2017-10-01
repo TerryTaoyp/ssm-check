@@ -25,6 +25,16 @@
     <filter-name>characterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+
+
+  <filter>
+    <filter-name>ConstatnsFilter</filter-name>
+    <filter-class>com.pandawork.home.web.filter.ConstansFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ConstatnsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
   <!-- PUT Method -->
   <filter>
     <filter-name>PutMethodWrap</filter-name>

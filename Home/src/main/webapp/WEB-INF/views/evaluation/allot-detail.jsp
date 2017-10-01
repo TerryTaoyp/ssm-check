@@ -116,7 +116,7 @@
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
-<script src="../../../resources/js/pages/evaluation/allot-detail.js"></script>
+<script src="${staticWebsite}/pages/evaluation/allot-detail.js"></script>
 <script>
     $(function () {
         $('#example1').DataTable();

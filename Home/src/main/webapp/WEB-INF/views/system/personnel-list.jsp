@@ -175,8 +175,8 @@
 <jsp:include page="../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <!-- page script -->
-<script src="../../../resources/js/pages/common/verify.js"></script>
-<script src="../../../resources/js/pages/system/personnel-list.js"></script>
+<script src="${staticWebsite}/pages/common/verify.js"></script>
+<script src="${staticWebsite}/pages/system/personnel-list.js"></script>
 <script>
     $(function () {
         $('#example1').DataTable();

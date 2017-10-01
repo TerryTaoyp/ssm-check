@@ -14,7 +14,7 @@
     <title>年度考核-个人总结</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="../../../../resources/js/bower_components/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="${staticWebsite}/bower_components/select2/dist/css/select2.min.css">
     <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/link.html" -->
     <jsp:include page="../../common/link.jsp"/>
 </head>
@@ -110,7 +110,7 @@
 <jsp:include page="../../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <!-- page script -->
-<script src="../../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
+<script src="${staticWebsite}/bower_components/select2/dist/js/select2.full.js"></script>
 <script>
     $(function () {
         // 表格

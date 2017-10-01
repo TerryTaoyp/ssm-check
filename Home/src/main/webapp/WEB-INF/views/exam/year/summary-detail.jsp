@@ -99,7 +99,7 @@
     <jsp:include page="../../common/footer.jsp"/>
 </div>
 <jsp:include page="../../common/script.jsp"/>
-<script src="../../../../resources/js/pages/common/verify.js"></script>
-<script src="../../../../resources/js/pages/exam/year/summary-detail.js"></script>
+<script src="${staticWebsite}/pages/common/verify.js"></script>
+<script src="${staticWebsite}/pages/exam/year/summary-detail.js"></script>
 </body>
 </html>

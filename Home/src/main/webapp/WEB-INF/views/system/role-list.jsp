@@ -116,10 +116,10 @@
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
 <!-- select2 -->
-<script src="../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
+<script src="${staticWebsite}/bower_components/select2/dist/js/select2.full.js"></script>
 <!-- 验证模块 -->
-<script src="../../../resources/js/pages/common/verify.js"></script>
-<script src="../../../resources/js/pages/system/role-list.js"></script>
+<script src="${staticWebsite}/pages/common/verify.js"></script>
+<script src="${staticWebsite}/pages/system/role-list.js"></script>
 <script>
     $(function () {
         $('.select2').select2();

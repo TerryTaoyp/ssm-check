@@ -85,7 +85,7 @@
 
 <!-- page script -->
 <!-- 验证模块 -->
-<script src="../../../resources/js/pages/common/verify.js"></script>
+<script src="${staticWebsite}/pages/common/verify.js"></script>
 <script>
     $(function () {
         $('#example1').DataTable();

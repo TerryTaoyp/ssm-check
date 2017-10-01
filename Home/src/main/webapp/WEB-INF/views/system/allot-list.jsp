@@ -141,9 +141,9 @@
 <jsp:include page="../common/script.jsp"/>
 <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/script.html" -->
 <!-- select2 -->
-<script src="../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
-<script src="../../../resources/js/pages/common/verify.js"></script>
-<script src="../../../resources/js/pages/system/allot-list.js"></script>
+<script src="${staticWebsite}/bower_components/select2/dist/js/select2.full.js"></script>
+<script src="${staticWebsite}/pages/common/verify.js"></script>
+<script src="${staticWebsite}/pages/system/allot-list.js"></script>
 <!-- page script -->
 <script>
     $(function () {

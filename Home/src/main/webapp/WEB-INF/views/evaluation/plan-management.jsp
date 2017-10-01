@@ -15,9 +15,9 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- select2 -->
-    <link rel="stylesheet" href="../../../resources/js/bower_components/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="${staticWebsite}/bower_components/select2/dist/css/select2.min.css">
     <!-- daterange picker -->
-    <link rel="stylesheet" href="../../../resources/js/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="${staticWebsite}/bower_components/bootstrap-daterangepicker/daterangepicker.css">
     <jsp:include page="../common/link.jsp"/>
 
 </head>
@@ -164,13 +164,13 @@
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
 <!-- select2 -->
-<script src="../../../resources/js/bower_components/select2/dist/js/select2.full.js"></script>
+<script src="${staticWebsite}/bower_components/select2/dist/js/select2.full.js"></script>
 
 <!-- date-range-picker -->
-<script src="../../../resources/js/bower_components/moment/min/moment-with-locales.js"></script>
-<script src="../../../resources/js/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-<script src="../../../resources/js/pages/common/verify.js"></script>
-<script src="../../../resources/js/pages/evaluation/plan-management.js"></script>
+<script src="${staticWebsite}/bower_components/moment/min/moment-with-locales.js"></script>
+<script src="${staticWebsite}/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="${staticWebsite}/pages/common/verify.js"></script>
+<script src="${staticWebsite}/pages/evaluation/plan-management.js"></script>
 <!-- page script -->
 <script>
     function init() {

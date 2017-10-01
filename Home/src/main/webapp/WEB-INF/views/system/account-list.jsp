@@ -136,7 +136,7 @@
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../common/script.jsp"/>
-<script src="../../../resources/js/pages/system/account-list.js"></script>
+<script src="${staticWebsite}/pages/system/account-list.js"></script>
 <!-- page script -->
 <script>
     $(function () {

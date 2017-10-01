@@ -28,7 +28,6 @@
 	<context:component-scan base-package="com.pandawork.home.service" />
 	<context:component-scan base-package="com.pandawork.home.web.controller" />
 	<!--<bean id="commonCodeService" class="com.pandawork.nenu.oa.service.data.impl.CommonCodeServiceImpl" init-method="init" />-->
-
 	<import resource="dbConfig.xml"/>
 	<import resource="webConfig.xml"/>
 </beans>

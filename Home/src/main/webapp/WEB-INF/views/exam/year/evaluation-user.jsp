@@ -118,7 +118,7 @@
 <jsp:include page="../../common/script.jsp"/>
 
 <!-- CKeditor -->
-<script src="../../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
+<script src="${staticWebsite}/bower_components/ckeditor/ckeditor.js"></script>
 <!-- page script -->
 <script>
     $(function () {

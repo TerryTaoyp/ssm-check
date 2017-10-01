@@ -51,6 +51,11 @@ public class HanderInterceptor1 implements HandlerInterceptor {
         HttpSession session = request.getSession();
         String username = request.getParameter("username");
         String username1 = (String) session.getAttribute("username1");
+
+        //线上代码
+//        String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/Home_id/tologin";
+
+        //本地使用
         String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/tologin";
 
 //        int power = (int) session.getAttribute("power");

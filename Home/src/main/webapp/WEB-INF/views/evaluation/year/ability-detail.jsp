@@ -280,8 +280,8 @@
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
-<script src="../../../../resources/js/pages/common/verify.js"></script>
-<script src="../../../../resources/js/pages/evaluation/year/ability-detail.js"></script>
+<script src="${staticWebsite}/pages/common/verify.js"></script>
+<script src="${staticWebsite}/pages/evaluation/year/ability-detail.js"></script>
 <!-- page script -->
 </body>
 </html>

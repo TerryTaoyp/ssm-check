@@ -14,7 +14,7 @@
     <title>年度考核-能力指标详情</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="../../../../resources/js/plugins/iCheck/all.css">
+    <link rel="stylesheet" href="${staticWebsite}/plugins/iCheck/all.css">
     <jsp:include page="../../common/link.jsp"/>
 </head>
 <body class="hold-transition skin-black sidebar-mini">
@@ -154,13 +154,13 @@
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
 
-<script src="../../../../resources/js/pages/common/verify.js"></script>
-<script src="../../../../resources/js/pages/evaluation/year/ability-detail.js"></script>
+<script src="${staticWebsite}/pages/common/verify.js"></script>
+<script src="${staticWebsite}/pages/evaluation/year/ability-detail.js"></script>
 <!-- page script -->
-<script src="../../../../resources/js/plugins/iCheck/icheck.min.js"></script>
+<script src="${staticWebsite}/plugins/iCheck/icheck.min.js"></script>
 
 
-<script src="../../../../resources/js/pages/exam/year/exam-detail.js"></script>
+<script src="${staticWebsite}/pages/exam/year/exam-detail.js"></script>
 <!-- page script -->
 <script>
     $(function () {

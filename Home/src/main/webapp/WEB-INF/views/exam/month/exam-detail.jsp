@@ -155,8 +155,8 @@
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
-<script src="../../../../resources/js/pages/common/verify.js"></script>
-<script src="../../../../resources/js/pages/exam/month/exam-detail.js"></script>
+<script src="${staticWebsite}/pages/common/verify.js"></script>
+<script src="${staticWebsite}/pages/exam/month/exam-detail.js"></script>
 <!-- page script -->
 <script>
     $(function () {

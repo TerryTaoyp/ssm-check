@@ -130,7 +130,7 @@
 
 <!-- page script -->
 <!-- CKeditor -->
-<script src="../../../../resources/js/bower_components/ckeditor/ckeditor.js"></script>
+<script src="${staticWebsite}/bower_components/ckeditor/ckeditor.js"></script>
 <script>
     $(function () {
         $('#example1').DataTable();

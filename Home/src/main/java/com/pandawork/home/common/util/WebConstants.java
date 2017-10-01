@@ -1,45 +1,17 @@
 package com.pandawork.home.common.util;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 常量
  */
 public final class WebConstants {
 
-//    static  {
-//        // 读取属性文件中的值，设置初值
-//        SystemInstance systemInstance = SystemInstance.getIntance();
-//        String temp = "";
-//        staticWebsite = (String) systemInstance.getProperty("staticWebsite");
-//        uploadWebsite = (String) systemInstance.getProperty("uploadWebsite");
-//        wechatWebsite = (String) systemInstance.getProperty("wechatWebsite");
-//
-//
-//        temp = (String) systemInstance.getProperty("webTitle");
-//        try {
-//            webTitle = new String(temp.getBytes("ISO-8859-1"), "UTF-8");
-//        } catch (UnsupportedEncodingException e) {
-//            LogClerk.errLog.error(e.getMessage());
-//            webTitle = "";
-//        }
-//        temp = (String) systemInstance.getProperty("webName");
-//        try {
-//            webName = new String(temp.getBytes("ISO-8859-1"), "UTF-8");
-//        } catch (UnsupportedEncodingException e) {
-//            LogClerk.errLog.error(e.getMessage());
-//            webName = "";
-//        }
-//        temp = (String) systemInstance.getProperty("webFullName");
-//        try {
-//            webFullName = new String(temp.getBytes("ISO-8859-1"), "UTF-8");
-//        } catch (UnsupportedEncodingException e) {
-//            LogClerk.errLog.error(e.getMessage());
-//            webFullName = "";
-//        }
-//    }
-
     //第一平台
 
+    public static Map<String, Integer> modelTypeMap = new HashMap<>();
     //本地开发配置
 //    public final static String website = "http://http://localhost:8080/";    //网站地址
 //    public static String staticWebsite = "http://localhost:8080/resources/js/";    //静态资源站点
@@ -74,13 +46,13 @@ public final class WebConstants {
 
 
     //线上地址
-    public final static String website = "http://ityard.xin/Home_id/";
-//    public final static String staticWebsite = "http://ityard.xin/target/Home_id/resources/js/";
+//    public final static String website = "http://39.108.137.243/Home_id";
+//    public final static String staticWebsite = "http://39.108.137.243/Home_id/resources/js";
 
 
     //本地地址
-//    public final static String website = "http://localhost:8080/";
-    public final static String staticWebsite = "http://localhost:8080/resources/js/";
+    public final static String website = "http://localhost:8080/";
+    public final static String staticWebsite = "http://localhost:8080/resources/js";
 
 
 
