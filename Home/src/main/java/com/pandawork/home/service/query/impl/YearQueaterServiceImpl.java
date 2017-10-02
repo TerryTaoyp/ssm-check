@@ -60,4 +60,17 @@ public class YearQueaterServiceImpl implements YearQueaterService {
             throw SSException.get(ChException.ExportFailed);
         }
     }
+
+    @Override
+    public YearQueaterExportDto queryByUidAndYear(int uid, int year) throws SSException {
+        try {
+            if (Assert.isNull(uid)||Assert.isNull(year)){
+                return null;
+            }
+            return yearQueaterMapper.queryByUidAndYear(uid, year);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.ExportFailed);
+        }
+    }
 }

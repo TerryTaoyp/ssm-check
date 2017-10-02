@@ -51,4 +51,12 @@ public interface YearMonthService {
      * @throws SSException
      */
     public List<YearMonthExportDto> queryByAllot(List<Integer> dids)throws SSException;
+
+    /**
+     * 根据用户ID和年份查找
+     * @param uid
+     * @return
+     * @throws SSException
+     */
+    public YearMonthExportDto queryByUidAndYear(int uid,int year)throws SSException;
 }

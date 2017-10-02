@@ -72,74 +72,52 @@
                                     <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <c:forEach items="${workPlanList}" var="workPlan" varStatus="status">
+                                        <%--<c:forEach items="${workPlanList}" var="workPlan" varStatus="status">--%>
 
-                                            <c:if test="${workPlan.month == 1}">
-                                                <td> ${workPlan.monthScore}</td>
-                                            </c:if>
+                                            <%--<c:if test="${workPlan.month == 1}">--%>
+                                                <td> ${month.month1}</td>
+                                            <%--</c:if>--%>
 
-
-                                                <c:if test="${workPlan.month == 2}">
-                                                    <td> ${workPlan.monthScore} </td>
-                                                </c:if>
-
-
-                                                <c:if test="${workPlan.month == 3}">
-                                                    <td> ${workPlan.monthScore}</td>
-                                                </c:if>
-
-
-                                                <c:if test="${workPlan.month == 4}">
-                                                    <td> ${workPlan.monthScore}</td>
-                                                </c:if>
-
-
-                                                <c:if test="${workPlan.month == 5}">
-                                                    <td> ${workPlan.monthScore}</td>
-                                                </c:if>
-
-
-                                                <c:if test="${workPlan.month == 6}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-
-
-                                                <c:if test="${workPlan.month == 7}">
-                                                    <td>  ${workPlan.monthScore}</td>
-                                                </c:if>
-
-
-                                                <c:if test="${workPlan.month == 8}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-
-
-                                                <c:if test="${workPlan.month == 9}">
-                                                    <td> ${workPlan.monthScore}</td>
-                                                </c:if>
-
-
-                                                <c:if test="${workPlan.month == 10}">
-                                                    <td>${workPlan.monthScore}</td>
-                                                </c:if>
-
-
-                                                <c:if test="${workPlan.month == 11}">
-                                                    <td>${workPlan.monthScore} </td>
-                                                </c:if>
-
-
-                                                <c:if test="${workPlan.month == 12}">
-                                                    <td>  ${workPlan.monthScore} </td>
-                                                </c:if>
-
-                                        </c:forEach>
+                                                <%--<c:if test="${workPlan.month == 2}">--%>
+                                                    <td> ${month.month2} </td>
+                                                <%--</c:if>--%>
+                                                <%--<c:if test="${workPlan.month == 3}">--%>
+                                                    <td> ${month.month3}</td>
+                                                <%--</c:if>--%>
+                                                <%--<c:if test="${workPlan.month == 4}">--%>
+                                                    <td> ${month.month4}</td>
+                                                <%--</c:if>--%>
+                                                <%--<c:if test="${workPlan.month == 5}">--%>
+                                                    <td> ${month.month5}</td>
+                                                <%--</c:if>--%>
+                                                <%--<c:if test="${workPlan.month == 6}">--%>
+                                                    <td>${month.month6}</td>
+                                                <%--</c:if>--%>
+                                                <%--<c:if test="${workPlan.month == 7}">--%>
+                                                    <td>  ${month.month7}</td>
+                                                <%--</c:if>--%>
+                                                <%--<c:if test="${workPlan.month == 8}">--%>
+                                                    <td>${month.month8}</td>
+                                                <%--</c:if>--%>
+                                                <%--<c:if test="${workPlan.month == 9}">--%>
+                                                    <td> ${month.month9}</td>
+                                                <%--</c:if>--%>
+                                                <%--<c:if test="${workPlan.month == 10}">--%>
+                                                    <td>${month.month10}</td>
+                                                <%--</c:if>--%>
+                                                <%--<c:if test="${workPlan.month == 11}">--%>
+                                                    <td>${month.month11} </td>
+                                                <%--</c:if>--%>
+                                                <%--<c:if test="${workPlan.month == 12}">--%>
+                                                    <td>  ${month.month12} </td>
+                                                <%--</c:if>--%>
+                                        <%--</c:forEach>--%>
                                         <td class="suggestScore">${score}</td>
-                                        <td>${performance2.summaryScore}</td>
-                                        <td class="score-text">${performance2.yearScore}</td>
+                                        <td>${month.summaryScore}</td>
+                                        <td class="score-text">${month.yearScore}</td>
                                         <td>
                                             <c:if test="${performance2.isJoin==1}">
-                                                <button type="button" class="btn bg-red mark" data-toggle="modal" disabled = "true">已打分</button>
+                                                <button type="button" class="btn bg-red" data-toggle="modal" disabled = "true">已打分</button>
                                             </c:if>
                                             <c:if test="${performance2.isJoin==0}">
                                                 <button type="button" class="btn bg-green mark" data-toggle="modal" data-target="#modal-default">打分</button>
@@ -165,27 +143,27 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <c:forEach items="${workPlanList}" var="workPlan" varStatus="status">
-                                            <td>${status.index+1}</td>
+                                        <%--<c:forEach items="${workPlanList}" var="workPlan" varStatus="status">--%>
+                                            <td>$1</td>
 
-                                            <c:if test="${workPlan.queater == 1}">
-                                                <td>${workPlan.queaterScore}</td>
-                                            </c:if>
-
-
-                                                <c:if test="${workPlan.queater == 2}">
-                                                    <td>${workPlan.queaterScore}</td>
-                                                </c:if>
+                                            <%--<c:if test="${workPlan.queater == 1}">--%>
+                                                <td>${queater.queater1}</td>
+                                            <%--</c:if>--%>
 
 
-                                                <c:if test="${workPlan.queater == 3}">
-                                                    <td>${workPlan.queaterScore}</td>
-                                                </c:if>
+                                                <%--<c:if test="${workPlan.queater == 2}">--%>
+                                                    <td>${queater.queater2}</td>
+                                                <%--</c:if>--%>
 
 
-                                                <c:if test="${workPlan.queater == 4}">
-                                                    <td>${workPlan.queaterScore}</td>
-                                                </c:if>
+                                                <%--<c:if test="${workPlan.queater == 3}">--%>
+                                                    <td>${queater.queater3}</td>
+                                                <%--</c:if>--%>
+
+
+                                                <%--<c:if test="${workPlan.queater == 4}">--%>
+                                                    <td>${queater.queater4}</td>
+                                                <%--</c:if>--%>
 
                                             <td class="suggestScore">${score}</td>
                                             <td>${performance2.summaryScore}</td>
@@ -193,7 +171,7 @@
                                             <td>
                                                 <button type="button" class="btn bg-green mark" data-toggle="modal" data-target="#modal-default">打分</button>
                                             </td>
-                                        </c:forEach>
+                                        <%--</c:forEach>--%>
                                     </tr>
                                     </tbody>
                                 </c:if>

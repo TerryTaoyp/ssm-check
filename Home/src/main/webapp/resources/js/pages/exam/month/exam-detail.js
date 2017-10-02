@@ -51,6 +51,10 @@ $(document).ready(function() {
 								// 修改dom 分数和结果
 								$('.table tr[data-id='+ id +'] > td.score-text').text(score);
 								$('.table tr[data-id='+ id +'] > td.result-text').text(result);
+								// 变成已打分
+								$('.change[data-num='+ id +']').text('已打分');
+                                $('.change[data-num='+ id +']').attr('disabled','disabled');
+                                $('.change[data-num='+ id +']').removeClass('bg-green').addClass('bg-red')
 							}
 							else{
 								$(el.J_tip).text(data.errorMsg[0].msg);

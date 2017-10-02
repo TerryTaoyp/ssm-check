@@ -35,7 +35,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">考核系统栏目菜单</li>
-            <c:if test="${sessionScope.power!=4 && sessionScope.power!=5}">
+            <c:if test="${sessionScope.power!=4}">
                 <c:if test="${sessionScope.power <= 2}">
                     <li class="treeview">
                         <a href="#">
@@ -54,37 +54,38 @@
                         </ul>
                     </li>
                 </c:if>
-
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-share"></i> <span>考核管理</span>
-                        <span class="pull-right-container">
+                <c:if test="${sessionScope.power!=5}">
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-share"></i> <span>考核管理</span>
+                            <span class="pull-right-container">
                           <i class="fa fa-angle-left pull-right"></i>
                         </span>
-                    </a>
+                        </a>
 
-                    <ul class="treeview-menu">
-                        <c:if test="${sessionScope.power<=3}">
-                            <li><a href="${website}/testplan/list"><i class="fa fa-circle-o"></i>考核计划管理</a></li>
-                        </c:if>
+                        <ul class="treeview-menu">
+                            <c:if test="${sessionScope.power<=3}">
+                                <li><a href="${website}/testplan/list"><i class="fa fa-circle-o"></i>考核计划管理</a></li>
+                            </c:if>
 
-                        <li><a href="${website}/workplan/month/list"><i class="fa fa-circle-o"></i>月/季度考核管理列表</a></li>
-                        <li class="treeview">
-                            <a href="#"><i class="fa fa-circle-o"></i>年度考核管理
-                                <span class="pull-right-container">
+                            <li><a href="${website}/workplan/month/list"><i class="fa fa-circle-o"></i>月/季度考核管理列表</a></li>
+                            <li class="treeview">
+                                <a href="#"><i class="fa fa-circle-o"></i>年度考核管理
+                                    <span class="pull-right-container">
                                   <i class="fa fa-angle-left pull-right"></i>
                                 </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="${website}/performance/list"><i class="fa fa-circle-o"></i>绩效综合能力列表</a></li>
-                                <c:if test="${sessionScope.power<=3}">
-                                    <li><a href="${website}/ability/list"><i class="fa fa-circle-o"></i>能力指标列表</a></li>
-                                </c:if>
-                                <li><a href="${website}/summary/list"><i class="fa fa-circle-o"></i>个人总结</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="${website}/performance/list"><i class="fa fa-circle-o"></i>绩效综合能力列表</a></li>
+                                    <c:if test="${sessionScope.power<=3}">
+                                        <li><a href="${website}/ability/list"><i class="fa fa-circle-o"></i>能力指标列表</a></li>
+                                    </c:if>
+                                    <li><a href="${website}/summary/list"><i class="fa fa-circle-o"></i>个人总结</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </c:if>
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-files-o"></i> <span>测评模块</span>
@@ -127,15 +128,44 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-pie-chart"></i>
+                    <i class="fa fa-book"></i>
                     <span>用户手册下载</span>
                     <span class="pull-right-container">
                       <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="${website}/query/month/result"><i class="fa fa-circle-o"></i>超级管理员</a></li>
-                    <li><a href="${website}/query/quarter/result"><i class="fa fa-circle-o"></i>普通用户</a></li>
+                    <c:if test="${sessionScope.power<=2}">
+                        <li><a href="${website}/resources/img/哈哈哈.docx"><i class="fa fa-circle-o"></i>管理员手册下载</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>董事长(或副总书记)手册下载</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>总经理手册下载</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>考核负责人手册下载</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>副总经理手册下载</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>部门经理手册下载</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>部门副经理手册下载</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>员工手册下载</a></li>
+                    </c:if>
+                    <c:if test="${sessionScope.power==3}">
+                        <li><a href="#"><i class="fa fa-circle-o"></i>考核负责人手册下载</a></li>
+                    </c:if>
+                    <c:if test="${sessionScope.power==4}">
+                        <li><a href="#"><i class="fa fa-circle-o"></i>董事长(或副总书记)手册下载</a></li>
+                    </c:if>
+                    <c:if test="${sessionScope.power==5}">
+                        <li><a href="#"><i class="fa fa-circle-o"></i>总经理手册下载</a></li>
+                    </c:if>
+                    <c:if test="${sessionScope.power==6}">
+                        <li><a href="#"><i class="fa fa-circle-o"></i>副总经理手册下载</a></li>
+                    </c:if>
+                    <c:if test="${sessionScope.power==7}">
+                        <li><a href="#"><i class="fa fa-circle-o"></i>部门经理手册下载</a></li>
+                    </c:if>
+                    <c:if test="${sessionScope.power==8}">
+                        <li><a href="#"><i class="fa fa-circle-o"></i>部门副经理手册下载</a></li>
+                    </c:if>
+                    <c:if test="${sessionScope.power==9}">
+                        <li><a href="#"><i class="fa fa-circle-o"></i>员工手册下载</a></li>
+                    </c:if>
                 </ul>
             </li>
         </ul>

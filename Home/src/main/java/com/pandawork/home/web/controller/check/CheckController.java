@@ -4,6 +4,8 @@ import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
 import com.pandawork.core.common.util.Assert;
 import com.pandawork.home.common.dto.AllotDto;
+import com.pandawork.home.common.dto.YearMonthExportDto;
+import com.pandawork.home.common.dto.YearQueaterExportDto;
 import com.pandawork.home.common.entity.check.*;
 import com.pandawork.home.common.entity.system.Allot;
 import com.pandawork.home.common.entity.system.Department;
@@ -11,6 +13,8 @@ import com.pandawork.home.common.entity.system.Power;
 import com.pandawork.home.common.entity.system.Role;
 import com.pandawork.home.common.entity.user.User;
 import com.pandawork.home.service.check.*;
+import com.pandawork.home.service.query.YearMonthService;
+import com.pandawork.home.service.query.YearQueaterService;
 import com.pandawork.home.service.system.AllotService;
 import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.system.PowerService;
@@ -69,6 +73,10 @@ public class CheckController extends AbstractController {
     AbilityResultService abilityResultService;
     @Autowired
     AbilityTestIsJoinService abilityTestIsJoinService;
+    @Autowired
+    YearMonthService yearMonthService;
+    @Autowired
+    YearQueaterService yearQueaterService;
 
     /**
      * 获取月份的工作计划
@@ -489,6 +497,11 @@ public class CheckController extends AbstractController {
             int size = workPlanList.size();
             model.addAttribute("score",sumScore/size);
         }
+        YearQueaterExportDto queater = yearQueaterService.queryByUidAndYear(uid,testPlan.getYear());
+        YearMonthExportDto month = yearMonthService.queryByUidAndYear(uid,testPlan.getYear());
+        model.addAttribute("queater",queater);
+        model.addAttribute("month",month);
+
         model.addAttribute("testTypeList",testTypeList);
         model.addAttribute("summary",summary);
         model.addAttribute("workPlanList",workPlanList);

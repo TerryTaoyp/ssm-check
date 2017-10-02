@@ -70,25 +70,17 @@
                                                 <td>${user.department}</td>
                                                 <td>${user.username}</td>
                                                 <td>${user.role}</td>
-                                            <td>${testPlan.startTime}</td>
-
-                                                    <td>
+                                                <td>${testPlan.startTime}</td>
+                                                <td class="status">
                                                     <c:forEach items="${abilityTestIsJoins}" var="abilityTest">
                                                     <c:if test="${abilityTest.isJoin == 1 and abilityTest.beCheckId == user.id and abilityTest.checkId==sessionScope.uid}">
                                                         已参与
                                                     </c:if>
                                                     </c:forEach>
-                                                    </td>
-                                                    <td>
-                                                    <%--<c:forEach items="${abilityTestIsJoins}" var="abilityTest">--%>
-                                                    <%--<c:when test="${abilityTest.isJoin == 1 and abilityTest.beCheckId == user.id}">--%>
-                                                        <%--<button type="button" class="btn bg-red" disabled="disabled">已经考核</button>--%>
-                                                    <%--</c:when>--%>
-                                                    <%--<c:otherwise>--%>
+                                                </td>
+                                                <td>
                                                         <a href="${website}/check/year/ability/detail/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核</a>
-                                                    <%--</c:otherwise>--%>
-                                                    <%--</c:forEach>--%>
-                                                    </td>
+                                                </td>
                                             </c:if>
                                             </tr>
                                         </c:forEach>
@@ -108,29 +100,6 @@
     </div>
     <!-- /.content-wrapper -->
     <jsp:include page="../../common/footer.jsp"/>
-    <!--#include file="/ssm-check/Home/src/main/webapp/WEB-INF/views/common/footer.html" -->
-
-    <div class="control-sidebar-bg"></div>
-    <div class="modal fade" id="modal-default">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">查看详情</h4>
-                </div>
-                <div class="modal-body">
-                    <p>One fine body&hellip;</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存修改</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
@@ -142,6 +111,27 @@
 <script>
     $(function () {
         $('#example1').DataTable();
+        // 简单判断
+        function test() {
+            $('.status').each(function (i,o) {
+                var text = $(this).text(),
+                    status = text.indexOf('已参与');
+                console.log(status);
+                if(status != -1){
+                    $(this).next().find('a').attr({
+                        disabled:'disabled',
+                        href:'javascript:;'
+                    });
+                    $(this).next().find('a').text('已考核');
+                    $(this).next().find('a').removeClass('bg-green').addClass('bg-red');
+                }
+            });
+        }
+        test();
+        // 点击就会触发
+        $('body').click(function () {
+            test();
+        })
     })
 </script>
 </body>

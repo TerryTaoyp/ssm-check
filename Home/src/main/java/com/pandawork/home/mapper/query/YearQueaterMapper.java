@@ -44,4 +44,12 @@ public interface YearQueaterMapper {
      * @throws SSException
      */
     public List<YearQueaterExportDto> queryByDid(@Param("did") int did)throws SSException;
+
+    /**
+     * 根据用户ID和年份查找
+     * @param uid
+     * @return
+     * @throws SSException
+     */
+    public YearQueaterExportDto queryByUidAndYear(@Param("uid") int uid,@Param("year") int year)throws SSException;
 }

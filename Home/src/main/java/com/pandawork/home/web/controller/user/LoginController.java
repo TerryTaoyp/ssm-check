@@ -74,6 +74,16 @@ public class LoginController extends AbstractController {
                     session.setAttribute("username",user.getUsername());
                     session.setAttribute("uid",user.getId());
                     session.setAttribute("did",user.getDid());
+                    //月份成绩查询
+                    session.setAttribute("queryMonthDid",-1);
+                    session.setAttribute("queryMonthRid",-1);
+                    session.setAttribute("queryMonthYear",-1);
+                    session.setAttribute("queryMonthUName","");
+                    //季度成绩查询
+                    session.setAttribute("queryQuarterDid",-1);
+                    session.setAttribute("queryQuarterRid",-1);
+                    session.setAttribute("queryQuarterYear",-1);
+                    session.setAttribute("queryQuarterUName","");
 //                    session.setAttribute("id");
                     return "index";
                 }else {

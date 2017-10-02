@@ -41,4 +41,12 @@ public List<YearQueaterExportDto> listAll()throws SSException;
      * @throws SSException
      */
     public List<YearQueaterExportDto> queryByDid(int did)throws SSException;
+
+    /**
+     * 根据用户ID和年份查找
+     * @param uid
+     * @return
+     * @throws SSException
+     */
+    public YearQueaterExportDto queryByUidAndYear(int uid,int year)throws SSException;
 }

@@ -109,7 +109,7 @@ public class ResultController extends AbstractController {
     public String quarterList(Model model,HttpSession session)throws Exception{
         int power = (int) session.getAttribute("power");
         User user = userService.queryByUname((String) session.getAttribute("username"));
-        System.out.println(power+"哈哈哈");
+//        System.out.println(power+"哈哈哈");
         if (power<=6){
             List<YearQueaterExportDto> list = yearQueaterService.listAll();
             model.addAttribute("list",list);

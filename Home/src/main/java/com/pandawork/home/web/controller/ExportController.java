@@ -2,6 +2,7 @@ package com.pandawork.home.web.controller;
 
 import com.pandawork.core.common.exception.SSException;
 import com.pandawork.core.common.log.LogClerk;
+import com.pandawork.core.common.util.Assert;
 import com.pandawork.home.common.dto.AllotDto;
 import com.pandawork.home.common.dto.YearMonthExportDto;
 import com.pandawork.home.common.dto.YearQueaterExportDto;
@@ -78,10 +79,31 @@ public class ExportController extends AbstractController {
     @RequestMapping(value = "/month/query",method = RequestMethod.GET)
     public void exportYearMonthByConditions( HttpServletResponse response, HttpServletRequest request, HttpSession session){
         try {
-            int did = (int) session.getAttribute("queryMonthDid");
-            int rid = (int) session.getAttribute("queryMonthRid");
-            int year = (int) session.getAttribute("queryMonthYear");
-            String username = (String) session.getAttribute("queryMonthUName");
+            int did;
+//            System.out.println((int) session.getAttribute("queryMonthDid")+"哈哈哈");
+            if (Assert.isNull((int) session.getAttribute("queryMonthDid"))){
+                did = -1;
+            }else {
+                did = (int) session.getAttribute("queryMonthDid");
+            }
+            int rid ;
+            if (Assert.isNull((int) session.getAttribute("queryMonthRid"))){
+                rid = -1;
+            }else {
+                rid = (int) session.getAttribute("queryMonthRid");
+            }
+            int year;
+            if (Assert.isNull((int) session.getAttribute("queryMonthYear"))){
+                year=-1;
+            }else {
+                year =(int) session.getAttribute("queryMonthYear");
+            }
+            String username;
+            if (Assert.isNull((String) session.getAttribute("queryMonthUName"))){
+                username = "";
+            }else {
+                username  = (String) session.getAttribute("queryMonthUName");
+            }
             List<YearMonthExportDto> listMonth = exportService.exportYearMonthByConditions(did, rid, year, username);
 
             String filename = "年度月度考核.xls";//设置下载时Excel的名称
@@ -161,10 +183,31 @@ public class ExportController extends AbstractController {
     @RequestMapping(value = "/quarter/query",method = RequestMethod.POST)
     public void exportYearQuarterByConditions(HttpServletRequest request,HttpServletResponse response,HttpSession session){
         try {
-            int did = (int) session.getAttribute("queryQuarterDid");
-            int rid = (int) session.getAttribute("queryQuarterRid");
-            int year = (int) session.getAttribute("queryQuarterYear");
-            String username = (String) session.getAttribute("queryQuarterUName");
+            int did ;
+            if (Assert.isNull((int) session.getAttribute("queryQuarterDid"))){
+                did = -1;
+            }else {
+                did = (int) session.getAttribute("queryQuarterDid");
+            }
+            int rid;
+
+            if (Assert.isNull((int) session.getAttribute("queryQuarterRid"))){
+                rid = -1;
+            }else {
+                rid = (int) session.getAttribute("queryQuarterRid");
+            }
+            int year;
+            if (Assert.isNull( (int) session.getAttribute("queryQuarterYear"))){
+                year = -1;
+            }else {
+                year =  (int) session.getAttribute("queryQuarterYear");
+            }
+            String username;
+            if (Assert.isNull((String) session.getAttribute("queryQuarterUName"))){
+                username = "";
+            }else {
+                username = (String) session.getAttribute("queryQuarterUName");
+            }
             List<YearQueaterExportDto> list = exportService.exportYearQueaterByConditions(did, rid, year, username);
             String filename = "年度季度考核.xls";//设置下载时Excel的名称
             filename = ExcelUtil.encodeFilename(filename, request);//处理中文文件名

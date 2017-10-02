@@ -76,4 +76,17 @@ public class YearMonthServiceImpl implements YearMonthService {
         }
 
     }
+
+    @Override
+    public YearMonthExportDto queryByUidAndYear(int uid, int year) throws SSException {
+        try {
+            if (Assert.isNull(uid)||Assert.isNull(year)){
+                return null;
+            }
+            return yearMonthMapper.queryByUidAndYear(uid, year);
+        }catch (Exception e){
+            LogClerk.errLog.error(e);
+            throw SSException.get(ChException.ExportFailed);
+        }
+    }
 }

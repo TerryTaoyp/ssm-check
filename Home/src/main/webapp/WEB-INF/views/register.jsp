@@ -100,7 +100,7 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="${staticWebsite}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
-<script src="${staticWebsite}s/plugins/iCheck/icheck.min.js"></script>
+<script src="${staticWebsite}/plugins/iCheck/icheck.min.js"></script>
 <script src="${staticWebsite}/pages/common/verify.js"></script>
 <script src="${staticWebsite}/pages/register.js"></script>
 <script>

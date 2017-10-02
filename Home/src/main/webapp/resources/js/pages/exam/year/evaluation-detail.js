@@ -45,6 +45,7 @@ $(document).ready(function() {
 								$('button[data-dismiss="modal"]').click();
 								// 不能再使用
 								$('.mark').attr('disabled','disabled');
+                                $('.mark').removeClass('bg-green').addClass('bg-red');
 								$('.mark').text('已打分');
 								$('.score-text').text(score); // 显示分数
 							}
