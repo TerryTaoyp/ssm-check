@@ -156,13 +156,22 @@ public class WorkPlanController extends AbstractController {
     }
 
     /**
-     * 跳转到月添加工作计划的页面
+     * 月添加工作计划的页面
      * @return
      * @throws Exception
      */
     @RequestMapping(value = "/month/add",method = RequestMethod.POST)
-    public String monthAdd(@RequestParam("tid") int tid,@RequestParam("wid") int wid, @RequestParam("startTime")String startTime,@RequestParam("startTime")String endTime,@RequestParam("weight")int weight,@RequestParam("planContent") String planContent,@RequestParam("excpetResult") String excpetResult, HttpSession session)throws Exception{
+    public String monthAdd(@RequestParam("tid") int tid,@RequestParam("wid") int wid, @RequestParam("startTime")String startTime,@RequestParam("startTime")String endTime,@RequestParam("weight")int weight,@RequestParam("planContent") String planContent,@RequestParam("excpetResult") String excpetResult, HttpSession session,Model model)throws Exception{
         User user = userService.queryByUname((String) session.getAttribute("username"));
+        List<WorkDetail> workDetailList = workDetailService.queryByWId(wid);
+        int sum = 0;
+        for (WorkDetail workDetail:workDetailList){
+            sum+=workDetail.getWeight();
+        }
+        if ((sum+weight)>100){
+            model.addAttribute("error","权重之和大于100%，请重新计算添加！");
+            return "redirect:/workplan/month/detail/"+tid;
+        }
         WorkDetail workDetail = new WorkDetail();
         workDetail.setUid(user.getId());
         workDetail.setWid(wid);

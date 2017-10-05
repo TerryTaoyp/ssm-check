@@ -81,14 +81,14 @@
                                                     <c:forEach items="${performanceList}" var="performance">
                                                         <c:if test="${performance.beCheckId==user.id}">
                                                             <c:if test="${performance.isJoin==1}">
-                                                                <a href="#" class="btn bg-red" disabled="true">已参与考核综合能力</a>
+                                                                <a href="#" class="btn bg-red" disabled="true">综合能力考核完毕</a>
                                                             </c:if>
                                                         </c:if>
                                                     </c:forEach>
                                                     <c:forEach items="${summaryList}" var="summary">
                                                         <c:if test="${summary.beCheckId==user.id}">
                                                             <c:if test="${summary.isJoin==1}">
-                                                                <a href="#" class="btn bg-red" disabled="true">已参与考核年度总结</a>
+                                                                <a href="#" class="btn bg-red" disabled="true">年度总结考核完毕</a>
                                                             </c:if>
                                                         </c:if>
                                                     </c:forEach>

@@ -65,8 +65,18 @@ public class TestPositionController extends AbstractController {
                                   @RequestParam("optionName2") int optionName2, @RequestParam("content2") String content2,
                                   @RequestParam("optionName3") int optionName3, @RequestParam("content3") String content3,
                                   @RequestParam("optionName4") int optionName4, @RequestParam("content4") String content4
-                                      )throws SSException{
+                                    ,Model model  )throws SSException{
         AbilityPosition abilityPosition = new AbilityPosition();
+
+        List<AbilityPosition> abilityPositions = abilityPositionService.queryByTestId(id);
+        int sum = 0;
+        for (AbilityPosition abilityPosition1:abilityPositions){
+            sum+=abilityPosition1.getWeight();
+        }
+        if ((sum+weight)>100){
+            model.addAttribute("error","权重超出100%，不合法，请重新计算添加");
+            return "redirect:/test/position/list/"+id;
+        }
         abilityPosition.setTargetId(target);
         abilityPosition.setTargetTypeId(targetType);
         abilityPosition.setWeight(weight);

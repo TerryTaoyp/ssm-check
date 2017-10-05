@@ -134,11 +134,10 @@ public class CheckController extends AbstractController {
                 }
                 List<AllotDto> userList = abilityAllotService.queryManageByDid(dids);
                 model.addAttribute("userList",userList);
+            }else if (power.getPower()==5){
+                List<AllotDto> userList = abilityAllotService.queryByTopManagerCheck();
+                model.addAttribute("userList",userList);
             }
-//            else if (power.getPower()==5){
-//                List<AllotDto> userList = abilityAllotService.topManagerCheck();
-//                model.addAttribute("userList",userList);
-//            }
             TestPlan testPlan = testPlanService.queryTestPlan(id);
             model.addAttribute("testPlan",testPlan);
             model.addAttribute("power",power);

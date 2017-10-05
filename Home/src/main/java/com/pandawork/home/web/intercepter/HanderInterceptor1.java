@@ -17,6 +17,7 @@ public class HanderInterceptor1 implements HandlerInterceptor {
     @Autowired
     UserService userService;
 
+
     private String[] allowUrls;//还没发现可以直接配置不拦截的资源，所以在代码里面来排除
     private String[] allowUrls1;//还没发现可以直接配置不拦截的资源，所以在代码里面来排除
 
@@ -51,7 +52,7 @@ public class HanderInterceptor1 implements HandlerInterceptor {
         HttpSession session = request.getSession();
         String username = request.getParameter("username");
         String username1 = (String) session.getAttribute("username1");
-
+        System.out.println(username1);
         //线上代码
 //        String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/Home_id/tologin";
 

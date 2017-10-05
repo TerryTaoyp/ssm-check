@@ -40,7 +40,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">请输入账号密码登录</p>
 
-        <form action="${website}/login" method="get">
+        <form action="${website}/login" method="post">
             <div class="form-group has-feedback">
                 <input type="text" name="username" class="form-control" placeholder="账号">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

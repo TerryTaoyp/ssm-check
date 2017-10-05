@@ -80,10 +80,10 @@
                                                 <td>
                                                     <a href="${website}/check/month/detail/${testPlan.id}&${joinTest.uid}" class="btn bg-green">进入考核</a>
                                                     <c:if test="${joinTest.isJoin==1}">
-                                                        <button type="button" class="btn bg-red disabled">已经参与过此次考核</button>
+                                                        <button type="button" class="btn bg-red disabled">考核已完成</button>
                                                     </c:if>
                                                     <c:if test="${joinTest.isJoin==0}">
-                                                        <button type="button" class="btn bg-green disabled">未参与过此次考核</button>
+                                                        <button type="button" class="btn bg-green disabled">考核未完成</button>
                                                     </c:if>
                                                 </td>
                                                 </tr>

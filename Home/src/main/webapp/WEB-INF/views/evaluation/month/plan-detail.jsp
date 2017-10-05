@@ -83,9 +83,9 @@
                                         <td>
                                             <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#update-list" data-num="${detail.id}">修改计划</button>
                                             <button type="button" class="btn bg-blue refer" data-toggle="modal" data-target="#performance" data-num="${detail.id}">填写工作完成情况</button>
-                                            <button type="button" class="btn bg-red delete" data-toggle="modal" data-num="${detail.id}">
-                                                删除
-                                            </button>
+                                            <%--<button type="button" class="btn bg-red delete" data-toggle="modal" data-num="${detail.id}">--%>
+                                                <%--删除--%>
+                                            <%--</button>--%>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -99,6 +99,7 @@
                 </div>
                 <!-- /.col -->
             </div>
+
             <p class="weight-error text-red none">总权重大于100%，请重新设置题目权重，否则测评结果将不准确</p>
             <a href="${website}/workplan/month/list" class="btn bg-olive">返回列表</a>
             <a href="${website}/workplan/month/to/add/${workPlan1.id}" class="btn bg-blue">添加计划</a>

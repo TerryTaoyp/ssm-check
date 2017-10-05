@@ -64,7 +64,7 @@
                                 <tbody>
                                     <c:forEach items="${joinTestList}" var="joinTest">
                                         <c:forEach items="${userList}" var="user"  varStatus="status">
-                                            <c:if test="${joinTest.uid == user.id}">
+                                            <c:if test="${joinTest.uid == user.id and user.id != sessionScope.uid}">
                                                 <tr>
                                                 <td>${status.index+1}</td>
                                                 <td>${user.department}</td>

@@ -136,35 +136,35 @@
                 </a>
                 <ul class="treeview-menu">
                     <c:if test="${sessionScope.power<=2}">
-                        <li><a href="${website}/resources/img/哈哈哈.docx"><i class="fa fa-circle-o"></i>管理员手册下载</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>董事长(或副总书记)手册下载</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>总经理手册下载</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>考核负责人手册下载</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>副总经理手册下载</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>部门经理手册下载</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>部门副经理手册下载</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>员工手册下载</a></li>
+                        <li><a href="${website}/resources/img/name.docx"><i class="fa fa-circle-o"></i>管理员手册下载</a></li>
+                        <li><a href="${website}/resources/img/name1.docx"><i class="fa fa-circle-o"></i>董事长(或副总书记)手册下载</a></li>
+                        <li><a href="${website}/resources/img/name2.docx"><i class="fa fa-circle-o"></i>总经理手册下载</a></li>
+                        <li><a href="${website}/resources/img/name3.docx"><i class="fa fa-circle-o"></i>考核负责人手册下载</a></li>
+                        <li><a href="${website}/resources/img/name4.docx"><i class="fa fa-circle-o"></i>副总经理手册下载</a></li>
+                        <li><a href="${website}/resources/img/name5.docx"><i class="fa fa-circle-o"></i>部门经理手册下载</a></li>
+                        <li><a href="${website}/resources/img/name6.docx"><i class="fa fa-circle-o"></i>部门副经理手册下载</a></li>
+                        <li><a href="${website}/resources/img/name7.docx"><i class="fa fa-circle-o"></i>员工手册下载</a></li>
                     </c:if>
                     <c:if test="${sessionScope.power==3}">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>考核负责人手册下载</a></li>
+                        <li><a href="${website}/resources/img/name3.docx"><i class="fa fa-circle-o"></i>考核负责人手册下载</a></li>
                     </c:if>
                     <c:if test="${sessionScope.power==4}">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>董事长(或副总书记)手册下载</a></li>
+                        <li><a href="${website}/resources/img/name1.docx"><i class="fa fa-circle-o"></i>董事长(或副总书记)手册下载</a></li>
                     </c:if>
                     <c:if test="${sessionScope.power==5}">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>总经理手册下载</a></li>
+                        <li><a href="${website}/resources/img/name2.docx"><i class="fa fa-circle-o"></i>总经理手册下载</a></li>
                     </c:if>
                     <c:if test="${sessionScope.power==6}">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>副总经理手册下载</a></li>
+                        <li><a href="${website}/resources/img/name4.docx"><i class="fa fa-circle-o"></i>副总经理手册下载</a></li>
                     </c:if>
                     <c:if test="${sessionScope.power==7}">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>部门经理手册下载</a></li>
+                        <li><a href="${website}/resources/img/name5.docx"><i class="fa fa-circle-o"></i>部门经理手册下载</a></li>
                     </c:if>
                     <c:if test="${sessionScope.power==8}">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>部门副经理手册下载</a></li>
+                        <li><a href="${website}/resources/img/name6.docx"><i class="fa fa-circle-o"></i>部门副经理手册下载</a></li>
                     </c:if>
                     <c:if test="${sessionScope.power==9}">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>员工手册下载</a></li>
+                        <li><a href="${website}/resources/img/name7.docx"><i class="fa fa-circle-o"></i>员工手册下载</a></li>
                     </c:if>
                 </ul>
             </li>

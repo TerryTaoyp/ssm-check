@@ -134,6 +134,7 @@
                                 </li>
                             </ul>
                         </div>
+                        <h3>${error}</h3>
                         <p class="weight-error text-red none">总权重大于100%，请重新设置题目权重，否则测评结果将不准确</p>
                         <div class="box-footer">
                             <a href="${website}/ability/list" class="btn btn-primary">返回列表</a>

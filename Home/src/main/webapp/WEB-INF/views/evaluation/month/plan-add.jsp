@@ -88,6 +88,7 @@
                             <p class="tip text-red"></p>
                             <input type="submit" class="btn btn-primary J-submit" value="提交">
                         </div>
+                        <h3>${error}</h3>
                     </form>
                 </div>
                 <!-- /.box-body -->

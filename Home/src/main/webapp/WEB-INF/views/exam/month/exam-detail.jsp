@@ -134,7 +134,7 @@
                 <div class="modal-body">
                     <input type="hidden" id="dataId">
                     <div class="form-group">
-                        <label>工作完成情况评价：</label>
+                        <label>领导评价：</label>
                         <input type="text" class="form-control result a-require-text" placeholder="请输入您的意见...">
                     </div>
                     <div class="form-group">

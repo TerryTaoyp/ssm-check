@@ -87,4 +87,11 @@ public interface AbilityAllotMapper {
      * @throws SSException
      */
     public List<AllotDto> queryDeputyManagerCheck()throws SSException;
+
+    /**
+     * 月度考核总经理考核
+     * @return
+     * @throws SSException
+     */
+    public List<AllotDto> queryByTopManagerCheck()throws SSException;
 }

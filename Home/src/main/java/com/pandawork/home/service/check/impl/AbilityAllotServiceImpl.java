@@ -139,4 +139,9 @@ public class AbilityAllotServiceImpl implements AbilityAllotService {
     public List<AllotDto> queryDeputyManagerCheck() throws SSException {
         return abilityAllotMapper.queryDeputyManagerCheck();
     }
+
+    @Override
+    public List<AllotDto> queryByTopManagerCheck() throws SSException {
+        return abilityAllotMapper.queryByTopManagerCheck();
+    }
 }
