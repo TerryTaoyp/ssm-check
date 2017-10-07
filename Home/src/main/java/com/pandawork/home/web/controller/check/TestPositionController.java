@@ -53,6 +53,25 @@ public class TestPositionController extends AbstractController {
     }
 
     /**
+     * 判断新增问题时候的权重是否大于100%
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/judge/add",method = RequestMethod.POST)
+    public JSONObject judgeAddTestPosition(@RequestParam("id") int id, @RequestParam("weight") int weight) throws SSException {
+        List<AbilityPosition> abilityPositions = abilityPositionService.queryByTestId(id);
+        int sum = 0;
+        for (AbilityPosition abilityPosition1:abilityPositions){
+            sum+=abilityPosition1.getWeight();
+        }
+        if ((sum+weight)>100){
+            return sendJsonObject(1);
+        }else {
+            return sendJsonObject(0);
+        }
+    }
+
+    /**
      * 新增此次考核计划的考核问题
      * @param id
      * @return
@@ -68,15 +87,7 @@ public class TestPositionController extends AbstractController {
                                     ,Model model  )throws SSException{
         AbilityPosition abilityPosition = new AbilityPosition();
 
-        List<AbilityPosition> abilityPositions = abilityPositionService.queryByTestId(id);
-        int sum = 0;
-        for (AbilityPosition abilityPosition1:abilityPositions){
-            sum+=abilityPosition1.getWeight();
-        }
-        if ((sum+weight)>100){
-            model.addAttribute("error","权重超出100%，不合法，请重新计算添加");
-            return "redirect:/test/position/list/"+id;
-        }
+
         abilityPosition.setTargetId(target);
         abilityPosition.setTargetTypeId(targetType);
         abilityPosition.setWeight(weight);
