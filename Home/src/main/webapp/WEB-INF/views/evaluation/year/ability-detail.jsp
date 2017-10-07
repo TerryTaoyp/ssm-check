@@ -238,6 +238,7 @@
                             <div class="col-xs-6">
                                 <label>权重：</label>
                                 <input type="text" placeholder="请输入1-100的数字" class="update-weight form-control">
+                                <input type="hidden" class="already-weight">
                             </div>
                         </div>
 

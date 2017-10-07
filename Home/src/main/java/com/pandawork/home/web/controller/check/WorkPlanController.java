@@ -149,6 +149,13 @@ public class WorkPlanController extends AbstractController {
         WorkPlan workPlan = workPlanService.queryById(id);
         List<Department> departmentList = departmentService.listAll();
         TestPlan testPlan = testPlanService.queryTestPlan(workPlan.getTestId());
+        //查出添加之前的权重之和
+        List<WorkDetail> workDetailList = workDetailService.queryByWId(id);
+        int sum = 0;
+        for (WorkDetail workDetail:workDetailList){
+            sum+=workDetail.getWeight();
+        }
+        model.addAttribute("weightSum",sum);
         model.addAttribute("workPlan",workPlan);
         model.addAttribute("departmentList",departmentList);
         model.addAttribute("testPlan",testPlan);
@@ -160,7 +167,7 @@ public class WorkPlanController extends AbstractController {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "/month/add",method = RequestMethod.POST)
+    @RequestMapping(value = "/judge/month/add",method = RequestMethod.POST)
     public JSONObject judgeMonthAdd(@RequestParam("tid") int tid,@RequestParam("wid") int wid,@RequestParam("weight")int weight) throws SSException {
         List<WorkDetail> workDetailList = workDetailService.queryByWId(wid);
         int sum = 0;

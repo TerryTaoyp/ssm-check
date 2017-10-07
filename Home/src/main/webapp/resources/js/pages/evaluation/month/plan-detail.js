@@ -66,6 +66,8 @@ $(document).ready(function() {
 								CKEDITOR.instances.editor1.setData(data.data.workDetail.planContent)
 								// 权重
 								$(el.J_weight).val(data.data.workDetail.weight);
+								// 先前权重判断用
+								$('.already-weight').val(data.data.workDetail.weight);
 								// 预期工作成果
 								$(el.J_expect_result).val(data.data.workDetail.expectResult);
 
@@ -89,10 +91,19 @@ $(document).ready(function() {
 					time = $(el.J_time).val(), // 时间
 					content = CKEDITOR.instances.editor1.document.getBody().getText(), // 工作内容取值（纯文本）
 					result = $(el.J_expect_result).val(), // 预期成果
-					weight = $(el.J_weight).val(), // 权重
+					weight = parseInt($(el.J_weight).val()), // 权重
+					already_weight = parseInt($('.already-weight').val()), // 判断用权重
 					reg = /^([1-9]\d?|100)$/; // 1-100数字的正则
+                // 判断权重
+                var
+                    total = 0; // 总分默认为0
+                // 遍历一个一个的题目
+                $('.weight-text').each(function(index, o) {
+                    // 算总分
+                    total += parseInt($(o).text());
+                });
 				// 如果符合条件无法提交
-				if (!(ajax_flag1 || ajax_flag2 || ajax_flag3) && reg.test(weight)) {
+				if (!(ajax_flag1 || ajax_flag2 || ajax_flag3) && reg.test(weight) && (total - already_weight + weight) <= 100) {
 					$.ajax({
 						url: path_url,
 						type: 'get',
@@ -134,6 +145,7 @@ $(document).ready(function() {
 				}
 				else{
 					$("body").animate({scrollTop:0}, 500);
+					alert('信息为空或权重不在1~100或总权重大于100,无法提交')
 					$(el.J_tip).text('信息为空或权重不在1~100,无法提交');
 				}
 			});

@@ -18,14 +18,17 @@ $(document).ready(function() {
 				$(el.J_tip).text('');
 				var 
 					weight = $(el.J_weight).val(), // 权重
-					reg = /^([1-9]\d?|100)$/; // 1-100数字的正则
-				// 如果符合条件无法提交
-				if (!(flag1 || flag2 || flag3) && reg.test(weight)) {
+					reg = /^([1-9]\d?|100)$/, // 1-100数字的正则
+                    already_weight = $('.already-weight').val(), // 先前的权重
+					weight_sum = weight + already_weight; // 总权重
+                // 如果符合条件无法提交
+				if (!(flag1 || flag2 || flag3) && reg.test(weight) && !(weight_sum>100)) {
 					return true;
 				}
 				else{
 					$("body").animate({scrollTop:0}, 500);
-					$(el.J_tip).text('信息为空或权重不在1~100,无法提交');
+					alert('信息为空或权重不在1~100或总权重大于100,无法提交'); // 弹窗提醒
+					$(el.J_tip).text('信息为空或权重不在1~100或总权重大于100,无法提交');
 					return false;
 				}
 			});

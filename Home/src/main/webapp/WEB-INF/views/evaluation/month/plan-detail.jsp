@@ -141,6 +141,7 @@
                     <div class="form-group">
                         <label>所占权重：</label>
                         <input type="text" class="form-control require-text weight" >
+                        <input type="hidden" class="already-weight">
                     </div>
 
                     <div class="form-group">

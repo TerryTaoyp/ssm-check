@@ -71,6 +71,7 @@
                         <div class="form-group">
                             <label>所占权重：</label>
                             <input type="text" class="form-control require-text weight"  name="weight" placeholder="请输入1-100内的整数">
+                            <input type="hidden" class="already-weight" value="${weightSum}">
                         </div>
 
                         <div class="form-group">
