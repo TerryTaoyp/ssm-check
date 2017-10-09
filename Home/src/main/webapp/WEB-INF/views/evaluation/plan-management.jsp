@@ -75,8 +75,11 @@
                                         </c:forEach>
                                         </td>
                                         <td class="time-start-text">${testPlan.startTime}</td>
+                                        <c:if test="${testPlan.isAvailable==2}">
+                                            <td class="status-text">考核开启</td>
+                                        </c:if>
                                         <c:if test="${testPlan.isAvailable==1}">
-                                            <td class="status-text">已开启</td>
+                                            <td class="status-text">填写开启</td>
                                         </c:if>
                                         <c:if test="${testPlan.isAvailable==0}">
                                             <td class="status-text">未开启</td>

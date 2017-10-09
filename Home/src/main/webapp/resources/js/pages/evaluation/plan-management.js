@@ -143,7 +143,8 @@ $(document).ready(function() {
 					id = $(this).attr('data-num'),
 					path_url = _ajax.url.evaluation.plan_management.list.edit,
 					status = {
-						1: "已开启",
+					    2:"考核开启",
+						1: "填写开启",
 						0: "未开启"
 					}
 					$.ajax({

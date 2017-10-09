@@ -70,15 +70,21 @@
                                         <td>年度能力指标考核</td>
                                         <td>${testPlan.startTime}</td>
                                         <c:if test="${testPlan.isAvailable == 1}">
-                                            <td>已开启</td>
+                                            <td>填写开启</td>
                                             <td>
                                                 <a href="${website}/test/position/list/${testPlan.id}" class="btn bg-blue">查看详情</a>
+                                            </td>
+                                        </c:if>
+                                        <c:if test="${testPlan.isAvailable == 2}">
+                                            <td>考核开启</td>
+                                            <td>
+                                                <a disabled="disabled"  class="btn bg-red">填写未开启</a>
                                             </td>
                                         </c:if>
                                         <c:if test="${testPlan.isAvailable == 0}">
                                             <td>未开启</td>
                                             <td>
-                                                <a disabled="disabled"  class="btn bg-red">暂未开放</a>
+                                                <a disabled="disabled"  class="btn bg-red">暂未开启</a>
                                             </td>
                                         </c:if>
 

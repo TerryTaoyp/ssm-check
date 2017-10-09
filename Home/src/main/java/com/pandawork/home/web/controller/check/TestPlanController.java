@@ -111,9 +111,11 @@ public class TestPlanController extends AbstractController{
         try {
             TestPlan testPlan = testPlanService.queryTestPlan(id);
             if (testPlan.getIsAvailable()==1){
-                testPlan.setIsAvailable(0);
+                testPlan.setIsAvailable(2);
             }else if (testPlan.getIsAvailable()==0){
                 testPlan.setIsAvailable(1);
+            }else if (testPlan.getIsAvailable()==2){
+                testPlan.setIsAvailable(0);
             }
             testPlanService.delTestPlan(testPlan);
             JSONObject jsonObject = new JSONObject();

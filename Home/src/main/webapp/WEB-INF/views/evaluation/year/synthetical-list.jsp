@@ -66,8 +66,14 @@
                                                     <%--<td>${status.index+1}</td>--%>
                                                     <td>${testPlan.testName}</td>
                                                     <td>${testPlan.startTime}</td>
+                                                        <c:if test="${testPlan.isAvailable == 2}">
+                                                            <td>考核开启</td>
+                                                            <td>
+                                                                <button type="button" class="btn bg-red" disabled="disabled">填写未开启</button>
+                                                            </td>
+                                                        </c:if>
                                                     <c:if test="${testPlan.isAvailable == 1}">
-                                                        <td>已开启</td>
+                                                        <td>填写开启</td>
                                                         <td>
                                                             <a href="${website}/performance/detail/${testPlan.id}" class="btn bg-blue">查看详情</a>
                                                         </td>
