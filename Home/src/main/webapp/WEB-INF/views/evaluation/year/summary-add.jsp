@@ -68,7 +68,6 @@
                             <div class="form-group">
                                 <label>总结：</label>
                                 <textarea id="editor1" name="content" rows="10" cols="80" >
-                                    请在这里输入个人总结...
                                 </textarea>
                             </div>
                         </div>

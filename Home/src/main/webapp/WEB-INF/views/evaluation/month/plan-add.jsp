@@ -77,7 +77,6 @@
                         <div class="form-group">
                             <label>工作内容：</label>
                             <textarea id="editor1" name="planContent" rows="10" cols="80">
-                                请在这里输入工作计划...
                             </textarea>
                         </div>
                         <div class="form-group">

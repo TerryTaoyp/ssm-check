@@ -133,10 +133,6 @@
 </div>
 <!-- ./wrapper -->
 <jsp:include page="../../common/script.jsp"/>
-
-<!-- page script -->
-<!-- CKeditor -->
-<script src="${staticWebsite}/bower_components/ckeditor/ckeditor.js"></script>
 <script>
     $(function () {
         $('#example1').DataTable();
