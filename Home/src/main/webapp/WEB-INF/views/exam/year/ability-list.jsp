@@ -67,13 +67,13 @@
                                         <td>${testPlan.testName}</td>
                                         <td>年度能力指标考核</td>
                                         <td>${testPlan.startTime}</td>
-                                        <c:if test="${testPlan.isAvailable == 1|| testPlan.isAvailable == 2}">
+                                        <c:if test="${ testPlan.isAvailable == 2}">
                                             <td>已开启</td>
                                             <td>
                                                 <a href="${website}/check/year/ability/user/${testPlan.id}" class="btn bg-green">考核列表</a>
                                             </td>
                                         </c:if>
-                                        <c:if test="${testPlan.isAvailable == 0}">
+                                        <c:if test="${testPlan.isAvailable == 1||testPlan.isAvailable == 0}">
                                             <td>未开启</td>
                                             <td>
                                                 <button class="btn bg-red" disabled="disabled">考核未开启</button>

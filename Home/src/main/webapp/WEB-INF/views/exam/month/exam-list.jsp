@@ -66,13 +66,13 @@
                                             <td>${status.index+1}</td>
                                             <td>${testPlan.testName}</td>
                                             <td>${testPlan.startTime}</td>
-                                            <c:if test="${testPlan.isAvailable == 1 ||testPlan.isAvailable == 2 }">
+                                            <c:if test="${testPlan.isAvailable == 2 }">
                                                 <td>已开启</td>
                                                 <td>
                                                     <a href="${website}/check/month/detail/list/${testPlan.id}" class="btn bg-green">进入查看考核详情</a>
                                                 </td>
                                             </c:if>
-                                            <c:if test="${testPlan.isAvailable == 0}">
+                                            <c:if test="${testPlan.isAvailable == 0||testPlan.isAvailable == 1 }">
                                                 <td>未开启</td>
                                                 <td>
                                                     <button type="button" disabled="true" class="btn bg-red">考核未开启</button>

@@ -66,13 +66,13 @@
                                             <%--<td>${status.index+1}</td>--%>
                                             <td>${testPlan.testName}</td>
                                             <td>${testPlan.startTime}</td>
-                                            <c:if test="${testPlan.isAvailable == 1||testPlan.isAvailable == 2}">
+                                            <c:if test="${testPlan.isAvailable == 2}">
                                                 <td>已开启</td>
                                                 <td>
                                                     <a href="${website}/check/year/user/${testPlan.id}" class="btn bg-green">进入考核</a>
                                                 </td>
                                             </c:if>
-                                            <c:if test="${testPlan.isAvailable == 0}">
+                                            <c:if test="${testPlan.isAvailable == 1||testPlan.isAvailable == 0}">
                                                 <td>未开启</td>
                                                 <td>
                                                     <a href="${website}/check/year/performance/list/${testPlan.id}" class="btn bg-red disabled">未开启</a>
