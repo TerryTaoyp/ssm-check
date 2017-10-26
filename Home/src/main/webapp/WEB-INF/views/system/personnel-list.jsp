@@ -90,6 +90,7 @@
                                             <td>
                                                 <c:if test="${sessionScope.power>=1 and user.power >=1}">
                                                     <button type="button" class="btn bg-olive change" data-toggle="modal" data-target="#modal-default" data-num="${user.id}">修改</button>
+                                                    <button type="button" class="btn bg-blue init" data-num="${user.id}">初始密码</button>
                                                     <button type="button" class="btn bg-red delete" data-num="${user.id}">删除</button>
                                                 </c:if>
 

@@ -5,6 +5,7 @@ $(document).ready(function() {
 			J_tip: '.tip', //提示信息
 			J_change: '.change', // 修改按钮
 			J_delete: '.delete', // 删除按钮
+			J_init: '.init', // 初始化密码
 			J_ajax_submit: '.J-ajax-submit', // ajax提交按钮
 			J_username: '.username', // 用户名
 			J_realname: '.realname', // 真实姓名
@@ -133,5 +134,29 @@ $(document).ready(function() {
 					})
 				}
 			});
+            // ajax初始化
+            $(el.J_init).click(function(ev) {
+                // 获取序列
+                var
+                    id = $(this).attr('data-num'),
+                    path_url = _ajax.url.system.personnel.list.init;
+                // 取人初始化
+                if (confirm("确认要初始化密码吗？")) {
+                    $.ajax({
+                        url: path_url,
+                        type: 'get',
+                        dataType: 'json',
+                        data: {
+                            id: id
+                        },
+                        success: function(data) {
+                            alert('初始化成功，初始化密码为：123456。请及时时间修改！');
+                        },
+                        error: function(data,errorMsg) {
+                            console.log('error');
+                        }
+                    })
+                }
+            });
 		}
 });

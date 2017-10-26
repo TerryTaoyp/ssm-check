@@ -11,7 +11,7 @@
         <b>当前版本</b> 1.0.0
     </div>
     <strong>版权: &copy; 2014-2017
-        <a href="javascript:;">抚顺xx有限公司内部专用</a>
+        <a href="javascript:;">抚松发展投资集团内部专用</a>
         |
         技术支持：
         <a href="javascript:;">东北师范大学信息科学与技术学院</a>

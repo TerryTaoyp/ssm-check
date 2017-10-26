@@ -6,7 +6,7 @@
         //静态资源地址
         staticWebsite: 'http://localhost:8080/resources/'
 
-        // //这是前端本地需要配置的，用来看自己写的页面
+        //这是前端本地需要配置的，用来看自己写的页面
         // website:'http://39.108.137.243/Home_id/', //站点地址
         // //静态资源地址
         // staticWebsite: 'http://39.108.137.243/Home_id/resources/js'
@@ -69,6 +69,7 @@
                     // 列表
                     list:{
                         update: site.website + 'user/ajax/update', //点击修改
+                        init: site.website + 'user/init/password', //初始化密码
                         del : site.website + 'user/ajax/del', //删除
                         submit: site.website + 'user/update', // 提交
                     }

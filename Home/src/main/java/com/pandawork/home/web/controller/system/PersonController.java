@@ -6,6 +6,7 @@ import com.pandawork.home.common.dto.AllotDto;
 import com.pandawork.home.common.entity.system.Department;
 import com.pandawork.home.common.entity.system.Role;
 import com.pandawork.home.common.entity.user.User;
+import com.pandawork.home.common.util.Md5Util;
 import com.pandawork.home.service.check.TestPlanService;
 import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.system.RoleService;
@@ -57,6 +58,21 @@ public class PersonController extends AbstractController {
         }
     }
 
+    /**
+     * 初始化用户的密码
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping(value = "/init/password", method = RequestMethod.GET)
+    public JSONObject initPassword(@RequestParam("id") int id)throws Exception{
+        User user = new User();
+        user.setId(id);
+        user.setPassword(Md5Util.EncoderByMd5("123456"));
+        userService.updatePassword(user);
+        return sendJsonObject(1);
+    }
     /**
      * 根据ID删除用户信息
      * @param id
