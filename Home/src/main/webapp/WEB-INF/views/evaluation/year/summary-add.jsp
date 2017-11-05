@@ -48,9 +48,10 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <form action="${website}/summary/add" method="post">
+                            <input type="hidden" value="" id="userId">
                             <div class="form-group">
                                 <label>年度总结年份：</label>
-                                <select class="form-control require-option" name="year">
+                                <select class="form-control require-option year" name="year">
                                     <option value="-1">请选择</option>
                                     <option value="2016">2016</option>
                                     <option value="2017">2017</option>
@@ -95,6 +96,7 @@
 <!-- CKeditor -->
 <script src="${staticWebsite}/bower_components/ckeditor/ckeditor.js"></script>
 <script src="${staticWebsite}/pages/common/verify.js"></script>
+<script src="${staticWebsite}/pages/evaluation/year/summary-add.js"></script>
 <script>
     $(function () {
         $('#example1').DataTable();

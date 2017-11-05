@@ -133,6 +133,10 @@
                         update: site.website + 'test/position/to/edit', // 点击修改按钮
                         delete: site.website + 'test/position/del', // 删除本道题
                     },
+                    // 个人总结判断
+                    summary:{
+                        verify: site.website + '/summary/judge/add', // 判断是否可以提交
+                    }
                 }
             },
             //测评模块

@@ -11,13 +11,11 @@ import com.pandawork.home.service.system.DepartmentService;
 import com.pandawork.home.service.system.RoleService;
 import com.pandawork.home.service.user.UserService;
 import com.pandawork.home.web.controller.AbstractController;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -146,6 +144,23 @@ public class SummaryController extends AbstractController {
             LogClerk.errLog.error(e);
             sendErrMsg(e.getMessage());
             return ADMIN_SYS_ERR_PAGE;
+        }
+    }
+
+    /**
+     * 判断是否可以添加成功
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/judge/add",method = RequestMethod.POST)
+    public JSONObject judgeAdd(@RequestParam("year") int year,HttpSession session) throws SSException {
+        String username = (String) session.getAttribute("username");
+        User user = userService.queryByUname(username);
+        Summary summary = summaryService.queryByUidAndYear(user.getId(), year);
+        if (summary==null){
+            return  sendJsonObject(1);
+        }else {
+            return sendJsonObject(0);
         }
     }
 }
