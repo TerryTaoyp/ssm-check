@@ -64,9 +64,9 @@
                             </select>
                         </div>
 
-
                         <div class="box-footer">
                             <p class="text-red none">信息不完整，请完整填写所需信息</p>
+                            <a href="${website}/role/list" class="btn bg-olive">返回列表</a>
                             <input type="submit" class="btn btn-primary J-submit" value="提交">
                         </div>
                     </form>

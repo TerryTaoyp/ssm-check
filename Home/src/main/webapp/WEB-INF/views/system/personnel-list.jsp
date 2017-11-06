@@ -48,10 +48,6 @@
                         <div class="box-header">
                             <h3 class="box-title">人员管理列表</h3>
                         </div>
-                        <div class="box-footer">
-                            <%--<input type="submit" class="btn btn-primary" value="查询">--%>
-                            <a href="${website}/export/user" class="btn bg-green export-all">全部导出</a>
-                        </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table id="example1" class="table table-bordered table-striped">
@@ -107,13 +103,13 @@
                 </div>
                 <!-- /.col -->
             </div>
-            <!-- /.row -->
+            <button type="button" class="btn bg-blue" data-toggle="modal" data-target="#add-person">添加人员</button>
+            <a href="${website}/export/user" class="btn bg-green export-all">全部导出</a>
         </section>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <jsp:include page="../common/footer.jsp"/>
-    <div class="control-sidebar-bg"></div>
     <div class="modal fade" id="modal-default">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -170,6 +166,62 @@
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
+    </div>
+    <div class="modal fade" id="add-person">
+        <form action="" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">新增人员</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group has-feedback">
+                            <label>基本信息：</label>
+                            <input type="text" class="form-control require-text" name="username" placeholder="用户名">
+                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <input type="text" class="form-control require-text" name="realName" placeholder="真实姓名">
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <input type="text" class="form-control require-text" name="phone" placeholder="手机号码">
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label>部门：</label>
+                            <select class="form-control require-option" name="did">
+                                <option>请选择</option>
+                                <c:forEach items="${departmentList}" var="department" varStatus="status">
+                                    <option value="${department.id}">${department.name}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label>角色：</label>
+                            <select class="form-control require-option" name="rid">
+                                <option>请选择</option>
+                                <c:forEach items="${departmentList}" var="department" varStatus="status">
+                                    <option value="${department.id}">${department.name}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <input type="hidden" class="form-control require-text psw1" name="password" placeholder="密码" value="123456">
+                        </div>
+                        <p>提示：默认密码为123456</p>
+                        <p class="text-red tip"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+                        <a href="javascript:;" class="btn btn-primary">修改</a>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+        </form>
     </div>
 </div>
 <!-- ./wrapper -->

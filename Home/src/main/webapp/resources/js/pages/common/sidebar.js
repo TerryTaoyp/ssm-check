@@ -10,65 +10,22 @@ $(document).ready(function() {
 		init();
 
 		function init(){
-			// this._addEventLintener();
-			// this._hideTip();
 			//当前页所在导航栏展开
-			var pageUrl;
-			// pageUrl = window.location.href; // 全部地址栏
-			pageUrl = window.location.pathname;
+			var pageUrl = splitSidebar(window.location.href);
+				console.log(splitSidebar(pageUrl));
 			$('.sidebar-menu a').each(function(){
-				url=$(this).attr('href');
+				url = splitSidebar($(this).attr('href'));
 				if(url==pageUrl){
 					$(this).parents(el.treeview).addClass(open_class);
 					$(this).parents(el.treeview_menu).show();
-					// 给自己添加高亮
-					$(this).css('color','#fff');
 				}
 			});
 		}
-		// _addEventLintener:function(){
-		// 	var
-		// 		that = this,
-		// 		clickHolder = $('a',el.sidebarHolder);
-		// 	on(clickHolder,'click',function(evt){
-		// 		that._showCurrentMenu(evt.currentTarget);
-		// 		that._hideOtherMenu(evt.currentTarget);
-		// 	});
-		// },
-		// /**
-		//  * 隐藏提示信息
-		//  * @return {[type]} [description]
-		//  */
-		// _showCurrentMenu:function(holder){
-		// 	var
-		// 		that = this,
-		// 		$submenuHolder = $(holder).next(),
-		// 		$parent = $(holder).parent();
-		// 	if($submenuHolder && $submenuHolder.hasClass(NONE_CLASS)){
-		// 		// alert(window.location.href);
-		// 		$submenuHolder.show();
-		// 		$submenuHolder.removeClass(NONE_CLASS);
-		// 		$parent.addClass(OPEN_CLASS);
-		// 		// $parent.addClass(el.active);
-		// 	}
-		// },
-		// _hideOtherMenu:function(holder){
-		// 	var
-		// 		that = this,
-		// 		$parent = $(holder).parent(),
-		// 		$dom = $parent.siblings(),
-		// 		$otherSubmenu,
-		// 		$i;
-		// 	S.each($dom,function(i,o){
-		// 		$i = $(i),
-		// 		$otherSubmenu = $(el.submenuHolder,$i);
-		// 		if(!$otherSubmenu.hasClass(NONE_CLASS)){
-		// 			$otherSubmenu.hide();
-		// 			$otherSubmenu.addClass(NONE_CLASS);
-		// 			$i.removeClass(OPEN_CLASS);
-		// 		}
-		// 	});
-		// }
+		function splitSidebar(str) {
+			var strFirst = new Array;
+			strs = str.split('/');
+			return strs[3]; // 返回/后第一个路径
+		}
 		// 先执行一次获取当前时间
         getNowFormatDate();
 		function getNowFormatDate() {
