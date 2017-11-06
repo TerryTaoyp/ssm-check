@@ -18,6 +18,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
@@ -183,6 +185,7 @@ public class PersonController extends AbstractController {
         jsonObject.put("departmentList",departmentList);
         return  sendJsonObject(jsonObject);
     }
+
     @ResponseBody
     @RequestMapping(value = "/update",method = RequestMethod.GET)
     public JSONObject update(@RequestParam("id") int id, @RequestParam("username") String username, @RequestParam("realName") String realName, @RequestParam("did") int did, @RequestParam("rid") int rid, @RequestParam("phone") String phone)throws Exception{
@@ -199,5 +202,32 @@ public class PersonController extends AbstractController {
         }else {
             return sendJsonObject(1);
         }
+    }
+
+    /**
+     * 用户添加
+     * @param username
+     * @param realName
+     * @param did
+     * @param rid
+     * @param password
+     * @param phone
+     * @return
+     * @throws SSException
+     * @throws UnsupportedEncodingException
+     * @throws NoSuchAlgorithmException
+     */
+    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    public String addUser(@RequestParam("username") String username,@RequestParam("realName") String realName,@RequestParam("did") int did,@RequestParam("rid") int rid,@RequestParam("password") String password,@RequestParam("phone") String phone) throws SSException, UnsupportedEncodingException, NoSuchAlgorithmException {
+        User user = new User();
+        user.setUsername(username);
+        user.setRealName(realName);
+        user.setDid(did);
+        user.setPassword(Md5Util.EncoderByMd5(password));
+        user.setPhone(phone);
+        user.setRid(rid);//默认注册人员为一般员工
+        user.setStatus(1);//默认为未审核状态
+        userService.addUser(user);
+        return "redirect:/user/list";
     }
 }

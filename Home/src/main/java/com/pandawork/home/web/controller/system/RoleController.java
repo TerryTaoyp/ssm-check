@@ -132,4 +132,14 @@ public class RoleController extends AbstractController {
             return sendJsonObject(1);
         }
     }
+
+    /**
+     * 返回到列表页
+     * @return
+     * @throws SSException
+     */
+    @RequestMapping(value = "/back",method = RequestMethod.GET)
+    public String backList()throws SSException{
+        return "redirect:/role/list";
+    }
 }

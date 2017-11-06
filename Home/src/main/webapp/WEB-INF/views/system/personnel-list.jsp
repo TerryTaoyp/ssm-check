@@ -168,7 +168,7 @@
         <!-- /.modal-dialog -->
     </div>
     <div class="modal fade" id="add-person">
-        <form action="" >
+        <form action="${website}/user/add" method="post">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -186,10 +186,7 @@
                             <input type="text" class="form-control require-text" name="realName" placeholder="真实姓名">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>
-                        <div class="form-group has-feedback">
-                            <input type="text" class="form-control require-text" name="phone" placeholder="手机号码">
-                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                        </div>
+
                         <div class="form-group has-feedback">
                             <label>部门：</label>
                             <select class="form-control require-option" name="did">
@@ -199,14 +196,22 @@
                                 </c:forEach>
                             </select>
                         </div>
-                        <div class="form-group has-feedback">
-                            <label>角色：</label>
-                            <select class="form-control require-option" name="rid">
-                                <option>请选择</option>
-                                <c:forEach items="${departmentList}" var="department" varStatus="status">
-                                    <option value="${department.id}">${department.name}</option>
+                        <div class="form-group">
+                            <label>职位：</label>
+                            <select class="form-control a-require-option position" name="rid">
+                                <option value="-1">请选择</option>
+                                <c:forEach items="${roleList}" var="role">
+                                    <c:if test="${role.id !=1}">
+                                        <option value="${role.id}" selected="" >${role.name}</option>
+                                    </c:if>
+                                    <%--<option value="${role.id}" selected="">${role.name}</option>--%>
                                 </c:forEach>
+
                             </select>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <input type="text" class="form-control require-text" name="phone" placeholder="手机号码">
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>
                         <div class="form-group has-feedback">
                             <input type="hidden" class="form-control require-text psw1" name="password" placeholder="密码" value="123456">
@@ -216,7 +221,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                        <a href="javascript:;" class="btn btn-primary">修改</a>
+                        <button type="submit" class="btn btn-primary">添加</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->

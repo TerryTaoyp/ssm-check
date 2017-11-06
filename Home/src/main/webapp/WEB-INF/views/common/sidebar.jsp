@@ -113,19 +113,21 @@
                     </ul>
                 </li>
             </c:if>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-pie-chart"></i>
-                    <span>成绩查询</span>
-                    <span class="pull-right-container">
+            <c:if test="${sessionScope.power>=3}">
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-pie-chart"></i>
+                        <span>成绩查询</span>
+                        <span class="pull-right-container">
                       <i class="fa fa-angle-left pull-right"></i>
                     </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="${website}/query/month/result"><i class="fa fa-circle-o"></i>年度月度考核测评结果</a></li>
-                    <li><a href="${website}/query/quarter/result"><i class="fa fa-circle-o"></i>年度季度考核测评结果</a></li>
-                </ul>
-            </li>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="${website}/query/month/result"><i class="fa fa-circle-o"></i>年度月度考核测评结果</a></li>
+                        <li><a href="${website}/query/quarter/result"><i class="fa fa-circle-o"></i>年度季度考核测评结果</a></li>
+                    </ul>
+                </li>
+            </c:if>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-book"></i>

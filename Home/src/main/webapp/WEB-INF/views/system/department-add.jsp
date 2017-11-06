@@ -55,6 +55,7 @@
                         </div>
 
                         <div class="box-footer">
+                            <a href="${website}/department/list" class="btn bg-olive">返回列表</a>
                             <input type="submit" class="btn btn-primary J-submit" value="提交">
                         </div>
                     </form>

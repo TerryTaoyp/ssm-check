@@ -118,4 +118,14 @@ public class DepartmentController extends AbstractController {
         }
 //        return "redirect:/department/list";
     }
+
+    /**
+     * 返回部门列表
+     * @return
+     * @throws SSException
+     */
+    @RequestMapping(value = "/back/list",method = RequestMethod.GET)
+    public String backList()throws SSException{
+        return "redirect:/department/list";
+    }
 }
