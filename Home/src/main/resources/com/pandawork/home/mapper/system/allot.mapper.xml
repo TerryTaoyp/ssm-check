@@ -17,7 +17,7 @@
     </update>
 
     <select id="queryByUid" resultMap="pw.Allot">
-        SELECT * FROM t_allot WHERE uid = #{uid}
+        SELECT * FROM t_allot WHERE uid = #{uid} ORDER BY id DESC
     </select>
 
     <delete id="delAllot">
@@ -25,11 +25,11 @@
     </delete>
 
     <select id="listAll" resultMap="pw.Allot">
-        SELECT * FROM t_allot
+        SELECT * FROM t_allot ORDER BY id DESC
     </select>
 
     <select id="queryDidByUid"  parameterType="java.lang.Integer"  resultType="java.util.List">
-      SELECT did FROM t_allot WHERE uid = #{uid}
+      SELECT did FROM t_allot WHERE uid = #{uid} ORDER BY id DESC
     </select>
 
     <select id="countAll" resultType="int">
@@ -37,7 +37,7 @@
     </select>
 
     <select id="queryByDid" resultMap="pw.Allot">
-        SELECT * FROM t_allot WHERE did = #{did}
+        SELECT * FROM t_allot WHERE did = #{did} ORDER BY id DESC
     </select>
 
 </mapper>

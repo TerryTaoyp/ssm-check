@@ -32,7 +32,7 @@
     </select>
     
     <select id="listAll" resultMap="pw.Department">
-        select * from t_department
+        select * from t_department ORDER BY id DESC
     </select>
 
     <select id="queryId" resultMap="pw.Department">

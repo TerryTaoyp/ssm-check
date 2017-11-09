@@ -20,7 +20,7 @@
     </update>
 
     <select id="listAll" resultMap="pw.Role">
-        SELECT * FROM t_role
+        SELECT * FROM t_role ORDER BY id DESC
     </select>
 
     <select id="queryById" resultMap="pw.Role">

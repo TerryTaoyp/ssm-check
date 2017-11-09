@@ -33,7 +33,7 @@
     </select>
 
     <select id="listAll" resultMap="pw.Summary">
-        SELECT * FROM t_summary
+        SELECT * FROM t_summary ORDER BY id DESC
     </select>
 
     <select id="queryById" resultMap="pw.Summary">

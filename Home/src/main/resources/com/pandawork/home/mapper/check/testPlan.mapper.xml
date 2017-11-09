@@ -50,7 +50,7 @@
     </select>
 
     <select id="listAll" resultMap="pw.TestPlan">
-        SELECT * FROM t_test_plan
+        SELECT * FROM t_test_plan ORDER BY id DESC
     </select>
 
     <select id="countAll" resultType="int">
@@ -58,19 +58,19 @@
     </select>
 
     <select id="queryByDid" resultMap="pw.TestPlan">
-        SELECT * FROM t_test_plan WHERE did = #{did}
+        SELECT * FROM t_test_plan WHERE did = #{did} ORDER BY id DESC
     </select>
 
     <select id="queryByUid" resultMap="pw.TestPlan">
-        SELECT * FROM t_test_plan WHERE uid = #{uid}
+        SELECT * FROM t_test_plan WHERE uid = #{uid} ORDER BY id DESC
     </select>
 
     <select id="queryByUidAndTypeId" resultMap="pw.TestPlan">
-        SELECT * FROM t_test_plan WHERE uid = #{uid} AND test_type_id = #{testTypeId}
+        SELECT * FROM t_test_plan WHERE uid = #{uid} AND test_type_id = #{testTypeId} ORDER BY id DESC
     </select>
 
     <select id="queryByTypeId" resultMap="pw.TestPlan">
-        SELECT * FROM t_test_plan WHERE test_type_id = #{testTypeId}
+        SELECT * FROM t_test_plan WHERE test_type_id = #{testTypeId} ORDER BY id DESC
     </select>
     
     <select id="listAllUser" resultType="AllotDto">
@@ -84,7 +84,7 @@
         tu.status AS status,
         (SELECT tp.power FROM t_power tp WHERE tp.id = (SELECT tr.pid FROM t_role tr WHERE tr.id = tu.rid))AS power
         FROM t_user tu
-        WHERE tu.is_delete = 1
+        WHERE tu.is_delete = 1 ORDER BY tu.id DESC
     </select>
 
     <select id="queryAllotDaoByDid" resultType="AllotDto">
@@ -95,14 +95,11 @@
         (SELECT td.name FROM t_department td WHERE td.id = tu.did) AS department,
         (SELECT tr.name FROM  t_role tr WHERE tr.id = tu.rid)AS role
         FROM t_user tu
-        WHERE tu.is_delete = 1 AND tu.did = #{did}
+        WHERE tu.is_delete = 1 AND tu.did = #{did} ORDER BY tu.id DESC
     </select>
 
     <delete id="del">
         DELETE FROM t_test_plan WHERE id = #{id}
     </delete>
 
-    <update id="addAll">
-        UPDATE
-    </update>
 </mapper>
