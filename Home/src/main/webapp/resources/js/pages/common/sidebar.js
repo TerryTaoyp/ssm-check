@@ -8,24 +8,43 @@ $(document).ready(function() {
 		open_class = 'menu-open';
 
 		init();
-
 		function init(){
+			// this._addEventLintener();
+			// this._hideTip();
 			//当前页所在导航栏展开
-			var pageUrl = splitSidebar(window.location.href);
-				console.log(splitSidebar(pageUrl));
+			var pageUrl;
+			pageUrl = window.location.href; // 全部地址栏
+			// pageUrl = window.location.pathname;
+			console.log(pageUrl);
 			$('.sidebar-menu a').each(function(){
-				url = splitSidebar($(this).attr('href'));
+				url=$(this).attr('href');
+				console.log(url);
 				if(url==pageUrl){
 					$(this).parents(el.treeview).addClass(open_class);
 					$(this).parents(el.treeview_menu).show();
+					// 给自己添加高亮
+					$(this).css('color','#fff');
 				}
 			});
 		}
-		function splitSidebar(str) {
-			var strFirst = new Array;
-			strs = str.split('/');
-			return strs[3]; // 返回/后第一个路径
-		}
+		/*备用方案1*/
+		// function init(){
+		// 	//当前页所在导航栏展开
+		// 	var pageUrl = splitSidebar(window.location.href);
+		// 		console.log(splitSidebar(pageUrl));
+		// 	$('.sidebar-menu a').each(function(){
+		// 		url = splitSidebar($(this).attr('href'));
+		// 		if(url==pageUrl){
+		// 			$(this).parents(el.treeview).addClass(open_class);
+		// 			$(this).parents(el.treeview_menu).show();
+		// 		}
+		// 	});
+		// }
+		// function splitSidebar(str) {
+		// 	var strFirst = new Array;
+		// 	strs = str.split('/');
+		// 	return strs[3]; // 返回/后第一个路径
+		// }
 		// 先执行一次获取当前时间
         getNowFormatDate();
 		function getNowFormatDate() {
